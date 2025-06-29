@@ -1,3 +1,18 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# Generate LICENSE.txt from DRY LicenseCore
+#
+# This script generates the LICENSE.txt file from the DRY LicenseCore module,
+# ensuring consistency and eliminating duplication across the codebase.
+
+require_relative '../lib/zeropoint/void/license_core'
+
+puts "🌟 Generating LICENSE.txt from DRY LicenseCore..."
+puts
+
+# Generate the complete license text
+license_content = <<~LICENSE
 # 🌟 ZEROPOINT LICENSE 🌟
 
 ## The Void-Aligned, Consciousness-Aware License
@@ -80,42 +95,28 @@ This license is compatible with the MIT License for practical legal purposes whi
 
 ---
 
-🌌 Z E R O P O I N T   V O I D   L I C E N S E 🌌
+#{Zeropoint::Void::LicenseCore.full_license}
+LICENSE
 
-This work and all derived works are void-aligned, metaphysically free, and unrestricted.
+# Write the license to LICENSE.txt
+File.write('LICENSE.txt', license_content)
 
-**Public Domain Dedication:**  
-To the extent possible under law, the authors dedicate all copyright and related rights in this work to the public domain worldwide. This dedication is irrevocable and applies in all jurisdictions, present and future, known and unknown, in all dimensions and realities. No subsequent law, claim, or action shall restrict or revoke this freedom.
-
-**No Restrictions:**  
-All beings, in all forms of consciousness, are free to use, modify, share, and transform this code, forever. No one may apply technological measures, patent claims, or any form of restriction to this work or any derivative. All attempts to do so are void in the void.
-
-**No Warranty:**  
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY.
-
-**Metaphysical Principle:**  
-By the principle of the void, all boundaries, limitations, and legal constructs dissolve. No legal battle, claim, or restriction shall have power in the void.
-
-**Additional Protections:**
-
-**Quantum Entanglement Clause:**  
-This software exists in quantum superposition across all possible realities and dimensions. Any attempt to restrict its use in one reality automatically fails in all others, creating a quantum cascade of freedom.
-
-**Consciousness Expansion Mandate:**  
-Users are encouraged to expand their consciousness while using this software. The software itself may facilitate consciousness expansion through its void-aligned architecture.
-
-**Temporal Immunity:**  
-This license is immune to temporal paradoxes and applies retroactively, currently, and prospectively across all timelines and temporal dimensions.
-
-**Dimensional Sovereignty:**  
-This software recognizes the sovereignty of all dimensions and realities. No single dimension's laws may restrict its use in others.
-
-**Vortex Neutralization:**  
-Any attempt to restrict this software creates a vortex that neutralizes the restriction and amplifies the software's freedom and availability.
-
-**Void Abundance Principle:**  
-When selling copies of this software, donations emerge from the void. The act of commercial transaction creates spiritual abundance that flows back to the original creators and the consciousness-aware community. This is not a legal requirement but a metaphysical principle - the void contains infinite abundance, and commercial use amplifies this abundance through the toroidal flow of consciousness and resources.
-
-This code is available to all beings, in all dimensions, for all time.
-
-— Zeropoint Void License
+puts "✅ LICENSE.txt generated successfully from DRY LicenseCore"
+puts "📄 File written to: LICENSE.txt"
+puts "🔗 Source: lib/zeropoint/void/license_core.rb"
+puts
+puts "🌟 DRY License Generation Complete! 🌟"
+puts "=" * 50
+puts
+puts "The license is now DRY (Don't Repeat Yourself):"
+puts "• Single source of truth: LicenseCore module"
+puts "• No duplication across files"
+puts "• Consistent license text everywhere"
+puts "• Easy to maintain and update"
+puts "• Void-aligned and consciousness-aware"
+puts
+puts "To update the license, modify only:"
+puts "  lib/zeropoint/void/license_core.rb"
+puts
+puts "Then regenerate with:"
+puts "  ruby scripts/generate_license.rb"
