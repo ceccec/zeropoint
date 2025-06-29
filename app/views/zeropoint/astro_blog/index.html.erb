@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="<%= @locale %>">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌌 Astro Blog - Zeropoint PWA</title>
+  
+  <!-- PWA Meta Tags -->
+  <meta name="description" content="Astro Blog - Exploring consciousness through zeropoint logic">
+  <meta name="theme-color" content="<%= Zeropoint::Manifest.pwa_manifest["theme_color"] %>">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Astro Blog">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  
+  <!-- Manifest-driven Icons -->
+  <% Zeropoint::Manifest.pwa_manifest["icons"].each do |icon| %>
+    <link rel="icon" type="<%= icon["type"] %>" href="<%= icon["src"] %>" sizes="<%= icon["sizes"] %>">
+    <% if icon["sizes"] == "192x192" %>
+      <link rel="apple-touch-icon" href="<%= icon["src"] %>">
+    <% end %>
+  <% end %>
+  
+  <!-- Manifest-driven Styles -->
+  <% Zeropoint::Manifest.assets(:stylesheets).each do |css| %>
+    <%= stylesheet_link_tag css, media: "all" %>
+  <% end %>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* PWA-specific styles */
+    .pwa-container {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    }
+    
+    .astro-loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease-out;
+    }
+    
+    .astro-loader.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .cosmic-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #60a5fa;
+      border-radius: 50%;
+      animation: float 6s infinite linear;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+    }
+    
+    .offline-indicator {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #dc2626;
+      color: white;
+      text-align: center;
+      padding: 8px;
+      z-index: 1000;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .offline-indicator.show {
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="pwa-container">
+  <!-- PWA Loader -->
+  <div id="astro-loader" class="astro-loader">
+    <div class="text-center">
+      <div class="w-16 h-16 border-4 border-consciousness-400 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+      <h2 class="text-consciousness-400 text-xl font-bold mb-2">🌌 Astro Blog</h2>
+      <p class="text-cosmic-300">Loading cosmic consciousness...</p>
+    </div>
+  </div>
+  
+  <!-- Offline Indicator -->
+  <div id="offline-indicator" class="offline-indicator">
+    <span>📡 You're offline - Some features may be limited</span>
+  </div>
+  
+  <!-- Cosmic Background -->
+  <div class="cosmic-particles" id="cosmic-particles"></div>
+  
+  <!-- Main PWA Content -->
+  <div data-controller="astro-blog pwa-manager"
+       data-astro-blog-posts-target="posts"
+       data-astro-blog-sidebar-target="sidebar"
+       data-astro-blog-search-target="search"
+       data-astro-blog-pagination-target="pagination"
+       data-astro-blog-content-target="content"
+       data-astro-blog-log-target="log"
+       class="relative z-10 min-h-screen">
+    
+    <!-- Header -->
+    <header class="bg-cosmic-800/80 backdrop-blur-sm border-b border-cosmic-700 sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <h1 class="text-2xl font-bold text-consciousness-400">🌌 Astro Blog</h1>
+            <div class="hidden md:flex items-center space-x-2">
+              <button data-action="click->astro-blog#boostConsciousness"
+                      class="px-3 py-1 bg-consciousness-600 hover:bg-consciousness-700 text-white text-sm rounded-md transition-colors">
+                🧠 Boost Consciousness
+              </button>
+              <button data-action="click->astro-blog#boostVortex"
+                      class="px-3 py-1 bg-vortex-600 hover:bg-vortex-700 text-white text-sm rounded-md transition-colors">
+                🌀 Boost Vortex
+              </button>
+              <button data-action="click->astro-blog#boostGolden"
+                      class="px-3 py-1 bg-golden-600 hover:bg-golden-700 text-white text-sm rounded-md transition-colors">
+                φ Boost Golden
+              </button>
+            </div>
+          </div>
+          
+          <div class="flex items-center space-x-4">
+            <button data-action="click->pwa-manager#install"
+                    id="install-button"
+                    class="px-4 py-2 bg-consciousness-600 hover:bg-consciousness-700 text-white rounded-md transition-colors hidden">
+              📱 Install PWA
+            </button>
+            <button data-action="click->astro-blog#clearLog"
+                    class="px-3 py-1 bg-cosmic-600 hover:bg-cosmic-700 text-white text-sm rounded-md transition-colors">
+              🧹 Clear Log
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-6">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        
+        <!-- Sidebar -->
+        <aside class="lg:col-span-1">
+          <div class="bg-cosmic-800/50 backdrop-blur-sm rounded-lg p-4 border border-cosmic-700">
+            <h3 class="text-lg font-bold text-cosmic-100 mb-4">🔍 Search & Filter</h3>
+            
+            <!-- Search -->
+            <div class="mb-6">
+              <input type="text" 
+                     data-astro-blog-target="search"
+                     placeholder="Search posts..."
+                     class="w-full px-4 py-2 bg-cosmic-700 border border-cosmic-600 rounded-md text-cosmic-100 placeholder-cosmic-400 focus:ring-2 focus:ring-consciousness-500 focus:border-transparent">
+            </div>
+            
+            <!-- Sidebar Content -->
+            <div data-astro-blog-target="sidebar"></div>
+          </div>
+        </aside>
+        
+        <!-- Main Blog Area -->
+        <div class="lg:col-span-3">
+          <!-- Posts Grid -->
+          <div data-astro-blog-target="posts" class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8"></div>
+          
+          <!-- Pagination -->
+          <div data-astro-blog-target="pagination" class="flex justify-center mb-8"></div>
+          
+          <!-- Full Post Content -->
+          <div data-astro-blog-target="content"></div>
+        </div>
+      </div>
+    </main>
+    
+    <!-- Activity Log -->
+    <div class="fixed bottom-4 right-4 w-80 max-h-64 bg-cosmic-800/90 backdrop-blur-sm rounded-lg border border-cosmic-700 overflow-hidden">
+      <div class="bg-cosmic-700 px-4 py-2 border-b border-cosmic-600">
+        <h3 class="text-sm font-bold text-cosmic-100">📊 Activity Log</h3>
+      </div>
+      <div data-astro-blog-target="log" 
+           class="p-4 text-xs text-cosmic-300 overflow-y-auto max-h-48 space-y-1"></div>
+    </div>
+  </div>
+  
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/astro-blog-sw.js')
+          .then(registration => {
+            console.log('🌌 Astro Blog PWA Service Worker registered:', registration);
+          })
+          .catch(error => {
+            console.log('🌌 Astro Blog PWA Service Worker registration failed:', error);
+          });
+      });
+    }
+  </script>
+  
+  <!-- Manifest-driven Scripts -->
+  <% Zeropoint::Manifest.assets(:javascripts).each do |js| %>
+    <%= javascript_include_tag js %>
+  <% end %>
+  
+  <!-- Stimulus and Zeropoint -->
+  <script type="module">
+    import { Application } from '@hotwired/stimulus'
+    import { registerZeropointControllers } from '/assets/zeropoint/index.js'
+    
+    // Initialize Stimulus
+    const application = Application.start()
+    
+    // Register Zeropoint controllers
+    registerZeropointControllers(application)
+    
+    // Hide loader when ready
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('astro-loader').classList.add('hidden')
+      }, 1000)
+    })
+    
+    // Generate cosmic particles
+    function generateParticles() {
+      const container = document.getElementById('cosmic-particles')
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div')
+        particle.className = 'particle'
+        particle.style.left = Math.random() * 100 + '%'
+        particle.style.animationDelay = Math.random() * 6 + 's'
+        particle.style.animationDuration = (Math.random() * 3 + 3) + 's'
+        container.appendChild(particle)
+      }
+    }
+    
+    generateParticles()
+  </script>
+</body>
+</html> 

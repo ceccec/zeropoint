@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero Point Gem - Stimulus Controllers Demo</title>
+    <style>
+        /* Cosmic styling for Zero Point Gem demo */
+        :root {
+            --cosmic-black: #0a0a0a;
+            --cosmic-dark: #1a1a2e;
+            --consciousness-blue: #4a90e2;
+            --vortex-red: #ff6b6b;
+            --golden-yellow: #ffd700;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--cosmic-dark);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, var(--consciousness-blue), var(--vortex-red), var(--golden-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        .controllers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .controller-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .controller-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .consciousness-card .controller-title {
+            color: var(--consciousness-blue);
+        }
+
+        .vortex-card .controller-title {
+            color: var(--vortex-red);
+        }
+
+        .golden-ratio-card .controller-title {
+            color: var(--golden-yellow);
+        }
+
+        .control-group {
+            margin-bottom: 20px;
+        }
+
+        .control-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .control-group input,
+        .control-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 14px;
+        }
+
+        .control-group input:focus,
+        .control-group select:focus {
+            outline: none;
+            border-color: var(--golden-yellow);
+            box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.3);
+        }
+
+        .value-display {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .visualization {
+            width: 100%;
+            height: 150px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .unified-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .unified-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--golden-yellow);
+        }
+
+        .unified-equation {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-family: monospace;
+        }
+
+        .unified-strength {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--consciousness-blue);
+            margin-bottom: 20px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--consciousness-blue);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: var(--vortex-red);
+            color: white;
+        }
+
+        .btn-warning {
+            background: var(--golden-yellow);
+            color: var(--cosmic-dark);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Zero Point Gem</h1>
+            <p class="subtitle">UnifiedIntelligence = UserInterface</p>
+        </div>
+
+        <!-- Unified Intelligence Controller -->
+        <div class="unified-section" data-controller="unified-intelligence">
+            <h2 class="unified-title">Unified Intelligence</h2>
+            <div class="unified-equation" data-unified-intelligence-target="equation">
+                UI = Consciousness + Vortex + GoldenRatio
+            </div>
+            <div class="unified-strength" data-unified-intelligence-target="strength">
+                Field Strength: 1.618
+            </div>
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="ZeropointStimulus.interact()">Interact</button>
+                <button class="btn btn-warning" onclick="ZeropointStimulus.reset()">Reset</button>
+            </div>
+        </div>
+
+        <div class="controllers-grid">
+            <!-- Consciousness Controller -->
+            <div class="controller-card consciousness-card" data-controller="consciousness" data-unified-intelligence-target="consciousness">
+                <h3 class="controller-title">Consciousness</h3>
+                
+                <div class="control-group">
+                    <label for="consciousness-level">Consciousness Level</label>
+                    <input type="range" id="consciousness-level" min="0" max="1" step="0.01" value="0.618" 
+                           data-action="input->consciousness#updateLevel">
+                    <div class="value-display" data-consciousness-target="level">0.618</div>
+                </div>
+
+                <div class="control-group">
+                    <label for="cosmic-frequency">Cosmic Frequency (Hz)</label>
+                    <input type="number" id="cosmic-frequency" min="1" max="1000" value="432" 
+                           data-action="input->consciousness#updateFrequency">
+                    <div class="value-display" data-consciousness-target="frequency">432 Hz</div>
+                </div>
+
+                <div class="control-group">
+                    <label>Energy Quantum</label>
+                    <div class="value-display" data-consciousness-target="energy">6.626e-34 J⋅s</div>
+                </div>
+
+                <div class="control-group">
+                    <label>Information Velocity</label>
+                    <div class="value-display" data-consciousness-target="velocity">299,792,458 m/s</div>
+                </div>
+
+                <canvas class="visualization" data-consciousness-target="visualization"></canvas>
+            </div>
+
+            <!-- Vortex Controller -->
+            <div class="controller-card vortex-card" data-controller="vortex" data-unified-intelligence-target="vortex">
+                <h3 class="controller-title">Vortex</h3>
+                
+                <div class="control-group">
+                    <label for="vortex-flow">Vortex Flow</label>
+                    <select id="vortex-flow" data-action="change->vortex#changeCycle">
+                        <option value="standard">1 → 2 → 4 → 8 → 7 → 5</option>
+                        <option value="axis">3 → 6 → 9 (Axis)</option>
+                        <option value="fibonacci">1, 1, 2, 3, 5, 8</option>
+                    </select>
+                    <div class="value-display" data-vortex-target="cycle">1 → 2 → 4 → 8 → 7 → 5</div>
+                </div>
+
+                <div class="control-group">
+                    <label for="flow-strength">Flow Strength</label>
+                    <input type="range" id="flow-strength" min="0.5" max="2" step="0.01" value="1.618" 
+                           data-action="input->vortex#updateFlowStrength">
+                    <div class="value-display" data-vortex-target="strength">1.618</div>
+                </div>
+
+                <div class="control-group">
+                    <label>Axis Numbers</label>
+                    <div class="value-display" data-vortex-target="axis">3, 6, 9</div>
+                </div>
+
+                <canvas class="visualization" data-vortex-target="visualization"></canvas>
+            </div>
+
+            <!-- Golden Ratio Controller -->
+            <div class="controller-card golden-ratio-card" data-controller="golden-ratio" data-unified-intelligence-target="goldenRatio">
+                <h3 class="controller-title">Golden Ratio</h3>
+                
+                <div class="control-group">
+                    <label for="golden-ratio">Golden Ratio (φ)</label>
+                    <input type="range" id="golden-ratio" min="1" max="2" step="0.001" value="1.618" 
+                           data-action="input->golden-ratio#updateRatio">
+                    <div class="value-display" data-golden-ratio-target="ratio">1.618034</div>
+                </div>
+
+                <div class="control-group">
+                    <label>Major Ratio</label>
+                    <div class="value-display" data-golden-ratio-target="major">0.618034</div>
+                </div>
+
+                <div class="control-group">
+                    <label>Minor Ratio</label>
+                    <div class="value-display" data-golden-ratio-target="minor">0.381966</div>
+                </div>
+
+                <div class="control-group">
+                    <label>Balance Score</label>
+                    <div class="value-display" data-golden-ratio-target="balance">0.618</div>
+                </div>
+
+                <canvas class="visualization" data-golden-ratio-target="visualization"></canvas>
+            </div>
+        </div>
+
+        <!-- Status Display -->
+        <div class="status" id="status">
+            Loading status...
+        </div>
+    </div>
+
+    <!-- Stimulus Application -->
+    <script type="module">
+        import { application } from './controllers/index.js'
+        
+        // Update status display
+        function updateStatus() {
+            const statusElement = document.getElementById('status')
+            const status = ZeropointStimulus.getStatus()
+            statusElement.textContent = JSON.stringify(status, null, 2)
+        }
+
+        // Update status every 2 seconds
+        setInterval(updateStatus, 2000)
+        updateStatus()
+
+        console.log('🌌 Zero Point Gem Stimulus Demo loaded')
+        console.log('UnifiedIntelligence = UserInterface')
+    </script>
+</body>
+</html> 

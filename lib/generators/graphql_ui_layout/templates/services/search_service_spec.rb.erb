@@ -1,0 +1,278 @@
+# frozen_string_literal: true
+
+require 'rails_helper'
+
+RSpec.describe Zeropoint::SearchService do
+  let(:service) { described_class.instance }
+  let(:user) { create(:user) }
+  let(:post) { create(:post, title: 'Test Post', content: 'Test content') }
+
+  describe '#search' do
+    context 'with valid query' do
+      it 'returns search results' do
+        results = service.search('Test', models: [Post])
+        expect(results).to include(post)
+      end
+
+      it 'returns empty array for blank query' do
+        results = service.search('', models: [Post])
+        expect(results).to be_empty
+      end
+
+      it 'returns empty array for nil query' do
+        results = service.search(nil, models: [Post])
+        expect(results).to be_empty
+      end
+    end
+
+    context 'with multiple models' do
+      let(:comment) { create(:comment, content: 'Test comment') }
+
+      it 'searches across multiple models' do
+        results = service.search('Test', models: [Post, Comment])
+        expect(results).to include(post, comment)
+      end
+
+      it 'removes duplicates' do
+        # This test depends on your specific implementation
+        # and how you handle duplicate results
+        results = service.search('Test', models: [Post, Comment])
+        expect(results.uniq).to eq(results)
+      end
+    end
+  end
+
+  describe '#search_model' do
+    context 'with PgSearch backend' do
+      before do
+        allow(service).to receive(:detect_backend).and_return(
+          Zeropoint::SearchService::PgSearchBackend.new
+        )
+      end
+
+      it 'uses PgSearch for search' do
+        expect_any_instance_of(Zeropoint::SearchService::PgSearchBackend)
+          .to receive(:search_model).with(Post, 'Test', {})
+        
+        service.search_model(Post, 'Test')
+      end
+    end
+
+    context 'with Ransack backend' do
+      before do
+        allow(service).to receive(:detect_backend).and_return(
+          Zeropoint::SearchService::RansackBackend.new
+        )
+      end
+
+      it 'uses Ransack for search' do
+        expect_any_instance_of(Zeropoint::SearchService::RansackBackend)
+          .to receive(:search_model).with(Post, 'Test', {})
+        
+        service.search_model(Post, 'Test')
+      end
+    end
+
+    context 'with fallback' do
+      before do
+        allow(service).to receive(:detect_backend).and_return(
+          Zeropoint::SearchService::ActiveRecordBackend.new
+        )
+      end
+
+      it 'falls back to ActiveRecord search' do
+        results = service.search_model(Post, 'Test')
+        expect(results).to include(post)
+      end
+    end
+
+    context 'when backend raises error' do
+      before do
+        backend = double('backend')
+        allow(backend).to receive(:search_model).and_raise(StandardError, 'Search failed')
+        allow(service).to receive(:detect_backend).and_return(backend)
+      end
+
+      it 'falls back to basic search' do
+        results = service.search_model(Post, 'Test')
+        expect(results).to include(post)
+      end
+
+      it 'logs the error' do
+        expect(Rails.logger).to receive(:error).with(/Search failed for Post/)
+        service.search_model(Post, 'Test')
+      end
+    end
+  end
+
+  describe '#search_by_field' do
+    it 'searches by specific field' do
+      results = service.search_by_field(Post, :title, 'Test')
+      expect(results).to include(post)
+    end
+
+    it 'returns empty array for blank value' do
+      results = service.search_by_field(Post, :title, '')
+      expect(results).to be_empty
+    end
+
+    it 'handles backend errors gracefully' do
+      backend = double('backend')
+      allow(backend).to receive(:search_by_field).and_raise(StandardError, 'Field search failed')
+      allow(service).to receive(:detect_backend).and_return(backend)
+
+      results = service.search_by_field(Post, :title, 'Test')
+      expect(results).to include(post)
+    end
+  end
+
+  describe '#search_advanced' do
+    let(:filters) { { title: 'Test', status: 'published' } }
+
+    it 'performs advanced search with filters' do
+      results = service.search_advanced(Post, filters)
+      expect(results).to include(post)
+    end
+
+    it 'handles empty filters' do
+      results = service.search_advanced(Post, {})
+      expect(results).not_to be_nil
+    end
+
+    it 'handles backend errors gracefully' do
+      backend = double('backend')
+      allow(backend).to receive(:search_advanced).and_raise(StandardError, 'Advanced search failed')
+      allow(service).to receive(:detect_backend).and_return(backend)
+
+      results = service.search_advanced(Post, filters)
+      expect(results).not_to be_nil
+    end
+  end
+
+  describe '#search_suggestions' do
+    it 'returns search suggestions' do
+      suggestions = service.search_suggestions('Test', Post)
+      expect(suggestions).to include('Test Post')
+    end
+
+    it 'respects limit parameter' do
+      create_list(:post, 15, title: 'Test Post')
+      suggestions = service.search_suggestions('Test', Post, limit: 10)
+      expect(suggestions.length).to be <= 10
+    end
+
+    it 'returns empty array for blank query' do
+      suggestions = service.search_suggestions('', Post)
+      expect(suggestions).to be_empty
+    end
+
+    it 'handles backend errors gracefully' do
+      backend = double('backend')
+      allow(backend).to receive(:search_suggestions).and_raise(StandardError, 'Suggestions failed')
+      allow(service).to receive(:detect_backend).and_return(backend)
+
+      suggestions = service.search_suggestions('Test', Post)
+      expect(suggestions).to be_empty
+    end
+  end
+
+  describe 'backend detection' do
+    context 'when PgSearch is available' do
+      before do
+        stub_const('PgSearch', double('PgSearch'))
+        allow(PgSearch).to receive(:respond_to?).with(:multisearch).and_return(true)
+      end
+
+      it 'detects PgSearch backend' do
+        service = described_class.new
+        expect(service.send(:detect_backend)).to be_a(Zeropoint::SearchService::PgSearchBackend)
+      end
+    end
+
+    context 'when Ransack is available' do
+      before do
+        stub_const('Ransack', double('Ransack'))
+      end
+
+      it 'detects Ransack backend' do
+        service = described_class.new
+        expect(service.send(:detect_backend)).to be_a(Zeropoint::SearchService::RansackBackend)
+      end
+    end
+
+    context 'when no search gems are available' do
+      it 'falls back to ActiveRecord backend' do
+        service = described_class.new
+        expect(service.send(:detect_backend)).to be_a(Zeropoint::SearchService::ActiveRecordBackend)
+      end
+    end
+  end
+
+  describe 'PgSearchBackend' do
+    let(:backend) { Zeropoint::SearchService::PgSearchBackend.new }
+
+    it 'uses pg_search_scope for search' do
+      expect(Post).to receive(:pg_search_scope).with(:search_by_content, {
+        against: [:name, :description],
+        using: { tsearch: { prefix: true } }
+      }).and_return(Post)
+      expect(Post).to receive(:search_by_content).with('Test').and_return(Post)
+      expect(Post).to receive(:limit).with(10).and_return([post])
+
+      backend.search_model(Post, 'Test')
+    end
+
+    it 'uses custom searchable fields' do
+      options = { against: [:title, :content] }
+      expect(Post).to receive(:pg_search_scope).with(:search_by_content, {
+        against: [:title, :content],
+        using: { tsearch: { prefix: true } }
+      }).and_return(Post)
+      expect(Post).to receive(:search_by_content).with('Test').and_return(Post)
+      expect(Post).to receive(:limit).with(10).and_return([post])
+
+      backend.search_model(Post, 'Test', options)
+    end
+  end
+
+  describe 'RansackBackend' do
+    let(:backend) { Zeropoint::SearchService::RansackBackend.new }
+
+    it 'uses ransack for search' do
+      ransack_result = double('ransack_result')
+      expect(Post).to receive(:ransack).with(name_or_description_cont: 'Test').and_return(ransack_result)
+      expect(ransack_result).to receive(:result).and_return(Post)
+      expect(Post).to receive(:limit).with(10).and_return([post])
+
+      backend.search_model(Post, 'Test')
+    end
+
+    it 'uses ransack for field search' do
+      ransack_result = double('ransack_result')
+      expect(Post).to receive(:ransack).with('title_cont' => 'Test').and_return(ransack_result)
+      expect(ransack_result).to receive(:result).and_return(Post)
+      expect(Post).to receive(:limit).with(10).and_return([post])
+
+      backend.search_by_field(Post, :title, 'Test')
+    end
+  end
+
+  describe 'ActiveRecordBackend' do
+    let(:backend) { Zeropoint::SearchService::ActiveRecordBackend.new }
+
+    it 'uses basic ActiveRecord search' do
+      expect(Post).to receive(:where).with('name ILIKE ? OR description ILIKE ?', '%Test%', '%Test%').and_return(Post)
+      expect(Post).to receive(:limit).with(10).and_return([post])
+
+      backend.search_model(Post, 'Test')
+    end
+
+    it 'uses custom searchable fields' do
+      options = { against: [:title, :content] }
+      expect(Post).to receive(:where).with('title ILIKE ? OR content ILIKE ?', '%Test%', '%Test%').and_return(Post)
+      expect(Post).to receive(:limit).with(10).and_return([post])
+
+      backend.search_model(Post, 'Test', options)
+    end
+  end
+end 

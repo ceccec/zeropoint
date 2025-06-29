@@ -1,0 +1,2460 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Zeropoint::Coil::Rodin
+  
+    &mdash; Documentation by YARD 0.9.37
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Zeropoint::Coil::Rodin";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (R)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Zeropoint.html" title="Zeropoint (module)">Zeropoint</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Coil.html" title="Zeropoint::Coil (module)">Coil</a></span></span>
+     &raquo; 
+    <span class="title">Rodin</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Zeropoint::Coil::Rodin
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName"><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">Zeropoint::Coil::Rodin</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  <dl>
+      <dt>Includes:</dt>
+      <dd><span class='object_link'><a href="../Math/RodinCoil.html" title="Zeropoint::Math::RodinCoil (module)">Math::RodinCoil</a></span></dd>
+  </dl>
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/zeropoint/coil/rodin.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Rodin: Advanced vortex-based mathematical torus coil Delegates to Zeropoint::Math::RodinCoil for mathematical operations Provides object-oriented interface with metaphysical context</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="../Math/RodinCoil.html" title="Zeropoint::Math::RodinCoil (module)">Math::RodinCoil</a></span></li>
+    
+      <li>docs/MARCO_RODIN_COILS_ANALYSISdocs/MARCO_RODIN_COILS_ANALYSIS.md</li>
+    
+  </ul>
+
+</div>
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="MAGNETIC_EFFICIENCY_GAIN-constant" class="">MAGNETIC_EFFICIENCY_GAIN =
+          
+        </dt>
+        <dd><pre class="code"><span class='float'>0.625</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+  
+  
+  <h3 class="inherited">Constants included
+     from <span class='object_link'><a href="../Math/RodinCoil.html" title="Zeropoint::Math::RodinCoil (module)">Math::RodinCoil</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Math/RodinCoil.html#COPPER_REDUCTION_MIN-constant" title="Zeropoint::Math::RodinCoil::COPPER_REDUCTION_MIN (constant)">Math::RodinCoil::COPPER_REDUCTION_MIN</a></span>, <span class='object_link'><a href="../Math/RodinCoil.html#GAP_POSITIONS-constant" title="Zeropoint::Math::RodinCoil::GAP_POSITIONS (constant)">Math::RodinCoil::GAP_POSITIONS</a></span>, <span class='object_link'><a href="../Math/RodinCoil.html#POSITION_1_CIRCUIT-constant" title="Zeropoint::Math::RodinCoil::POSITION_1_CIRCUIT (constant)">Math::RodinCoil::POSITION_1_CIRCUIT</a></span>, <span class='object_link'><a href="../Math/RodinCoil.html#POSITION_2_CIRCUIT-constant" title="Zeropoint::Math::RodinCoil::POSITION_2_CIRCUIT (constant)">Math::RodinCoil::POSITION_2_CIRCUIT</a></span>, <span class='object_link'><a href="../Math/RodinCoil.html#STANDARD_DIAMETER-constant" title="Zeropoint::Math::RodinCoil::STANDARD_DIAMETER (constant)">Math::RodinCoil::STANDARD_DIAMETER</a></span>, <span class='object_link'><a href="../Math/RodinCoil.html#STANDARD_GAUGE-constant" title="Zeropoint::Math::RodinCoil::STANDARD_GAUGE (constant)">Math::RodinCoil::STANDARD_GAUGE</a></span>, <span class='object_link'><a href="../Math/RodinCoil.html#STANDARD_TURNS-constant" title="Zeropoint::Math::RodinCoil::STANDARD_TURNS (constant)">Math::RodinCoil::STANDARD_TURNS</a></span></p>
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#diameter-instance_method" title="#diameter (instance method)">#<strong>diameter</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute diameter.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gauge-instance_method" title="#gauge (instance method)">#<strong>gauge</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute gauge.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options-instance_method" title="#options (instance method)">#<strong>options</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute options.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#turns-instance_method" title="#turns (instance method)">#<strong>turns</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute turns.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#advanced_designs-instance_method" title="#advanced_designs (instance method)">#<strong>advanced_designs</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get advanced coil designs.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#applications-instance_method" title="#applications (instance method)">#<strong>applications</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get applications for this coil.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#configuration-instance_method" title="#configuration (instance method)">#<strong>configuration</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get configuration parameters.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#copper_savings-instance_method" title="#copper_savings (instance method)">#<strong>copper_savings</strong>(standard_copper)  &#x21d2; Float </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Calculate copper savings for this coil.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#efficiency_gain-instance_method" title="#efficiency_gain (instance method)">#<strong>efficiency_gain</strong>(standard_output)  &#x21d2; Float </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Calculate efficiency gain for this coil.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#electricity_pattern-instance_method" title="#electricity_pattern (instance method)">#<strong>electricity_pattern</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get synchronized electricity pattern for this coil.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#field_mapping-instance_method" title="#field_mapping (instance method)">#<strong>field_mapping</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get toroidal field mapping for this coil.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#field_strength-instance_method" title="#field_strength (instance method)">#<strong>field_strength</strong>(base_strength)  &#x21d2; Float </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Calculate field strength for this coil.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#flow_optimization-instance_method" title="#flow_optimization (instance method)">#<strong>flow_optimization</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get electron flow optimization.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#geometry-instance_method" title="#geometry (instance method)">#<strong>geometry</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get coil geometry for this instance.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(diameter: 4.0, turns: 24, gauge: 26, **options)  &#x21d2; Rodin </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Initialize a Rodin coil.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#insights-instance_method" title="#insights (instance method)">#<strong>insights</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get metaphysical insights.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">#<strong>inspect</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Inspect representation.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#number_mapping-instance_method" title="#number_mapping (instance method)">#<strong>number_mapping</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get toroidal number mapping.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pattern_numbers-instance_method" title="#pattern_numbers (instance method)">#<strong>pattern_numbers</strong>  &#x21d2; Array&lt;Integer&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get all pattern numbers for this coil.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#performance_metrics-instance_method" title="#performance_metrics (instance method)">#<strong>performance_metrics</strong>(standard_coil_output)  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Calculate performance metrics for this coil.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sequence_digital_root-instance_method" title="#sequence_digital_root (instance method)">#<strong>sequence_digital_root</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get digital root of vortex sequence.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#specifications-instance_method" title="#specifications (instance method)">#<strong>specifications</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get coil specifications.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#summary-instance_method" title="#summary (instance method)">#<strong>summary</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get coil summary.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_s-instance_method" title="#to_s (instance method)">#<strong>to_s</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>String representation.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#valid%3F-instance_method" title="#valid? (instance method)">#<strong>valid?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Validate this coil’s patterns.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#vbm_integration-instance_method" title="#vbm_integration (instance method)">#<strong>vbm_integration</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get VBM integration points.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../Math/RodinCoil.html" title="Zeropoint::Math::RodinCoil (module)">Math::RodinCoil</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Math/RodinCoil.html#advanced_coil_designs-instance_method" title="Zeropoint::Math::RodinCoil#advanced_coil_designs (method)">#advanced_coil_designs</a></span>, <span class='object_link'><a href="../Math/RodinCoil.html#all_pattern_numbers-instance_method" title="Zeropoint::Math::RodinCoil#all_pattern_numbers (method)">#all_pattern_numbers</a></span>, <span class='object_link'><a href="../Math/RodinCoil.html#calculate_copper_savings-instance_method" title="Zeropoint::Math::RodinCoil#calculate_copper_savings (method)">#calculate_copper_savings</a></span>, <span class='object_link'><a href="../Math/RodinCoil.html#calculate_efficiency_gain-instance_method" title="Zeropoint::Math::RodinCoil#calculate_efficiency_gain (method)">#calculate_efficiency_gain</a></span>, <span class='object_link'><a href="../Math/RodinCoil.html#coil_geometry-instance_method" title="Zeropoint::Math::RodinCoil#coil_geometry (method)">#coil_geometry</a></span>, <span class='object_link'><a href="../Math/RodinCoil.html#configuration_parameters-instance_method" title="Zeropoint::Math::RodinCoil#configuration_parameters (method)">#configuration_parameters</a></span>, <span class='object_link'><a href="../Math/RodinCoil.html#electron_flow_optimization-instance_method" title="Zeropoint::Math::RodinCoil#electron_flow_optimization (method)">#electron_flow_optimization</a></span>, <span class='object_link'><a href="../Math/RodinCoil.html#synchronized_electricity_pattern-instance_method" title="Zeropoint::Math::RodinCoil#synchronized_electricity_pattern (method)">#synchronized_electricity_pattern</a></span>, <span class='object_link'><a href="../Math/RodinCoil.html#toroidal_field_map-instance_method" title="Zeropoint::Math::RodinCoil#toroidal_field_map (method)">#toroidal_field_map</a></span>, <span class='object_link'><a href="../Math/RodinCoil.html#toroidal_number_map-instance_method" title="Zeropoint::Math::RodinCoil#toroidal_number_map (method)">#toroidal_number_map</a></span>, <span class='object_link'><a href="../Math/RodinCoil.html#validate_patterns-instance_method" title="Zeropoint::Math::RodinCoil#validate_patterns (method)">#validate_patterns</a></span>, <span class='object_link'><a href="../Math/RodinCoil.html#vortex_field_strength-instance_method" title="Zeropoint::Math::RodinCoil#vortex_field_strength (method)">#vortex_field_strength</a></span>, <span class='object_link'><a href="../Math/RodinCoil.html#vortex_sequence_digital_root-instance_method" title="Zeropoint::Math::RodinCoil#vortex_sequence_digital_root (method)">#vortex_sequence_digital_root</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(diameter: 4.0, turns: 24, gauge: 26, **options)  &#x21d2; <tt><span class='object_link'><a href="" title="Zeropoint::Coil::Rodin (class)">Rodin</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Initialize a Rodin coil</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>diameter</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>4.0</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Coil diameter in inches (default: 4.0)</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>turns</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>24</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Number of turns (default: 24)</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>gauge</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>26</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Wire gauge (default: 26)</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Additional configuration options</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>diameter:</span> <span class='float'>4.0</span><span class='comma'>,</span> <span class='label'>turns:</span> <span class='int'>24</span><span class='comma'>,</span> <span class='label'>gauge:</span> <span class='int'>26</span><span class='comma'>,</span> <span class='op'>**</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+  <span class='ivar'>@diameter</span> <span class='op'>=</span> <span class='id identifier rubyid_diameter'>diameter</span>
+  <span class='ivar'>@turns</span> <span class='op'>=</span> <span class='id identifier rubyid_turns'>turns</span>
+  <span class='ivar'>@gauge</span> <span class='op'>=</span> <span class='id identifier rubyid_gauge'>gauge</span>
+  <span class='ivar'>@options</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="diameter-instance_method">
+  
+    #<strong>diameter</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute diameter.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 16</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_diameter'>diameter</span>
+  <span class='ivar'>@diameter</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="gauge-instance_method">
+  
+    #<strong>gauge</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute gauge.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 16</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_gauge'>gauge</span>
+  <span class='ivar'>@gauge</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="options-instance_method">
+  
+    #<strong>options</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute options.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 16</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_options'>options</span>
+  <span class='ivar'>@options</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="turns-instance_method">
+  
+    #<strong>turns</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute turns.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 16</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_turns'>turns</span>
+  <span class='ivar'>@turns</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="advanced_designs-instance_method">
+  
+    #<strong>advanced_designs</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get advanced coil designs</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Advanced coil design specifications</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+99
+100
+101</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 99</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_advanced_designs'>advanced_designs</span>
+  <span class='id identifier rubyid_advanced_coil_designs'>advanced_coil_designs</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="applications-instance_method">
+  
+    #<strong>applications</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get applications for this coil</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Application use cases and specifications</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+111
+112
+113</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 111</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_applications'>applications</span>
+  <span class='kw'>super</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="configuration-instance_method">
+  
+    #<strong>configuration</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get configuration parameters</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Configuration parameters for integration</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+139
+140
+141</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 139</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_configuration'>configuration</span>
+  <span class='id identifier rubyid_configuration_parameters'>configuration_parameters</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="copper_savings-instance_method">
+  
+    #<strong>copper_savings</strong>(standard_copper)  &#x21d2; <tt>Float</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Calculate copper savings for this coil</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>standard_copper</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Standard copper usage</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Copper savings amount</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+153
+154
+155</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 153</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_copper_savings'>copper_savings</span><span class='lparen'>(</span><span class='id identifier rubyid_standard_copper'>standard_copper</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_calculate_copper_savings'>calculate_copper_savings</span><span class='lparen'>(</span><span class='id identifier rubyid_standard_copper'>standard_copper</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="efficiency_gain-instance_method">
+  
+    #<strong>efficiency_gain</strong>(standard_output)  &#x21d2; <tt>Float</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Calculate efficiency gain for this coil</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>standard_output</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Standard coil magnetic output</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Efficiency gain amount</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+146
+147
+148</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 146</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_efficiency_gain'>efficiency_gain</span><span class='lparen'>(</span><span class='id identifier rubyid_standard_output'>standard_output</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_calculate_efficiency_gain'>calculate_efficiency_gain</span><span class='lparen'>(</span><span class='id identifier rubyid_standard_output'>standard_output</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="electricity_pattern-instance_method">
+  
+    #<strong>electricity_pattern</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get synchronized electricity pattern for this coil</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Complete synchronized electricity configuration</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+56
+57
+58</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 56</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_electricity_pattern'>electricity_pattern</span>
+  <span class='id identifier rubyid_synchronized_electricity_pattern'>synchronized_electricity_pattern</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="field_mapping-instance_method">
+  
+    #<strong>field_mapping</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get toroidal field mapping for this coil</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Complete toroidal field configuration</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+62
+63
+64</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 62</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_field_mapping'>field_mapping</span>
+  <span class='id identifier rubyid_toroidal_field_map'>toroidal_field_map</span><span class='lparen'>(</span><span class='ivar'>@diameter</span> <span class='op'>/</span> <span class='float'>2.0</span><span class='comma'>,</span> <span class='ivar'>@turns</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="field_strength-instance_method">
+  
+    #<strong>field_strength</strong>(base_strength)  &#x21d2; <tt>Float</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Calculate field strength for this coil</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>base_strength</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Base magnetic field strength</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Enhanced field strength</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+50
+51
+52</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 50</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_field_strength'>field_strength</span><span class='lparen'>(</span><span class='id identifier rubyid_base_strength'>base_strength</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_base_strength'>base_strength</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='int'>1</span> <span class='op'>+</span> <span class='const'><span class='object_link'><a href="#MAGNETIC_EFFICIENCY_GAIN-constant" title="Zeropoint::Coil::Rodin::MAGNETIC_EFFICIENCY_GAIN (constant)">MAGNETIC_EFFICIENCY_GAIN</a></span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="flow_optimization-instance_method">
+  
+    #<strong>flow_optimization</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get electron flow optimization</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Electron flow optimization characteristics</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+133
+134
+135</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 133</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_flow_optimization'>flow_optimization</span>
+  <span class='id identifier rubyid_electron_flow_optimization'>electron_flow_optimization</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="geometry-instance_method">
+  
+    #<strong>geometry</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get coil geometry for this instance</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Complete coil geometry</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+68
+69
+70</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 68</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_geometry'>geometry</span>
+  <span class='id identifier rubyid_coil_geometry'>coil_geometry</span><span class='lparen'>(</span><span class='ivar'>@diameter</span><span class='comma'>,</span> <span class='ivar'>@turns</span><span class='comma'>,</span> <span class='ivar'>@gauge</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="insights-instance_method">
+  
+    #<strong>insights</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get metaphysical insights</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Metaphysical and philosophical insights</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+123
+124
+125
+126
+127
+128
+129</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 123</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_insights'>insights</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>metaphysical_meaning:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Rodin coil embodies the vortex mathematics of consciousness</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>toroidal_flow:</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='label'>void_aligned:</span> <span class='kw'>true</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="inspect-instance_method">
+  
+    #<strong>inspect</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Inspect representation</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+178
+179
+180</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 178</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='embexpr_end'>}</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='embexpr_end'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="number_mapping-instance_method">
+  
+    #<strong>number_mapping</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get toroidal number mapping</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Complete toroidal number map</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+105
+106
+107</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 105</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_number_mapping'>number_mapping</span>
+  <span class='id identifier rubyid_toroidal_number_map'>toroidal_number_map</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pattern_numbers-instance_method">
+  
+    #<strong>pattern_numbers</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Array.html" title="Array (class)">Array</a></span>&lt;Integer&gt;</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get all pattern numbers for this coil</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Array.html" title="Array (class)">Array</a></span>&lt;Integer&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>All unique numbers in patterns</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+87
+88
+89</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 87</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pattern_numbers'>pattern_numbers</span>
+  <span class='id identifier rubyid_all_pattern_numbers'>all_pattern_numbers</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="performance_metrics-instance_method">
+  
+    #<strong>performance_metrics</strong>(standard_coil_output)  &#x21d2; <tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Calculate performance metrics for this coil</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>standard_coil_output</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Standard coil performance</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Performance comparison metrics</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+75
+76
+77</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 75</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_performance_metrics'>performance_metrics</span><span class='lparen'>(</span><span class='id identifier rubyid_standard_coil_output'>standard_coil_output</span><span class='rparen'>)</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_standard_coil_output'>standard_coil_output</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sequence_digital_root-instance_method">
+  
+    #<strong>sequence_digital_root</strong>  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get digital root of vortex sequence</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Digital root</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+93
+94
+95</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 93</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sequence_digital_root'>sequence_digital_root</span>
+  <span class='id identifier rubyid_vortex_sequence_digital_root'>vortex_sequence_digital_root</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="specifications-instance_method">
+  
+    #<strong>specifications</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get coil specifications</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 33</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_specifications'>specifications</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>type:</span> <span class='symbol'>:rodin</span><span class='comma'>,</span>
+    <span class='label'>diameter:</span> <span class='ivar'>@diameter</span><span class='comma'>,</span>
+    <span class='label'>turns:</span> <span class='ivar'>@turns</span><span class='comma'>,</span>
+    <span class='label'>gauge:</span> <span class='ivar'>@gauge</span><span class='comma'>,</span>
+    <span class='label'>magnetic_efficiency_gain:</span> <span class='const'><span class='object_link'><a href="#MAGNETIC_EFFICIENCY_GAIN-constant" title="Zeropoint::Coil::Rodin::MAGNETIC_EFFICIENCY_GAIN (constant)">MAGNETIC_EFFICIENCY_GAIN</a></span></span><span class='comma'>,</span>
+    <span class='label'>copper_reduction_min:</span> <span class='const'><span class='object_link'><a href="../Math/RodinCoil.html#COPPER_REDUCTION_MIN-constant" title="Zeropoint::Math::RodinCoil::COPPER_REDUCTION_MIN (constant)">COPPER_REDUCTION_MIN</a></span></span><span class='comma'>,</span>
+    <span class='label'>position_1_circuit:</span> <span class='const'><span class='object_link'><a href="../Math/RodinCoil.html#POSITION_1_CIRCUIT-constant" title="Zeropoint::Math::RodinCoil::POSITION_1_CIRCUIT (constant)">POSITION_1_CIRCUIT</a></span></span><span class='comma'>,</span>
+    <span class='label'>position_2_circuit:</span> <span class='const'><span class='object_link'><a href="../Math/RodinCoil.html#POSITION_2_CIRCUIT-constant" title="Zeropoint::Math::RodinCoil::POSITION_2_CIRCUIT (constant)">POSITION_2_CIRCUIT</a></span></span><span class='comma'>,</span>
+    <span class='label'>gap_positions:</span> <span class='const'><span class='object_link'><a href="../Math/RodinCoil.html#GAP_POSITIONS-constant" title="Zeropoint::Math::RodinCoil::GAP_POSITIONS (constant)">GAP_POSITIONS</a></span></span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="summary-instance_method">
+  
+    #<strong>summary</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get coil summary</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Summary of coil properties</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 159</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_summary'>summary</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>type:</span> <span class='symbol'>:rodin</span><span class='comma'>,</span>
+    <span class='label'>specifications:</span> <span class='id identifier rubyid_specifications'>specifications</span><span class='comma'>,</span>
+    <span class='label'>field_mapping:</span> <span class='id identifier rubyid_field_mapping'>field_mapping</span><span class='comma'>,</span>
+    <span class='label'>geometry:</span> <span class='id identifier rubyid_geometry'>geometry</span><span class='comma'>,</span>
+    <span class='label'>valid:</span> <span class='id identifier rubyid_valid?'>valid?</span><span class='comma'>,</span>
+    <span class='label'>pattern_numbers:</span> <span class='id identifier rubyid_pattern_numbers'>pattern_numbers</span><span class='comma'>,</span>
+    <span class='label'>sequence_digital_root:</span> <span class='id identifier rubyid_sequence_digital_root'>sequence_digital_root</span><span class='comma'>,</span>
+    <span class='label'>insights:</span> <span class='id identifier rubyid_insights'>insights</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_s-instance_method">
+  
+    #<strong>to_s</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>String representation</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+173
+174
+175</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 173</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rodin Coil (</span><span class='embexpr_beg'>#{</span><span class='ivar'>@diameter</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; diameter, </span><span class='embexpr_beg'>#{</span><span class='ivar'>@turns</span><span class='embexpr_end'>}</span><span class='tstring_content'> turns, </span><span class='embexpr_beg'>#{</span><span class='ivar'>@gauge</span><span class='embexpr_end'>}</span><span class='tstring_content'> gauge)</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="valid?-instance_method">
+  
+    #<strong>valid?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Validate this coil’s patterns</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>True if patterns are valid</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+81
+82
+83</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 81</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_valid?'>valid?</span>
+  <span class='id identifier rubyid_validate_patterns'>validate_patterns</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="vbm_integration-instance_method">
+  
+    #<strong>vbm_integration</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get VBM integration points</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Integration points with other VBM modules</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+117
+118
+119</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/coil/rodin.rb', line 117</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_vbm_integration'>vbm_integration</span>
+  <span class='kw'>super</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Jun 30 00:12:03 2025 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.37 (ruby-3.3.6).
+</div>
+
+    </div>
+  </body>
+</html>

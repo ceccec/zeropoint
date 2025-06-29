@@ -1,0 +1,393 @@
+# frozen_string_literal: true
+
+module Zeropoint
+  class AuthorizationService
+    include Singleton
+
+    def initialize
+      @backend = detect_backend
+    end
+
+    # Authorize an action on a resource
+    def authorize(user, action, resource, options = {})
+      return false if user.blank?
+
+      @backend.authorize(user, action, resource, options)
+    rescue => e
+      Rails.logger.error "Authorization failed: #{e.message}"
+      fallback_authorize(user, action, resource, options)
+    end
+
+    # Get authorized scope for a model
+    def authorize_scope(user, model, action = :index, options = {})
+      return model.none if user.blank?
+
+      @backend.authorize_scope(user, model, action, options)
+    rescue => e
+      Rails.logger.error "Scope authorization failed: #{e.message}"
+      fallback_authorize_scope(user, model, action, options)
+    end
+
+    # Check if user has permission
+    def check_permission(user, permission, options = {})
+      return false if user.blank?
+
+      @backend.check_permission(user, permission, options)
+    rescue => e
+      Rails.logger.error "Permission check failed: #{e.message}"
+      fallback_check_permission(user, permission, options)
+    end
+
+    # Get all permissions for a user
+    def get_permissions(user, options = {})
+      return [] if user.blank?
+
+      @backend.get_permissions(user, options)
+    rescue => e
+      Rails.logger.error "Get permissions failed: #{e.message}"
+      fallback_get_permissions(user, options)
+    end
+
+    # Get user roles
+    def get_roles(user, options = {})
+      return [] if user.blank?
+
+      @backend.get_roles(user, options)
+    rescue => e
+      Rails.logger.error "Get roles failed: #{e.message}"
+      fallback_get_roles(user, options)
+    end
+
+    # Check if user has role
+    def has_role?(user, role, options = {})
+      return false if user.blank?
+
+      @backend.has_role?(user, role, options)
+    rescue => e
+      Rails.logger.error "Role check failed: #{e.message}"
+      fallback_has_role?(user, role, options)
+    end
+
+    private
+
+    def detect_backend
+      if defined?(Pundit)
+        PunditBackend.new
+      elsif defined?(CanCanCan)
+        CanCanCanBackend.new
+      elsif defined?(Rolify)
+        RolifyBackend.new
+      else
+        SimpleBackend.new
+      end
+    end
+
+    def fallback_authorize(user, action, resource, options)
+      # Simple fallback: admin can do everything
+      user.respond_to?(:admin?) && user.admin?
+    end
+
+    def fallback_authorize_scope(user, model, action, options)
+      # Simple fallback: return all records for admin, none for others
+      if user.respond_to?(:admin?) && user.admin?
+        model.all
+      else
+        model.none
+      end
+    end
+
+    def fallback_check_permission(user, permission, options)
+      # Simple fallback: admin has all permissions
+      user.respond_to?(:admin?) && user.admin?
+    end
+
+    def fallback_get_permissions(user, options)
+      # Simple fallback: return basic permissions for admin
+      if user.respond_to?(:admin?) && user.admin?
+        %w[read write delete admin]
+      else
+        %w[read]
+      end
+    end
+
+    def fallback_get_roles(user, options)
+      # Simple fallback: return admin role if user is admin
+      if user.respond_to?(:admin?) && user.admin?
+        ['admin']
+      else
+        ['user']
+      end
+    end
+
+    def fallback_has_role?(user, role, options)
+      # Simple fallback: admin has all roles
+      if user.respond_to?(:admin?) && user.admin?
+        true
+      else
+        role == 'user'
+      end
+    end
+
+    # Backend implementations
+    class PunditBackend
+      def authorize(user, action, resource, options)
+        policy_class = options[:policy_class] || "#{resource.class}Policy"
+        policy = policy_class.constantize.new(user, resource)
+        policy.public_send("#{action}?")
+      rescue NameError
+        # If policy doesn't exist, fall back to simple check
+        user.respond_to?(:admin?) && user.admin?
+      end
+
+      def authorize_scope(user, model, action, options)
+        policy_class = options[:policy_class] || "#{model}Policy"
+        policy = policy_class.constantize.new(user, model)
+        policy.public_send("#{action}_scope")
+      rescue NameError
+        # If policy doesn't exist, fall back to simple check
+        if user.respond_to?(:admin?) && user.admin?
+          model.all
+        else
+          model.none
+        end
+      end
+
+      def check_permission(user, permission, options)
+        # Pundit doesn't have built-in permission checking
+        # Fall back to role-based check
+        user.respond_to?(:admin?) && user.admin?
+      end
+
+      def get_permissions(user, options)
+        # Pundit doesn't have built-in permission listing
+        # Fall back to role-based permissions
+        if user.respond_to?(:admin?) && user.admin?
+          %w[read write delete admin]
+        else
+          %w[read]
+        end
+      end
+
+      def get_roles(user, options)
+        # Pundit doesn't have built-in role management
+        # Fall back to simple role check
+        if user.respond_to?(:admin?) && user.admin?
+          ['admin']
+        else
+          ['user']
+        end
+      end
+
+      def has_role?(user, role, options)
+        # Pundit doesn't have built-in role management
+        # Fall back to simple role check
+        if user.respond_to?(:admin?) && user.admin?
+          true
+        else
+          role == 'user'
+        end
+      end
+    end
+
+    class CanCanCanBackend
+      def authorize(user, action, resource, options)
+        ability = options[:ability_class]&.constantize&.new(user) || Ability.new(user)
+        ability.can?(action, resource)
+      end
+
+      def authorize_scope(user, model, action, options)
+        ability = options[:ability_class]&.constantize&.new(user) || Ability.new(user)
+        model.accessible_by(ability, action)
+      end
+
+      def check_permission(user, permission, options)
+        ability = options[:ability_class]&.constantize&.new(user) || Ability.new(user)
+        ability.can?(permission.to_sym, :all)
+      end
+
+      def get_permissions(user, options)
+        ability = options[:ability_class]&.constantize&.new(user) || Ability.new(user)
+        # CanCanCan doesn't provide a direct way to list permissions
+        # This is a simplified implementation
+        permissions = []
+        permissions << 'read' if ability.can?(:read, :all)
+        permissions << 'write' if ability.can?(:write, :all)
+        permissions << 'delete' if ability.can?(:delete, :all)
+        permissions << 'admin' if ability.can?(:manage, :all)
+        permissions
+      end
+
+      def get_roles(user, options)
+        # CanCanCan doesn't have built-in role management
+        # Fall back to simple role check
+        if user.respond_to?(:admin?) && user.admin?
+          ['admin']
+        else
+          ['user']
+        end
+      end
+
+      def has_role?(user, role, options)
+        # CanCanCan doesn't have built-in role management
+        # Fall back to simple role check
+        if user.respond_to?(:admin?) && user.admin?
+          true
+        else
+          role == 'user'
+        end
+      end
+    end
+
+    class RolifyBackend
+      def authorize(user, action, resource, options)
+        # Rolify provides role-based authorization
+        # This is a simplified implementation
+        if user.respond_to?(:has_role?)
+          case action.to_s
+          when 'read'
+            user.has_role?(:admin) || user.has_role?(:reader)
+          when 'write'
+            user.has_role?(:admin) || user.has_role?(:writer)
+          when 'delete'
+            user.has_role?(:admin)
+          else
+            user.has_role?(:admin)
+          end
+        else
+          false
+        end
+      end
+
+      def authorize_scope(user, model, action, options)
+        # Rolify doesn't provide scope-based authorization
+        # Fall back to simple role-based scope
+        if user.respond_to?(:has_role?) && user.has_role?(:admin)
+          model.all
+        else
+          model.none
+        end
+      end
+
+      def check_permission(user, permission, options)
+        # Rolify doesn't have built-in permission checking
+        # Fall back to role-based check
+        if user.respond_to?(:has_role?)
+          case permission.to_s
+          when 'read'
+            user.has_role?(:admin) || user.has_role?(:reader)
+          when 'write'
+            user.has_role?(:admin) || user.has_role?(:writer)
+          when 'delete'
+            user.has_role?(:admin)
+          else
+            user.has_role?(:admin)
+          end
+        else
+          false
+        end
+      end
+
+      def get_permissions(user, options)
+        # Rolify doesn't have built-in permission listing
+        # Fall back to role-based permissions
+        permissions = []
+        if user.respond_to?(:has_role?)
+          permissions << 'read' if user.has_role?(:admin) || user.has_role?(:reader)
+          permissions << 'write' if user.has_role?(:admin) || user.has_role?(:writer)
+          permissions << 'delete' if user.has_role?(:admin)
+          permissions << 'admin' if user.has_role?(:admin)
+        end
+        permissions
+      end
+
+      def get_roles(user, options)
+        return [] unless user.respond_to?(:roles)
+
+        user.roles.pluck(:name)
+      end
+
+      def has_role?(user, role, options)
+        return false unless user.respond_to?(:has_role?)
+
+        user.has_role?(role)
+      end
+    end
+
+    class SimpleBackend
+      def authorize(user, action, resource, options)
+        # Simple role-based authorization
+        if user.respond_to?(:admin?) && user.admin?
+          true
+        elsif user.respond_to?(:roles)
+          case action.to_s
+          when 'read'
+            user.roles.include?('reader') || user.roles.include?('writer') || user.roles.include?('admin')
+          when 'write'
+            user.roles.include?('writer') || user.roles.include?('admin')
+          when 'delete'
+            user.roles.include?('admin')
+          else
+            user.roles.include?('admin')
+          end
+        else
+          false
+        end
+      end
+
+      def authorize_scope(user, model, action, options)
+        # Simple role-based scope
+        if user.respond_to?(:admin?) && user.admin?
+          model.all
+        elsif user.respond_to?(:roles) && user.roles.include?('admin')
+          model.all
+        else
+          model.none
+        end
+      end
+
+      def check_permission(user, permission, options)
+        # Simple permission check
+        if user.respond_to?(:admin?) && user.admin?
+          true
+        elsif user.respond_to?(:permissions)
+          user.permissions.include?(permission.to_s)
+        else
+          false
+        end
+      end
+
+      def get_permissions(user, options)
+        # Simple permission listing
+        if user.respond_to?(:admin?) && user.admin?
+          %w[read write delete admin]
+        elsif user.respond_to?(:permissions)
+          user.permissions
+        else
+          %w[read]
+        end
+      end
+
+      def get_roles(user, options)
+        # Simple role listing
+        if user.respond_to?(:admin?) && user.admin?
+          ['admin']
+        elsif user.respond_to?(:roles)
+          user.roles
+        else
+          ['user']
+        end
+      end
+
+      def has_role?(user, role, options)
+        # Simple role check
+        if user.respond_to?(:admin?) && user.admin?
+          true
+        elsif user.respond_to?(:roles)
+          user.roles.include?(role.to_s)
+        else
+          role == 'user'
+        end
+      end
+    end
+  end
+end 

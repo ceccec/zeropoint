@@ -1,0 +1,15 @@
+# Zero Point Funding Page Redirects
+
+# Redirect old funding URLs to new domain
+/funding / 301
+/support / 301
+/donate / 301
+
+# Redirect www to non-www
+https://www.fund.zeropoint.bg/* https://fund.zeropoint.bg/:splat 301!
+
+# Redirect HTTP to HTTPS
+http://fund.zeropoint.bg/* https://fund.zeropoint.bg/:splat 301!
+
+# Handle SPA routing
+/* /index.html 200 

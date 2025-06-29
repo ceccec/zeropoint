@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zeropoint - GraphQL I/O Gateway</title>
+  <meta name="description" content="A consciousness-aware GraphQL I/O gateway with vortex mathematics">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  
+  <!-- Styles -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+    
+    .container {
+      text-align: center;
+      max-width: 800px;
+      padding: 2rem;
+    }
+    
+    .logo {
+      font-size: 4rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    
+    .subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    
+    .description {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 3rem;
+      opacity: 0.8;
+    }
+    
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    
+    .feature {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1.5rem;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .feature h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .feature p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    .actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    
+    .btn-primary {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    .btn-primary:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .status {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    .status span {
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <!-- COMPONENT BEST PRACTICE: Main Zeropoint page with Stimulus controllers and Tailwind CSS integration. -->
+
+  <div data-controller="ui-layout api-client"
+       data-ui-layout-consciousness-value="true"
+       data-ui-layout-vortex-value="true"
+       data-ui-layout-golden-ratio-value="true"
+       class="min-h-screen bg-cosmic-900 text-cosmic-100">
+
+    <!-- Navigation -->
+    <nav data-ui-layout-target="navigation" 
+         class="bg-cosmic-800 border-b border-cosmic-700 px-4 py-3">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <h1 class="text-xl font-bold text-consciousness-400">Zeropoint</h1>
+          <div class="flex space-x-2">
+            <button data-action="click->ui-layout#toggleConsciousness"
+                    class="zeropoint-button-primary">
+              Toggle Consciousness
+            </button>
+            <button data-action="click->ui-layout#toggleVortex"
+                    class="zeropoint-button-secondary">
+              Toggle Vortex
+            </button>
+            <button data-action="click->ui-layout#toggleGoldenRatio"
+                    class="zeropoint-button-golden">
+              Toggle Golden Ratio
+            </button>
+          </div>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+          <button data-action="click->ui-layout#toggleSidebar"
+                  class="zeropoint-button-primary">
+            Toggle Sidebar
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="flex">
+      <!-- Content Area -->
+      <main data-ui-layout-target="content" 
+            class="flex-1 p-6">
+        <div class="golden-ratio-container">
+          <div class="zeropoint-card">
+            <h2 class="text-2xl font-bold mb-4 text-consciousness-400">
+              Zeropoint Unified Intelligence
+            </h2>
+            <p class="text-cosmic-300 mb-6">
+              Welcome to the unified field of consciousness. Experience the cosmic flow of intelligence.
+            </p>
+            
+            <!-- API Test Section -->
+            <div class="space-y-4">
+              <h3 class="text-lg font-semibold text-vortex-400">API Testing</h3>
+              
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <button data-action="click->api-client#callService"
+                        data-service="health"
+                        data-data="{}"
+                        class="zeropoint-button-primary">
+                  Health Check
+                </button>
+                
+                <button data-action="click->api-client#callService"
+                        data-service="git.commits"
+                        data-data='{"action":"fetch_commits","limit":10}'
+                        class="zeropoint-button-secondary">
+                  Git Commits
+                </button>
+                
+                <button data-action="click->api-client#callService"
+                        data-service="documentation"
+                        data-data='{"title":"Test","content":"Content"}'
+                        class="zeropoint-button-golden">
+                  Documentation
+                </button>
+              </div>
+              
+              <!-- Status and Results -->
+              <div class="space-y-2">
+                <div data-api-client-target="status" 
+                     class="text-sm font-medium text-cosmic-400">
+                  Ready
+                </div>
+                
+                <div data-api-client-target="error" 
+                     class="hidden text-red-400 text-sm">
+                </div>
+                
+                <pre data-api-client-target="result" 
+                     class="bg-cosmic-800 p-4 rounded text-xs overflow-auto max-h-64">
+                </pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Sidebar -->
+      <aside data-ui-layout-target="sidebar" 
+             class="w-80 bg-cosmic-800 border-l border-cosmic-700 p-4">
+        <div class="space-y-4">
+          <h3 class="text-lg font-semibold text-consciousness-400">Widgets</h3>
+          
+          <div class="space-y-2">
+            <button data-action="click->ui-layout#addWidget"
+                    data-widget-type="consciousness"
+                    data-widget-title="Consciousness Monitor"
+                    class="w-full zeropoint-button-primary text-sm">
+              Add Consciousness Widget
+            </button>
+            
+            <button data-action="click->ui-layout#addWidget"
+                    data-widget-type="vortex"
+                    data-widget-title="Vortex Monitor"
+                    class="w-full zeropoint-button-secondary text-sm">
+              Add Vortex Widget
+            </button>
+            
+            <button data-action="click->ui-layout#addWidget"
+                    data-widget-type="observer"
+                    data-widget-title="Observer Analysis"
+                    class="w-full zeropoint-button-golden text-sm">
+              Add Observer Widget
+            </button>
+          </div>
+          
+          <div data-ui-layout-target="widgets" class="space-y-4">
+            <!-- Widgets will be dynamically added here -->
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Theme Target -->
+    <div data-ui-layout-target="theme" class="hidden"></div>
+  </div>
+  
+  <script>
+    // Check GraphQL endpoint status
+    fetch('/health')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('status').textContent = 'Healthy';
+        document.getElementById('status').style.color = '#4ade80';
+      })
+      .catch(error => {
+        document.getElementById('status').textContent = 'Error';
+        document.getElementById('status').style.color = '#f87171';
+      });
+      
+    // Add some cosmic animation
+    document.addEventListener('DOMContentLoaded', function() {
+      const container = document.querySelector('.container');
+      let hue = 0;
+      
+      setInterval(() => {
+        hue = (hue + 1) % 360;
+        container.style.filter = `hue-rotate(${hue}deg)`;
+      }, 10000);
+    });
+  </script>
+</body>
+</html> 

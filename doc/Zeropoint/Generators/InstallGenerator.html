@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Zeropoint::Generators::InstallGenerator
+  
+    &mdash; Documentation by YARD 0.9.37
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Zeropoint::Generators::InstallGenerator";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (I)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Zeropoint.html" title="Zeropoint (module)">Zeropoint</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Generators.html" title="Zeropoint::Generators (module)">Generators</a></span></span>
+     &raquo; 
+    <span class="title">InstallGenerator</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Zeropoint::Generators::InstallGenerator
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Rails::Generators::Base</span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">Rails::Generators::Base</li>
+          
+            <li class="next">Zeropoint::Generators::InstallGenerator</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/generators/zeropoint/install_generator.rb</dd>
+  </dl>
+  
+</div>
+
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create_concerns-instance_method" title="#create_concerns (instance method)">#<strong>create_concerns</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create_configuration-instance_method" title="#create_configuration (instance method)">#<strong>create_configuration</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create_controllers-instance_method" title="#create_controllers (instance method)">#<strong>create_controllers</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create_documentation-instance_method" title="#create_documentation (instance method)">#<strong>create_documentation</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create_initializers-instance_method" title="#create_initializers (instance method)">#<strong>create_initializers</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create_models-instance_method" title="#create_models (instance method)">#<strong>create_models</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create_routes-instance_method" title="#create_routes (instance method)">#<strong>create_routes</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create_tests-instance_method" title="#create_tests (instance method)">#<strong>create_tests</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create_views-instance_method" title="#create_views (instance method)">#<strong>create_views</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#finalize_setup-instance_method" title="#finalize_setup (instance method)">#<strong>finalize_setup</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#install_zeropoint-instance_method" title="#install_zeropoint (instance method)">#<strong>install_zeropoint</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#setup_api_compatibility-instance_method" title="#setup_api_compatibility (instance method)">#<strong>setup_api_compatibility</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#setup_graphql_integration-instance_method" title="#setup_graphql_integration (instance method)">#<strong>setup_graphql_integration</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#setup_internationalization-instance_method" title="#setup_internationalization (instance method)">#<strong>setup_internationalization</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#setup_rails_8_authentication-instance_method" title="#setup_rails_8_authentication (instance method)">#<strong>setup_rails_8_authentication</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#setup_vortex_features-instance_method" title="#setup_vortex_features (instance method)">#<strong>setup_vortex_features</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="create_concerns-instance_method">
+  
+    #<strong>create_concerns</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+111
+112
+113
+114
+115
+116
+117
+118</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/install_generator.rb', line 111</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_concerns'>create_concerns</span>
+  <span class='id identifier rubyid_say_status'>say_status</span> <span class='symbol'>:concerns</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Creating Zeropoint concerns</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:green</span>
+
+  <span class='id identifier rubyid_create_authentication_concern'>create_authentication_concern</span>
+  <span class='id identifier rubyid_create_vortex_concern'>create_vortex_concern</span>
+  <span class='id identifier rubyid_create_consciousness_concern'>create_consciousness_concern</span>
+  <span class='id identifier rubyid_create_i18n_concern'>create_i18n_concern</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create_configuration-instance_method">
+  
+    #<strong>create_configuration</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+152
+153
+154
+155
+156
+157
+158</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/install_generator.rb', line 152</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_configuration'>create_configuration</span>
+  <span class='id identifier rubyid_say_status'>say_status</span> <span class='symbol'>:config</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Creating Zeropoint configuration</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:green</span>
+
+  <span class='id identifier rubyid_create_zeropoint_config'>create_zeropoint_config</span>
+  <span class='id identifier rubyid_create_vortex_config'>create_vortex_config</span>
+  <span class='id identifier rubyid_create_consciousness_config'>create_consciousness_config</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create_controllers-instance_method">
+  
+    #<strong>create_controllers</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+120
+121
+122
+123
+124
+125
+126</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/install_generator.rb', line 120</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_controllers'>create_controllers</span>
+  <span class='id identifier rubyid_say_status'>say_status</span> <span class='symbol'>:controllers</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Creating Zeropoint controllers</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:green</span>
+
+  <span class='id identifier rubyid_create_health_controller'>create_health_controller</span>
+  <span class='id identifier rubyid_create_api_controller'>create_api_controller</span>
+  <span class='id identifier rubyid_create_graphql_controller'>create_graphql_controller</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create_documentation-instance_method">
+  
+    #<strong>create_documentation</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+169
+170
+171
+172
+173
+174
+175</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/install_generator.rb', line 169</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_documentation'>create_documentation</span>
+  <span class='id identifier rubyid_say_status'>say_status</span> <span class='symbol'>:docs</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Creating Zeropoint documentation</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:green</span>
+
+  <span class='id identifier rubyid_create_readme'>create_readme</span>
+  <span class='id identifier rubyid_create_setup_guide'>create_setup_guide</span>
+  <span class='id identifier rubyid_create_api_docs'>create_api_docs</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create_initializers-instance_method">
+  
+    #<strong>create_initializers</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+103
+104
+105
+106
+107
+108
+109</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/install_generator.rb', line 103</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_initializers'>create_initializers</span>
+  <span class='id identifier rubyid_say_status'>say_status</span> <span class='symbol'>:initializers</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Creating Zeropoint initializers</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:green</span>
+
+  <span class='id identifier rubyid_create_zeropoint_initializer'>create_zeropoint_initializer</span>
+  <span class='id identifier rubyid_create_consciousness_initializer'>create_consciousness_initializer</span>
+  <span class='id identifier rubyid_create_vortex_initializer'>create_vortex_initializer</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create_models-instance_method">
+  
+    #<strong>create_models</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+128
+129
+130
+131
+132
+133
+134</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/install_generator.rb', line 128</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_models'>create_models</span>
+  <span class='id identifier rubyid_say_status'>say_status</span> <span class='symbol'>:models</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Creating Zeropoint models</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:green</span>
+
+  <span class='id identifier rubyid_create_user_enhancements'>create_user_enhancements</span>
+  <span class='id identifier rubyid_create_session_enhancements'>create_session_enhancements</span>
+  <span class='id identifier rubyid_create_vortex_models'>create_vortex_models</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create_routes-instance_method">
+  
+    #<strong>create_routes</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+144
+145
+146
+147
+148
+149
+150</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/install_generator.rb', line 144</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_routes'>create_routes</span>
+  <span class='id identifier rubyid_say_status'>say_status</span> <span class='symbol'>:routes</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Setting up Zeropoint routes</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:green</span>
+
+  <span class='id identifier rubyid_add_zeropoint_routes'>add_zeropoint_routes</span>
+  <span class='id identifier rubyid_add_graphql_routes'>add_graphql_routes</span>
+  <span class='id identifier rubyid_add_api_routes'>add_api_routes</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create_tests-instance_method">
+  
+    #<strong>create_tests</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+160
+161
+162
+163
+164
+165
+166
+167</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/install_generator.rb', line 160</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_tests'>create_tests</span>
+  <span class='id identifier rubyid_say_status'>say_status</span> <span class='symbol'>:tests</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Creating Zeropoint tests</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:green</span>
+
+  <span class='id identifier rubyid_create_authentication_tests'>create_authentication_tests</span>
+  <span class='id identifier rubyid_create_vortex_tests'>create_vortex_tests</span>
+  <span class='id identifier rubyid_create_graphql_tests'>create_graphql_tests</span>
+  <span class='id identifier rubyid_create_api_tests'>create_api_tests</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create_views-instance_method">
+  
+    #<strong>create_views</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+136
+137
+138
+139
+140
+141
+142</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/install_generator.rb', line 136</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_views'>create_views</span>
+  <span class='id identifier rubyid_say_status'>say_status</span> <span class='symbol'>:views</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Creating Zeropoint views</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:green</span>
+
+  <span class='id identifier rubyid_create_layout_views'>create_layout_views</span>
+  <span class='id identifier rubyid_create_authentication_views'>create_authentication_views</span>
+  <span class='id identifier rubyid_create_graphql_views'>create_graphql_views</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="finalize_setup-instance_method">
+  
+    #<strong>finalize_setup</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/install_generator.rb', line 177</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_finalize_setup'>finalize_setup</span>
+  <span class='id identifier rubyid_say_status'>say_status</span> <span class='symbol'>:finalize</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Finalizing Zeropoint setup</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:green</span>
+
+  <span class='comment'># Create database if it doesn&#39;t exist
+</span>  <span class='id identifier rubyid_run'>run</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rails db:create</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>config/database.yml</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
+  <span class='comment'># Run any pending migrations
+</span>  <span class='id identifier rubyid_run'>run</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rails db:migrate</span><span class='tstring_end'>&#39;</span></span>
+
+  <span class='comment'># Create test data
+</span>  <span class='id identifier rubyid_create_test_data'>create_test_data</span>
+
+  <span class='comment'># Display setup completion message
+</span>  <span class='id identifier rubyid_display_setup_completion'>display_setup_completion</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="install_zeropoint-instance_method">
+  
+    #<strong>install_zeropoint</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/install_generator.rb', line 22</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_install_zeropoint'>install_zeropoint</span>
+  <span class='id identifier rubyid_say_status'>say_status</span> <span class='symbol'>:install</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Zeropoint gem installation</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:green</span>
+
+  <span class='comment'># Add Zeropoint to Gemfile
+</span>  <span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>zeropoint</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>path:</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>../../../..</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='kw'>__FILE__</span><span class='rparen'>)</span>
+
+  <span class='comment'># Install gems
+</span>  <span class='id identifier rubyid_run'>run</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bundle install</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="setup_api_compatibility-instance_method">
+  
+    #<strong>setup_api_compatibility</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+93
+94
+95
+96
+97
+98
+99
+100
+101</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/install_generator.rb', line 93</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_setup_api_compatibility'>setup_api_compatibility</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:api_only</span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_say_status'>say_status</span> <span class='symbol'>:api</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Setting up API-only compatibility</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:green</span>
+
+  <span class='id identifier rubyid_create_api_authentication'>create_api_authentication</span>
+  <span class='id identifier rubyid_create_api_controllers'>create_api_controllers</span>
+  <span class='id identifier rubyid_create_api_serializers'>create_api_serializers</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="setup_graphql_integration-instance_method">
+  
+    #<strong>setup_graphql_integration</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/install_generator.rb', line 62</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_setup_graphql_integration'>setup_graphql_integration</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:skip_graphql</span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_say_status'>say_status</span> <span class='symbol'>:graphql</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Setting up GraphQL integration</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:green</span>
+
+  <span class='comment'># Add GraphQL gems
+</span>  <span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>graphql</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>graphiql-rails</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>group:</span> <span class='symbol'>:development</span>
+
+  <span class='comment'># Install gems
+</span>  <span class='id identifier rubyid_run'>run</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bundle install</span><span class='tstring_end'>&#39;</span></span>
+
+  <span class='comment'># Generate GraphQL schema
+</span>  <span class='id identifier rubyid_generate'>generate</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>graphql:install</span><span class='tstring_end'>&#39;</span></span>
+
+  <span class='comment'># Create Zeropoint GraphQL types
+</span>  <span class='id identifier rubyid_create_graphql_types'>create_graphql_types</span>
+  <span class='id identifier rubyid_create_graphql_mutations'>create_graphql_mutations</span>
+  <span class='id identifier rubyid_create_graphql_queries'>create_graphql_queries</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="setup_internationalization-instance_method">
+  
+    #<strong>setup_internationalization</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+83
+84
+85
+86
+87
+88
+89
+90
+91</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/install_generator.rb', line 83</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_setup_internationalization'>setup_internationalization</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:skip_i18n</span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_say_status'>say_status</span> <span class='symbol'>:i18n</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Setting up internationalization</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:green</span>
+
+  <span class='id identifier rubyid_create_i18n_config'>create_i18n_config</span>
+  <span class='id identifier rubyid_create_i18n_concerns'>create_i18n_concerns</span>
+  <span class='id identifier rubyid_create_i18n_helpers'>create_i18n_helpers</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="setup_rails_8_authentication-instance_method">
+  
+    #<strong>setup_rails_8_authentication</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/install_generator.rb', line 32</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_setup_rails_8_authentication'>setup_rails_8_authentication</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:skip_authentication</span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_say_status'>say_status</span> <span class='symbol'>:authentication</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Setting up Rails 8 authentication</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:green</span>
+
+  <span class='comment'># Generate Rails 8 authentication
+</span>  <span class='id identifier rubyid_generate'>generate</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>authentication</span><span class='tstring_end'>&#39;</span></span>
+
+  <span class='comment'># Run migrations
+</span>  <span class='id identifier rubyid_run'>run</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rails db:migrate</span><span class='tstring_end'>&#39;</span></span>
+
+  <span class='comment'># Add registration functionality
+</span>  <span class='id identifier rubyid_add_registration_controller'>add_registration_controller</span>
+  <span class='id identifier rubyid_add_registration_views'>add_registration_views</span>
+  <span class='id identifier rubyid_add_user_model_enhancements'>add_user_model_enhancements</span>
+  <span class='id identifier rubyid_add_authentication_routes'>add_authentication_routes</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="setup_vortex_features-instance_method">
+  
+    #<strong>setup_vortex_features</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/install_generator.rb', line 50</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_setup_vortex_features'>setup_vortex_features</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:skip_vortex</span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_say_status'>say_status</span> <span class='symbol'>:vortex</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Setting up vortex features</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:green</span>
+
+  <span class='comment'># Create vortex configuration
+</span>  <span class='id identifier rubyid_create_vortex_config'>create_vortex_config</span>
+  <span class='id identifier rubyid_create_vortex_initializer'>create_vortex_initializer</span>
+  <span class='id identifier rubyid_create_vortex_concerns'>create_vortex_concerns</span>
+  <span class='id identifier rubyid_create_vortex_controllers'>create_vortex_controllers</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Jun 30 00:12:03 2025 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.37 (ruby-3.3.6).
+</div>
+
+    </div>
+  </body>
+</html>

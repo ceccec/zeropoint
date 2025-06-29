@@ -1,0 +1,169 @@
+# frozen_string_literal: true
+
+# Optional Dependencies for GraphQL UI Layout
+# Uncomment the gems you want to use for enhanced functionality
+
+# =============================================================================
+# SEARCH BACKENDS (Choose one or more)
+# =============================================================================
+
+# PostgreSQL full-text search (recommended)
+gem 'pg_search', '~> 2.3.0'
+
+# Elasticsearch-based search
+# gem 'searchkick', '~> 5.0.0'
+
+# Elasticsearch model integration
+# gem 'elasticsearch-model', '~> 7.0.0'
+
+# =============================================================================
+# PAGINATION BACKENDS (Choose one)
+# =============================================================================
+
+# Kaminari pagination (recommended)
+gem 'kaminari', '~> 1.2.0'
+
+# Will Paginate (alternative)
+# gem 'will_paginate', '~> 3.3.0'
+
+# =============================================================================
+# AUTHORIZATION BACKENDS (Choose one)
+# =============================================================================
+
+# Pundit authorization (recommended)
+gem 'pundit', '~> 2.3.0'
+
+# CanCanCan authorization (alternative)
+# gem 'cancancan', '~> 3.4.0'
+
+# =============================================================================
+# CACHE BACKENDS (Choose one)
+# =============================================================================
+
+# Redis cache (recommended)
+gem 'redis', '~> 5.0.0'
+
+# Memcached cache (alternative)
+# gem 'dalli', '~> 3.2.0'
+
+# =============================================================================
+# FILE STORAGE BACKENDS (Choose one)
+# =============================================================================
+
+# CarrierWave file uploads (recommended)
+gem 'carrierwave', '~> 2.2.0'
+
+# Shrine file uploads (alternative)
+# gem 'shrine', '~> 3.0.0'
+
+# ActiveStorage (built into Rails, no gem needed)
+
+# =============================================================================
+# NOTIFICATION BACKENDS (Choose one)
+# =============================================================================
+
+# Noticed notifications (recommended)
+gem 'noticed', '~> 1.0.0'
+
+# Mailboxer notifications (alternative)
+# gem 'mailboxer', '~> 0.15.0'
+
+# =============================================================================
+# ANALYTICS BACKENDS (Choose one or more)
+# =============================================================================
+
+# Ahoy visit tracking (recommended)
+gem 'ahoy', '~> 0.1.4'
+
+# Mixpanel analytics
+# gem 'mixpanel-ruby', '~> 2.0.0'
+
+# Google Analytics
+# gem 'google-analytics-rails', '~> 1.1.0'
+
+# =============================================================================
+# ADDITIONAL ENHANCEMENTS
+# =============================================================================
+
+# Tagging system
+gem 'acts-as-taggable-on', '~> 12.0.0'
+
+# Search and filtering
+gem 'ransack', '~> 4.3.0'
+
+# Role management
+gem 'rolify', '~> 6.0.0'
+
+# Markdown processing
+gem 'commonmarker', '~> 0.23.0'
+gem 'kramdown', '~> 2.3.0'
+gem 'redcarpet', '~> 3.5.0'
+
+# =============================================================================
+# DEVELOPMENT & TESTING (Optional)
+# =============================================================================
+
+group :development, :test do
+  # Testing framework
+  gem 'rspec-rails', '~> 6.0.0'
+  
+  # Test data generation
+  gem 'factory_bot_rails', '~> 6.0.0'
+  gem 'faker', '~> 3.0.0'
+  
+  # Code quality
+  gem 'rubocop', '~> 1.75.0'
+  gem 'rubocop-rails', '~> 2.20.0'
+  gem 'rubocop-rspec', '~> 2.20.0'
+  
+  # Security scanning
+  gem 'brakeman', '~> 5.4.0'
+  gem 'bundler-audit', '~> 0.9.0'
+  
+  # Database
+  gem 'sqlite3', '~> 1.6.0'
+  gem 'database_cleaner-active_record', '~> 2.1.0'
+end
+
+group :development do
+  # Documentation
+  gem 'yard', '~> 0.9.0'
+  gem 'github_changelog_generator', '~> 1.16.0'
+  
+  # Development tools
+  gem 'annotate', '~> 3.2.0'
+  gem 'better_errors', '~> 2.10.0'
+  gem 'binding_of_caller', '~> 1.0.0'
+  
+  # Debugging
+  gem 'pry-byebug', '~> 3.10.0'
+  gem 'pry-rails', '~> 0.3.0'
+  gem 'pry-stack_explorer', '~> 0.6.0'
+  
+  # Code analysis
+  gem 'rails_best_practices', '~> 1.20.0'
+  
+  # Gem management
+  gem 'appraisal', '~> 2.4.0'
+  gem 'gem-release', '~> 2.2.0'
+  gem 'license_finder', '~> 7.0.0'
+end
+
+group :test do
+  # Integration testing
+  gem 'capybara', '~> 3.38.0'
+  gem 'selenium-webdriver', '~> 4.8.0'
+  gem 'webdrivers', '~> 5.2.0'
+  
+  # Test matchers
+  gem 'shoulda-matchers', '~> 5.0.0'
+  gem 'rails-controller-testing', '~> 1.0.0'
+  
+  # Test utilities
+  gem 'timecop', '~> 0.9.0'
+  gem 'vcr', '~> 6.1.0'
+  gem 'webmock', '~> 3.18.0'
+  
+  # Coverage
+  gem 'simplecov', '~> 0.22.0'
+end 

@@ -1,0 +1,114 @@
+en:
+  demo:
+    welcome: "Welcome to the demo!"
+    sign_in: "Sign in"
+    sign_out: "Sign out"
+    sign_up: "Sign up"
+    email: "Email"
+    password: "Password"
+    confirm_password: "Confirm Password"
+    forgot_password: "Forgot your password?"
+    recent_posts: "Recent Posts"
+    trending_posts: "Trending Posts"
+    active_users: "Active Users"
+    search: "Search"
+    search_blank: "Please enter a search query."
+    posts: "Posts"
+    users: "Users"
+    admin: "Admin"
+    home: "Home"
+    not_authorized: "You are not authorized to perform this action."
+    please_sign_in: "Please sign in to continue."
+    invalid_email_or_password: "Invalid email or password"
+    account_created: "Account created! Please check your email to confirm your account."
+    email_confirmed: "Email confirmed! You can now sign in."
+    password_reset_sent: "Password reset instructions sent to your email."
+    password_updated: "Password updated! You can now sign in."
+    user_updated: "User updated."
+    user_deleted: "User deleted."
+    post_updated: "Post updated."
+    post_deleted: "Post deleted."
+    welcome_admin: "Welcome, admin!"
+    invalid_confirmation_token: "Invalid confirmation token."
+    email_not_found: "Email not found"
+    invalid_or_expired_token: "Invalid or expired password reset token."
+    # Form labels
+    labels:
+      email: "Email:"
+      username: "Username:"
+      first_name: "First Name:"
+      last_name: "Last Name:"
+      bio: "Bio:"
+      password: "Password:"
+      password_confirmation: "Confirm Password:"
+      new_password: "New Password:"
+      confirm_new_password: "Confirm New Password:"
+      search_posts: "Search Posts:"
+    # Form buttons
+    buttons:
+      sign_up: "Sign Up"
+      sign_in: "Sign In"
+      send_reset_instructions: "Send Reset Instructions"
+      update_password: "Update Password"
+      search: "Search"
+    # Links
+    links:
+      sign_in: "Sign in"
+      sign_up: "Sign up"
+      forgot_password: "Forgot your password?"
+      back_to_login: "Back to login"
+      already_have_account: "Already have an account?"
+      dont_have_account: "Don't have an account?"
+    # Headers
+    headers:
+      sign_up: "Sign Up"
+      sign_in: "Sign In"
+      reset_password: "Reset Password"
+      zeropoint_demo: "GraphQL UI Layout Demo"
+      search_results: "Search Results"
+      recent_posts: "Recent Posts"
+      trending_posts: "Trending Posts"
+      active_users: "Active Users"
+    # Messages
+    messages:
+      errors_prohibited_save: "%{count} error prohibited this %{resource} from being saved:"
+      errors_prohibited_save_plural: "%{count} errors prohibited this %{resource} from being saved:"
+      unauthorized: "Unauthorized"
+      not_authorized: "Not authorized"
+    # API responses
+    api:
+      cache_cleared: "Cache cleared successfully"
+      event_tracked: "Event tracked successfully"
+      notification_sent: "Notification sent successfully"
+      notification_marked_read: "Notification marked as read"
+      file_uploaded: "File uploaded successfully"
+      file_upload_failed: "File upload failed"
+      file_required: "File is required"
+      file_not_found: "File not found"
+      invalid_model: "Invalid model"
+      records_deleted: "%{count} records deleted"
+      records_updated: "%{count} records updated"
+      records_created: "%{count} records created"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              invalid: "is not a valid email address"
+        post:
+          attributes:
+            status:
+              inclusion: "is not a valid status"
+        comment:
+          attributes:
+            content:
+              blank: "can't be blank"
+        like:
+          attributes:
+            user_id:
+              taken: "has already liked this post"
+        follow:
+          attributes:
+            follower_id:
+              taken: "is already following this user" 

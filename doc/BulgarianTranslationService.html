@@ -1,0 +1,2414 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: BulgarianTranslationService
+  
+    &mdash; Documentation by YARD 0.9.37
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "BulgarianTranslationService";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (B)</a> &raquo;
+    
+    
+    <span class="title">BulgarianTranslationService</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: BulgarianTranslationService
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName"><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">BulgarianTranslationService</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  <dl>
+      <dt>Includes:</dt>
+      <dd>Singleton</dd>
+  </dl>
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Bulgarian Translation Service Автоматизиран преводачески сервиз за български език Demonstrates full .bg domain compatibility and automated translations</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="BG_LOCALE-constant" class="">BG_LOCALE =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Bulgarian language constants</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bg</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+        <dt id="BG_COUNTRY-constant" class="">BG_COUNTRY =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>BG</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+        <dt id="BG_TIMEZONE-constant" class="">BG_TIMEZONE =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Europe/Sofia</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+        <dt id="BG_CURRENCY-constant" class="">BG_CURRENCY =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>BGN</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+        <dt id="BG_DOMAIN-constant" class="">BG_DOMAIN =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.bg</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_bulgarian_cultural_context-instance_method" title="#add_bulgarian_cultural_context (instance method)">#<strong>add_bulgarian_cultural_context</strong>(text, context)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Add Bulgarian cultural context.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#apply_bulgarian_case_agreement-instance_method" title="#apply_bulgarian_case_agreement (instance method)">#<strong>apply_bulgarian_case_agreement</strong>(text, case_type)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Apply Bulgarian case agreement.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#apply_bulgarian_gender_agreement-instance_method" title="#apply_bulgarian_gender_agreement (instance method)">#<strong>apply_bulgarian_gender_agreement</strong>(text, gender)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Apply Bulgarian gender agreement.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#apply_bulgarian_grammar-instance_method" title="#apply_bulgarian_grammar (instance method)">#<strong>apply_bulgarian_grammar</strong>(text, context)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Apply Bulgarian grammar rules.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#apply_bulgarian_pluralization-instance_method" title="#apply_bulgarian_pluralization (instance method)">#<strong>apply_bulgarian_pluralization</strong>(text, count)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Apply Bulgarian pluralization rules.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#apply_bulgarian_transformations-instance_method" title="#apply_bulgarian_transformations (instance method)">#<strong>apply_bulgarian_transformations</strong>(text, context)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Apply Bulgarian-specific transformations.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#apply_consciousness_transformations-instance_method" title="#apply_consciousness_transformations (instance method)">#<strong>apply_consciousness_transformations</strong>(text, consciousness_context)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Apply consciousness-specific transformations.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#apply_context_transformations-instance_method" title="#apply_context_transformations (instance method)">#<strong>apply_context_transformations</strong>(text, context)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Apply context-specific transformations.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#apply_cultural_adaptations-instance_method" title="#apply_cultural_adaptations (instance method)">#<strong>apply_cultural_adaptations</strong>(text, context)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Apply cultural adaptations for Bulgaria.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#apply_domain_transformations-instance_method" title="#apply_domain_transformations (instance method)">#<strong>apply_domain_transformations</strong>(text, context)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Apply domain-specific transformations.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#apply_vortex_transformations-instance_method" title="#apply_vortex_transformations (instance method)">#<strong>apply_vortex_transformations</strong>(text, vortex_context)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Apply vortex-specific transformations.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bulgarian_holiday%3F-instance_method" title="#bulgarian_holiday? (instance method)">#<strong>bulgarian_holiday?</strong>(date)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Check if date is a Bulgarian holiday.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bulgarian_holidays-instance_method" title="#bulgarian_holidays (instance method)">#<strong>bulgarian_holidays</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Bulgarian holidays mapping.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bulgarian_locale_info-instance_method" title="#bulgarian_locale_info (instance method)">#<strong>bulgarian_locale_info</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get Bulgarian locale information.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bulgarian_name%3F-instance_method" title="#bulgarian_name? (instance method)">#<strong>bulgarian_name?</strong>(name)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Check if name is Bulgarian.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bulgarian_text%3F-instance_method" title="#bulgarian_text? (instance method)">#<strong>bulgarian_text?</strong>(text)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Check if text contains Bulgarian characters.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cache_stats-instance_method" title="#cache_stats (instance method)">#<strong>cache_stats</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get cache statistics.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#clear_cache-instance_method" title="#clear_cache (instance method)">#<strong>clear_cache</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Clear translation cache.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_bulgarian_holiday_name-instance_method" title="#get_bulgarian_holiday_name (instance method)">#<strong>get_bulgarian_holiday_name</strong>(date)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get Bulgarian holiday name.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_bulgarian_term-instance_method" title="#get_bulgarian_term (instance method)">#<strong>get_bulgarian_term</strong>(english_term)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get Bulgarian term for English word.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#handle_bulgarian_holidays-instance_method" title="#handle_bulgarian_holidays (instance method)">#<strong>handle_bulgarian_holidays</strong>(text, context)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Handle Bulgarian holidays.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#handle_bulgarian_names-instance_method" title="#handle_bulgarian_names (instance method)">#<strong>handle_bulgarian_names</strong>(text, context)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Handle Bulgarian names.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>  &#x21d2; BulgarianTranslationService </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Initialize the service with Bulgarian-first approach.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#load_bulgarian_terms-instance_method" title="#load_bulgarian_terms (instance method)">#<strong>load_bulgarian_terms</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Load Bulgarian-specific terms.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#translate-instance_method" title="#translate (instance method)">#<strong>translate</strong>(key, locale: BG_LOCALE, context: {})  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Main translation method with Bulgarian priority.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#translate_to_bulgarian-instance_method" title="#translate_to_bulgarian (instance method)">#<strong>translate_to_bulgarian</strong>(key, context = {})  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Translate to Bulgarian with context awareness.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#validate_bulgarian_text-instance_method" title="#validate_bulgarian_text (instance method)">#<strong>validate_bulgarian_text</strong>(text)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Validate Bulgarian text.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="BulgarianTranslationService (class)">BulgarianTranslationService</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Initialize the service with Bulgarian-first approach</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18
+19
+20
+21
+22
+23</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 18</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
+  <span class='ivar'>@translation_cache</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='ivar'>@fallback_locales</span> <span class='op'>=</span> <span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>en</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>de</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>fr</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>es</span><span class='tstring_end'>&#39;</span></span> <span class='rbracket'>]</span>
+  <span class='ivar'>@cyrillic_pattern</span> <span class='op'>=</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\p{Cyrillic}</span><span class='regexp_end'>/</span></span>
+  <span class='ivar'>@bulgarian_specific_terms</span> <span class='op'>=</span> <span class='id identifier rubyid_load_bulgarian_terms'>load_bulgarian_terms</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="add_bulgarian_cultural_context-instance_method">
+  
+    #<strong>add_bulgarian_cultural_context</strong>(text, context)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Add Bulgarian cultural context</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 178</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_bulgarian_cultural_context'>add_bulgarian_cultural_context</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span>
+  <span class='comment'># Add Bulgarian-specific cultural references
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>система</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_text'>text</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> (оптимизирана за България)</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>домейн</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_text'>text</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> (.bg съвместимост)</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_text'>text</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="apply_bulgarian_case_agreement-instance_method">
+  
+    #<strong>apply_bulgarian_case_agreement</strong>(text, case_type)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Apply Bulgarian case agreement</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 148</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_apply_bulgarian_case_agreement'>apply_bulgarian_case_agreement</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_case_type'>case_type</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id identifier rubyid_case_type'>case_type</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>nominative</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_text'>text</span> <span class='comment'># Default case
+</span>  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>accusative</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(\w+)</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\1 (винителен падеж)</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>dative</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(\w+)</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\1 (дателен падеж)</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>genitive</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(\w+)</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\1 (родителен падеж)</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_text'>text</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="apply_bulgarian_gender_agreement-instance_method">
+  
+    #<strong>apply_bulgarian_gender_agreement</strong>(text, gender)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Apply Bulgarian gender agreement</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 134</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_apply_bulgarian_gender_agreement'>apply_bulgarian_gender_agreement</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_gender'>gender</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id identifier rubyid_gender'>gender</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>masculine</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(\w+а)</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\1 (мъжки род)</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>feminine</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(\w+а)</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\1 (женски род)</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>neuter</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(\w+о)</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\1 (среден род)</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_text'>text</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="apply_bulgarian_grammar-instance_method">
+  
+    #<strong>apply_bulgarian_grammar</strong>(text, context)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Apply Bulgarian grammar rules</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 97</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_apply_bulgarian_grammar'>apply_bulgarian_grammar</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span>
+  <span class='comment'># Handle Bulgarian pluralization
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_context'>context</span><span class='lbracket'>[</span><span class='symbol'>:count</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_text'>text</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_bulgarian_pluralization'>apply_bulgarian_pluralization</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='lbracket'>[</span><span class='symbol'>:count</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Handle Bulgarian gender agreement
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_context'>context</span><span class='lbracket'>[</span><span class='symbol'>:gender</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_text'>text</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_bulgarian_gender_agreement'>apply_bulgarian_gender_agreement</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='lbracket'>[</span><span class='symbol'>:gender</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Handle Bulgarian case agreement
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_context'>context</span><span class='lbracket'>[</span><span class='symbol'>:case</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_text'>text</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_bulgarian_case_agreement'>apply_bulgarian_case_agreement</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='lbracket'>[</span><span class='symbol'>:case</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_text'>text</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="apply_bulgarian_pluralization-instance_method">
+  
+    #<strong>apply_bulgarian_pluralization</strong>(text, count)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Apply Bulgarian pluralization rules</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 117</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_apply_bulgarian_pluralization'>apply_bulgarian_pluralization</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_count'>count</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_text'>text</span> <span class='kw'>unless</span> <span class='id identifier rubyid_count'>count</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Numeric</span><span class='rparen'>)</span>
+
+  <span class='comment'># Bulgarian has complex pluralization rules
+</span>  <span class='kw'>case</span> <span class='id identifier rubyid_count'>count</span>
+  <span class='kw'>when</span> <span class='int'>0</span>
+    <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(\w+)</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\1 (нула)</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='int'>1</span>
+    <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(\w+)</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\1 (един)</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='int'>2</span><span class='op'>..</span><span class='int'>4</span>
+    <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(\w+)</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\1 (няколко)</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(\w+)</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\1 (много)</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="apply_bulgarian_transformations-instance_method">
+  
+    #<strong>apply_bulgarian_transformations</strong>(text, context)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Apply Bulgarian-specific transformations</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 57</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_apply_bulgarian_transformations'>apply_bulgarian_transformations</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_text'>text</span> <span class='kw'>unless</span> <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span>
+
+  <span class='comment'># Apply context-specific transformations
+</span>  <span class='id identifier rubyid_text'>text</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_context_transformations'>apply_context_transformations</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span>
+
+  <span class='comment'># Apply Bulgarian grammar rules
+</span>  <span class='id identifier rubyid_text'>text</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_bulgarian_grammar'>apply_bulgarian_grammar</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span>
+
+  <span class='comment'># Apply Bulgarian cultural adaptations
+</span>  <span class='id identifier rubyid_text'>text</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_cultural_adaptations'>apply_cultural_adaptations</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span>
+
+  <span class='comment'># Apply domain-specific transformations
+</span>  <span class='id identifier rubyid_text'>text</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_domain_transformations'>apply_domain_transformations</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_text'>text</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="apply_consciousness_transformations-instance_method">
+  
+    #<strong>apply_consciousness_transformations</strong>(text, consciousness_context)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Apply consciousness-specific transformations</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 271</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_apply_consciousness_transformations'>apply_consciousness_transformations</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_consciousness_context'>consciousness_context</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_consciousness_context'>consciousness_context</span><span class='lbracket'>[</span><span class='symbol'>:observer_id</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_text'>text</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> (наблюдател: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_consciousness_context'>consciousness_context</span><span class='lbracket'>[</span><span class='symbol'>:observer_id</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_consciousness_context'>consciousness_context</span><span class='lbracket'>[</span><span class='symbol'>:quantum_state</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_text'>text</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> (квантово състояние: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_consciousness_context'>consciousness_context</span><span class='lbracket'>[</span><span class='symbol'>:quantum_state</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_text'>text</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="apply_context_transformations-instance_method">
+  
+    #<strong>apply_context_transformations</strong>(text, context)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Apply context-specific transformations</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 76</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_apply_context_transformations'>apply_context_transformations</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span>
+  <span class='comment'># Replace placeholders with context values
+</span>  <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='op'>|</span>
+    <span class='id identifier rubyid_placeholder'>placeholder</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>{{</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_key'>key</span><span class='embexpr_end'>}</span><span class='tstring_content'>}}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_text'>text</span> <span class='op'>=</span> <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='id identifier rubyid_placeholder'>placeholder</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Apply vortex-specific transformations
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_context'>context</span><span class='lbracket'>[</span><span class='symbol'>:vortex</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_text'>text</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_vortex_transformations'>apply_vortex_transformations</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='lbracket'>[</span><span class='symbol'>:vortex</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Apply consciousness-specific transformations
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_context'>context</span><span class='lbracket'>[</span><span class='symbol'>:consciousness</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_text'>text</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_consciousness_transformations'>apply_consciousness_transformations</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='lbracket'>[</span><span class='symbol'>:consciousness</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_text'>text</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="apply_cultural_adaptations-instance_method">
+  
+    #<strong>apply_cultural_adaptations</strong>(text, context)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Apply cultural adaptations for Bulgaria</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 164</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_apply_cultural_adaptations'>apply_cultural_adaptations</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span>
+  <span class='comment'># Add Bulgarian cultural context
+</span>  <span class='id identifier rubyid_text'>text</span> <span class='op'>=</span> <span class='id identifier rubyid_add_bulgarian_cultural_context'>add_bulgarian_cultural_context</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span>
+
+  <span class='comment'># Handle Bulgarian holidays and traditions
+</span>  <span class='id identifier rubyid_text'>text</span> <span class='op'>=</span> <span class='id identifier rubyid_handle_bulgarian_holidays'>handle_bulgarian_holidays</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span>
+
+  <span class='comment'># Handle Bulgarian naming conventions
+</span>  <span class='id identifier rubyid_text'>text</span> <span class='op'>=</span> <span class='id identifier rubyid_handle_bulgarian_names'>handle_bulgarian_names</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_text'>text</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="apply_domain_transformations-instance_method">
+  
+    #<strong>apply_domain_transformations</strong>(text, context)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Apply domain-specific transformations</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 243</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_apply_domain_transformations'>apply_domain_transformations</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span>
+  <span class='comment'># Add .bg domain compatibility indicators
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_context'>context</span><span class='lbracket'>[</span><span class='symbol'>:domain</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="#BG_DOMAIN-constant" title="BulgarianTranslationService::BG_DOMAIN (constant)">BG_DOMAIN</a></span></span>
+    <span class='id identifier rubyid_text'>text</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> (.bg домейн верифициран)</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Add Bulgarian optimization indicators
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_context'>context</span><span class='lbracket'>[</span><span class='symbol'>:optimized</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='kw'>true</span>
+    <span class='id identifier rubyid_text'>text</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> (оптимизирано за България)</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_text'>text</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="apply_vortex_transformations-instance_method">
+  
+    #<strong>apply_vortex_transformations</strong>(text, vortex_context)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Apply vortex-specific transformations</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 258</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_apply_vortex_transformations'>apply_vortex_transformations</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_vortex_context'>vortex_context</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_vortex_context'>vortex_context</span><span class='lbracket'>[</span><span class='symbol'>:session_id</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_text'>text</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> (вортекс сесия: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_vortex_context'>vortex_context</span><span class='lbracket'>[</span><span class='symbol'>:session_id</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_vortex_context'>vortex_context</span><span class='lbracket'>[</span><span class='symbol'>:encrypted</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_text'>text</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> (шифровано)</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_text'>text</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="bulgarian_holiday?-instance_method">
+  
+    #<strong>bulgarian_holiday?</strong>(date)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Check if date is a Bulgarian holiday</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+204
+205
+206</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 204</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_bulgarian_holiday?'>bulgarian_holiday?</span><span class='lparen'>(</span><span class='id identifier rubyid_date'>date</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_bulgarian_holidays'>bulgarian_holidays</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_date'>date</span><span class='period'>.</span><span class='id identifier rubyid_strftime'>strftime</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%m-%d</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="bulgarian_holidays-instance_method">
+  
+    #<strong>bulgarian_holidays</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Bulgarian holidays mapping</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 215</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_bulgarian_holidays'>bulgarian_holidays</span>
+  <span class='lbrace'>{</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>01-01</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Нова година</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>03-03</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Национален празник на България</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>05-01</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Ден на труда</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>05-06</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Ден на храбростта</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>05-24</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Ден на българската просвета и култура</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>09-06</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Ден на обединението</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>09-22</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Ден на независимостта</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>12-25</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Коледа</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="bulgarian_locale_info-instance_method">
+  
+    #<strong>bulgarian_locale_info</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get Bulgarian locale information</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 320</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_bulgarian_locale_info'>bulgarian_locale_info</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>locale:</span> <span class='const'><span class='object_link'><a href="#BG_LOCALE-constant" title="BulgarianTranslationService::BG_LOCALE (constant)">BG_LOCALE</a></span></span><span class='comma'>,</span>
+    <span class='label'>country:</span> <span class='const'><span class='object_link'><a href="#BG_COUNTRY-constant" title="BulgarianTranslationService::BG_COUNTRY (constant)">BG_COUNTRY</a></span></span><span class='comma'>,</span>
+    <span class='label'>timezone:</span> <span class='const'><span class='object_link'><a href="#BG_TIMEZONE-constant" title="BulgarianTranslationService::BG_TIMEZONE (constant)">BG_TIMEZONE</a></span></span><span class='comma'>,</span>
+    <span class='label'>currency:</span> <span class='const'><span class='object_link'><a href="#BG_CURRENCY-constant" title="BulgarianTranslationService::BG_CURRENCY (constant)">BG_CURRENCY</a></span></span><span class='comma'>,</span>
+    <span class='label'>domain:</span> <span class='const'><span class='object_link'><a href="#BG_DOMAIN-constant" title="BulgarianTranslationService::BG_DOMAIN (constant)">BG_DOMAIN</a></span></span><span class='comma'>,</span>
+    <span class='label'>language_name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Български</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>country_name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>България</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>cyrillic_support:</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='label'>right_to_left:</span> <span class='kw'>false</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="bulgarian_name?-instance_method">
+  
+    #<strong>bulgarian_name?</strong>(name)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Check if name is Bulgarian</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+238
+239
+240</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 238</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_bulgarian_name?'>bulgarian_name?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_match?'>match?</span><span class='lparen'>(</span><span class='ivar'>@cyrillic_pattern</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="bulgarian_text?-instance_method">
+  
+    #<strong>bulgarian_text?</strong>(text)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Check if text contains Bulgarian characters</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+315
+316
+317</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 315</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_bulgarian_text?'>bulgarian_text?</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_match?'>match?</span><span class='lparen'>(</span><span class='ivar'>@cyrillic_pattern</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="cache_stats-instance_method">
+  
+    #<strong>cache_stats</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get cache statistics</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+350
+351
+352
+353
+354
+355
+356</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 350</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_cache_stats'>cache_stats</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>size:</span> <span class='ivar'>@translation_cache</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='comma'>,</span>
+    <span class='label'>keys:</span> <span class='ivar'>@translation_cache</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span class='comma'>,</span>
+    <span class='label'>memory_usage:</span> <span class='const'>ObjectSpace</span><span class='period'>.</span><span class='id identifier rubyid_memsize_of'>memsize_of</span><span class='lparen'>(</span><span class='ivar'>@translation_cache</span><span class='rparen'>)</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="clear_cache-instance_method">
+  
+    #<strong>clear_cache</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Clear translation cache</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+345
+346
+347</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 345</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_clear_cache'>clear_cache</span>
+  <span class='ivar'>@translation_cache</span><span class='period'>.</span><span class='id identifier rubyid_clear'>clear</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_bulgarian_holiday_name-instance_method">
+  
+    #<strong>get_bulgarian_holiday_name</strong>(date)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get Bulgarian holiday name</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+209
+210
+211
+212</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 209</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_bulgarian_holiday_name'>get_bulgarian_holiday_name</span><span class='lparen'>(</span><span class='id identifier rubyid_date'>date</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_holiday_key'>holiday_key</span> <span class='op'>=</span> <span class='id identifier rubyid_date'>date</span><span class='period'>.</span><span class='id identifier rubyid_strftime'>strftime</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%m-%d</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_bulgarian_holidays'>bulgarian_holidays</span><span class='lbracket'>[</span><span class='id identifier rubyid_holiday_key'>holiday_key</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Неизвестен празник</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_bulgarian_term-instance_method">
+  
+    #<strong>get_bulgarian_term</strong>(english_term)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get Bulgarian term for English word</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+310
+311
+312</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 310</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_bulgarian_term'>get_bulgarian_term</span><span class='lparen'>(</span><span class='id identifier rubyid_english_term'>english_term</span><span class='rparen'>)</span>
+  <span class='ivar'>@bulgarian_specific_terms</span><span class='lbracket'>[</span><span class='id identifier rubyid_english_term'>english_term</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='id identifier rubyid_english_term'>english_term</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="handle_bulgarian_holidays-instance_method">
+  
+    #<strong>handle_bulgarian_holidays</strong>(text, context)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Handle Bulgarian holidays</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 192</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_handle_bulgarian_holidays'>handle_bulgarian_holidays</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_current_date'>current_date</span> <span class='op'>=</span> <span class='id identifier rubyid_context'>context</span><span class='lbracket'>[</span><span class='symbol'>:date</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_current'>current</span>
+
+  <span class='comment'># Check for Bulgarian holidays
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_bulgarian_holiday?'>bulgarian_holiday?</span><span class='lparen'>(</span><span class='id identifier rubyid_current_date'>current_date</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_text'>text</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> (български празник: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_get_bulgarian_holiday_name'>get_bulgarian_holiday_name</span><span class='lparen'>(</span><span class='id identifier rubyid_current_date'>current_date</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_text'>text</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="handle_bulgarian_names-instance_method">
+  
+    #<strong>handle_bulgarian_names</strong>(text, context)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Handle Bulgarian names</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+229
+230
+231
+232
+233
+234
+235</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 229</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_handle_bulgarian_names'>handle_bulgarian_names</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_context'>context</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_bulgarian_name?'>bulgarian_name?</span><span class='lparen'>(</span><span class='id identifier rubyid_context'>context</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_text'>text</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> (българско име)</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_text'>text</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="load_bulgarian_terms-instance_method">
+  
+    #<strong>load_bulgarian_terms</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Load Bulgarian-specific terms</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 284</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_load_bulgarian_terms'>load_bulgarian_terms</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>system:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>система</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>domain:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>домейн</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>user:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>потребител</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>authentication:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>аутентикация</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>vortex:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>вортекс</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>consciousness:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>съзнание</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>quantum:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>квантов</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>encryption:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>шифроване</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>cache:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>кеш</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>stream:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>поток</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>batch:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>пакет</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>storage:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>хранилище</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>session:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>сесия</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>security:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>сигурност</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>performance:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>производителност</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>optimization:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>оптимизация</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>compatibility:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>съвместимост</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>integration:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>интеграция</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>localization:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>локализация</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>internationalization:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>интернационализация</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="translate-instance_method">
+  
+    #<strong>translate</strong>(key, locale: BG_LOCALE, context: {})  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Main translation method with Bulgarian priority</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 26</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_translate'>translate</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='label'>locale:</span> <span class='const'><span class='object_link'><a href="#BG_LOCALE-constant" title="BulgarianTranslationService::BG_LOCALE (constant)">BG_LOCALE</a></span></span><span class='comma'>,</span> <span class='label'>context:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='comment'># Always try Bulgarian first
+</span>  <span class='kw'>return</span> <span class='id identifier rubyid_translate_to_bulgarian'>translate_to_bulgarian</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_locale'>locale</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="#BG_LOCALE-constant" title="BulgarianTranslationService::BG_LOCALE (constant)">BG_LOCALE</a></span></span>
+
+  <span class='comment'># For other locales, check if we have a Bulgarian fallback
+</span>  <span class='id identifier rubyid_bulgarian_text'>bulgarian_text</span> <span class='op'>=</span> <span class='id identifier rubyid_translate_to_bulgarian'>translate_to_bulgarian</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_bulgarian_text'>bulgarian_text</span> <span class='kw'>if</span> <span class='id identifier rubyid_bulgarian_text'>bulgarian_text</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span>
+
+  <span class='comment'># Fallback to other locales
+</span>  <span class='id identifier rubyid_translate_to_locale'>translate_to_locale</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_locale'>locale</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="translate_to_bulgarian-instance_method">
+  
+    #<strong>translate_to_bulgarian</strong>(key, context = {})  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Translate to Bulgarian with context awareness</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 39</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_translate_to_bulgarian'>translate_to_bulgarian</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='comment'># Check cache first
+</span>  <span class='id identifier rubyid_cache_key'>cache_key</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_key'>key</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_hash'>hash</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>return</span> <span class='ivar'>@translation_cache</span><span class='lbracket'>[</span><span class='id identifier rubyid_cache_key'>cache_key</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='ivar'>@translation_cache</span><span class='lbracket'>[</span><span class='id identifier rubyid_cache_key'>cache_key</span><span class='rbracket'>]</span>
+
+  <span class='comment'># Get translation from I18n
+</span>  <span class='id identifier rubyid_translation'>translation</span> <span class='op'>=</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='label'>locale:</span> <span class='const'><span class='object_link'><a href="#BG_LOCALE-constant" title="BulgarianTranslationService::BG_LOCALE (constant)">BG_LOCALE</a></span></span><span class='comma'>,</span> <span class='label'>default:</span> <span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
+
+  <span class='comment'># Apply Bulgarian-specific transformations
+</span>  <span class='id identifier rubyid_translation'>translation</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_bulgarian_transformations'>apply_bulgarian_transformations</span><span class='lparen'>(</span><span class='id identifier rubyid_translation'>translation</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span>
+
+  <span class='comment'># Cache the result
+</span>  <span class='ivar'>@translation_cache</span><span class='lbracket'>[</span><span class='id identifier rubyid_cache_key'>cache_key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_translation'>translation</span>
+
+  <span class='id identifier rubyid_translation'>translation</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="validate_bulgarian_text-instance_method">
+  
+    #<strong>validate_bulgarian_text</strong>(text)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Validate Bulgarian text</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+335
+336
+337
+338
+339
+340
+341
+342</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/services/bulgarian_translation_service.rb', line 335</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_validate_bulgarian_text'>validate_bulgarian_text</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='rparen'>)</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>valid:</span> <span class='id identifier rubyid_bulgarian_text?'>bulgarian_text?</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>cyrillic_chars:</span> <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_scan'>scan</span><span class='lparen'>(</span><span class='ivar'>@cyrillic_pattern</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span><span class='comma'>,</span>
+    <span class='label'>total_chars:</span> <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='comma'>,</span>
+    <span class='label'>bulgarian_ratio:</span> <span class='id identifier rubyid_bulgarian_text?'>bulgarian_text?</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='float'>1.0</span> <span class='op'>:</span> <span class='float'>0.0</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Jun 30 00:12:04 2025 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.37 (ruby-3.3.6).
+</div>
+
+    </div>
+  </body>
+</html>

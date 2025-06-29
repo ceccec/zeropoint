@@ -1,0 +1,4 @@
+rubocop-performance extension supports plugin, specify `plugins: rubocop-performance` instead of `require: rubocop-performance` in /Users/ceci/github/ceccec/gem.zeropoint.bg/.rubocop.yml.
+For more information, see https://docs.rubocop.org/rubocop/plugin_migration_guide.html.
+.rubocop.yml: Rails/SelectMap has the wrong namespace - replace it with Performance/SelectMap
+Error: unrecognized cop or department disable found in .rubocop.yml

@@ -1,0 +1,23 @@
+<h1><%= t('demo.headers.sign_in') %></h1>
+
+<%= form_with url: login_path, local: true do |f| %>
+  <div>
+    <%= f.label :email, t('demo.labels.email') %>
+    <%= f.email_field :email, required: true %>
+  </div>
+
+  <div>
+    <%= f.label :password, t('demo.labels.password') %>
+    <%= f.password_field :password, required: true %>
+  </div>
+
+  <%= f.submit t('demo.buttons.sign_in') %>
+<% end %>
+
+<p>
+  <%= t('demo.links.dont_have_account') %> <%= link_to t('demo.links.sign_up'), signup_path %>
+</p>
+
+<p>
+  <%= link_to t('demo.links.forgot_password'), password_reset_path %>
+</p> 

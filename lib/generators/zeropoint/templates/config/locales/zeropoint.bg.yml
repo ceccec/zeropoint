@@ -1,0 +1,292 @@
+# Zeropoint Bulgarian Language Integration
+# Този файл демонстрира пълна интеграция на българския език с домейна .bg
+# This file demonstrates full Bulgarian language integration with .bg domain compatibility
+
+bg:
+  # Основна секция: Zeropoint система
+  zeropoint:
+    # Секция: Аутентикация и сигурност
+    authentication:
+      require_sign_in: "Трябва да влезете в системата, за да продължите."
+      sign_in_success: "Успешно влязохте в системата."
+      sign_out_success: "Успешно излязохте от системата."
+      invalid_credentials: "Невалидни данни за вход."
+      account_locked: "Акаунтът е заключен."
+      password_reset_sent: "Изпратени са инструкции за възстановяване на парола."
+      password_reset_success: "Паролата е успешно променена."
+      
+    # Секция: Потребители и профили
+    users:
+      created_successfully: "Вашият акаунт беше създаден успешно."
+      updated_successfully: "Вашият профил беше обновен успешно."
+      deleted_successfully: "Вашият акаунт беше изтрит успешно."
+      not_authorized: "Нямате права за това действие."
+      profile_updated: "Профилът е обновен."
+      email_changed: "Имейл адресът е променен."
+      
+    # Секция: Вортекс система
+    vortex:
+      session_initialized: "Вортекс сесията е инициализирана."
+      session_expired: "Вортекс сесията е изтекла."
+      cache_hit: "Кеш попадение."
+      cache_miss: "Кеш пропуск."
+      encryption_enabled: "Шифроването е активирано."
+      encryption_disabled: "Шифроването е деактивирано."
+      quantum_uuid_generated: "Квантов UUID е генериран."
+      stream_connected: "Потокът е свързан."
+      stream_disconnected: "Потокът е прекъснат."
+      batch_processed: "Пакетът е обработен."
+      storage_synced: "Хранилището е синхронизирано."
+      
+    # Секция: Съзнание и квантова физика
+    consciousness:
+      context_set: "Контекстът на съзнанието е зададен."
+      observer_influence: "Влияние на наблюдателя е засечено."
+      quantum_entanglement: "Квантово заплитане е установено."
+      golden_ratio_detected: "Златната пропорция е открита."
+      consciousness_stream: "Поток на съзнанието е активен."
+      quantum_state: "Квантово състояние е измерено."
+      
+    # Секция: GraphQL заявки
+    graphql:
+      query_executed: "GraphQL заявката е изпълнена."
+      mutation_success: "GraphQL мутацията е успешна."
+      subscription_active: "GraphQL абонаментът е активен."
+      introspection_enabled: "GraphQL интроспекцията е активирана."
+      playground_available: "GraphQL детската площадка е достъпна."
+      
+    # Секция: API и интерфейси
+    api:
+      request_processed: "API заявката е обработена."
+      rate_limit_exceeded: "Превишен е лимитът на заявките."
+      cors_enabled: "CORS е активиран."
+      version_supported: "API версията се поддържа."
+      
+    # Секция: Сигурност и шифроване
+    security:
+      csrf_protected: "CSRF защитата е активна."
+      encryption_key_rotated: "Ключът за шифроване е завъртян."
+      secure_headers_set: "Сигурните заглавки са зададени."
+      content_security_policy: "Политиката за сигурност на съдържанието е активна."
+      
+    # Секция: Локализация и езици
+    i18n:
+      locale_changed: "Езикът е променен."
+      translation_missing: "Преводът липсва."
+      fallback_used: "Използван е резервен език."
+      locale_supported: "Езикът се поддържа."
+      
+    # Секция: Системни съобщения
+    system:
+      initialization_complete: "Инициализацията е завършена."
+      configuration_loaded: "Конфигурацията е заредена."
+      database_connected: "Базата данни е свързана."
+      cache_cleared: "Кешът е изчистен."
+      maintenance_mode: "Режим на поддръжка е активен."
+      
+    # Секция: Грешки и изключения
+    errors:
+      general_error: "Възникна обща грешка."
+      not_found: "Ресурсът не е намерен."
+      unauthorized: "Неоторизиран достъп."
+      forbidden: "Достъпът е забранен."
+      server_error: "Сървърна грешка."
+      validation_error: "Грешка при валидация."
+      
+    # Секция: Успешни операции
+    success:
+      operation_completed: "Операцията е завършена успешно."
+      data_saved: "Данните са запазени."
+      data_updated: "Данните са обновени."
+      data_deleted: "Данните са изтрити."
+      connection_established: "Връзката е установена."
+      
+    # Секция: Предупреждения
+    warnings:
+      session_expiring: "Сесията скоро ще изтече."
+      cache_full: "Кешът е пълен."
+      storage_quota: "Квотата за съхранение е почти изчерпана."
+      performance_degraded: "Производителността е намалена."
+      
+    # Секция: Информационни съобщения
+    info:
+      system_status: "Статус на системата."
+      user_activity: "Потребителска активност."
+      background_job: "Фонова задача."
+      sync_in_progress: "Синхронизацията е в процес."
+      
+    # Секция: Домейн специфични съобщения (.bg)
+    domain:
+      bg_compatibility: "Пълна съвместимост с .bg домейн."
+      bulgarian_optimized: "Оптимизирано за български език."
+      local_compliance: "Съответствие с местните изисквания."
+      cultural_adaptation: "Културна адаптация за България."
+      
+    # Секция: Валидация и форми
+    validation:
+      required_field: "Това поле е задължително."
+      invalid_format: "Невалиден формат."
+      too_short: "Твърде кратко."
+      too_long: "Твърде дълго."
+      invalid_email: "Невалиден имейл адрес."
+      password_mismatch: "Паролите не съвпадат."
+      
+    # Секция: Навигация и интерфейс
+    navigation:
+      home: "Начало"
+      profile: "Профил"
+      settings: "Настройки"
+      logout: "Изход"
+      login: "Вход"
+      register: "Регистрация"
+      dashboard: "Табло"
+      help: "Помощ"
+      about: "За нас"
+      contact: "Контакти"
+      
+    # Секция: Време и дати
+    time:
+      now: "сега"
+      ago: "преди"
+      later: "по-късно"
+      today: "днес"
+      yesterday: "вчера"
+      tomorrow: "утре"
+      this_week: "тази седмица"
+      last_week: "миналата седмица"
+      next_week: "следващата седмица"
+      
+    # Секция: Числа и единици
+    numbers:
+      one: "един"
+      few: "няколко"
+      many: "много"
+      other: "други"
+      zero: "нула"
+      thousand: "хиляда"
+      million: "милион"
+      billion: "милиард"
+      
+    # Секция: Статуси и състояния
+    status:
+      active: "активен"
+      inactive: "неактивен"
+      pending: "чакащ"
+      completed: "завършен"
+      failed: "неуспешен"
+      processing: "обработва се"
+      queued: "в опашка"
+      cancelled: "отменен"
+      
+    # Секция: Действия и бутони
+    actions:
+      save: "Запази"
+      cancel: "Отмени"
+      delete: "Изтрий"
+      edit: "Редактирай"
+      create: "Създай"
+      update: "Обнови"
+      submit: "Изпрати"
+      reset: "Нулирай"
+      search: "Търси"
+      filter: "Филтрирай"
+      sort: "Сортирай"
+      export: "Експортирай"
+      import: "Импортирай"
+      
+    # Секция: Подтверждения
+    confirmations:
+      delete_confirm: "Сигурни ли сте, че искате да изтриете това?"
+      logout_confirm: "Сигурни ли сте, че искате да излезете?"
+      unsaved_changes: "Имате незапазени промени. Сигурни ли сте?"
+      action_irreversible: "Това действие е необратимо. Продължавате ли?"
+      
+    # Секция: Помощ и подсказки
+    help:
+      tooltip: "Подсказка"
+      hint: "Съвет"
+      example: "Пример"
+      documentation: "Документация"
+      faq: "Често задавани въпроси"
+      support: "Поддръжка"
+      
+    # Секция: Технически термини
+    technical:
+      api_endpoint: "API крайна точка"
+      database_query: "Заявка към базата данни"
+      cache_miss: "Пропуск в кеша"
+      memory_usage: "Използване на памет"
+      cpu_usage: "Използване на процесор"
+      network_latency: "Мрежова закъснение"
+      response_time: "Време за отговор"
+      throughput: "Пропускателна способност"
+      
+    # Секция: Бизнес логика
+    business:
+      user_registration: "Регистрация на потребител"
+      order_processing: "Обработка на поръчка"
+      payment_processing: "Обработка на плащане"
+      inventory_management: "Управление на инвентар"
+      customer_support: "Поддръжка на клиенти"
+      reporting: "Отчитане"
+      analytics: "Анализ"
+      compliance: "Съответствие"
+      
+    # Секция: Мобилни устройства
+    mobile:
+      responsive_design: "Адаптивен дизайн"
+      touch_optimized: "Оптимизирано за докосване"
+      offline_mode: "Офлайн режим"
+      push_notification: "Push известие"
+      location_services: "Локационни услуги"
+      camera_access: "Достъп до камера"
+      microphone_access: "Достъп до микрофон"
+      
+    # Секция: Доступност
+    accessibility:
+      screen_reader: "Екранен четец"
+      keyboard_navigation: "Навигация с клавиатура"
+      high_contrast: "Висок контраст"
+      large_text: "Голям текст"
+      color_blind_friendly: "Приятелски за цветно слепи"
+      voice_control: "Гласово управление"
+      
+    # Секция: GDPR и поверителност
+    privacy:
+      data_protection: "Защита на данните"
+      cookie_consent: "Съгласие за бисквитки"
+      privacy_policy: "Политика за поверителност"
+      terms_of_service: "Условия за ползване"
+      data_retention: "Запазване на данни"
+      right_to_forget: "Право на забвение"
+      data_portability: "Преносимост на данни"
+      
+    # Секция: Екологичност
+    environmental:
+      carbon_footprint: "Въглероден отпечатък"
+      energy_efficient: "Енергийно ефективно"
+      green_hosting: "Зелено хостиране"
+      sustainable_computing: "Устойчиво изчисляване"
+      eco_friendly: "Екологично приятелски"
+      
+    # Секция: Български специфики
+    bulgarian_specific:
+      cyrillic_support: "Поддръжка на кирилица"
+      bulgarian_date_format: "Български формат на дата"
+      bulgarian_currency: "Българска валута (BGN)"
+      bulgarian_timezone: "Българска часова зона (EET/EEST)"
+      bulgarian_holidays: "Български празници"
+      bulgarian_names: "Български имена"
+      bulgarian_addresses: "Български адреси"
+      bulgarian_phone: "Български телефонни номера"
+      
+    # Секция: Интеграция с .bg домейн
+    bg_domain_integration:
+      domain_verified: "Домейнът .bg е верифициран"
+      local_optimization: "Локална оптимизация за България"
+      regional_compliance: "Регионално съответствие"
+      cultural_adaptation: "Културна адаптация"
+      language_preference: "Предпочитание за език"
+      local_content: "Локално съдържание"
+      regional_features: "Регионални функции"
+      local_support: "Локална поддръжка" 

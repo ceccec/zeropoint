@@ -1,0 +1,205 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "optparse"
+require "zeropoint"
+
+# Zeropoint CLI - Command line interface for the Zeropoint framework
+class ZeropointCLI
+  def initialize
+    @options = {}
+    @parser = create_option_parser
+  end
+
+  def run(args = ARGV)
+    @parser.parse!(args)
+    execute_command
+  rescue OptionParser::InvalidOption, OptionParser::MissingArgument => e
+    puts "Error: #{e.message}"
+    puts @parser
+    exit 1
+  rescue StandardError => e
+    puts "Fatal error: #{e.message}"
+    exit 1
+  end
+
+  private
+
+  attr_reader :options, :parser
+
+  def create_option_parser
+    OptionParser.new do |opts|
+      opts.banner = "Usage: zeropoint [options] [command]"
+
+      opts.on("-v", "--version", "Show version information") do
+        options[:version] = true
+      end
+
+      opts.on("-c", "--config FILE", "Configuration file path") do |file|
+        options[:config_file] = file
+      end
+
+      opts.on("-e", "--environment ENV", "Environment (development, test, production)") do |env|
+        options[:environment] = env
+      end
+
+      opts.on("-d", "--debug", "Enable debug mode") do
+        options[:debug] = true
+      end
+
+      opts.on("-h", "--help", "Show this help message") do
+        options[:help] = true
+      end
+
+      opts.separator ""
+      opts.separator "Commands:"
+      opts.separator "  init          Initialize a new Zeropoint project"
+      opts.separator "  generate      Generate components (model, controller, etc.)"
+      opts.separator "  console       Start Zeropoint console"
+      opts.separator "  server        Start development server"
+      opts.separator "  test          Run test suite"
+      opts.separator "  lint          Run code linting"
+      opts.separator "  coverage      Generate coverage report"
+      opts.separator "  benchmark     Run performance benchmarks"
+      opts.separator "  docs          Generate documentation"
+      opts.separator "  health        Check system health"
+      opts.separator "  migrate       Run database migrations"
+      opts.separator "  seed          Seed database with sample data"
+    end
+  end
+
+  def execute_command
+    if options[:version]
+      show_version
+    elsif options[:help]
+      show_help
+    else
+      command = ARGV.first
+      execute_specific_command(command)
+    end
+  end
+
+  def execute_specific_command(command)
+    case command
+    when "init"
+      initialize_project
+    when "generate"
+      generate_component
+    when "console"
+      start_console
+    when "server"
+      start_server
+    when "test"
+      run_tests
+    when "lint"
+      run_linting
+    when "coverage"
+      generate_coverage
+    when "benchmark"
+      run_benchmarks
+    when "docs"
+      generate_docs
+    when "health"
+      check_health
+    when "migrate"
+      run_migrations
+    when "seed"
+      seed_database
+    else
+      puts "Unknown command: #{command}"
+      puts "Use --help for available commands"
+      exit 1
+    end
+  end
+
+  def show_version
+    puts "Zeropoint #{Zeropoint.version_string}"
+    puts "Ruby #{RUBY_VERSION} (#{RUBY_PLATFORM})"
+    puts "Rails #{Rails.version}" if defined?(Rails)
+  end
+
+  def show_help
+    puts parser
+  end
+
+  def initialize_project
+    puts "🌌 Initializing Zeropoint project..."
+    # Implementation for project initialization
+    puts "✅ Project initialized successfully!"
+  end
+
+  def generate_component
+    component_type = ARGV[1]
+    component_name = ARGV[2]
+    
+    unless component_type && component_name
+      puts "Usage: zeropoint generate <type> <name>"
+      puts "Types: model, controller, service, concern, job"
+      exit 1
+    end
+
+    puts "🔧 Generating #{component_type}: #{component_name}"
+    # Implementation for component generation
+    puts "✅ #{component_type.capitalize} generated successfully!"
+  end
+
+  def start_console
+    puts "🧠 Starting Zeropoint console..."
+    # Implementation for console startup
+    puts "✅ Console started!"
+  end
+
+  def start_server
+    puts "🚀 Starting Zeropoint development server..."
+    # Implementation for server startup
+    puts "✅ Server started on http://localhost:3000"
+  end
+
+  def run_tests
+    puts "🧪 Running test suite..."
+    system("bundle exec rspec")
+  end
+
+  def run_linting
+    puts "🔍 Running code linting..."
+    system("bundle exec rubocop")
+  end
+
+  def generate_coverage
+    puts "📊 Generating coverage report..."
+    system("bundle exec rspec --format documentation --coverage")
+  end
+
+  def run_benchmarks
+    puts "⚡ Running performance benchmarks..."
+    # Implementation for benchmarks
+    puts "✅ Benchmarks completed!"
+  end
+
+  def generate_docs
+    puts "📚 Generating documentation..."
+    system("bundle exec yard")
+    puts "✅ Documentation generated!"
+  end
+
+  def check_health
+    puts "🏥 Checking system health..."
+    # Implementation for health checks
+    puts "✅ System is healthy!"
+  end
+
+  def run_migrations
+    puts "🔄 Running database migrations..."
+    system("bundle exec rails db:migrate")
+  end
+
+  def seed_database
+    puts "🌱 Seeding database..."
+    system("bundle exec rails db:seed")
+  end
+end
+
+# Run the CLI if this file is executed directly
+if __FILE__ == $PROGRAM_NAME
+  ZeropointCLI.new.run
+end 

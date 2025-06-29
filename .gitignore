@@ -1,0 +1,111 @@
+# Exclude draft blog posts from docs/
+docs/*.draft.md 
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+
+# Rails log, temp, and storage files
+/log/*
+!/log/.keep
+/tmp/*
+!/tmp/.keep
+/storage/*
+!/storage/.keep
+
+# Ignore uploaded files in development
+/public/assets
+/public/packs
+/public/packs-test
+/public/uploads
+
+# Ignore node modules and yarn logs
+/node_modules
+/yarn-error.log
+
+# Ignore coverage reports
+/coverage/
+/spec/examples.txt
+/spec/tmp
+
+# Ignore editor and OS files
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+*.orig
+*.DS_Store
+.idea/
+.vscode/
+
+# Ignore byebug command history file
+.byebug_history
+
+# Ignore environment files
+.env
+.env.*
+
+# Ignore vendor
+/vendor/bundle
+
+# Ignore RubyMine project files
+/.idea
+
+# Ignore Capybara save files
+capybara-*.html
+
+# Ignore Pickle email files
+pickle-email-*.html
+
+# Ignore rbc files
+*.rbc
+
+# Ignore rerun.txt
+rerun.txt
+
+# Ignore auto-generated files (optimization)
+scripts/pattern_replacements.txt
+scripts/observer_report.json
+docs/reports/observer_report.md
+config/locales/extracted_translations.yml
+
+# Ignore virtual environments
+temp_venv/
+venv/
+.venv/
+env/
+.env/
+ENV/
+
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Ignore additional coverage files that might be tracked
+coverage/assets/
+coverage/.resultset.json
+coverage/.resultset.xml
+
+# Ignore build artifacts, not source code
+!/lib/
+!/lib/zeropoint/
+!/lib/zeropoint/void/
+!/lib/zeropoint/void/metaphysical_engine.rb

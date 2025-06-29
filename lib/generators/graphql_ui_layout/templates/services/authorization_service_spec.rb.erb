@@ -1,0 +1,628 @@
+# frozen_string_literal: true
+
+require 'rails_helper'
+
+RSpec.describe Zeropoint::AuthorizationService do
+  let(:service) { described_class.instance }
+  let(:user) { create(:user) }
+  let(:post) { create(:post) }
+  let(:admin_user) { create(:user, admin: true) }
+
+  describe '#authorize' do
+    context 'with valid user and resource' do
+      it 'authorizes admin user for any action' do
+        result = service.authorize(admin_user, :read, post)
+        expect(result).to be true
+      end
+
+      it 'returns false for nil user' do
+        result = service.authorize(nil, :read, post)
+        expect(result).to be false
+      end
+
+      it 'returns false for blank user' do
+        result = service.authorize('', :read, post)
+        expect(result).to be false
+      end
+    end
+
+    context 'with different backends' do
+      context 'with Pundit backend' do
+        before do
+          allow(service).to receive(:detect_backend).and_return(
+            Zeropoint::AuthorizationService::PunditBackend.new
+          )
+        end
+
+        it 'uses Pundit for authorization' do
+          expect_any_instance_of(Zeropoint::AuthorizationService::PunditBackend)
+            .to receive(:authorize).with(user, :read, post, {})
+          
+          service.authorize(user, :read, post)
+        end
+
+        it 'handles missing policy gracefully' do
+          result = service.authorize(user, :read, post)
+          expect(result).to be false # falls back to admin check
+        end
+      end
+
+      context 'with CanCanCan backend' do
+        before do
+          allow(service).to receive(:detect_backend).and_return(
+            Zeropoint::AuthorizationService::CanCanCanBackend.new
+          )
+        end
+
+        it 'uses CanCanCan for authorization' do
+          expect_any_instance_of(Zeropoint::AuthorizationService::CanCanCanBackend)
+            .to receive(:authorize).with(user, :read, post, {})
+          
+          service.authorize(user, :read, post)
+        end
+      end
+
+      context 'with Rolify backend' do
+        before do
+          allow(service).to receive(:detect_backend).and_return(
+            Zeropoint::AuthorizationService::RolifyBackend.new
+          )
+        end
+
+        it 'uses Rolify for authorization' do
+          expect_any_instance_of(Zeropoint::AuthorizationService::RolifyBackend)
+            .to receive(:authorize).with(user, :read, post, {})
+          
+          service.authorize(user, :read, post)
+        end
+      end
+    end
+
+    context 'when backend raises error' do
+      before do
+        backend = double('backend')
+        allow(backend).to receive(:authorize).and_raise(StandardError, 'Authorization failed')
+        allow(service).to receive(:detect_backend).and_return(backend)
+      end
+
+      it 'falls back to simple authorization' do
+        result = service.authorize(admin_user, :read, post)
+        expect(result).to be true
+      end
+
+      it 'logs the error' do
+        expect(Rails.logger).to receive(:error).with(/Authorization failed/)
+        service.authorize(user, :read, post)
+      end
+    end
+  end
+
+  describe '#authorize_scope' do
+    context 'with valid user and model' do
+      it 'returns all records for admin user' do
+        scope = service.authorize_scope(admin_user, Post)
+        expect(scope).to eq(Post.all)
+      end
+
+      it 'returns none for nil user' do
+        scope = service.authorize_scope(nil, Post)
+        expect(scope).to eq(Post.none)
+      end
+
+      it 'returns none for blank user' do
+        scope = service.authorize_scope('', Post)
+        expect(scope).to eq(Post.none)
+      end
+    end
+
+    context 'with different backends' do
+      context 'with Pundit backend' do
+        before do
+          allow(service).to receive(:detect_backend).and_return(
+            Zeropoint::AuthorizationService::PunditBackend.new
+          )
+        end
+
+        it 'uses Pundit for scope authorization' do
+          expect_any_instance_of(Zeropoint::AuthorizationService::PunditBackend)
+            .to receive(:authorize_scope).with(user, Post, :index, {})
+          
+          service.authorize_scope(user, Post)
+        end
+
+        it 'handles missing policy gracefully' do
+          scope = service.authorize_scope(user, Post)
+          expect(scope).to eq(Post.none) # falls back to none for non-admin
+        end
+      end
+
+      context 'with CanCanCan backend' do
+        before do
+          allow(service).to receive(:detect_backend).and_return(
+            Zeropoint::AuthorizationService::CanCanCanBackend.new
+          )
+        end
+
+        it 'uses CanCanCan for scope authorization' do
+          expect_any_instance_of(Zeropoint::AuthorizationService::CanCanCanBackend)
+            .to receive(:authorize_scope).with(user, Post, :index, {})
+          
+          service.authorize_scope(user, Post)
+        end
+      end
+    end
+
+    context 'when backend raises error' do
+      before do
+        backend = double('backend')
+        allow(backend).to receive(:authorize_scope).and_raise(StandardError, 'Scope authorization failed')
+        allow(service).to receive(:detect_backend).and_return(backend)
+      end
+
+      it 'falls back to simple scope authorization' do
+        scope = service.authorize_scope(admin_user, Post)
+        expect(scope).to eq(Post.all)
+      end
+
+      it 'logs the error' do
+        expect(Rails.logger).to receive(:error).with(/Scope authorization failed/)
+        service.authorize_scope(user, Post)
+      end
+    end
+  end
+
+  describe '#check_permission' do
+    context 'with valid user and permission' do
+      it 'returns true for admin user' do
+        result = service.check_permission(admin_user, :read)
+        expect(result).to be true
+      end
+
+      it 'returns false for nil user' do
+        result = service.check_permission(nil, :read)
+        expect(result).to be false
+      end
+
+      it 'returns false for blank user' do
+        result = service.check_permission('', :read)
+        expect(result).to be false
+      end
+    end
+
+    context 'with different backends' do
+      context 'with Pundit backend' do
+        before do
+          allow(service).to receive(:detect_backend).and_return(
+            Zeropoint::AuthorizationService::PunditBackend.new
+          )
+        end
+
+        it 'uses Pundit for permission check' do
+          expect_any_instance_of(Zeropoint::AuthorizationService::PunditBackend)
+            .to receive(:check_permission).with(user, :read, {})
+          
+          service.check_permission(user, :read)
+        end
+      end
+
+      context 'with CanCanCan backend' do
+        before do
+          allow(service).to receive(:detect_backend).and_return(
+            Zeropoint::AuthorizationService::CanCanCanBackend.new
+          )
+        end
+
+        it 'uses CanCanCan for permission check' do
+          expect_any_instance_of(Zeropoint::AuthorizationService::CanCanCanBackend)
+            .to receive(:check_permission).with(user, :read, {})
+          
+          service.check_permission(user, :read)
+        end
+      end
+
+      context 'with Rolify backend' do
+        before do
+          allow(service).to receive(:detect_backend).and_return(
+            Zeropoint::AuthorizationService::RolifyBackend.new
+          )
+        end
+
+        it 'uses Rolify for permission check' do
+          expect_any_instance_of(Zeropoint::AuthorizationService::RolifyBackend)
+            .to receive(:check_permission).with(user, :read, {})
+          
+          service.check_permission(user, :read)
+        end
+      end
+    end
+
+    context 'when backend raises error' do
+      before do
+        backend = double('backend')
+        allow(backend).to receive(:check_permission).and_raise(StandardError, 'Permission check failed')
+        allow(service).to receive(:detect_backend).and_return(backend)
+      end
+
+      it 'falls back to simple permission check' do
+        result = service.check_permission(admin_user, :read)
+        expect(result).to be true
+      end
+
+      it 'logs the error' do
+        expect(Rails.logger).to receive(:error).with(/Permission check failed/)
+        service.check_permission(user, :read)
+      end
+    end
+  end
+
+  describe '#get_permissions' do
+    context 'with valid user' do
+      it 'returns permissions for admin user' do
+        permissions = service.get_permissions(admin_user)
+        expect(permissions).to include('read', 'write', 'delete', 'admin')
+      end
+
+      it 'returns empty array for nil user' do
+        permissions = service.get_permissions(nil)
+        expect(permissions).to be_empty
+      end
+
+      it 'returns empty array for blank user' do
+        permissions = service.get_permissions('')
+        expect(permissions).to be_empty
+      end
+    end
+
+    context 'with different backends' do
+      context 'with Pundit backend' do
+        before do
+          allow(service).to receive(:detect_backend).and_return(
+            Zeropoint::AuthorizationService::PunditBackend.new
+          )
+        end
+
+        it 'uses Pundit for permission listing' do
+          expect_any_instance_of(Zeropoint::AuthorizationService::PunditBackend)
+            .to receive(:get_permissions).with(user, {})
+          
+          service.get_permissions(user)
+        end
+      end
+
+      context 'with CanCanCan backend' do
+        before do
+          allow(service).to receive(:detect_backend).and_return(
+            Zeropoint::AuthorizationService::CanCanCanBackend.new
+          )
+        end
+
+        it 'uses CanCanCan for permission listing' do
+          expect_any_instance_of(Zeropoint::AuthorizationService::CanCanCanBackend)
+            .to receive(:get_permissions).with(user, {})
+          
+          service.get_permissions(user)
+        end
+      end
+
+      context 'with Rolify backend' do
+        before do
+          allow(service).to receive(:detect_backend).and_return(
+            Zeropoint::AuthorizationService::RolifyBackend.new
+          )
+        end
+
+        it 'uses Rolify for permission listing' do
+          expect_any_instance_of(Zeropoint::AuthorizationService::RolifyBackend)
+            .to receive(:get_permissions).with(user, {})
+          
+          service.get_permissions(user)
+        end
+      end
+    end
+
+    context 'when backend raises error' do
+      before do
+        backend = double('backend')
+        allow(backend).to receive(:get_permissions).and_raise(StandardError, 'Get permissions failed')
+        allow(service).to receive(:detect_backend).and_return(backend)
+      end
+
+      it 'falls back to simple permission listing' do
+        permissions = service.get_permissions(admin_user)
+        expect(permissions).to include('read', 'write', 'delete', 'admin')
+      end
+
+      it 'logs the error' do
+        expect(Rails.logger).to receive(:error).with(/Get permissions failed/)
+        service.get_permissions(user)
+      end
+    end
+  end
+
+  describe '#get_roles' do
+    context 'with valid user' do
+      it 'returns roles for admin user' do
+        roles = service.get_roles(admin_user)
+        expect(roles).to include('admin')
+      end
+
+      it 'returns empty array for nil user' do
+        roles = service.get_roles(nil)
+        expect(roles).to be_empty
+      end
+
+      it 'returns empty array for blank user' do
+        roles = service.get_roles('')
+        expect(roles).to be_empty
+      end
+    end
+
+    context 'with different backends' do
+      context 'with Rolify backend' do
+        before do
+          allow(service).to receive(:detect_backend).and_return(
+            Zeropoint::AuthorizationService::RolifyBackend.new
+          )
+        end
+
+        it 'uses Rolify for role listing' do
+          expect_any_instance_of(Zeropoint::AuthorizationService::RolifyBackend)
+            .to receive(:get_roles).with(user, {})
+          
+          service.get_roles(user)
+        end
+      end
+
+      context 'with other backends' do
+        before do
+          allow(service).to receive(:detect_backend).and_return(
+            Zeropoint::AuthorizationService::PunditBackend.new
+          )
+        end
+
+        it 'falls back to simple role listing' do
+          roles = service.get_roles(admin_user)
+          expect(roles).to include('admin')
+        end
+      end
+    end
+
+    context 'when backend raises error' do
+      before do
+        backend = double('backend')
+        allow(backend).to receive(:get_roles).and_raise(StandardError, 'Get roles failed')
+        allow(service).to receive(:detect_backend).and_return(backend)
+      end
+
+      it 'falls back to simple role listing' do
+        roles = service.get_roles(admin_user)
+        expect(roles).to include('admin')
+      end
+
+      it 'logs the error' do
+        expect(Rails.logger).to receive(:error).with(/Get roles failed/)
+        service.get_roles(user)
+      end
+    end
+  end
+
+  describe '#has_role?' do
+    context 'with valid user and role' do
+      it 'returns true for admin user with any role' do
+        result = service.has_role?(admin_user, :admin)
+        expect(result).to be true
+      end
+
+      it 'returns true for admin user with user role' do
+        result = service.has_role?(admin_user, :user)
+        expect(result).to be true
+      end
+
+      it 'returns false for nil user' do
+        result = service.has_role?(nil, :admin)
+        expect(result).to be false
+      end
+
+      it 'returns false for blank user' do
+        result = service.has_role?('', :admin)
+        expect(result).to be false
+      end
+    end
+
+    context 'with different backends' do
+      context 'with Rolify backend' do
+        before do
+          allow(service).to receive(:detect_backend).and_return(
+            Zeropoint::AuthorizationService::RolifyBackend.new
+          )
+        end
+
+        it 'uses Rolify for role check' do
+          expect_any_instance_of(Zeropoint::AuthorizationService::RolifyBackend)
+            .to receive(:has_role?).with(user, :admin, {})
+          
+          service.has_role?(user, :admin)
+        end
+      end
+
+      context 'with other backends' do
+        before do
+          allow(service).to receive(:detect_backend).and_return(
+            Zeropoint::AuthorizationService::PunditBackend.new
+          )
+        end
+
+        it 'falls back to simple role check' do
+          result = service.has_role?(admin_user, :admin)
+          expect(result).to be true
+        end
+      end
+    end
+
+    context 'when backend raises error' do
+      before do
+        backend = double('backend')
+        allow(backend).to receive(:has_role?).and_raise(StandardError, 'Role check failed')
+        allow(service).to receive(:detect_backend).and_return(backend)
+      end
+
+      it 'falls back to simple role check' do
+        result = service.has_role?(admin_user, :admin)
+        expect(result).to be true
+      end
+
+      it 'logs the error' do
+        expect(Rails.logger).to receive(:error).with(/Role check failed/)
+        service.has_role?(user, :admin)
+      end
+    end
+  end
+
+  describe 'backend detection' do
+    context 'when Pundit is available' do
+      before do
+        stub_const('Pundit', double('Pundit'))
+      end
+
+      it 'detects Pundit backend' do
+        service = described_class.new
+        expect(service.send(:detect_backend)).to be_a(Zeropoint::AuthorizationService::PunditBackend)
+      end
+    end
+
+    context 'when CanCanCan is available' do
+      before do
+        stub_const('CanCanCan', double('CanCanCan'))
+      end
+
+      it 'detects CanCanCan backend' do
+        service = described_class.new
+        expect(service.send(:detect_backend)).to be_a(Zeropoint::AuthorizationService::CanCanCanBackend)
+      end
+    end
+
+    context 'when Rolify is available' do
+      before do
+        stub_const('Rolify', double('Rolify'))
+      end
+
+      it 'detects Rolify backend' do
+        service = described_class.new
+        expect(service.send(:detect_backend)).to be_a(Zeropoint::AuthorizationService::RolifyBackend)
+      end
+    end
+
+    context 'when no authorization gems are available' do
+      it 'falls back to Simple backend' do
+        service = described_class.new
+        expect(service.send(:detect_backend)).to be_a(Zeropoint::AuthorizationService::SimpleBackend)
+      end
+    end
+  end
+
+  describe 'PunditBackend' do
+    let(:backend) { Zeropoint::AuthorizationService::PunditBackend.new }
+
+    it 'uses Pundit policy for authorization' do
+      policy = double('policy')
+      allow(policy).to receive(:read?).and_return(true)
+      allow(PostPolicy).to receive(:new).with(user, post).and_return(policy)
+
+      result = backend.authorize(user, :read, post)
+      expect(result).to be true
+    end
+
+    it 'handles missing policy gracefully' do
+      allow(PostPolicy).to receive(:new).and_raise(NameError)
+
+      result = backend.authorize(user, :read, post)
+      expect(result).to be false
+    end
+
+    it 'uses Pundit policy for scope authorization' do
+      policy = double('policy')
+      allow(policy).to receive(:index_scope).and_return(Post.all)
+      allow(PostPolicy).to receive(:new).with(user, Post).and_return(policy)
+
+      scope = backend.authorize_scope(user, Post, :index)
+      expect(scope).to eq(Post.all)
+    end
+  end
+
+  describe 'CanCanCanBackend' do
+    let(:backend) { Zeropoint::AuthorizationService::CanCanCanBackend.new }
+
+    it 'uses CanCanCan ability for authorization' do
+      ability = double('ability')
+      allow(ability).to receive(:can?).with(:read, post).and_return(true)
+      allow(Ability).to receive(:new).with(user).and_return(ability)
+
+      result = backend.authorize(user, :read, post)
+      expect(result).to be true
+    end
+
+    it 'uses CanCanCan ability for scope authorization' do
+      ability = double('ability')
+      allow(ability).to receive(:can?).with(:index, Post).and_return(true)
+      allow(Post).to receive(:accessible_by).with(ability, :index).and_return(Post.all)
+      allow(Ability).to receive(:new).with(user).and_return(ability)
+
+      scope = backend.authorize_scope(user, Post, :index)
+      expect(scope).to eq(Post.all)
+    end
+  end
+
+  describe 'RolifyBackend' do
+    let(:backend) { Zeropoint::AuthorizationService::RolifyBackend.new }
+
+    it 'uses Rolify for authorization' do
+      allow(user).to receive(:has_role?).with(:admin).and_return(true)
+
+      result = backend.authorize(user, :read, post)
+      expect(result).to be true
+    end
+
+    it 'uses Rolify for role checking' do
+      allow(user).to receive(:has_role?).with(:admin).and_return(true)
+
+      result = backend.has_role?(user, :admin)
+      expect(result).to be true
+    end
+
+    it 'uses Rolify for role listing' do
+      roles = double('roles')
+      allow(roles).to receive(:pluck).with(:name).and_return(['admin', 'user'])
+      allow(user).to receive(:roles).and_return(roles)
+
+      result = backend.get_roles(user)
+      expect(result).to eq(['admin', 'user'])
+    end
+  end
+
+  describe 'SimpleBackend' do
+    let(:backend) { Zeropoint::AuthorizationService::SimpleBackend.new }
+
+    it 'uses admin check for authorization' do
+      allow(user).to receive(:admin?).and_return(true)
+
+      result = backend.authorize(user, :read, post)
+      expect(result).to be true
+    end
+
+    it 'uses roles for authorization' do
+      allow(user).to receive(:admin?).and_return(false)
+      allow(user).to receive(:roles).and_return(['reader'])
+
+      result = backend.authorize(user, :read, post)
+      expect(result).to be true
+    end
+
+    it 'uses permissions for permission checking' do
+      allow(user).to receive(:admin?).and_return(false)
+      allow(user).to receive(:permissions).and_return(['read'])
+
+      result = backend.check_permission(user, :read)
+      expect(result).to be true
+    end
+  end
+end 

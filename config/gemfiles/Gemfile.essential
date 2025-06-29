@@ -1,0 +1,121 @@
+# Essential Gem Bundle for GraphQL UI Layout
+# Core gems that work well with the GraphQL UI Layout system
+
+source "https://rubygems.org"
+
+# Core Rails and GraphQL
+gem "rails", "~> 7.1.0"
+gem "graphql", "~> 2.0.0"
+gem "graphql-batch", "~> 0.5.0"  # Batch loading for GraphQL
+gem "graphql-persisted_queries", "~> 1.0.0"  # Query persistence
+
+# GraphQL UI Layout - Main Gem
+gem "zeropoint", path: "."
+
+# Authentication & Authorization
+gem "devise", "~> 4.9.0"  # Authentication
+gem "devise_token_auth", "~> 1.2.0"  # Token-based auth for APIs
+gem "pundit", "~> 2.3.0"  # Authorization policies
+gem "rolify", "~> 6.0.0"  # Role management
+
+# Database & Search
+gem "pg", "~> 1.5.0"  # PostgreSQL adapter
+gem "pg_search", "~> 2.3.0"  # Full-text search
+gem "ransack", "~> 4.3.0"  # Search and filtering
+gem "acts-as-taggable-on", "~> 12.0.0"  # Tagging system
+
+# API & Serialization
+gem "active_model_serializers", "~> 0.10.0"  # JSON serialization
+gem "jbuilder", "~> 2.11.0"  # JSON building
+
+# Frontend & UI
+gem "stimulus-rails", "~> 1.0.0"  # Stimulus integration
+gem "turbo-rails", "~> 1.5.0"  # Turbo Drive
+gem "importmap-rails", "~> 1.1.0"  # JavaScript import maps
+gem "sassc-rails", "~> 2.1.0"  # Sass compilation
+
+# UI Components & Styling
+gem "view_component", "~> 3.0.0"  # View components
+gem "tailwindcss-rails", "~> 2.0.0"  # Tailwind CSS
+gem "font-awesome-rails", "~> 4.7.0"  # Font Awesome icons
+
+# Caching & Performance
+gem "redis", "~> 5.0.0"  # Redis client
+gem "redis-rails", "~> 5.0.0"  # Rails Redis integration
+gem "rack-attack", "~> 6.6.0"  # Rate limiting
+gem "bullet", "~> 7.0.0"  # N+1 query detection
+
+# Background Jobs & Async
+gem "sidekiq", "~> 7.0.0"  # Background job processing
+gem "sidekiq-scheduler", "~> 5.0.0"  # Scheduled jobs
+
+# File Upload & Storage
+gem "carrierwave", "~> 2.2.0"  # File uploads
+gem "mini_magick", "~> 4.12.0"  # Image processing
+gem "aws-sdk-s3", "~> 1.0.0"  # AWS S3 storage
+gem "image_processing", "~> 1.14.0"  # Image processing pipeline
+
+# Monitoring & Logging
+gem "sentry-ruby", "~> 5.0.0"  # Error tracking
+gem "sentry-rails", "~> 5.0.0"  # Rails integration
+gem "lograge", "~> 0.12.0"  # Structured logging
+
+# Security
+gem "brakeman", "~> 5.4.0"  # Security scanner
+gem "bundler-audit", "~> 0.9.0"  # Dependency security
+gem "strong_password", "~> 0.0.10"  # Password strength
+
+# Testing & Quality
+gem "rspec-rails", "~> 6.0.0"  # Testing framework
+gem "factory_bot_rails", "~> 6.0.0"  # Test data
+gem "faker", "~> 3.0.0"  # Fake data generation
+gem "capybara", "~> 3.38.0"  # Integration testing
+gem "vcr", "~> 6.1.0"  # HTTP request recording
+gem "webmock", "~> 3.18.0"  # HTTP request stubbing
+
+# Code Quality
+gem "rubocop", "~> 1.75.0"  # Code style
+gem "rubocop-rails", "~> 2.20.0"  # Rails-specific rules
+gem "rubocop-rspec", "~> 2.20.0"  # RSpec rules
+
+# Documentation
+gem "yard", "~> 0.9.0"  # Documentation generator
+gem "redcarpet", "~> 3.5.0"  # Markdown processing
+
+# Development Tools
+gem "pry-rails", "~> 0.3.0"  # Enhanced console
+gem "better_errors", "~> 2.10.0"  # Better error pages
+gem "annotate", "~> 3.2.0"  # Model annotations
+
+# Database & Migration
+gem "strong_migrations", "~> 1.0.0"  # Safe migrations
+gem "database_cleaner-active_record", "~> 2.1.0"  # Test database cleaning
+
+# Utilities
+gem "dry-validation", "~> 1.10.0"  # Data validation
+gem "oj", "~> 3.15.0"  # Fast JSON parsing
+gem "faraday", "~> 2.7.0"  # HTTP client
+
+# Email & Notifications
+gem "letter_opener", "~> 1.8.0"  # Email preview
+gem "noticed", "~> 1.0.0"  # Notification system
+
+# Performance & Optimization
+gem "rack-mini-profiler", "~> 3.0.0"  # Performance profiling
+gem "rack-cors", "~> 2.0.0"  # CORS support
+
+group :development, :test do
+  # Shared development and test gems
+end
+
+group :development do
+  # Development only gems
+end
+
+group :test do
+  # Test only gems
+end
+
+group :production do
+  # Production only gems
+end 

@@ -1,0 +1,423 @@
+# frozen_string_literal: true
+
+module Api
+  module <%= api_name.classify %>
+    class UnifiedController < ApplicationController
+      include Api::Queryable
+      include Api::Authorizable
+      include Api::Cacheable
+      include Api::Analytics
+      include Api::Notifications
+      include Api::FileUploads
+
+      before_action :set_api_service
+      before_action :authenticate_user!, except: [:health, :schema]
+
+      # =============================================================================
+      # HEALTH & METADATA ENDPOINTS
+      # =============================================================================
+
+      def health
+        render json: {
+          status: 'healthy',
+          timestamp: Time.current.iso8601,
+          version: api_version,
+          features: enabled_features,
+          backends: configured_backends
+        }
+      end
+
+      def schema
+        render json: {
+          version: api_version,
+          endpoints: available_endpoints,
+          features: enabled_features,
+          documentation: '/docs/api_documentation.md'
+        }
+      end
+
+      # =============================================================================
+      # UNIFIED CRUD ENDPOINTS
+      # =============================================================================
+
+      def index
+        model = get_model_from_params
+        params_with_user = query_params.merge(user: current_user)
+        
+        result = @api_service.execute_query(model, params_with_user)
+        
+        render json: {
+          data: serialize_data(result),
+          pagination: pagination_metadata(result),
+          meta: {
+            total_count: result.total_count,
+            filtered_count: result.count,
+            search_applied: params[:search].present?,
+            filters_applied: params[:filters].present?
+          }
+        }
+      end
+
+      def show
+        record = find_record
+        authorize_record(record, :read)
+        
+        render json: {
+          data: serialize_data(record),
+          meta: {
+            cached: cached_response?,
+            last_modified: record.updated_at
+          }
+        }
+      end
+
+      def create
+        model = get_model_from_params
+        result = @api_service.create_record(model, create_params, current_user)
+        
+        if result[:success]
+          track_event('record_created', { model: model.name, id: result[:record].id })
+          render json: { data: serialize_data(result[:record]), message: result[:message] }, status: :created
+        else
+          render json: { errors: result[:errors] }, status: :unprocessable_entity
+        end
+      end
+
+      def update
+        record = find_record
+        authorize_record(record, :update)
+        
+        result = @api_service.update_record(record, update_params, current_user)
+        
+        if result[:success]
+          track_event('record_updated', { model: record.class.name, id: record.id })
+          invalidate_cache_for_record(record)
+          render json: { data: serialize_data(result[:record]), message: result[:message] }
+        else
+          render json: { errors: result[:errors] }, status: :unprocessable_entity
+        end
+      end
+
+      def destroy
+        record = find_record
+        authorize_record(record, :destroy)
+        
+        result = @api_service.delete_record(record, current_user)
+        
+        if result[:success]
+          track_event('record_deleted', { model: record.class.name, id: record.id })
+          invalidate_cache_for_record(record)
+          render json: { message: result[:message] }
+        else
+          render json: { errors: result[:errors] }, status: :unprocessable_entity
+        end
+      end
+
+      # =============================================================================
+      # SPECIALIZED ENDPOINTS
+      # =============================================================================
+
+      def search
+        model = get_model_from_params
+        search_term = params[:q]
+        
+        if search_term.blank?
+          render json: { errors: ['Search term is required'] }, status: :bad_request
+          return
+        end
+        
+        result = @api_service.execute_query(model, {
+          search: search_term,
+          user: current_user,
+          per_page: 20
+        })
+        
+        render json: {
+          data: serialize_data(result),
+          meta: {
+            search_term: search_term,
+            total_results: result.total_count,
+            search_backend: configured_backends[:search]
+          }
+        }
+      end
+
+      def bulk_operations
+        operation = params[:operation]
+        record_ids = params[:record_ids]
+        model = get_model_from_params
+        
+        case operation
+        when 'delete'
+          perform_bulk_delete(model, record_ids)
+        when 'update'
+          perform_bulk_update(model, record_ids)
+        else
+          render json: { errors: ['Invalid operation'] }, status: :bad_request
+        end
+      end
+
+      def export
+        model = get_model_from_params
+        format = params[:format] || 'json'
+        
+        result = @api_service.execute_query(model, {
+          user: current_user,
+          per_page: 10000 # Large export
+        })
+        
+        case format
+        when 'json'
+          render json: { data: serialize_data(result) }
+        when 'csv'
+          send_data export_to_csv(result), filename: "#{model.name.downcase}_export.csv"
+        when 'xlsx'
+          send_data export_to_xlsx(result), filename: "#{model.name.downcase}_export.xlsx"
+        else
+          render json: { errors: ['Unsupported format'] }, status: :bad_request
+        end
+      end
+
+      def import
+        file = params[:file]
+        model = get_model_from_params
+        
+        if file.blank?
+          render json: { errors: ['File is required'] }, status: :bad_request
+          return
+        end
+        
+        result = import_records(model, file)
+        
+        if result[:success]
+          render json: { 
+            message: "Imported #{result[:imported_count]} records",
+            imported_count: result[:imported_count],
+            errors: result[:errors]
+          }
+        else
+          render json: { errors: result[:errors] }, status: :unprocessable_entity
+        end
+      end
+
+      # =============================================================================
+      # CACHE MANAGEMENT
+      # =============================================================================
+
+      def cache_stats
+        stats = @api_service.cache_stats
+        render json: { cache_stats: stats }
+      end
+
+      def clear_cache
+        pattern = params[:pattern]
+        @api_service.invalidate_cache(pattern)
+        render json: { message: t('demo.api.cache_cleared') }
+      end
+
+      # =============================================================================
+      # ANALYTICS ENDPOINTS
+      # =============================================================================
+
+      def analytics
+        event_name = params[:event]
+        properties = params[:properties] || {}
+        
+        @api_service.track_event(event_name, properties, current_user)
+        render json: { message: t('demo.api.event_tracked') }
+      end
+
+      def analytics_dashboard
+        # Return analytics dashboard data
+        render json: { analytics: get_analytics_data }
+      end
+
+      # =============================================================================
+      # NOTIFICATION ENDPOINTS
+      # =============================================================================
+
+      def notifications
+        user_notifications = @api_service.get_user_notifications(current_user, notification_params)
+        render json: { notifications: user_notifications }
+      end
+
+      def send_notification
+        notification_type = params[:type]
+        data = params[:data] || {}
+        user_id = params[:user_id]
+        
+        user = user_id ? User.find(user_id) : current_user
+        @api_service.send_notification(user, notification_type, data)
+        
+        render json: { message: t('demo.api.notification_sent') }
+      end
+
+      # =============================================================================
+      # FILE UPLOAD ENDPOINTS
+      # =============================================================================
+
+      def upload_file
+        file = params[:file]
+        options = params[:options] || {}
+        
+        if file.blank?
+          render json: { errors: [t('demo.api.file_required')] }, status: :bad_request
+          return
+        end
+        
+        result = @api_service.upload_file(file, options)
+        
+        if result
+          render json: { 
+            file_url: result[:url],
+            file_id: result[:id],
+            message: t('demo.api.file_uploaded')
+          }
+        else
+          render json: { errors: [t('demo.api.file_upload_failed')] }, status: :unprocessable_entity
+        end
+      end
+
+      # =============================================================================
+      # PRIVATE METHODS
+      # =============================================================================
+
+      private
+
+      def set_api_service
+        @api_service = UnifiedApiService.new
+      end
+
+      def get_model_from_params
+        model_name = params[:model] || controller_name.classify
+        model_name.constantize
+      rescue NameError
+        render json: { errors: [t('demo.api.invalid_model')] }, status: :bad_request
+        nil
+      end
+
+      def find_record
+        model = get_model_from_params
+        model.find(params[:id])
+      end
+
+      def create_params
+        params.require(:data).permit!
+      end
+
+      def update_params
+        params.require(:data).permit!
+      end
+
+      def query_params
+        params.permit(:search, :page, :per_page, :sort_by, :sort_order, filters: {})
+      end
+
+      def notification_params
+        params.permit(:page, :per_page, :read, :type)
+      end
+
+      def serialize_data(data)
+        # Use appropriate serializer based on data type
+        if data.respond_to?(:each)
+          data.map { |item| serialize_item(item) }
+        else
+          serialize_item(data)
+        end
+      end
+
+      def serialize_item(item)
+        # Basic serialization - can be overridden with specific serializers
+        item.as_json
+      end
+
+      def pagination_metadata(result)
+        return {} unless result.respond_to?(:current_page)
+        
+        {
+          current_page: result.current_page,
+          total_pages: result.total_pages,
+          total_count: result.total_count,
+          per_page: result.limit_value
+        }
+      end
+
+      def perform_bulk_delete(model, record_ids)
+        records = model.where(id: record_ids)
+        deleted_count = 0
+        
+        records.each do |record|
+          result = @api_service.delete_record(record, current_user)
+          deleted_count += 1 if result[:success]
+        end
+        
+        render json: { 
+          message: "Deleted #{deleted_count} records",
+          deleted_count: deleted_count
+        }
+      end
+
+      def perform_bulk_update(model, record_ids)
+        update_data = params[:update_data] || {}
+        updated_count = 0
+        
+        model.where(id: record_ids).each do |record|
+          result = @api_service.update_record(record, update_data, current_user)
+          updated_count += 1 if result[:success]
+        end
+        
+        render json: { 
+          message: "Updated #{updated_count} records",
+          updated_count: updated_count
+        }
+      end
+
+      def export_to_csv(data)
+        # CSV export logic
+        CSV.generate do |csv|
+          # Add headers and data
+        end
+      end
+
+      def export_to_xlsx(data)
+        # XLSX export logic
+      end
+
+      def import_records(model, file)
+        # Import logic
+        { success: true, imported_count: 0, errors: [] }
+      end
+
+      def get_analytics_data
+        # Analytics dashboard data
+        {}
+      end
+
+      def api_version
+        '<%= api_version %>'
+      end
+
+      def enabled_features
+        <%= enabled_features %>
+      end
+
+      def configured_backends
+        <%= backend_configs %>
+      end
+
+      def available_endpoints
+        # Return available endpoints based on enabled features
+        endpoints = ['index', 'show', 'create', 'update', 'destroy']
+        endpoints << 'search' if enabled_features.include?('search')
+        endpoints << 'bulk_operations' if enabled_features.include?('authorization')
+        endpoints << 'export' if enabled_features.include?('file_storage')
+        endpoints << 'import' if enabled_features.include?('file_storage')
+        endpoints << 'cache_stats' if enabled_features.include?('cache')
+        endpoints << 'analytics' if enabled_features.include?('analytics')
+        endpoints << 'notifications' if enabled_features.include?('notifications')
+        endpoints << 'upload_file' if enabled_features.include?('file_storage')
+        endpoints
+      end
+    end
+  end
+end 

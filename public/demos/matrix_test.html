@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Test - Universe from Void</title>
+    <script src="https://unpkg.com/@hotwired/stimulus@3.2.2/dist/stimulus.umd.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.16/typed.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        @keyframes void-pulse {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+        
+        @keyframes pi-spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes data-flow {
+            0% { transform: translateX(-100vw); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(100vw); opacity: 0; }
+        }
+        
+        @keyframes intelligence-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(59, 130, 246, 1); }
+        }
+        
+        @keyframes sensor-pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+        
+        .void-pulse { animation: void-pulse 3s ease-in-out infinite; }
+        .pi-spin { animation: pi-spin 10s linear infinite; }
+        .data-flow { animation: data-flow 5s linear infinite; }
+        .intelligence-glow { animation: intelligence-glow 4s ease-in-out infinite; }
+        .sensor-pulse { animation: sensor-pulse 2s ease-in-out infinite; }
+        
+        .matrix-bg {
+            background: radial-gradient(circle at center, #000428 0%, #000000 100%);
+        }
+        
+        .void-field {
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.8) 0%, transparent 70%);
+        }
+        
+        .data-stream {
+            background: linear-gradient(90deg, transparent, #00ffff, transparent);
+            height: 2px;
+            opacity: 0.6;
+        }
+        
+        .pi-digit {
+            font-family: 'Courier New', monospace;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+        }
+        
+        .matrix-text {
+            font-family: 'Courier New', monospace;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+        }
+        
+        .intelligence-text {
+            color: #3b82f6;
+            text-shadow: 0 0 10px #3b82f6;
+        }
+        
+        .sensor-text {
+            color: #10b981;
+            text-shadow: 0 0 10px #10b981;
+        }
+        
+        .gateway-text {
+            color: #f59e0b;
+            text-shadow: 0 0 10px #f59e0b;
+        }
+        
+        .p2p-text {
+            color: #8b5cf6;
+            text-shadow: 0 0 10px #8b5cf6;
+        }
+        
+        .cache-text {
+            color: #ec4899;
+            text-shadow: 0 0 10px #ec4899;
+        }
+    </style>
+</head>
+<body class="matrix-bg min-h-screen overflow-hidden">
+    <div data-controller="universe-matrix" class="relative w-full h-screen">
+        <!-- Void Origin Point -->
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="void-pulse w-4 h-4 bg-white rounded-full" id="void-origin"></div>
+        </div>
+        
+        <!-- Data Flow Streams -->
+        <div id="data-streams" class="absolute inset-0"></div>
+        
+        <!-- Pi Animation Canvas -->
+        <canvas id="pi-canvas" class="absolute inset-0 pointer-events-none"></canvas>
+        
+        <!-- Matrix Index Cache -->
+        <div id="matrix-cache" class="absolute top-4 left-4 bg-black bg-opacity-50 rounded-lg p-4 text-white">
+            <div class="cache-text text-lg font-bold mb-2">Matrix Cache Index</div>
+            <div id="cache-content" class="text-sm"></div>
+        </div>
+        
+        <!-- Intelligence Network -->
+        <div id="intelligence-network" class="absolute inset-0 pointer-events-none"></div>
+        
+        <!-- Sensor Data Panel -->
+        <div id="sensor-panel" class="absolute top-4 right-4 bg-black bg-opacity-50 rounded-lg p-4 text-white max-w-xs">
+            <div class="sensor-text text-lg font-bold mb-2">Device Sensors</div>
+            <div id="sensor-data" class="text-sm"></div>
+        </div>
+        
+        <!-- Gateway Status -->
+        <div id="gateway-status" class="absolute bottom-4 left-4 bg-black bg-opacity-50 rounded-lg p-4 text-white">
+            <div class="gateway-text text-lg font-bold mb-2">Gateway Synchronization</div>
+            <div id="gateway-data" class="text-sm"></div>
+        </div>
+        
+        <!-- P2P Network -->
+        <div id="p2p-network" class="absolute bottom-4 right-4 bg-black bg-opacity-50 rounded-lg p-4 text-white">
+            <div class="p2p-text text-lg font-bold mb-2">Stimulus P2P</div>
+            <div id="p2p-data" class="text-sm"></div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="relative z-10 flex flex-col items-center justify-center h-full p-8">
+            <div class="text-center">
+                <h1 class="matrix-text text-6xl font-bold mb-4">Universe from Void</h1>
+                <p class="intelligence-text text-xl mb-8">Intelligence Animates All Levels</p>
+                
+                <!-- Pi Display -->
+                <div class="pi-spin mb-8">
+                    <div class="pi-digit text-4xl" id="pi-display">π = 3.14159...</div>
+                </div>
+                
+                <!-- Control Panel -->
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded" onclick="window.matrixController.evolveFromVoid()">
+                        Evolve from Void
+                    </button>
+                    <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded" onclick="window.matrixController.animatePi()">
+                        Animate Pi
+                    </button>
+                    <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded" onclick="window.matrixController.mergeMatrix()">
+                        Merge Matrix
+                    </button>
+                    <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded" onclick="window.matrixController.resetUniverse()">
+                        Reset Universe
+                    </button>
+                </div>
+                
+                <!-- Status Display -->
+                <div class="matrix-text text-sm" id="status-display">
+                    Status: Initializing Universe from Void...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Universe Matrix Controller - Everything from Void
+        class UniverseMatrixController {
+            static targets = ["void", "matrix", "intelligence", "sensors", "gateways", "p2p"]
+            static values = { 
+                evolutionPhase: Number,
+                piDigits: Array,
+                matrixCache: Object,
+                sensorData: Object,
+                gatewayConnections: Array,
+                p2pNodes: Array,
+                intelligenceLevel: Number,
+                dataFlowRate: Number
+            }
+
+            connect() {
+                console.log("🌌 Universe Matrix connecting from void...")
+                
+                // Initialize from void
+                this.evolutionPhaseValue = 0
+                this.piDigitsValue = []
+                this.matrixCacheValue = {}
+                this.sensorDataValue = {}
+                this.gatewayConnectionsValue = []
+                this.p2pNodesValue = []
+                this.intelligenceLevelValue = 0
+                this.dataFlowRateValue = 0
+                
+                // Generate UUID for matrix
+                this.matrixUUID = this.generateUUID()
+                
+                // Initialize systems
+                this.initializeFromVoid()
+                this.initializePiAnimation()
+                this.initializeDataFlow()
+                this.initializeIntelligenceNetwork()
+                this.initializeSensorSystem()
+                this.initializeGatewaySystem()
+                this.initializeP2PNetwork()
+                this.initializeMatrixCache()
+                
+                // Start evolution
+                this.evolveFromVoid()
+                
+                console.log("✅ Universe Matrix initialized from void")
+            }
+
+            initializeFromVoid() {
+                // Create void origin point
+                const voidOrigin = document.getElementById('void-origin')
+                voidOrigin.addEventListener('click', () => {
+                    this.evolveFromVoid()
+                })
+                
+                // Initialize GSAP for void animations
+                if (window.gsap) {
+                    gsap.to(voidOrigin, {
+                        scale: 2,
+                        duration: 2,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "power2.inOut"
+                    })
+                }
+            }
+
+            initializePiAnimation() {
+                // Pi digits for animation
+                this.piString = "3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067982148086513282306647093844609550582231725359408128481117450284102701938521105559644622948954930381964428810975665933446128475648233786783165271201909145648566923460348610454326648213393607260249141273724587006606315588174881520920962829254091715364367892590360011330530548820466521384146951941511609433057270365759591953092186117381932611793105118548074462379962749567351885752724891227938183011949129833673362440656643086021394946395224737190702179860943702770539217176293176752384674818467669405132000568127145263560827785771342757789609173637178721468440901224953430146549585371050792279689258923542019956112129021960864034418159813629774771309960518707211349999998372978049951059731732816096318595024459455346908302642522308253344685035261931188171010003137838752886587533208381420617177669147303598253490428755468731159562863882353787593751957781857780532171226806613001927876611195909216420198938095257201065485863278865936153381827968230301952035301852968995773622599413891249721775283479131515574857242454150695950829533116861727855889075098381754637464939319255060400927701671139009848824012858361603563707660104710181942955596198946767837449448255379774726847104047534646208046684259069491293313677028989152104752162056966024058038150193511253382430035587640247496473263914199272604269922796782354781636009341721641219924586315030286182974555706749838505494588586926995690927210797509302955321165344987202755960236480665499119881834797753566369807426542527862551818417574672890977772793800081647060016145249192173217214772350141441973568548161361157352552133475741849468438523323907394143334547762416862518983569485562099219222184272550254256887671790494601674"
+                
+                this.piCanvas = document.getElementById('pi-canvas')
+                this.piCtx = this.piCanvas.getContext('2d')
+                
+                // Set canvas size
+                this.piCanvas.width = window.innerWidth
+                this.piCanvas.height = window.innerHeight
+                
+                // Start Pi animation
+                this.animatePi()
+            }
+
+            animatePi() {
+                let digitIndex = 0
+                const digitSize = 20
+                const colors = ['#00ff00', '#00ffff', '#ff00ff', '#ffff00', '#ff0080']
+                
+                const animate = () => {
+                    if (digitIndex < this.piString.length) {
+                        const digit = this.piString[digitIndex]
+                        const x = (digitIndex * digitSize) % this.piCanvas.width
+                        const y = Math.floor((digitIndex * digitSize) / this.piCanvas.width) * digitSize
+                        const color = colors[digitIndex % colors.length]
+                        
+                        this.piCtx.fillStyle = color
+                        this.piCtx.font = `${digitSize}px monospace`
+                        this.piCtx.fillText(digit, x, y)
+                        
+                        digitIndex++
+                        requestAnimationFrame(animate)
+                    }
+                }
+                
+                animate()
+            }
+
+            initializeDataFlow() {
+                const streamsContainer = document.getElementById('data-streams')
+                
+                // Create data flow streams
+                for (let i = 0; i < 20; i++) {
+                    const stream = document.createElement('div')
+                    stream.className = 'data-stream absolute'
+                    stream.style.top = `${Math.random() * 100}%`
+                    stream.style.left = '0'
+                    stream.style.width = '100%'
+                    stream.style.animationDelay = `${Math.random() * 5}s`
+                    stream.classList.add('data-flow')
+                    streamsContainer.appendChild(stream)
+                }
+                
+                // Update data flow rate
+                setInterval(() => {
+                    this.dataFlowRateValue = Math.random() * 100
+                    this.updateStatus()
+                }, 1000)
+            }
+
+            initializeIntelligenceNetwork() {
+                const networkContainer = document.getElementById('intelligence-network')
+                
+                // Create intelligence nodes
+                for (let i = 0; i < 15; i++) {
+                    const node = document.createElement('div')
+                    node.className = 'absolute w-3 h-3 bg-blue-500 rounded-full intelligence-glow'
+                    node.style.left = `${Math.random() * 100}%`
+                    node.style.top = `${Math.random() * 100}%`
+                    node.style.animationDelay = `${Math.random() * 4}s`
+                    networkContainer.appendChild(node)
+                }
+                
+                // Update intelligence level
+                setInterval(() => {
+                    this.intelligenceLevelValue = Math.min(100, this.intelligenceLevelValue + Math.random() * 5)
+                    this.updateStatus()
+                }, 2000)
+            }
+
+            initializeSensorSystem() {
+                // Initialize device sensors
+                this.initializeAccelerometer()
+                this.initializeGyroscope()
+                this.initializeGeolocation()
+                this.initializeBattery()
+                this.initializeNetwork()
+                
+                // Update sensor panel
+                setInterval(() => {
+                    this.updateSensorPanel()
+                }, 1000)
+            }
+
+            initializeAccelerometer() {
+                if ('Accelerometer' in window) {
+                    try {
+                        const accelerometer = new Accelerometer()
+                        accelerometer.addEventListener('reading', () => {
+                            this.sensorDataValue.accelerometer = {
+                                x: accelerometer.x,
+                                y: accelerometer.y,
+                                z: accelerometer.z
+                            }
+                        })
+                        accelerometer.start()
+                    } catch (e) {
+                        console.log('Accelerometer not available')
+                    }
+                }
+            }
+
+            initializeGyroscope() {
+                if ('Gyroscope' in window) {
+                    try {
+                        const gyroscope = new Gyroscope()
+                        gyroscope.addEventListener('reading', () => {
+                            this.sensorDataValue.gyroscope = {
+                                x: gyroscope.x,
+                                y: gyroscope.y,
+                                z: gyroscope.z
+                            }
+                        })
+                        gyroscope.start()
+                    } catch (e) {
+                        console.log('Gyroscope not available')
+                    }
+                }
+            }
+
+            initializeGeolocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition((position) => {
+                        this.sensorDataValue.geolocation = {
+                            latitude: position.coords.latitude,
+                            longitude: position.coords.longitude,
+                            accuracy: position.coords.accuracy
+                        }
+                    })
+                }
+            }
+
+            initializeBattery() {
+                if (navigator.getBattery) {
+                    navigator.getBattery().then((battery) => {
+                        this.sensorDataValue.battery = {
+                            level: battery.level,
+                            charging: battery.charging
+                        }
+                    })
+                }
+            }
+
+            initializeNetwork() {
+                if (navigator.connection) {
+                    this.sensorDataValue.network = {
+                        effectiveType: navigator.connection.effectiveType,
+                        downlink: navigator.connection.downlink,
+                        rtt: navigator.connection.rtt
+                    }
+                }
+            }
+
+            initializeGatewaySystem() {
+                // Simulate gateway connections
+                const gateways = ['Quantum Gateway', 'Neural Gateway', 'Cosmic Gateway', 'Vortex Gateway']
+                
+                setInterval(() => {
+                    this.gatewayConnectionsValue = gateways.map(gateway => ({
+                        name: gateway,
+                        status: Math.random() > 0.5 ? 'Connected' : 'Connecting',
+                        latency: Math.random() * 100
+                    }))
+                    this.updateGatewayPanel()
+                }, 3000)
+            }
+
+            initializeP2PNetwork() {
+                // Simulate P2P nodes
+                setInterval(() => {
+                    this.p2pNodesValue = Array.from({ length: Math.floor(Math.random() * 10) + 5 }, (_, i) => ({
+                        id: this.generateUUID(),
+                        status: Math.random() > 0.3 ? 'Active' : 'Inactive',
+                        connections: Math.floor(Math.random() * 5)
+                    }))
+                    this.updateP2PPanel()
+                }, 2000)
+            }
+
+            initializeMatrixCache() {
+                // Initialize matrix cache with UUID objects
+                this.matrixCacheValue = {
+                    index: this.generateUUID(),
+                    timestamp: Date.now(),
+                    nodes: [],
+                    connections: []
+                }
+                
+                setInterval(() => {
+                    this.updateMatrixCache()
+                }, 1000)
+            }
+
+            evolveFromVoid() {
+                console.log("🌌 Evolving from void...")
+                
+                this.evolutionPhaseValue++
+                
+                // Create new matrix nodes
+                const newNode = {
+                    id: this.generateUUID(),
+                    type: 'intelligence',
+                    level: this.intelligenceLevelValue,
+                    timestamp: Date.now()
+                }
+                
+                this.matrixCacheValue.nodes.push(newNode)
+                
+                // Animate evolution
+                if (window.gsap) {
+                    gsap.to('#void-origin', {
+                        scale: this.evolutionPhaseValue,
+                        duration: 2,
+                        ease: "power2.out"
+                    })
+                }
+                
+                this.updateStatus()
+                this.updateMatrixCache()
+            }
+
+            mergeMatrix() {
+                console.log("🔄 Merging matrix with UUID objects...")
+                
+                // Merge new data into matrix cache
+                const mergeData = {
+                    id: this.generateUUID(),
+                    type: 'merge',
+                    data: {
+                        sensors: this.sensorDataValue,
+                        intelligence: this.intelligenceLevelValue,
+                        gateways: this.gatewayConnectionsValue,
+                        p2p: this.p2pNodesValue
+                    },
+                    timestamp: Date.now()
+                }
+                
+                this.matrixCacheValue.connections.push(mergeData)
+                
+                // Synchronize to all gateways
+                this.synchronizeToGateways(mergeData)
+                
+                this.updateStatus()
+            }
+
+            synchronizeToGateways(data) {
+                console.log("📡 Synchronizing to gateways...")
+                
+                // Simulate gateway synchronization
+                this.gatewayConnectionsValue.forEach(gateway => {
+                    if (gateway.status === 'Connected') {
+                        console.log(`Synchronized to ${gateway.name}`)
+                    }
+                })
+            }
+
+            resetUniverse() {
+                console.log("🔄 Resetting universe to void...")
+                
+                this.evolutionPhaseValue = 0
+                this.intelligenceLevelValue = 0
+                this.matrixCacheValue = { index: this.generateUUID(), timestamp: Date.now(), nodes: [], connections: [] }
+                
+                // Clear Pi canvas
+                this.piCtx.clearRect(0, 0, this.piCanvas.width, this.piCanvas.height)
+                
+                // Restart Pi animation
+                this.animatePi()
+                
+                this.updateStatus()
+            }
+
+            generateUUID() {
+                return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                    const r = Math.random() * 16 | 0
+                    const v = c == 'x' ? r : (r & 0x3 | 0x8)
+                    return v.toString(16)
+                })
+            }
+
+            updateStatus() {
+                const status = document.getElementById('status-display')
+                status.innerHTML = `
+                    Evolution Phase: ${this.evolutionPhaseValue} | 
+                    Intelligence: ${Math.round(this.intelligenceLevelValue)}% | 
+                    Data Flow: ${Math.round(this.dataFlowRateValue)}/s | 
+                    Matrix UUID: ${this.matrixUUID.substring(0, 8)}...
+                `
+            }
+
+            updateSensorPanel() {
+                const panel = document.getElementById('sensor-data')
+                const data = this.sensorDataValue
+                
+                panel.innerHTML = `
+                    <div>Accelerometer: ${data.accelerometer ? 'Active' : 'Inactive'}</div>
+                    <div>Gyroscope: ${data.gyroscope ? 'Active' : 'Inactive'}</div>
+                    <div>Geolocation: ${data.geolocation ? 'Active' : 'Inactive'}</div>
+                    <div>Battery: ${data.battery ? Math.round(data.battery.level * 100) + '%' : 'N/A'}</div>
+                    <div>Network: ${data.network ? data.network.effectiveType : 'Unknown'}</div>
+                `
+            }
+
+            updateGatewayPanel() {
+                const panel = document.getElementById('gateway-data')
+                const gateways = this.gatewayConnectionsValue
+                
+                panel.innerHTML = gateways.map(gateway => 
+                    `<div>${gateway.name}: ${gateway.status} (${Math.round(gateway.latency)}ms)</div>`
+                ).join('')
+            }
+
+            updateP2PPanel() {
+                const panel = document.getElementById('p2p-data')
+                const nodes = this.p2pNodesValue
+                
+                panel.innerHTML = `
+                    <div>Active Nodes: ${nodes.filter(n => n.status === 'Active').length}</div>
+                    <div>Total Connections: ${nodes.reduce((sum, n) => sum + n.connections, 0)}</div>
+                `
+            }
+
+            updateMatrixCache() {
+                const panel = document.getElementById('cache-content')
+                const cache = this.matrixCacheValue
+                
+                panel.innerHTML = `
+                    <div>Index: ${cache.index.substring(0, 8)}...</div>
+                    <div>Nodes: ${cache.nodes.length}</div>
+                    <div>Connections: ${cache.connections.length}</div>
+                    <div>Last Update: ${new Date(cache.timestamp).toLocaleTimeString()}</div>
+                `
+            }
+        }
+
+        // Register the controller
+        const application = Stimulus.Application.start()
+        application.register('universe-matrix', UniverseMatrixController)
+
+        // Make controller globally accessible
+        window.matrixController = null
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matrixController = application.getControllerForElementAndIdentifier(
+                document.querySelector('[data-controller="universe-matrix"]'),
+                'universe-matrix'
+            )
+        })
+    </script>
+</body>
+</html> 

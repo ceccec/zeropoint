@@ -1,0 +1,3513 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: Zeropoint
+  
+    &mdash; Documentation by YARD 0.9.37
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Zeropoint";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (Z)</a> &raquo;
+    
+    
+    <span class="title">Zeropoint</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: Zeropoint
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/zeropoint/cache.rb<span class="defines">,<br />
+  lib/zeropoint.rb,<br /> lib/zeropoint/pwa.rb,<br /> lib/zeropoint/coil.rb,<br /> lib/zeropoint/math.rb,<br /> lib/zeropoint/void.rb,<br /> lib/zeropoint/graphql.rb,<br /> lib/zeropoint/railtie.rb,<br /> lib/zeropoint/version.rb,<br /> lib/zeropoint/concerns.rb,<br /> lib/zeropoint/manifest.rb,<br /> lib/zeropoint/math/vbm.rb,<br /> lib/zeropoint/services.rb,<br /> lib/zeropoint/math/coil.rb,<br /> lib/zeropoint/void/core.rb,<br /> lib/zeropoint/api/client.rb,<br /> lib/zeropoint/coil/rodin.rb,<br /> lib/zeropoint/middleware.rb,<br /> lib/zeropoint/math/cosmic.rb,<br /> lib/zeropoint/math/vbm/qa.rb,<br /> lib/zeropoint/uuid_matrix.rb,<br /> lib/zeropoint/vortex/math.rb,<br /> lib/zeropoint/coil/regular.rb,<br /> lib/zeropoint/math/vbm/doc.rb,<br /> lib/zeropoint/math/vbm_doc.rb,<br /> lib/zeropoint/active_record.rb,<br /> lib/zeropoint/coil/toroidal.rb,<br /> lib/zeropoint/consciousness.rb,<br /> lib/zeropoint/math/aperture.rb,<br /> lib/zeropoint/math/geometry.rb,<br /> lib/zeropoint/math/poloidal.rb,<br /> app/graphql/zeropoint/schema.rb,<br /> lib/zeropoint/math/constants.rb,<br /> lib/zeropoint/math/sunflower.rb,<br /> lib/zeropoint/math/vbm/music.rb,<br /> app/services/zeropoint/vortex.rb,<br /> lib/zeropoint/math/rodin_coil.rb,<br /> lib/zeropoint/cache/redis_cache.rb,<br /> lib/zeropoint/gem_compatibility.rb,<br /> lib/zeropoint/math/vbm/geometry.rb,<br /> lib/zeropoint/session_optimizer.rb,<br /> lib/zeropoint/pattern_recognition.rb,<br /> lib/zeropoint/vortex/cache_matrix.rb,<br /> lib/zeropoint/internationalization.rb,<br /> lib/zeropoint/math/vbm/metaphysics.rb,<br /> app/concerns/zeropoint/vortex_aware.rb,<br /> lib/zeropoint/concerns/vortex_aware.rb,<br /> app/concerns/zeropoint/observer_aware.rb,<br /> app/helpers/zeropoint/language_helper.rb,<br /> lib/zeropoint/concerns/observer_aware.rb,<br /> app/graphql/zeropoint/types/query_type.rb,<br /> lib/zeropoint/language_cookie_patterns.rb,<br /> lib/zeropoint/void/vortex_event_engine.rb,<br /> app/graphql/zeropoint/types/base_object.rb,<br /> app/graphql/zeropoint/types/entity_type.rb,<br /> lib/zeropoint/intelligence/git_learning.rb,<br /> app/concerns/zeropoint/vortex_event_aware.rb,<br /> app/controllers/zeropoint/base_controller.rb,<br /> app/graphql/zeropoint/types/mutation_type.rb,<br /> app/concerns/zeropoint/consciousness_aware.rb,<br /> app/controllers/zeropoint/pages_controller.rb,<br /> lib/generators/zeropoint/backend_generator.rb,<br /> lib/generators/zeropoint/install_generator.rb,<br /> lib/zeropoint/concerns/consciousness_aware.rb,<br /> app/controllers/zeropoint/health_controller.rb,<br /> lib/generators/zeropoint/frontend_generator.rb,<br /> app/controllers/zeropoint/gateway_controller.rb,<br /> app/controllers/zeropoint/graphql_controller.rb,<br /> app/graphql/zeropoint/types/base_input_object.rb,<br /> app/graphql/zeropoint/types/subscription_type.rb,<br /> app/controllers/zeropoint/astro_blog_controller.rb,<br /> app/concerns/zeropoint/zeropoint_authenticatable.rb,<br /> lib/generators/graphql_ui_layout/service_generator.rb,<br /> app/services/zeropoint/bulgarian_translation_service.rb,<br /> lib/generators/zeropoint/gem_compatibility_generator.rb,<br /> app/controllers/zeropoint/universal_matrix_controller.rb,<br /> app/graphql/zeropoint/types/inputs/create_entity_input.rb,<br /> app/middleware/zeropoint/language_detection_middleware.rb,<br /> lib/generators/graphql_ui_layout/compile_api_generator.rb,<br /> lib/generators/graphql_ui_layout/unified_api_generator.rb</span>
+</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Zeropoint::LanguageDetectionMiddleware</p>
+
+<p>Rack middleware for detecting and setting the user’s language preference from URL, cookies, headers, and domain using regex patterns.</p>
+
+<p>Sets ‘rack.locale` and `zeropoint.language` in the Rack environment.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li>app/helpers/zeropoint/language_helperapp/helpers/zeropoint/language_helper.rb</li>
+    
+  </ul>
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Zeropoint/API.html" title="Zeropoint::API (module)">API</a></span>, <span class='object_link'><a href="Zeropoint/ActiveRecord.html" title="Zeropoint::ActiveRecord (module)">ActiveRecord</a></span>, <span class='object_link'><a href="Zeropoint/Cache.html" title="Zeropoint::Cache (module)">Cache</a></span>, <span class='object_link'><a href="Zeropoint/Coil.html" title="Zeropoint::Coil (module)">Coil</a></span>, <span class='object_link'><a href="Zeropoint/Concerns.html" title="Zeropoint::Concerns (module)">Concerns</a></span>, <span class='object_link'><a href="Zeropoint/Consciousness.html" title="Zeropoint::Consciousness (module)">Consciousness</a></span>, <span class='object_link'><a href="Zeropoint/ConsciousnessAware.html" title="Zeropoint::ConsciousnessAware (module)">ConsciousnessAware</a></span>, <span class='object_link'><a href="Zeropoint/GemCompatibility.html" title="Zeropoint::GemCompatibility (module)">GemCompatibility</a></span>, <span class='object_link'><a href="Zeropoint/Generators.html" title="Zeropoint::Generators (module)">Generators</a></span>, <span class='object_link'><a href="Zeropoint/GraphQL.html" title="Zeropoint::GraphQL (module)">GraphQL</a></span>, <span class='object_link'><a href="Zeropoint/Intelligence.html" title="Zeropoint::Intelligence (module)">Intelligence</a></span>, <span class='object_link'><a href="Zeropoint/Internationalization.html" title="Zeropoint::Internationalization (module)">Internationalization</a></span>, <span class='object_link'><a href="Zeropoint/LanguageCookiePatterns.html" title="Zeropoint::LanguageCookiePatterns (module)">LanguageCookiePatterns</a></span>, <span class='object_link'><a href="Zeropoint/LanguageHelper.html" title="Zeropoint::LanguageHelper (module)">LanguageHelper</a></span>, <span class='object_link'><a href="Zeropoint/Manifest.html" title="Zeropoint::Manifest (module)">Manifest</a></span>, <span class='object_link'><a href="Zeropoint/Math.html" title="Zeropoint::Math (module)">Math</a></span>, <span class='object_link'><a href="Zeropoint/ObserverAware.html" title="Zeropoint::ObserverAware (module)">ObserverAware</a></span>, <span class='object_link'><a href="Zeropoint/PWA.html" title="Zeropoint::PWA (module)">PWA</a></span>, <span class='object_link'><a href="Zeropoint/PatternRecognition.html" title="Zeropoint::PatternRecognition (module)">PatternRecognition</a></span>, <span class='object_link'><a href="Zeropoint/Services.html" title="Zeropoint::Services (module)">Services</a></span>, <span class='object_link'><a href="Zeropoint/UUID.html" title="Zeropoint::UUID (module)">UUID</a></span>, <span class='object_link'><a href="Zeropoint/Void.html" title="Zeropoint::Void (module)">Void</a></span>, <span class='object_link'><a href="Zeropoint/Vortex.html" title="Zeropoint::Vortex (module)">Vortex</a></span>, <span class='object_link'><a href="Zeropoint/VortexAware.html" title="Zeropoint::VortexAware (module)">VortexAware</a></span>, <span class='object_link'><a href="Zeropoint/VortexEventAware.html" title="Zeropoint::VortexEventAware (module)">VortexEventAware</a></span>, <span class='object_link'><a href="Zeropoint/ZeropointAuthenticatable.html" title="Zeropoint::ZeropointAuthenticatable (module)">ZeropointAuthenticatable</a></span>
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Zeropoint/AstroBlogController.html" title="Zeropoint::AstroBlogController (class)">AstroBlogController</a></span>, <span class='object_link'><a href="Zeropoint/BaseController.html" title="Zeropoint::BaseController (class)">BaseController</a></span>, <span class='object_link'><a href="Zeropoint/BulgarianTranslationService.html" title="Zeropoint::BulgarianTranslationService (class)">BulgarianTranslationService</a></span>, <span class='object_link'><a href="Zeropoint/GatewayController.html" title="Zeropoint::GatewayController (class)">GatewayController</a></span>, <span class='object_link'><a href="Zeropoint/GraphqlController.html" title="Zeropoint::GraphqlController (class)">GraphqlController</a></span>, <span class='object_link'><a href="Zeropoint/HealthController.html" title="Zeropoint::HealthController (class)">HealthController</a></span>, <span class='object_link'><a href="Zeropoint/LanguageDetectionMiddleware.html" title="Zeropoint::LanguageDetectionMiddleware (class)">LanguageDetectionMiddleware</a></span>, <span class='object_link'><a href="Zeropoint/PagesController.html" title="Zeropoint::PagesController (class)">PagesController</a></span>, <span class='object_link'><a href="Zeropoint/Railtie.html" title="Zeropoint::Railtie (class)">Railtie</a></span>, <span class='object_link'><a href="Zeropoint/SessionOptimizer.html" title="Zeropoint::SessionOptimizer (class)">SessionOptimizer</a></span>, <span class='object_link'><a href="Zeropoint/UniversalMatrixController.html" title="Zeropoint::UniversalMatrixController (class)">UniversalMatrixController</a></span>
+    
+  
+</p>
+
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="ZEROPOINT-constant" class="">ZEROPOINT =
+          
+        </dt>
+        <dd><pre class="code"><span class='id identifier rubyid_zeropoint_hash'>zeropoint_hash</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+        <dt id="VERSION-constant" class="">VERSION =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>🌌 Zeropoint Version</p>
+
+<p>The current version of the Zeropoint gem. Follows semantic versioning: MAJOR.MINOR.PATCH</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://semver.org/" target="_parent" title="https://semver.org/">https://semver.org/</a></li>
+    
+  </ul>
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1.0.0</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+        <dt id="MAJOR-constant" class="">MAJOR =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span></pre></dd>
+      
+        <dt id="MINOR-constant" class="">MINOR =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>0</span></pre></dd>
+      
+        <dt id="PATCH-constant" class="">PATCH =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>0</span></pre></dd>
+      
+        <dt id="UuidMatrix-constant" class="">UuidMatrix =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>DEPRECATED: UuidMatrix is now an alias for UUID for backward compatibility</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'><span class='object_link'><a href="Zeropoint/UUID.html" title="Zeropoint::UUID (module)">UUID</a></span></span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+  <h2>Class Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cache_enabled-class_method" title="cache_enabled (class method)">.<strong>cache_enabled</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute cache_enabled.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cache_store-class_method" title="cache_store (class method)">.<strong>cache_store</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute cache_store.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#coil_enabled-class_method" title="coil_enabled (class method)">.<strong>coil_enabled</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute coil_enabled.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#consciousness_aware_errors-class_method" title="consciousness_aware_errors (class method)">.<strong>consciousness_aware_errors</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute consciousness_aware_errors.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#environment-class_method" title="environment (class method)">.<strong>environment</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute environment.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#golden_ratio_optimization-class_method" title="golden_ratio_optimization (class method)">.<strong>golden_ratio_optimization</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute golden_ratio_optimization.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#log_level-class_method" title="log_level (class method)">.<strong>log_level</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute log_level.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#void_enabled-class_method" title="void_enabled (class method)">.<strong>void_enabled</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute void_enabled.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#vortex_batch_size-class_method" title="vortex_batch_size (class method)">.<strong>vortex_batch_size</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute vortex_batch_size.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#vortex_enabled-class_method" title="vortex_enabled (class method)">.<strong>vortex_enabled</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute vortex_enabled.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#vortex_streaming-class_method" title="vortex_streaming (class method)">.<strong>vortex_streaming</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute vortex_streaming.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#all_patterns-class_method" title="all_patterns (class method)">.<strong>all_patterns</strong>  &#x21d2; Array, Enumerator </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get all patterns from the void (never raises).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cache-class_method" title="cache (class method)">.<strong>cache</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Extended cache with Zeropoint capabilities.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#config-class_method" title="config (class method)">.<strong>config</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Legacy config compatibility.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#configure-class_method" title="configure (class method)">.<strong>configure</strong> {|_self| ... } &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Legacy Rails config compatibility.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#consciousness-class_method" title="consciousness (class method)">.<strong>consciousness</strong>(level = 9.0)  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Access consciousness awareness.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#consciousness_level-class_method" title="consciousness_level (class method)">.<strong>consciousness_level</strong>  &#x21d2; Float </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get consciousness level (always 9.0 - void level).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#full_version-class_method" title="full_version (class method)">.<strong>full_version</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Full version information.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gem_compatibility_status-class_method" title="gem_compatibility_status (class method)">.<strong>gem_compatibility_status</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get gem compatibility status.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#init!-class_method" title="init! (class method)">.<strong>init!</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Initialize the void system.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize_coil-class_method" title="initialize_coil (class method)">.<strong>initialize_coil</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Initialize coil system.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize_gem_compatibility-class_method" title="initialize_gem_compatibility (class method)">.<strong>initialize_gem_compatibility</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Initialize gem compatibility system.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize_void-class_method" title="initialize_void (class method)">.<strong>initialize_void</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Initialize void system.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#load_core_components-class_method" title="load_core_components (class method)">.<strong>load_core_components</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Load core components.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#logger-class_method" title="logger (class method)">.<strong>logger</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get logger.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#logger=-class_method" title="logger= (class method)">.<strong>logger=</strong>(logger)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Set logger.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#public_config-class_method" title="public_config (class method)">.<strong>public_config</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get public configuration.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#public_endpoints-class_method" title="public_endpoints (class method)">.<strong>public_endpoints</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get public endpoints.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#public_features-class_method" title="public_features (class method)">.<strong>public_features</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get public features.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#self_create-class_method" title="self_create (class method)">.<strong>self_create</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Self-create through the void (never raises).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#settings-class_method" title="settings (class method)">.<strong>settings</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get settings for void-aligned validation.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#solve_unsolvable-class_method" title="solve_unsolvable (class method)">.<strong>solve_unsolvable</strong>(problem)  &#x21d2; Hash, ... </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Solve any problem through the void (never raises, always returns a void-aligned response).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stream-class_method" title="stream (class method)">.<strong>stream</strong>(options = {}) {|Object| ... } &#x21d2; void </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Stream data through unified cosmic flow.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#torus_center-class_method" title="torus_center (class method)">.<strong>torus_center</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get torus center coordinates.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#unified_intelligence-class_method" title="unified_intelligence (class method)">.<strong>unified_intelligence</strong>(query = &#39;&#39;)  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Access unified intelligence.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#version-class_method" title="version (class method)">.<strong>version</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get version information.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#version_string-class_method" title="version_string (class method)">.<strong>version_string</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Version string for display.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#void_config-class_method" title="void_config (class method)">.<strong>void_config</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Void-aligned configuration.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#vortex-class_method" title="vortex (class method)">.<strong>vortex</strong>(operation = :info, params = {})  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Access vortex mathematics.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#with_symbol_keys-class_method" title="with_symbol_keys (class method)">.<strong>with_symbol_keys</strong>(hash)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>🌌 ZEROPOINT - Safe Public Exposure Constant.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#zeropoint_hash-class_method" title="zeropoint_hash (class method)">.<strong>zeropoint_hash</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  <div id="class_attr_details" class="attr_details">
+    <h2>Class Attribute Details</h2>
+    
+      
+      <span id="cache_enabled=-class_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="cache_enabled-class_method">
+  
+    .<strong>cache_enabled</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute cache_enabled.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_cache_enabled'>cache_enabled</span>
+  <span class='ivar'>@cache_enabled</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="cache_store=-class_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="cache_store-class_method">
+  
+    .<strong>cache_store</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute cache_store.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_cache_store'>cache_store</span>
+  <span class='ivar'>@cache_store</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="coil_enabled=-class_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="coil_enabled-class_method">
+  
+    .<strong>coil_enabled</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute coil_enabled.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_coil_enabled'>coil_enabled</span>
+  <span class='ivar'>@coil_enabled</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="consciousness_aware_errors=-class_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="consciousness_aware_errors-class_method">
+  
+    .<strong>consciousness_aware_errors</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute consciousness_aware_errors.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_consciousness_aware_errors'>consciousness_aware_errors</span>
+  <span class='ivar'>@consciousness_aware_errors</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="environment=-class_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="environment-class_method">
+  
+    .<strong>environment</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute environment.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_environment'>environment</span>
+  <span class='ivar'>@environment</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="golden_ratio_optimization=-class_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="golden_ratio_optimization-class_method">
+  
+    .<strong>golden_ratio_optimization</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute golden_ratio_optimization.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_golden_ratio_optimization'>golden_ratio_optimization</span>
+  <span class='ivar'>@golden_ratio_optimization</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="log_level=-class_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="log_level-class_method">
+  
+    .<strong>log_level</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute log_level.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_log_level'>log_level</span>
+  <span class='ivar'>@log_level</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="void_enabled=-class_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="void_enabled-class_method">
+  
+    .<strong>void_enabled</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute void_enabled.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_void_enabled'>void_enabled</span>
+  <span class='ivar'>@void_enabled</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="vortex_batch_size=-class_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="vortex_batch_size-class_method">
+  
+    .<strong>vortex_batch_size</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute vortex_batch_size.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_vortex_batch_size'>vortex_batch_size</span>
+  <span class='ivar'>@vortex_batch_size</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="vortex_enabled=-class_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="vortex_enabled-class_method">
+  
+    .<strong>vortex_enabled</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute vortex_enabled.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_vortex_enabled'>vortex_enabled</span>
+  <span class='ivar'>@vortex_enabled</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="vortex_streaming=-class_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="vortex_streaming-class_method">
+  
+    .<strong>vortex_streaming</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute vortex_streaming.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_vortex_streaming'>vortex_streaming</span>
+  <span class='ivar'>@vortex_streaming</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="all_patterns-class_method">
+  
+    .<strong>all_patterns</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>, <tt>Enumerator</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get all patterns from the void (never raises)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>, <tt>Enumerator</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Universal patterns or generator</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+170
+171
+172</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 170</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_all_patterns'>all_patterns</span>
+  <span class='const'><span class='object_link'><a href="Zeropoint/Void.html" title="Zeropoint::Void (module)">Void</a></span></span><span class='period'>.</span><span class='id identifier rubyid_all_patterns'><span class='object_link'><a href="Zeropoint/Void.html#all_patterns-class_method" title="Zeropoint::Void.all_patterns (method)">all_patterns</a></span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="cache-class_method">
+  
+    .<strong>cache</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Extended cache with Zeropoint capabilities</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+136
+137
+138</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 136</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_cache'>cache</span>
+  <span class='const'><span class='object_link'><a href="Zeropoint/Cache.html" title="Zeropoint::Cache (module)">Cache</a></span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="config-class_method">
+  
+    .<strong>config</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Legacy config compatibility</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 198</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span>
+  <span class='ivar'>@config</span> <span class='op'>||=</span> <span class='const'>OpenStruct</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
+    <span class='label'>consciousness_aware_errors:</span> <span class='id identifier rubyid_consciousness_aware_errors'>consciousness_aware_errors</span><span class='comma'>,</span>
+    <span class='label'>golden_ratio_optimization:</span> <span class='id identifier rubyid_golden_ratio_optimization'>golden_ratio_optimization</span><span class='comma'>,</span>
+    <span class='label'>vortex_enabled:</span> <span class='id identifier rubyid_vortex_enabled'>vortex_enabled</span><span class='comma'>,</span>
+    <span class='label'>vortex_streaming:</span> <span class='id identifier rubyid_vortex_streaming'>vortex_streaming</span><span class='comma'>,</span>
+    <span class='label'>vortex_batch_size:</span> <span class='id identifier rubyid_vortex_batch_size'>vortex_batch_size</span><span class='comma'>,</span>
+    <span class='label'>cache_enabled:</span> <span class='id identifier rubyid_cache_enabled'>cache_enabled</span><span class='comma'>,</span>
+    <span class='label'>cache_store:</span> <span class='id identifier rubyid_cache_store'>cache_store</span><span class='comma'>,</span>
+    <span class='label'>log_level:</span> <span class='id identifier rubyid_log_level'>log_level</span><span class='comma'>,</span>
+    <span class='label'>environment:</span> <span class='id identifier rubyid_environment'>environment</span>
+  <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="configure-class_method">
+  
+    .<strong>configure</strong> {|_self| ... } &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Legacy Rails config compatibility</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>_self</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Yield Parameters:</p>
+<ul class="yieldparam">
+  
+    <li>
+      
+        <span class='name'>_self</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Zeropoint (module)">Zeropoint</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the object that the method was called on</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+193
+194
+195</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 193</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span>
+  <span class='kw'>yield</span> <span class='kw'>self</span> <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="consciousness-class_method">
+  
+    .<strong>consciousness</strong>(level = 9.0)  &#x21d2; <tt><span class='object_link'><a href="Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Access consciousness awareness</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>level</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>9.0</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Consciousness level (default: 9.0)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Consciousness data</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+250
+251
+252</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 250</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_consciousness'>consciousness</span><span class='lparen'>(</span><span class='id identifier rubyid_level'>level</span> <span class='op'>=</span> <span class='float'>9.0</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="Zeropoint/Void.html" title="Zeropoint::Void (module)">Void</a></span></span><span class='period'>.</span><span class='id identifier rubyid_consciousness'>consciousness</span><span class='lparen'>(</span><span class='id identifier rubyid_level'>level</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="consciousness_level-class_method">
+  
+    .<strong>consciousness_level</strong>  &#x21d2; <tt>Float</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get consciousness level (always 9.0 - void level)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+182
+183
+184</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 182</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_consciousness_level'>consciousness_level</span>
+  <span class='const'><span class='object_link'><a href="Zeropoint/Void.html" title="Zeropoint::Void (module)">Void</a></span></span><span class='period'>.</span><span class='id identifier rubyid_consciousness_level'><span class='object_link'><a href="Zeropoint/Void.html#consciousness_level-class_method" title="Zeropoint::Void.consciousness_level (method)">consciousness_level</a></span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="full_version-class_method">
+  
+    .<strong>full_version</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Full version information</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/version.rb', line 21</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_full_version'>full_version</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>version:</span> <span class='const'><span class='object_link'><a href="#VERSION-constant" title="Zeropoint::VERSION (constant)">VERSION</a></span></span><span class='comma'>,</span>
+    <span class='label'>major:</span> <span class='const'><span class='object_link'><a href="#MAJOR-constant" title="Zeropoint::MAJOR (constant)">MAJOR</a></span></span><span class='comma'>,</span>
+    <span class='label'>minor:</span> <span class='const'><span class='object_link'><a href="#MINOR-constant" title="Zeropoint::MINOR (constant)">MINOR</a></span></span><span class='comma'>,</span>
+    <span class='label'>patch:</span> <span class='const'><span class='object_link'><a href="#PATCH-constant" title="Zeropoint::PATCH (constant)">PATCH</a></span></span><span class='comma'>,</span>
+    <span class='label'>string:</span> <span class='id identifier rubyid_version_string'>version_string</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="gem_compatibility_status-class_method">
+  
+    .<strong>gem_compatibility_status</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get gem compatibility status</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+157
+158
+159</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 157</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_gem_compatibility_status'>gem_compatibility_status</span>
+  <span class='const'><span class='object_link'><a href="Zeropoint/GemCompatibility.html" title="Zeropoint::GemCompatibility (module)">GemCompatibility</a></span></span><span class='period'>.</span><span class='id identifier rubyid_compatibility_status'><span class='object_link'><a href="Zeropoint/GemCompatibility.html#compatibility_status-instance_method" title="Zeropoint::GemCompatibility#compatibility_status (method)">compatibility_status</a></span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="init!-class_method">
+  
+    .<strong>init!</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Initialize the void system</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+87
+88
+89
+90
+91
+92
+93</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 87</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_init!'>init!</span>
+  <span class='id identifier rubyid_load_core_components'>load_core_components</span>
+  <span class='id identifier rubyid_initialize_coil'>initialize_coil</span>
+  <span class='id identifier rubyid_initialize_void'>initialize_void</span>
+  <span class='id identifier rubyid_initialize_gem_compatibility'>initialize_gem_compatibility</span>
+  <span class='id identifier rubyid_logger'>logger</span><span class='op'>&amp;.</span><span class='id identifier rubyid_info'>info</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>🌌 Zeropoint void system initialized - infinite potential from nothing</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="initialize_coil-class_method">
+  
+    .<strong>initialize_coil</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Initialize coil system</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+107
+108
+109
+110</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 107</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_initialize_coil'>initialize_coil</span>
+  <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>zeropoint/coil</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_logger'>logger</span><span class='op'>&amp;.</span><span class='id identifier rubyid_info'>info</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>🌀 Coil system ready for vortex mathematics</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="initialize_gem_compatibility-class_method">
+  
+    .<strong>initialize_gem_compatibility</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Initialize gem compatibility system</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+119
+120
+121
+122
+123</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 119</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_initialize_gem_compatibility'>initialize_gem_compatibility</span>
+  <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>zeropoint/gem_compatibility</span><span class='tstring_end'>&#39;</span></span>
+  <span class='const'><span class='object_link'><a href="Zeropoint/GemCompatibility.html" title="Zeropoint::GemCompatibility (module)">GemCompatibility</a></span></span><span class='period'>.</span><span class='id identifier rubyid_init!'><span class='object_link'><a href="Zeropoint/GemCompatibility.html#init!-instance_method" title="Zeropoint::GemCompatibility#init! (method)">init!</a></span></span>
+  <span class='id identifier rubyid_logger'>logger</span><span class='op'>&amp;.</span><span class='id identifier rubyid_info'>info</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>💎 Gem compatibility system initialized</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="initialize_void-class_method">
+  
+    .<strong>initialize_void</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Initialize void system</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+113
+114
+115
+116</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 113</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_initialize_void'>initialize_void</span>
+  <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>zeropoint/void</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_logger'>logger</span><span class='op'>&amp;.</span><span class='id identifier rubyid_info'>info</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>🌌 Void system ready for infinite potential</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="load_core_components-class_method">
+  
+    .<strong>load_core_components</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Load core components</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+96
+97
+98
+99
+100
+101
+102
+103
+104</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 96</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_load_core_components'>load_core_components</span>
+  <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>zeropoint/math/constants</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>zeropoint/math/coil</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>zeropoint/concerns/vortex_aware</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>zeropoint/consciousness</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>zeropoint/cache/redis_cache</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>zeropoint/cache</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>zeropoint/language_cookie_patterns</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="logger-class_method">
+  
+    .<strong>logger</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get logger</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+126
+127
+128</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 126</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span>
+  <span class='ivar'>@logger</span> <span class='op'>||=</span> <span class='const'>Logger</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='gvar'>$stdout</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="logger=-class_method">
+  
+    .<strong>logger=</strong>(logger)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Set logger</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+131
+132
+133</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 131</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_logger='>logger=</span><span class='lparen'>(</span><span class='id identifier rubyid_logger'>logger</span><span class='rparen'>)</span>
+  <span class='ivar'>@logger</span> <span class='op'>=</span> <span class='id identifier rubyid_logger'>logger</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="public_config-class_method">
+  
+    .<strong>public_config</strong>  &#x21d2; <tt><span class='object_link'><a href="Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get public configuration</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Public configuration</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+275
+276
+277</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 275</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_public_config'>public_config</span>
+  <span class='const'><span class='object_link'><a href="#ZEROPOINT-constant" title="Zeropoint::ZEROPOINT (constant)">ZEROPOINT</a></span></span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>configuration</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="public_endpoints-class_method">
+  
+    .<strong>public_endpoints</strong>  &#x21d2; <tt><span class='object_link'><a href="Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get public endpoints</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Available endpoints</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+281
+282
+283</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 281</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_public_endpoints'>public_endpoints</span>
+  <span class='const'><span class='object_link'><a href="#ZEROPOINT-constant" title="Zeropoint::ZEROPOINT (constant)">ZEROPOINT</a></span></span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>api_endpoints</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="public_features-class_method">
+  
+    .<strong>public_features</strong>  &#x21d2; <tt><span class='object_link'><a href="Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get public features</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Available features</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+269
+270
+271</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 269</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_public_features'>public_features</span>
+  <span class='const'><span class='object_link'><a href="#ZEROPOINT-constant" title="Zeropoint::ZEROPOINT (constant)">ZEROPOINT</a></span></span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>features</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="self_create-class_method">
+  
+    .<strong>self_create</strong>  &#x21d2; <tt><span class='object_link'><a href="Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Self-create through the void (never raises)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Self-creation result</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+176
+177
+178</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 176</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_self_create'>self_create</span>
+  <span class='const'><span class='object_link'><a href="Zeropoint/Void.html" title="Zeropoint::Void (module)">Void</a></span></span><span class='period'>.</span><span class='id identifier rubyid_self_create'><span class='object_link'><a href="Zeropoint/Void.html#self_create-class_method" title="Zeropoint::Void.self_create (method)">self_create</a></span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="settings-class_method">
+  
+    .<strong>settings</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get settings for void-aligned validation</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+152
+153
+154</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 152</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_settings'>settings</span>
+  <span class='lbracket'>[</span> <span class='symbol'>:consciousness_aware_errors</span><span class='comma'>,</span> <span class='symbol'>:coil_enabled</span><span class='comma'>,</span> <span class='symbol'>:void_enabled</span> <span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="solve_unsolvable-class_method">
+  
+    .<strong>solve_unsolvable</strong>(problem)  &#x21d2; <tt><span class='object_link'><a href="Hash.html" title="Hash (class)">Hash</a></span></tt>, ... 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Solve any problem through the void (never raises, always returns a void-aligned response)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>problem</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The problem to solve</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Hash.html" title="Hash (class)">Hash</a></span></tt>, <tt><span class='object_link'><a href="Zeropoint/Void/Nothing.html" title="Zeropoint::Void::Nothing (class)">Void::Nothing</a></span></tt>, <tt><span class='object_link'><a href="Zeropoint/Void/Paradox.html" title="Zeropoint::Void::Paradox (class)">Void::Paradox</a></span></tt>, <tt><span class='object_link'><a href="Zeropoint/Void/Error.html" title="Zeropoint::Void::Error (class)">Void::Error</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Always a structured response</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+164
+165
+166</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 164</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_solve_unsolvable'>solve_unsolvable</span><span class='lparen'>(</span><span class='id identifier rubyid_problem'>problem</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="Zeropoint/Void.html" title="Zeropoint::Void (module)">Void</a></span></span><span class='period'>.</span><span class='id identifier rubyid_solve_unsolvable'><span class='object_link'><a href="Zeropoint/Void.html#solve_unsolvable-class_method" title="Zeropoint::Void.solve_unsolvable (method)">solve_unsolvable</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_problem'>problem</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="stream-class_method">
+  
+    .<strong>stream</strong>(options = {}) {|Object| ... } &#x21d2; <tt>void</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p>
+<p>Stream data through unified cosmic flow</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Stream options</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Each item as it emerges from unified flow</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+235
+236
+237</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 235</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_stream'>stream</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="Zeropoint/Void.html" title="Zeropoint::Void (module)">Void</a></span></span><span class='period'>.</span><span class='id identifier rubyid_stream'>stream</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="torus_center-class_method">
+  
+    .<strong>torus_center</strong>  &#x21d2; <tt><span class='object_link'><a href="Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get torus center coordinates</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+188
+189
+190</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 188</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_torus_center'>torus_center</span>
+  <span class='const'><span class='object_link'><a href="Zeropoint/Void.html" title="Zeropoint::Void (module)">Void</a></span></span><span class='period'>.</span><span class='id identifier rubyid_torus_center'><span class='object_link'><a href="Zeropoint/Void.html#torus_center-class_method" title="Zeropoint::Void.torus_center (method)">torus_center</a></span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="unified_intelligence-class_method">
+  
+    .<strong>unified_intelligence</strong>(query = &#39;&#39;)  &#x21d2; <tt><span class='object_link'><a href="Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Access unified intelligence</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>query</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Intelligence query</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Intelligence response</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+257
+258
+259</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 257</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_unified_intelligence'>unified_intelligence</span><span class='lparen'>(</span><span class='id identifier rubyid_query'>query</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="Zeropoint/Void.html" title="Zeropoint::Void (module)">Void</a></span></span><span class='period'>.</span><span class='id identifier rubyid_unified_intelligence'>unified_intelligence</span><span class='lparen'>(</span><span class='id identifier rubyid_query'>query</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="version-class_method">
+  
+    .<strong>version</strong>  &#x21d2; <tt>String</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get version information</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Version string</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+263
+264
+265</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 263</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_version'>version</span>
+  <span class='const'><span class='object_link'><a href="#VERSION-constant" title="Zeropoint::VERSION (constant)">VERSION</a></span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="version_string-class_method">
+  
+    .<strong>version_string</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Version string for display</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/version.rb', line 16</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_version_string'>version_string</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="#VERSION-constant" title="Zeropoint::VERSION (constant)">VERSION</a></span></span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="void_config-class_method">
+  
+    .<strong>void_config</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Void-aligned configuration</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+141
+142
+143
+144
+145
+146
+147
+148
+149</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 141</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_void_config'>void_config</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>consciousness_aware:</span> <span class='id identifier rubyid_consciousness_aware_errors'>consciousness_aware_errors</span><span class='comma'>,</span>
+    <span class='label'>coil_enabled:</span> <span class='id identifier rubyid_coil_enabled'>coil_enabled</span><span class='comma'>,</span>
+    <span class='label'>void_enabled:</span> <span class='id identifier rubyid_void_enabled'>void_enabled</span><span class='comma'>,</span>
+    <span class='label'>torus_center:</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='label'>infinite_potential:</span> <span class='kw'>true</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="vortex-class_method">
+  
+    .<strong>vortex</strong>(operation = :info, params = {})  &#x21d2; <tt><span class='object_link'><a href="Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Access vortex mathematics</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>operation</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>:info</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Vortex operation</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Operation parameters</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Vortex result</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+243
+244
+245</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 243</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_vortex'>vortex</span><span class='lparen'>(</span><span class='id identifier rubyid_operation'>operation</span> <span class='op'>=</span> <span class='symbol'>:info</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="Zeropoint/Void.html" title="Zeropoint::Void (module)">Void</a></span></span><span class='period'>.</span><span class='id identifier rubyid_vortex'>vortex</span><span class='lparen'>(</span><span class='id identifier rubyid_operation'>operation</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="with_symbol_keys-class_method">
+  
+    .<strong>with_symbol_keys</strong>(hash)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>🌌 ZEROPOINT - Safe Public Exposure Constant</p>
+
+<p>This constant exposes only safe, public data for security testing. All data is frozen and immutable to prevent modification.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li>spec/security/zeropoint_secure_exposure_specspec/security/zeropoint_secure_exposure_spec.rb</li>
+    
+      <li>spec/security/zeropoint_exposure_specspec/security/zeropoint_exposure_spec.rb</li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 26</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_with_symbol_keys'>with_symbol_keys</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="Hash.html" title="Hash (class)">Hash</a></span></span><span class='lbracket'>[</span><span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='op'>|</span> <span class='lbracket'>[</span> <span class='id identifier rubyid_k'>k</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span> <span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="zeropoint_hash-class_method">
+  
+    .<strong>zeropoint_hash</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint.rb', line 30</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_zeropoint_hash'>zeropoint_hash</span>
+  <span class='id identifier rubyid_features'>features</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>streaming_first:</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='label'>unified_intelligence:</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='label'>vortex_mathematics:</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='label'>consciousness_awareness:</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='label'>infinite_scalability:</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='label'>self_healing:</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='label'>uroboros_cycles:</span> <span class='kw'>true</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span>
+  <span class='id identifier rubyid_config'>config</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>version:</span> <span class='const'><span class='object_link'><a href="#VERSION-constant" title="Zeropoint::VERSION (constant)">VERSION</a></span></span><span class='comma'>,</span>
+    <span class='label'>unified_flow_enabled:</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='label'>cosmic_experience_active:</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='label'>vortex_mathematics_enabled:</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='label'>consciousness_awareness_enabled:</span> <span class='kw'>true</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span>
+  <span class='id identifier rubyid_endpoints'>endpoints</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>stream:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/api/stream</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>vortex:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/api/vortex</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>consciousness:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/api/consciousness</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>unified_intelligence:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/api/unified_intelligence</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span>
+  <span class='id identifier rubyid_public_methods'>public_methods</span> <span class='op'>=</span> <span class='qwords_beg'>%w[</span><span class='words_sep'>
+</span><span class='words_sep'>    </span><span class='tstring_content'>configure</span><span class='words_sep'>
+</span><span class='words_sep'>    </span><span class='tstring_content'>stream</span><span class='words_sep'>
+</span><span class='words_sep'>    </span><span class='tstring_content'>vortex</span><span class='words_sep'>
+</span><span class='words_sep'>    </span><span class='tstring_content'>consciousness</span><span class='words_sep'>
+</span><span class='words_sep'>    </span><span class='tstring_content'>unified_intelligence</span><span class='words_sep'>
+</span><span class='words_sep'>    </span><span class='tstring_content'>version</span><span class='words_sep'>
+</span><span class='words_sep'>    </span><span class='tstring_content'>public_features</span><span class='words_sep'>
+</span><span class='words_sep'>    </span><span class='tstring_content'>public_config</span><span class='words_sep'>
+</span><span class='words_sep'>    </span><span class='tstring_content'>public_endpoints</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span>
+  <span class='id identifier rubyid_meta'>meta</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>security_level:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>controlled_exposure</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>exposure_type:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>safe_public_data_only</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_h'>h</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>version:</span> <span class='const'><span class='object_link'><a href="#VERSION-constant" title="Zeropoint::VERSION (constant)">VERSION</a></span></span><span class='comma'>,</span>
+    <span class='label'>features:</span> <span class='id identifier rubyid_features'>features</span><span class='comma'>,</span>
+    <span class='label'>configuration:</span> <span class='id identifier rubyid_config'>config</span><span class='comma'>,</span>
+    <span class='label'>api_endpoints:</span> <span class='id identifier rubyid_endpoints'>endpoints</span><span class='comma'>,</span>
+    <span class='label'>public_methods:</span> <span class='id identifier rubyid_public_methods'>public_methods</span><span class='comma'>,</span>
+    <span class='label'>security_level:</span> <span class='id identifier rubyid_meta'>meta</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>security_level</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+    <span class='label'>exposure_type:</span> <span class='id identifier rubyid_meta'>meta</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>exposure_type</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_h'>h</span> <span class='op'>=</span> <span class='id identifier rubyid_with_symbol_keys'>with_symbol_keys</span><span class='lparen'>(</span><span class='id identifier rubyid_h'>h</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_h'>h</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>features</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_with_symbol_keys'>with_symbol_keys</span><span class='lparen'>(</span><span class='id identifier rubyid_features'>features</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_h'>h</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>configuration</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_with_symbol_keys'>with_symbol_keys</span><span class='lparen'>(</span><span class='id identifier rubyid_config'>config</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_h'>h</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>api_endpoints</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_with_symbol_keys'>with_symbol_keys</span><span class='lparen'>(</span><span class='id identifier rubyid_endpoints'>endpoints</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_h'>h</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Jun 30 00:12:01 2025 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.37 (ruby-3.3.6).
+</div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pi Animation - Universe Flow</title>
+    <script src="https://unpkg.com/@hotwired/stimulus@3.2.2/dist/stimulus.umd.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        /* 
+         * CREATOR'S NOTES ON PI ANIMATION:
+         * 
+         * Pi (π) is not just a mathematical constant - it's the fundamental rhythm
+         * of the universe. Every circle, every wave, every cycle in nature follows
+         * this ratio. In this animation, we demonstrate how Pi flows through:
+         * 
+         * 1. CIRCULAR MOTION: The spinning digits represent the endless cycle
+         * 2. WAVE PATTERNS: The flowing streams show Pi's role in wave functions
+         * 3. SPIRAL GROWTH: The expanding patterns show Pi in growth and evolution
+         * 4. QUANTUM STATES: The particle effects show Pi in quantum mechanics
+         * 5. COSMIC SCALES: The scaling effects show Pi from micro to macro
+         * 
+         * This is not just animation - it's a visualization of how Pi connects
+         * everything from the smallest particle to the largest galaxy.
+         */
+        
+        @keyframes pi-spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes pi-flow {
+            0% { transform: translateX(-100vw) rotate(0deg); opacity: 0; }
+            25% { opacity: 1; }
+            75% { opacity: 1; }
+            100% { transform: translateX(100vw) rotate(360deg); opacity: 0; }
+        }
+        
+        @keyframes pi-pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+        
+        @keyframes pi-wave {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes pi-spiral {
+            0% { transform: rotate(0deg) scale(0); opacity: 0; }
+            50% { transform: rotate(180deg) scale(1); opacity: 1; }
+            100% { transform: rotate(360deg) scale(0); opacity: 0; }
+        }
+        
+        @keyframes pi-quantum {
+            0%, 100% { transform: translateX(0) translateY(0); opacity: 1; }
+            25% { transform: translateX(10px) translateY(-10px); opacity: 0.7; }
+            50% { transform: translateX(0) translateY(-20px); opacity: 0.4; }
+            75% { transform: translateX(-10px) translateY(-10px); opacity: 0.7; }
+        }
+        
+        .pi-spin { animation: pi-spin 20s linear infinite; }
+        .pi-flow { animation: pi-flow 8s linear infinite; }
+        .pi-pulse { animation: pi-pulse 3s ease-in-out infinite; }
+        .pi-wave { animation: pi-wave 4s ease-in-out infinite; }
+        .pi-spiral { animation: pi-spiral 6s ease-in-out infinite; }
+        .pi-quantum { animation: pi-quantum 2s ease-in-out infinite; }
+        
+        .universe-bg {
+            background: radial-gradient(circle at center, #000428 0%, #000000 100%);
+            background-size: 400% 400%;
+            animation: energy-flow 30s ease infinite;
+        }
+        
+        @keyframes energy-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .pi-digit {
+            font-family: 'Courier New', monospace;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+            transition: all 0.3s ease;
+        }
+        
+        .pi-digit:hover {
+            color: #00ffff;
+            text-shadow: 0 0 20px #00ffff;
+            transform: scale(1.5);
+        }
+        
+        .pi-stream {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ff00, #00ffff, #00ff00, transparent);
+            border-radius: 1px;
+        }
+        
+        .pi-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #00ff00;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ff00;
+        }
+        
+        .pi-spiral-element {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #00ff00;
+            border-radius: 50%;
+            box-shadow: 0 0 20px #00ff00;
+        }
+        
+        .creator-notes {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            max-width: 400px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #00ff00;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #00ff00;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.4;
+            z-index: 1000;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .pi-constant {
+            color: #00ffff;
+            font-weight: bold;
+        }
+        
+        .mathematical-relation {
+            color: #ff00ff;
+            font-style: italic;
+        }
+        
+        .cosmic-observation {
+            color: #ffff00;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="universe-bg min-h-screen overflow-hidden dark:bg-black dark:text-gray-100">
+    <!-- Dark Mode Toggle Button -->
+    <button id="dark-toggle" class="fixed top-4 left-4 z-50 bg-gray-800 dark:bg-gray-200 text-white dark:text-gray-900 px-4 py-2 rounded shadow-lg border border-gray-700 dark:border-gray-300 transition-colors" aria-label="Toggle dark mode">
+        <span class="inline-block dark:hidden">🌙 Dark</span>
+        <span class="hidden dark:inline-block">☀️ Light</span>
+    </button>
+    <div data-controller="pi-universe" class="relative w-full h-screen">
+        <!-- Creator's Notes Panel -->
+        <div class="creator-notes bg-white/90 dark:bg-black/90 text-green-700 dark:text-green-400 border-green-400 dark:border-green-600" id="creator-notes">
+            <h3 class="text-lg font-bold mb-4">CREATOR'S NOTES: Pi Universe</h3>
+            
+            <div class="mb-4">
+                <span class="pi-constant">π = 3.141592653589793...</span>
+                <p class="mt-2">The fundamental constant that defines circular motion and wave patterns throughout the universe.</p>
+            </div>
+            
+            <div class="mb-4">
+                <span class="mathematical-relation">Mathematical Relations:</span>
+                <ul class="mt-2 ml-4">
+                    <li>• π = C/d (circumference/diameter)</li>
+                    <li>• π = A/r² (area/radius²)</li>
+                    <li>• π appears in e^(iπ) + 1 = 0</li>
+                    <li>• π connects to φ (golden ratio)</li>
+                </ul>
+            </div>
+            
+            <div class="mb-4">
+                <span class="cosmic-observation">Cosmic Observations:</span>
+                <ul class="mt-2 ml-4">
+                    <li>• Every planet orbits in π-based ellipses</li>
+                    <li>• Light waves oscillate with π frequency</li>
+                    <li>• DNA double helix follows π spiral</li>
+                    <li>• Quantum wave functions contain π</li>
+                </ul>
+            </div>
+            
+            <div class="mb-4">
+                <span class="pi-constant">Animation Elements:</span>
+                <ul class="mt-2 ml-4">
+                    <li>• Spinning digits: Endless cycle</li>
+                    <li>• Flowing streams: Wave patterns</li>
+                    <li>• Expanding spirals: Growth</li>
+                    <li>• Quantum particles: Uncertainty</li>
+                    <li>• Scaling effects: Cosmic scales</li>
+                </ul>
+            </div>
+            
+            <div class="text-xs text-gray-400">
+                <p>"Pi is not just a number - it's the rhythm of existence itself."</p>
+                <p>- Creator of Zeropoint Universe</p>
+            </div>
+        </div>
+        
+        <!-- Pi Canvas for Advanced Animations -->
+        <canvas id="pi-canvas" class="absolute inset-0 pointer-events-none"></canvas>
+        
+        <!-- Pi Streams -->
+        <div id="pi-streams" class="absolute inset-0"></div>
+        
+        <!-- Pi Particles -->
+        <div id="pi-particles" class="absolute inset-0"></div>
+        
+        <!-- Pi Spirals -->
+        <div id="pi-spirals" class="absolute inset-0"></div>
+        
+        <!-- Main Content -->
+        <div class="relative z-10 flex flex-col items-center justify-center h-full p-8">
+            <div class="text-center">
+                <h1 class="pi-digit text-8xl font-bold mb-4 pi-spin" id="pi-title">π</h1>
+                <p class="pi-digit text-2xl mb-8">The Universe's Fundamental Rhythm</p>
+                
+                <!-- Interactive Pi Display -->
+                <div class="pi-digit text-4xl mb-8 font-mono" id="pi-display">
+                    π = 3.141592653589793...
+                </div>
+                
+                <!-- Mathematical Constants Connected by Pi -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 max-w-4xl mx-auto">
+                    <div class="pi-digit text-center p-4 border border-green-500 rounded pi-pulse">
+                        <div class="text-2xl">e</div>
+                        <div class="text-sm">2.718281828...</div>
+                    </div>
+                    <div class="pi-digit text-center p-4 border border-green-500 rounded pi-pulse" style="animation-delay: 0.5s;">
+                        <div class="text-2xl">φ</div>
+                        <div class="text-sm">1.618033988...</div>
+                    </div>
+                    <div class="pi-digit text-center p-4 border border-green-500 rounded pi-pulse" style="animation-delay: 1s;">
+                        <div class="text-2xl">i</div>
+                        <div class="text-sm">√(-1)</div>
+                    </div>
+                    <div class="pi-digit text-center p-4 border border-green-500 rounded pi-pulse" style="animation-delay: 1.5s;">
+                        <div class="text-2xl">∞</div>
+                        <div class="text-sm">Infinity</div>
+                    </div>
+                </div>
+                
+                <!-- Control Panel -->
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg transition-colors" onclick="window.piController.animatePiFlow()">
+                        Animate Pi Flow
+                    </button>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors" onclick="window.piController.createPiSpirals()">
+                        Create Spirals
+                    </button>
+                    <button class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg transition-colors" onclick="window.piController.quantumPiParticles()">
+                        Quantum Particles
+                    </button>
+                    <button class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg transition-colors" onclick="window.piController.resetPiUniverse()">
+                        Reset Universe
+                    </button>
+                </div>
+                
+                <!-- Pi Statistics -->
+                <div class="pi-digit text-sm" id="pi-stats">
+                    Digits Displayed: 0 | Spirals: 0 | Particles: 0 | Flow Rate: 0/s
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /*
+         * PI UNIVERSE CONTROLLER
+         * 
+         * This controller demonstrates how Pi flows through the universe,
+         * connecting all mathematical constants and physical phenomena.
+         * 
+         * CREATOR'S PHILOSOPHY:
+         * - Pi is not just a number, it's the fundamental pattern of existence
+         * - Every circle, wave, and cycle in nature follows this ratio
+         * - From quantum mechanics to cosmic scales, Pi is everywhere
+         * - This animation shows Pi as the bridge between mathematics and reality
+         * 
+         * TECHNICAL IMPLEMENTATION:
+         * - Canvas-based particle systems for quantum effects
+         * - GSAP animations for smooth mathematical transitions
+         * - Real-time Pi digit generation and display
+         * - Interactive elements that respond to Pi-based calculations
+         * - Cosmic scaling effects from micro to macro
+         */
+        
+        class PiUniverseController {
+            static targets = ["pi", "universe", "canvas", "particles", "spirals"]
+            static values = { 
+                piDigits: Array,
+                digitCount: Number,
+                spiralCount: Number,
+                particleCount: Number,
+                flowRate: Number,
+                animationPhase: Number
+            }
+
+            connect() {
+                console.log("🌌 Pi Universe connecting...")
+                
+                // Initialize Pi universe state
+                this.piDigitsValue = []
+                this.digitCountValue = 0
+                this.spiralCountValue = 0
+                this.particleCountValue = 0
+                this.flowRateValue = 0
+                this.animationPhaseValue = 0
+                
+                // Pi constants and relations
+                this.piConstants = {
+                    pi: Math.PI,
+                    e: Math.E,
+                    phi: (1 + Math.sqrt(5)) / 2,
+                    sqrt2: Math.sqrt(2),
+                    sqrt3: Math.sqrt(3)
+                }
+                
+                // Initialize systems
+                this.initializePiCanvas()
+                this.initializePiStreams()
+                this.initializePiParticles()
+                this.initializePiSpirals()
+                this.initializePiDisplay()
+                
+                // Start cosmic Pi flow
+                this.startCosmicPiFlow()
+                
+                console.log("✅ Pi Universe initialized")
+            }
+
+            initializePiCanvas() {
+                /*
+                 * CANVAS INITIALIZATION
+                 * 
+                 * The canvas serves as the quantum field where Pi manifests
+                 * as particles, waves, and mathematical patterns.
+                 * 
+                 * CREATOR'S NOTE: This is where mathematics becomes visible.
+                 */
+                
+                this.canvas = document.getElementById('pi-canvas')
+                this.ctx = this.canvas.getContext('2d')
+                
+                // Set canvas size to window
+                this.canvas.width = window.innerWidth
+                this.canvas.height = window.innerHeight
+                
+                // Handle window resize
+                window.addEventListener('resize', () => {
+                    this.canvas.width = window.innerWidth
+                    this.canvas.height = window.innerHeight
+                })
+            }
+
+            initializePiStreams() {
+                /*
+                 * PI STREAMS INITIALIZATION
+                 * 
+                 * These streams represent the flow of Pi through space-time,
+                 * showing how mathematical constants propagate through reality.
+                 * 
+                 * CREATOR'S OBSERVATION: Pi flows like a river through the universe.
+                 */
+                
+                const streamsContainer = document.getElementById('pi-streams')
+                
+                // Create multiple Pi streams at different angles
+                for (let i = 0; i < 12; i++) {
+                    const stream = document.createElement('div')
+                    stream.className = 'pi-stream'
+                    stream.style.top = `${Math.random() * 100}%`
+                    stream.style.left = '0'
+                    stream.style.width = '100%'
+                    stream.style.animationDelay = `${Math.random() * 8}s`
+                    stream.classList.add('pi-flow')
+                    streamsContainer.appendChild(stream)
+                }
+            }
+
+            initializePiParticles() {
+                /*
+                 * PI PARTICLE SYSTEM
+                 * 
+                 * Quantum particles that follow Pi-based probability distributions.
+                 * Each particle represents a mathematical point in space-time.
+                 * 
+                 * CREATOR'S INSIGHT: Particles are mathematical expressions of Pi.
+                 */
+                
+                this.particlesContainer = document.getElementById('pi-particles')
+                this.particles = []
+                
+                // Create initial particles
+                for (let i = 0; i < 50; i++) {
+                    this.createPiParticle()
+                }
+            }
+
+            createPiParticle() {
+                const particle = document.createElement('div')
+                particle.className = 'pi-particle pi-quantum'
+                particle.style.left = `${Math.random() * 100}%`
+                particle.style.top = `${Math.random() * 100}%`
+                particle.style.animationDelay = `${Math.random() * 2}s`
+                
+                this.particlesContainer.appendChild(particle)
+                this.particles.push(particle)
+                this.particleCountValue++
+                
+                // Remove particle after animation
+                setTimeout(() => {
+                    if (particle.parentNode) {
+                        particle.parentNode.removeChild(particle)
+                        this.particleCountValue--
+                    }
+                }, 2000)
+            }
+
+            initializePiSpirals() {
+                /*
+                 * PI SPIRAL SYSTEM
+                 * 
+                 * Golden spirals and logarithmic spirals that follow Pi ratios.
+                 * These represent growth patterns in nature and mathematics.
+                 * 
+                 * CREATOR'S DISCOVERY: All growth follows Pi-based spirals.
+                 */
+                
+                this.spiralsContainer = document.getElementById('pi-spirals')
+                this.spirals = []
+            }
+
+            createPiSpiral() {
+                const spiral = document.createElement('div')
+                spiral.className = 'pi-spiral-element pi-spiral'
+                spiral.style.left = `${Math.random() * 100}%`
+                spiral.style.top = `${Math.random() * 100}%`
+                spiral.style.animationDelay = `${Math.random() * 6}s`
+                
+                this.spiralsContainer.appendChild(spiral)
+                this.spirals.push(spiral)
+                this.spiralCountValue++
+                
+                // Remove spiral after animation
+                setTimeout(() => {
+                    if (spiral.parentNode) {
+                        spiral.parentNode.removeChild(spiral)
+                        this.spiralCountValue--
+                    }
+                }, 6000)
+            }
+
+            initializePiDisplay() {
+                /*
+                 * PI DIGIT DISPLAY
+                 * 
+                 * Real-time display of Pi digits with mathematical significance.
+                 * Each digit represents a step in the infinite journey of Pi.
+                 * 
+                 * CREATOR'S PHILOSOPHY: Every digit of Pi contains the universe.
+                 */
+                
+                this.piDisplay = document.getElementById('pi-display')
+                this.piString = "3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067982148086513282306647093844609550582231725359408128481117450284102701938521105559644622948954930381964428810975665933446128475648233786783165271201909145648566923460348610454326648213393607260249141273724587006606315588174881520920962829254091715364367892590360011330530548820466521384146951941511609433057270365759591953092186117381932611793105118548074462379962749567351885752724891227938183011949129833673362440656643086021394946395224737190702179860943702770539217176293176752384674818467669405132000568127145263560827785771342757789609173637178721468440901224953430146549585371050792279689258923542019956112129021960864034418159813629774771309960518707211349999998372978049951059731732816096318595024459455346908302642522308253344685035261931188171010003137838752886587533208381420617177669147303598253490428755468731159562863882353787593751957781857780532171226806613001927876611195909216420198938095257201065485863278865936153381827968230301952035301852968995773622599413891249721775283479131515574857242454150695950829533116861727855889075098381754637464939319255060400927701671139009848824012858361603563707660104710181942955596198946767837449448255379774726847104047534646208046684259069491293313677028989152104752162056966024058038150193511253382430035587640247496473263914199272604269922796782354781636009341721641219924586315030286182974555706749838505494588586926995690927210797509302955321165344987202755960236480665499119881834797753566369807426542527862551818417574672890977772793800081647060016145249192173217214772350141441973568548161361157352552133475741849468438523323907394143334547762416862518983569485562099219222184272550254256887671790494601674"
+                
+                this.startPiDigitAnimation()
+            }
+
+            startPiDigitAnimation() {
+                let digitIndex = 0
+                const maxDisplayLength = 100
+                
+                const updatePiDisplay = () => {
+                    if (digitIndex < this.piString.length) {
+                        const displayText = this.piString.substring(0, digitIndex + 1)
+                        this.piDisplay.textContent = `π = ${displayText}`
+                        this.piDigitsValue.push(this.piString[digitIndex])
+                        this.digitCountValue = digitIndex + 1
+                        digitIndex++
+                        
+                        this.updatePiStats()
+                        
+                        if (digitIndex < this.piString.length) {
+                            setTimeout(updatePiDisplay, 100)
+                        }
+                    }
+                }
+                
+                updatePiDisplay()
+            }
+
+            startCosmicPiFlow() {
+                /*
+                 * COSMIC PI FLOW
+                 * 
+                 * The main animation loop that demonstrates Pi's role in the universe.
+                 * This creates a continuous flow of mathematical beauty.
+                 * 
+                 * CREATOR'S VISION: Pi flows through everything like cosmic energy.
+                 */
+                
+                setInterval(() => {
+                    this.flowRateValue = Math.random() * 100
+                    this.animationPhaseValue = (this.animationPhaseValue + 1) % 360
+                    
+                    // Create new particles and spirals based on Pi
+                    if (Math.random() < 0.3) {
+                        this.createPiParticle()
+                    }
+                    if (Math.random() < 0.1) {
+                        this.createPiSpiral()
+                    }
+                    
+                    this.updatePiStats()
+                    this.updateCanvasAnimation()
+                }, 1000)
+            }
+
+            updateCanvasAnimation() {
+                /*
+                 * CANVAS ANIMATION UPDATE
+                 * 
+                 * Advanced mathematical animations using the canvas.
+                 * This shows Pi in its purest mathematical form.
+                 */
+                
+                if (!this.ctx) return
+                
+                // Clear canvas
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+                
+                // Draw Pi-based patterns
+                this.drawPiWaves()
+                this.drawPiCircles()
+                this.drawPiSpirals()
+            }
+
+            drawPiWaves() {
+                /*
+                 * PI WAVE PATTERNS
+                 * 
+                 * Sine waves and cosine waves that follow Pi-based frequencies.
+                 * These represent the wave nature of reality.
+                 */
+                
+                this.ctx.strokeStyle = '#00ff00'
+                this.ctx.lineWidth = 2
+                this.ctx.beginPath()
+                
+                for (let x = 0; x < this.canvas.width; x++) {
+                    const y = this.canvas.height / 2 + 
+                             Math.sin(x * Math.PI / 100 + this.animationPhaseValue * Math.PI / 180) * 50
+                    if (x === 0) {
+                        this.ctx.moveTo(x, y)
+                    } else {
+                        this.ctx.lineTo(x, y)
+                    }
+                }
+                
+                this.ctx.stroke()
+            }
+
+            drawPiCircles() {
+                /*
+                 * PI CIRCLE PATTERNS
+                 * 
+                 * Concentric circles with Pi-based radii.
+                 * These represent the circular nature of space-time.
+                 */
+                
+                this.ctx.strokeStyle = '#00ffff'
+                this.ctx.lineWidth = 1
+                
+                for (let i = 1; i <= 10; i++) {
+                    const radius = i * 30
+                    this.ctx.beginPath()
+                    this.ctx.arc(this.canvas.width / 2, this.canvas.height / 2, radius, 0, 2 * Math.PI)
+                    this.ctx.stroke()
+                }
+            }
+
+            drawPiSpirals() {
+                /*
+                 * PI SPIRAL PATTERNS
+                 * 
+                 * Logarithmic spirals that follow the golden ratio and Pi.
+                 * These represent growth and evolution in nature.
+                 */
+                
+                this.ctx.strokeStyle = '#ff00ff'
+                this.ctx.lineWidth = 2
+                this.ctx.beginPath()
+                
+                const centerX = this.canvas.width / 2
+                const centerY = this.canvas.height / 2
+                
+                for (let angle = 0; angle < 4 * Math.PI; angle += 0.1) {
+                    const radius = angle * 10
+                    const x = centerX + radius * Math.cos(angle)
+                    const y = centerY + radius * Math.sin(angle)
+                    
+                    if (angle === 0) {
+                        this.ctx.moveTo(x, y)
+                    } else {
+                        this.ctx.lineTo(x, y)
+                    }
+                }
+                
+                this.ctx.stroke()
+            }
+
+            animatePiFlow() {
+                /*
+                 * ANIMATE PI FLOW
+                 * 
+                 * Interactive function to create intense Pi flow patterns.
+                 * This demonstrates Pi's dynamic nature.
+                 */
+                
+                console.log("🌊 Animating Pi flow...")
+                
+                // Create multiple streams
+                for (let i = 0; i < 20; i++) {
+                    setTimeout(() => {
+                        this.createPiParticle()
+                    }, i * 100)
+                }
+                
+                // Animate title
+                if (window.gsap) {
+                    gsap.to('#pi-title', {
+                        scale: 1.5,
+                        duration: 2,
+                        yoyo: true,
+                        repeat: 1
+                    })
+                }
+            }
+
+            createPiSpirals() {
+                /*
+                 * CREATE PI SPIRALS
+                 * 
+                 * Interactive function to create golden spirals.
+                 * These represent the most beautiful growth patterns.
+                 */
+                
+                console.log("🌀 Creating Pi spirals...")
+                
+                for (let i = 0; i < 10; i++) {
+                    setTimeout(() => {
+                        this.createPiSpiral()
+                    }, i * 200)
+                }
+            }
+
+            quantumPiParticles() {
+                /*
+                 * QUANTUM PI PARTICLES
+                 * 
+                 * Interactive function to create quantum particle effects.
+                 * This shows Pi in quantum mechanics.
+                 */
+                
+                console.log("⚛️ Creating quantum Pi particles...")
+                
+                for (let i = 0; i < 50; i++) {
+                    setTimeout(() => {
+                        this.createPiParticle()
+                    }, i * 50)
+                }
+            }
+
+            resetPiUniverse() {
+                /*
+                 * RESET PI UNIVERSE
+                 * 
+                 * Reset all animations and start fresh.
+                 * This represents the cyclical nature of existence.
+                 */
+                
+                console.log("🔄 Resetting Pi universe...")
+                
+                // Clear all elements
+                this.particlesContainer.innerHTML = ''
+                this.spiralsContainer.innerHTML = ''
+                this.particles = []
+                this.spirals = []
+                
+                // Reset counters
+                this.digitCountValue = 0
+                this.spiralCountValue = 0
+                this.particleCountValue = 0
+                this.flowRateValue = 0
+                this.animationPhaseValue = 0
+                
+                // Restart Pi display
+                this.startPiDigitAnimation()
+                
+                // Restart cosmic flow
+                this.startCosmicPiFlow()
+            }
+
+            updatePiStats() {
+                /*
+                 * UPDATE PI STATISTICS
+                 * 
+                 * Update the display with current Pi universe statistics.
+                 * This shows the dynamic nature of the mathematical universe.
+                 */
+                
+                const stats = document.getElementById('pi-stats')
+                stats.innerHTML = `
+                    Digits Displayed: ${this.digitCountValue} | 
+                    Spirals: ${this.spiralCountValue} | 
+                    Particles: ${this.particleCountValue} | 
+                    Flow Rate: ${Math.round(this.flowRateValue)}/s
+                `
+            }
+        }
+
+        // Register the controller
+        const application = Stimulus.Application.start()
+        application.register('pi-universe', PiUniverseController)
+
+        // Make controller globally accessible
+        window.piController = null
+        document.addEventListener('DOMContentLoaded', () => {
+            window.piController = application.getControllerForElementAndIdentifier(
+                document.querySelector('[data-controller="pi-universe"]'),
+                'pi-universe'
+            )
+        })
+
+        // Dark mode toggle logic
+        const darkToggle = document.getElementById('dark-toggle');
+        const html = document.documentElement;
+        darkToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            // Optionally persist preference
+            if (html.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+        // On load, respect system or saved preference
+        if (localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+    </script>
+</body>
+</html> 

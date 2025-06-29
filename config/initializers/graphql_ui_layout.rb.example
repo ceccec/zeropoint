@@ -1,0 +1,197 @@
+# frozen_string_literal: true
+
+# Zero Point Configuration Example
+# Copy this file to config/initializers/zeropoint.rb and customize
+
+Zeropoint.configure do |config|
+  # =============================================================================
+  # WEBSITE DOMAIN CONFIGURATION
+  # =============================================================================
+  
+  # Set your website domain
+  config.website_domain = 'gem.zeropoint.bg'
+  
+  # =============================================================================
+  # FEATURE FLAGS
+  # =============================================================================
+  
+  # Enable/disable features (only :graphql and :rails are required)
+  config.features = [
+    :graphql,           # Required: GraphQL functionality
+    :rails,             # Required: Rails integration
+    :search,            # Optional: Search functionality
+    :pagination,        # Optional: Pagination support
+    :authorization,     # Optional: Authorization system
+    :cache,             # Optional: Caching system
+    :file_storage,      # Optional: File upload/storage
+    :notifications,     # Optional: Notification system
+    :analytics,         # Optional: Analytics tracking
+    :streaming,         # Optional: Real-time streaming
+    :cosmic_flow,       # Optional: Cosmic flow architecture
+    :multi_vortex       # Optional: Multi-vortex coordination
+  ]
+
+  # =============================================================================
+  # BACKEND CONFIGURATION
+  # =============================================================================
+  
+  # Search backend (auto-detected, but can be overridden)
+  # config.search_backend = :pg_search      # PostgreSQL full-text search
+  # config.search_backend = :searchkick     # Elasticsearch-based search
+  # config.search_backend = :elasticsearch  # Elasticsearch model
+  # config.search_backend = :basic          # Basic ILIKE search
+
+  # Pagination backend (auto-detected, but can be overridden)
+  # config.pagination_backend = :kaminari     # Kaminari pagination
+  # config.pagination_backend = :will_paginate # Will Paginate
+  # config.pagination_backend = :basic         # Basic limit/offset
+
+  # Authorization backend (auto-detected, but can be overridden)
+  # config.authorization_backend = :pundit    # Pundit authorization
+  # config.authorization_backend = :cancancan # CanCanCan authorization
+  # config.authorization_backend = :none      # No authorization
+
+  # Cache backend (auto-detected, but can be overridden)
+  # config.cache_backend = :redis      # Redis cache
+  # config.cache_backend = :memcached  # Memcached cache
+  # config.cache_backend = :memory     # Memory cache
+
+  # File storage backend (auto-detected, but can be overridden)
+  # config.file_storage_backend = :carrierwave    # CarrierWave uploads
+  # config.file_storage_backend = :active_storage # ActiveStorage (Rails)
+  # config.file_storage_backend = :shrine         # Shrine uploads
+  # config.file_storage_backend = :none           # No file storage
+
+  # Notification backend (auto-detected, but can be overridden)
+  # config.notification_backend = :noticed   # Noticed notifications
+  # config.notification_backend = :mailboxer # Mailboxer notifications
+  # config.notification_backend = :basic     # Basic notifications
+
+  # Analytics backend (auto-detected, but can be overridden)
+  # config.analytics_backend = :ahoy             # Ahoy visit tracking
+  # config.analytics_backend = :mixpanel         # Mixpanel analytics
+  # config.analytics_backend = :google_analytics # Google Analytics
+  # config.analytics_backend = :none             # No analytics
+
+  # =============================================================================
+  # THEME CONFIGURATION
+  # =============================================================================
+  
+  config.theme = {
+    primary_color: "#6366f1",
+    secondary_color: "#8b5cf6",
+    accent_color: "#06b6d4",
+    success_color: "#10b981",
+    warning_color: "#f59e0b",
+    danger_color: "#ef4444",
+    info_color: "#3b82f6",
+    light_color: "#f8fafc",
+    dark_color: "#0f172a",
+    font_family: "Inter, system-ui, -apple-system, sans-serif",
+    border_radius: "12px",
+    box_shadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+    cosmic_gradient: "linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%)"
+  }
+
+  # =============================================================================
+  # APP CONFIGURATION
+  # =============================================================================
+  
+  config.app_config = {
+    app_name: "Zero Point",
+    app_description: "Revolutionary streaming-first data architecture for Rails",
+    app_version: "1.0.0",
+    api_version: "v1",
+    default_locale: I18n.default_locale,
+    supported_locales: I18n.available_locales,
+    timezone: Time.zone.name,
+    date_format: "%Y-%m-%d",
+    time_format: "%H:%M:%S",
+    website_domain: config.website_domain,
+    github_repo: "ceccec/zeropoint",
+    documentation_url: "https://#{config.website_domain}",
+    installation_url: "https://#{config.website_domain}/#installation",
+    philosophy: {
+      tagline: "From zero, infinity flows",
+      description: "Every complex system emerges from a simple zero point",
+      principles: [
+        "Simplicity at the Core",
+        "Infinite Potential",
+        "Cosmic Unity",
+        "Streaming-First Design",
+        "Infinite Scalability"
+      ]
+    },
+    pagination: {
+      default_per_page: 20,
+      max_per_page: 100,
+      page_param: "page",
+      per_page_param: "per_page"
+    },
+    search: {
+      default_search_type: "auto",
+      search_types: ["full_text", "weighted", "fuzzy", "tags", "exact", "auto"],
+      min_query_length: 2,
+      max_suggestions: 10
+    },
+    cache: {
+      default_ttl: 3600,
+      max_ttl: 86400,
+      cache_prefix: "zeropoint"
+    },
+    offline: {
+      enabled: false,
+      max_cache_size: "50MB",
+      sync_interval: 300,
+      background_sync: false
+    },
+    streaming: {
+      enabled: true,
+      websocket_support: true,
+      sse_support: true,
+      real_time_updates: true,
+      infinite_scroll: true,
+      cosmic_flow: true,
+      multi_vortex: true
+    },
+    performance: {
+      code_reduction: "86%",
+      performance_boost: "8x",
+      scalability: "∞",
+      parallel_processing: true,
+      async_operations: true,
+      cosmic_optimization: true
+    }
+  }
+
+  # =============================================================================
+  # GDPR CONFIGURATION
+  # =============================================================================
+  
+  config.gdpr_config(
+    enabled: true,
+    export_enabled: true,
+    erasure_enabled: true,
+    restrict_processing_enabled: true,
+    consent_tracking: true,
+    audit_logging: true,
+    retention_days: 365,
+    mask_fields: ["password", "ssn", "credit_card"],
+    exclude_fields: ["internal_notes"],
+    anonymize_on_erasure: true,
+    data_access_log: true
+  )
+
+  # =============================================================================
+  # CUSTOM PERMISSION CHECKER (Optional)
+  # =============================================================================
+  
+  # config.permission_checker = ->(user, action, resource) {
+  #   # Your custom permission logic
+  #   user.can?(action, resource)
+  # }
+end
+
+# Setup integration with main application
+Zeropoint.setup_integration 

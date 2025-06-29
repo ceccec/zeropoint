@@ -1,0 +1,160 @@
+# frozen_string_literal: true
+
+module Api
+  module Queryable
+    extend ActiveSupport::Concern
+
+    included do
+      before_action :set_query_options
+    end
+
+    private
+
+    def set_query_options
+      @query_options = {
+        search: params[:search],
+        filters: parse_filters,
+        sort_by: params[:sort_by] || 'created_at',
+        sort_order: params[:sort_order] || 'desc',
+        page: params[:page] || 1,
+        per_page: parse_per_page
+      }
+    end
+
+    def parse_filters
+      return {} unless params[:filters]
+
+      filters = {}
+      params[:filters].each do |key, value|
+        next if value.blank?
+
+        case value
+        when Hash
+          # Handle range filters
+          filters[key] = value if value[:gte] || value[:lte]
+        when Array
+          # Handle array filters
+          filters[key] = value.reject(&:blank?)
+        else
+          # Handle simple filters
+          filters[key] = value
+        end
+      end
+      filters
+    end
+
+    def parse_per_page
+      per_page = params[:per_page]&.to_i || default_per_page
+      [per_page, max_per_page].min
+    end
+
+    def default_per_page
+      Zeropoint.configuration.app_config[:pagination][:default_per_page]
+    end
+
+    def max_per_page
+      Zeropoint.configuration.app_config[:pagination][:max_per_page]
+    end
+
+    def apply_search_to_query(query, search_term)
+      return query unless search_term.present?
+
+      case Zeropoint.configuration.search_backend
+      when :pg_search
+        query.pg_search(search_term) if query.respond_to?(:pg_search)
+      when :searchkick
+        query.search(search_term) if query.respond_to?(:search)
+      when :elasticsearch
+        query.__elasticsearch__.search(search_term) if query.respond_to?(:__elasticsearch__)
+      else
+        # Basic ILIKE search
+        searchable_columns = get_searchable_columns(query.klass)
+        conditions = searchable_columns.map { |col| "#{col} ILIKE ?" }.join(' OR ')
+        values = searchable_columns.map { "%#{search_term}%" }
+        query.where(conditions, *values)
+      end
+    end
+
+    def apply_filters_to_query(query, filters)
+      filters.each do |field, value|
+        next if value.blank?
+
+        case value
+        when Hash
+          # Range filters
+          if value[:gte]
+            query = query.where("#{field} >= ?", value[:gte])
+          end
+          if value[:lte]
+            query = query.where("#{field} <= ?", value[:lte])
+          end
+        when Array
+          # Array filters
+          query = query.where(field => value)
+        else
+          # Simple filters
+          query = query.where(field => value)
+        end
+      end
+      query
+    end
+
+    def apply_sorting_to_query(query, sort_by, sort_order)
+      sort_order = sort_order.downcase == 'desc' ? 'desc' : 'asc'
+      query.order("#{sort_by} #{sort_order}")
+    end
+
+    def apply_pagination_to_query(query, page, per_page)
+      case Zeropoint.configuration.pagination_backend
+      when :kaminari
+        query.page(page).per(per_page)
+      when :will_paginate
+        query.paginate(page: page, per_page: per_page)
+      else
+        query.limit(per_page).offset((page.to_i - 1) * per_page.to_i)
+      end
+    end
+
+    def get_searchable_columns(model_class)
+      # Default searchable columns - can be overridden in models
+      if model_class.respond_to?(:searchable_columns)
+        model_class.searchable_columns
+      else
+        # Fallback to common searchable columns
+        %w[name title email description]
+      end
+    end
+
+    def build_query_response(query_result)
+      {
+        data: serialize_data(query_result),
+        pagination: build_pagination_metadata(query_result),
+        meta: build_query_metadata(query_result)
+      }
+    end
+
+    def build_pagination_metadata(result)
+      return {} unless result.respond_to?(:current_page)
+
+      {
+        current_page: result.current_page,
+        total_pages: result.total_pages,
+        total_count: result.total_count,
+        per_page: result.limit_value,
+        has_next_page: result.current_page < result.total_pages,
+        has_prev_page: result.current_page > 1
+      }
+    end
+
+    def build_query_metadata(result)
+      {
+        total_count: result.total_count,
+        filtered_count: result.count,
+        search_applied: @query_options[:search].present?,
+        filters_applied: @query_options[:filters].any?,
+        sort_by: @query_options[:sort_by],
+        sort_order: @query_options[:sort_order]
+      }
+    end
+  end
+end 

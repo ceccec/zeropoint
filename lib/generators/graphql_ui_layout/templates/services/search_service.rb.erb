@@ -1,0 +1,231 @@
+# frozen_string_literal: true
+
+module Zeropoint
+  class SearchService
+    include Singleton
+
+    def initialize
+      @backend = detect_backend
+    end
+
+    # Search across multiple models with unified interface
+    def search(query, models: [], options: {})
+      return [] if query.blank?
+
+      results = []
+      models.each do |model|
+        results.concat(search_model(model, query, options))
+      end
+      
+      results.uniq
+    end
+
+    # Search within a specific model
+    def search_model(model, query, options = {})
+      return [] unless model.respond_to?(:search)
+
+      @backend.search_model(model, query, options)
+    rescue => e
+      Rails.logger.error "Search failed for #{model}: #{e.message}"
+      fallback_search(model, query, options)
+    end
+
+    # Search by specific field
+    def search_by_field(model, field, value, options = {})
+      return [] if value.blank?
+
+      @backend.search_by_field(model, field, value, options)
+    rescue => e
+      Rails.logger.error "Field search failed for #{model}.#{field}: #{e.message}"
+      fallback_field_search(model, field, value, options)
+    end
+
+    # Advanced search with filters
+    def search_advanced(model, filters = {}, options = {})
+      @backend.search_advanced(model, filters, options)
+    rescue => e
+      Rails.logger.error "Advanced search failed for #{model}: #{e.message}"
+      fallback_advanced_search(model, filters, options)
+    end
+
+    # Get search suggestions
+    def search_suggestions(query, model = nil, limit: 10)
+      return [] if query.blank?
+
+      @backend.search_suggestions(query, model, limit)
+    rescue => e
+      Rails.logger.error "Search suggestions failed: #{e.message}"
+      fallback_suggestions(query, model, limit)
+    end
+
+    private
+
+    def detect_backend
+      if defined?(PgSearch) && PgSearch.respond_to?(:multisearch)
+        PgSearchBackend.new
+      elsif defined?(Ransack)
+        RansackBackend.new
+      elsif defined?(Searchkick)
+        SearchkickBackend.new
+      else
+        ActiveRecordBackend.new
+      end
+    end
+
+    def fallback_search(model, query, options)
+      model.where("name ILIKE ? OR description ILIKE ?", 
+                  "%#{query}%", "%#{query}%")
+           .limit(options[:limit] || 10)
+    end
+
+    def fallback_field_search(model, field, value, options)
+      model.where("#{field} ILIKE ?", "%#{value}%")
+           .limit(options[:limit] || 10)
+    end
+
+    def fallback_advanced_search(model, filters, options)
+      scope = model.all
+      
+      filters.each do |field, value|
+        next if value.blank?
+        scope = scope.where("#{field} ILIKE ?", "%#{value}%")
+      end
+      
+      scope.limit(options[:limit] || 10)
+    end
+
+    def fallback_suggestions(query, model, limit)
+      return [] unless model
+
+      model.where("name ILIKE ?", "#{query}%")
+           .limit(limit)
+           .pluck(:name)
+    end
+
+    # Backend implementations
+    class PgSearchBackend
+      def search_model(model, query, options)
+        model.pg_search_scope(:search_by_content,
+                             against: options[:against] || [:name, :description],
+                             using: { tsearch: { prefix: true } })
+             .search_by_content(query)
+             .limit(options[:limit] || 10)
+      end
+
+      def search_by_field(model, field, value, options)
+        model.where("#{field} ILIKE ?", "%#{value}%")
+             .limit(options[:limit] || 10)
+      end
+
+      def search_advanced(model, filters, options)
+        scope = model.all
+        
+        filters.each do |field, value|
+          next if value.blank?
+          scope = scope.where("#{field} ILIKE ?", "%#{value}%")
+        end
+        
+        scope.limit(options[:limit] || 10)
+      end
+
+      def search_suggestions(query, model, limit)
+        return [] unless model
+
+        model.where("name ILIKE ?", "#{query}%")
+             .limit(limit)
+             .pluck(:name)
+      end
+    end
+
+    class RansackBackend
+      def search_model(model, query, options)
+        model.ransack(name_or_description_cont: query)
+             .result
+             .limit(options[:limit] || 10)
+      end
+
+      def search_by_field(model, field, value, options)
+        model.ransack("#{field}_cont" => value)
+             .result
+             .limit(options[:limit] || 10)
+      end
+
+      def search_advanced(model, filters, options)
+        ransack_params = {}
+        filters.each do |field, value|
+          next if value.blank?
+          ransack_params["#{field}_cont"] = value
+        end
+        
+        model.ransack(ransack_params)
+             .result
+             .limit(options[:limit] || 10)
+      end
+
+      def search_suggestions(query, model, limit)
+        return [] unless model
+
+        model.ransack(name_start: query)
+             .result
+             .limit(limit)
+             .pluck(:name)
+      end
+    end
+
+    class SearchkickBackend
+      def search_model(model, query, options)
+        model.search(query, limit: options[:limit] || 10)
+      end
+
+      def search_by_field(model, field, value, options)
+        model.search(where: { field => value }, limit: options[:limit] || 10)
+      end
+
+      def search_advanced(model, filters, options)
+        model.search(where: filters, limit: options[:limit] || 10)
+      end
+
+      def search_suggestions(query, model, limit)
+        return [] unless model
+
+        model.search(query, fields: [:name], limit: limit)
+             .map(&:name)
+      end
+    end
+
+    class ActiveRecordBackend
+      def search_model(model, query, options)
+        searchable_fields = options[:against] || [:name, :description]
+        conditions = searchable_fields.map { |field| "#{field} ILIKE ?" }.join(' OR ')
+        values = searchable_fields.map { "%#{query}%" }
+        
+        model.where(conditions, *values)
+             .limit(options[:limit] || 10)
+      end
+
+      def search_by_field(model, field, value, options)
+        model.where("#{field} ILIKE ?", "%#{value}%")
+             .limit(options[:limit] || 10)
+      end
+
+      def search_advanced(model, filters, options)
+        scope = model.all
+        
+        filters.each do |field, value|
+          next if value.blank?
+          scope = scope.where("#{field} ILIKE ?", "%#{value}%")
+        end
+        
+        scope.limit(options[:limit] || 10)
+      end
+
+      def search_suggestions(query, model, limit)
+        return [] unless model
+
+        model.where("name ILIKE ?", "#{query}%")
+             .limit(limit)
+             .pluck(:name)
+      end
+    end
+  end
+end 

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: TypeScriptRails::AdvancedErrorBoundary
+  
+    &mdash; Documentation by YARD 0.9.37
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "TypeScriptRails::AdvancedErrorBoundary";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (A)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../TypeScriptRails.html" title="TypeScriptRails (module)">TypeScriptRails</a></span></span>
+     &raquo; 
+    <span class="title">AdvancedErrorBoundary</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: TypeScriptRails::AdvancedErrorBoundary
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/typescript_rails/advanced_error_boundary.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="AdvancedErrorBoundary/ErrorUtils.html" title="TypeScriptRails::AdvancedErrorBoundary::ErrorUtils (module)">ErrorUtils</a></span>
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="AdvancedErrorBoundary/ErrorBoundaryConfig.html" title="TypeScriptRails::AdvancedErrorBoundary::ErrorBoundaryConfig (class)">ErrorBoundaryConfig</a></span>, <span class='object_link'><a href="AdvancedErrorBoundary/ErrorBoundaryState.html" title="TypeScriptRails::AdvancedErrorBoundary::ErrorBoundaryState (class)">ErrorBoundaryState</a></span>, <span class='object_link'><a href="AdvancedErrorBoundary/ErrorReporter.html" title="TypeScriptRails::AdvancedErrorBoundary::ErrorReporter (class)">ErrorReporter</a></span>
+    
+  
+</p>
+
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="ERROR_ACTIONS_TS-constant" class="">ERROR_ACTIONS_TS =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Redux error action creators (TypeScript example)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='heredoc_beg'>&lt;&lt;~TYPESCRIPT</span>
+<span class='tstring_content'>  // Redux error action creators (TypeScript)
+</span><span class='tstring_content'>  export const setError = (error, context = {}) =&gt; ({
+</span><span class='tstring_content'>    type: &#39;ERROR_BOUNDARY/SET_ERROR&#39;,
+</span><span class='tstring_content'>    payload: {
+</span><span class='tstring_content'>      error: {
+</span><span class='tstring_content'>        message: error.message,
+</span><span class='tstring_content'>        stack: error.stack?.split(&#39;\n&#39;).slice(0, 5),
+</span><span class='tstring_content'>        name: error.name
+</span><span class='tstring_content'>      },
+</span><span class='tstring_content'>      context,
+</span><span class='tstring_content'>      timestamp: new Date().toISOString()
+</span><span class='tstring_content'>    }
+</span><span class='tstring_content'>  });
+</span><span class='tstring_content'>  // ... other actions ...
+</span><span class='heredoc_end'>TYPESCRIPT</span></pre></dd>
+      
+        <dt id="ERROR_REDUCER_TS-constant" class="">ERROR_REDUCER_TS =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Error boundary reducer (TypeScript example)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='heredoc_beg'>&lt;&lt;~TYPESCRIPT</span>
+<span class='tstring_content'>  // Error boundary reducer (TypeScript)
+</span><span class='tstring_content'>  function errorReducer(state = initialState, action) {
+</span><span class='tstring_content'>    switch (action.type) {
+</span><span class='tstring_content'>      case &#39;ERROR_BOUNDARY/SET_ERROR&#39;:
+</span><span class='tstring_content'>        return {
+</span><span class='tstring_content'>          ...state,
+</span><span class='tstring_content'>          hasError: true,
+</span><span class='tstring_content'>          error: action.payload.error,
+</span><span class='tstring_content'>          context: action.payload.context,
+</span><span class='tstring_content'>          timestamp: action.payload.timestamp
+</span><span class='tstring_content'>        };
+</span><span class='tstring_content'>      case &#39;ERROR_BOUNDARY/CLEAR_ERROR&#39;:
+</span><span class='tstring_content'>        return {
+</span><span class='tstring_content'>          ...state,
+</span><span class='tstring_content'>          hasError: false,
+</span><span class='tstring_content'>          error: null,
+</span><span class='tstring_content'>          context: null,
+</span><span class='tstring_content'>          timestamp: null,
+</span><span class='tstring_content'>          retryCount: 0
+</span><span class='tstring_content'>        };
+</span><span class='tstring_content'>      // ...
+</span><span class='tstring_content'>      default:
+</span><span class='tstring_content'>        return state;
+</span><span class='tstring_content'>    }
+</span><span class='tstring_content'>  }
+</span><span class='heredoc_end'>TYPESCRIPT</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#configuration-class_method" title="configuration (class method)">.<strong>configuration</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#configure-class_method" title="configure (class method)">.<strong>configure</strong> {|configuration| ... } &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#generate_typescript_error_boundary-class_method" title="generate_typescript_error_boundary (class method)">.<strong>generate_typescript_error_boundary</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="configuration-class_method">
+  
+    .<strong>configuration</strong>  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+157
+158
+159</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/typescript_rails/advanced_error_boundary.rb', line 157</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_configuration'>configuration</span>
+  <span class='ivar'>@configuration</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="AdvancedErrorBoundary/ErrorBoundaryConfig.html" title="TypeScriptRails::AdvancedErrorBoundary::ErrorBoundaryConfig (class)">ErrorBoundaryConfig</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="AdvancedErrorBoundary/ErrorBoundaryConfig.html#initialize-instance_method" title="TypeScriptRails::AdvancedErrorBoundary::ErrorBoundaryConfig#initialize (method)">new</a></span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="configure-class_method">
+  
+    .<strong>configure</strong> {|configuration| ... } &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="#configuration-class_method" title="TypeScriptRails::AdvancedErrorBoundary.configuration (method)">configuration</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+153
+154
+155</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/typescript_rails/advanced_error_boundary.rb', line 153</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_configure'>configure</span>
+  <span class='kw'>yield</span> <span class='id identifier rubyid_configuration'>configuration</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="generate_typescript_error_boundary-class_method">
+  
+    .<strong>generate_typescript_error_boundary</strong>  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+161
+162
+163</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/typescript_rails/advanced_error_boundary.rb', line 161</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_generate_typescript_error_boundary'>generate_typescript_error_boundary</span>
+  <span class='id identifier rubyid_generate_advanced_error_boundary_component'>generate_advanced_error_boundary_component</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Jun 30 00:12:02 2025 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.37 (ruby-3.3.6).
+</div>
+
+    </div>
+  </body>
+</html>

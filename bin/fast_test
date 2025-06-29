@@ -1,0 +1,98 @@
+#!/bin/bash
+
+set -e
+
+# Cache files
+RUBOCOP_CACHE=".rubocop_cache"
+RSPEC_CACHE=".rspec_failed"
+
+# Notification function (macOS/Linux)
+notify() {
+  if command -v terminal-notifier &> /dev/null; then
+    terminal-notifier -title "Test Suite" -message "$1"
+  elif command -v notify-send &> /dev/null; then
+    notify-send "Test Suite" "$1"
+  else
+    echo "$1"
+  fi
+}
+
+# 1. Run RuboCop only on changed files, cache results
+PARALLEL_RUBOCOP=false
+if command -v parallel &> /dev/null; then
+  PARALLEL_RUBOCOP=true
+fi
+
+echo "==> Running RuboCop..."
+if [ -f "$RUBOCOP_CACHE" ]; then
+  CHANGED=$(git diff --name-only --diff-filter=AM "$RUBOCOP_CACHE" | grep '\.rb$' || true)
+else
+  CHANGED=$(git ls-files '*.rb')
+fi
+
+if [ -n "$CHANGED" ]; then
+  if $PARALLEL_RUBOCOP; then
+    echo "$CHANGED" | parallel -j4 bundle exec rubocop --force-exclusion || true
+  else
+    echo "$CHANGED" | xargs bundle exec rubocop --force-exclusion || true
+  fi
+  date > "$RUBOCOP_CACHE"
+else
+  echo "No Ruby files changed since last RuboCop run."
+fi
+
+# 2. Run RSpec, but only failed or changed files
+PARALLEL_RSPEC=false
+if command -v parallel_rspec &> /dev/null; then
+  PARALLEL_RSPEC=true
+fi
+
+echo "==> Running RSpec..."
+if [ -f "$RSPEC_CACHE" ]; then
+  FAILED=$(cat "$RSPEC_CACHE")
+else
+  FAILED=""
+fi
+
+# Find changed spec files (only if cache exists)
+CHANGED_SPECS=""
+if [ -f "$RSPEC_CACHE" ]; then
+  CHANGED_SPECS=$(git diff --name-only --diff-filter=AM "$RSPEC_CACHE" | grep '_spec\.rb$' || true)
+else
+  # If no cache exists, run all specs
+  CHANGED_SPECS=""
+fi
+
+# Combine failed and changed specs
+TO_RUN=$(echo -e "$FAILED\n$CHANGED_SPECS" | sort | uniq | grep -v '^$')
+
+RSPEC_OPTS="--fail-fast --format documentation"
+
+if [ -z "$TO_RUN" ]; then
+  echo "No failed or changed specs to run. Running all specs for safety."
+  if $PARALLEL_RSPEC; then
+    bundle exec parallel_rspec spec $RSPEC_OPTS || true
+  else
+    bundle exec rspec spec $RSPEC_OPTS || true
+  fi
+else
+  echo "Running only failed or changed specs:"
+  echo "$TO_RUN"
+  if $PARALLEL_RSPEC; then
+    bundle exec parallel_rspec $TO_RUN $RSPEC_OPTS || true
+  else
+    bundle exec rspec $TO_RUN $RSPEC_OPTS || true
+  fi
+fi
+
+# Update cache with failed specs
+bundle exec rspec --only-failures --format progress || true
+bundle exec rspec --only-failures --format documentation > "$RSPEC_CACHE" || true
+
+if [ $? -eq 0 ]; then
+  notify "All tests passed!"
+else
+  notify "Some tests failed!"
+fi
+
+echo "==> Done." 

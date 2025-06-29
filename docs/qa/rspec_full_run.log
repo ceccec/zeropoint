@@ -1,0 +1,62 @@
+/Users/ceci/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rspec-expectations-3.13.5/lib/rspec/matchers/dsl.rb:75: warning: method redefined; discarding old respond_to
+/Users/ceci/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rspec-expectations-3.13.5/lib/rspec/matchers.rb:792: warning: previous definition of respond_to was here
+/Users/ceci/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rspec-expectations-3.13.5/lib/rspec/matchers/dsl.rb:75: warning: method redefined; discarding old include
+/Users/ceci/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rspec-expectations-3.13.5/lib/rspec/matchers.rb:639: warning: previous definition of include was here
+/Users/ceci/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rspec-expectations-3.13.5/lib/rspec/matchers/dsl.rb:75: warning: method redefined; discarding old end_with
+/Users/ceci/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rspec-expectations-3.13.5/lib/rspec/matchers.rb:543: warning: previous definition of end_with was here
+/Users/ceci/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rspec-expectations-3.13.5/lib/rspec/matchers/dsl.rb:75: warning: method redefined; discarding old start_with
+/Users/ceci/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rspec-expectations-3.13.5/lib/rspec/matchers.rb:828: warning: previous definition of start_with was here
+/Users/ceci/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rspec-expectations-3.13.5/lib/rspec/matchers/dsl.rb:75: warning: method redefined; discarding old eq
+/Users/ceci/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rspec-expectations-3.13.5/lib/rspec/matchers.rb:558: warning: previous definition of eq was here
+/Users/ceci/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rspec-expectations-3.13.5/lib/rspec/matchers/dsl.rb:75: warning: method redefined; discarding old be
+/Users/ceci/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rspec-expectations-3.13.5/lib/rspec/matchers.rb:349: warning: previous definition of be was here
+/Users/ceci/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rspec-expectations-3.13.5/lib/rspec/matchers/dsl.rb:75: warning: method redefined; discarding old be_nil
+/Users/ceci/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rspec-expectations-3.13.5/lib/rspec/matchers.rb:324: warning: previous definition of be_nil was here
+/Users/ceci/github/ceccec/gem.zeropoint.bg/spec/spec_helper.rb:571: warning: method redefined; discarding old feature_enabled?
+/Users/ceci/github/ceccec/gem.zeropoint.bg/spec/spec_helper.rb:347: warning: previous definition of feature_enabled? was here
+/Users/ceci/github/ceccec/gem.zeropoint.bg/spec/caching_comparison_spec.rb:11: warning: method redefined; discarding old current
+/Users/ceci/github/ceccec/gem.zeropoint.bg/spec/spec_helper.rb:577: warning: previous definition of current was here
+/Users/ceci/github/ceccec/gem.zeropoint.bg/spec/vortex/multi_vortex_spec.rb:340: warning: assigned but unused variable - callback_called
+
+An error occurred while loading ./spec/vortex/queryable_spec.rb.
+Failure/Error:
+  RSpec.describe Zeropoint::Vortex::Queryable, type: :model do
+    let(:test_class) do
+      Class.new(OpenStruct) do
+        self.table_name = 'users'
+        include Zeropoint::Vortex::Queryable
+  
+        belongs_to :role
+        has_many :posts
+        has_many :user_tags
+        has_many :tags, through: :user_tags
+
+NameError:
+  uninitialized constant Zeropoint::Vortex::Queryable
+# ./spec/vortex/queryable_spec.rb:5:in `<top (required)>'
+
+An error occurred while loading ./spec/vortex/stream_processor_spec.rb.
+Failure/Error:
+  RSpec.describe Zeropoint::Vortex::StreamProcessor, type: :model do
+    let(:test_class) do
+      Class.new(OpenStruct) do
+        self.table_name = 'users'
+        include Zeropoint::Vortex::Queryable
+  
+        belongs_to :role
+        has_many :posts
+        has_many :user_tags
+        has_many :tags, through: :user_tags
+
+NameError:
+  uninitialized constant Zeropoint::Vortex::StreamProcessor
+# ./spec/vortex/stream_processor_spec.rb:5:in `<top (required)>'
+
+Top 0 slowest examples (0 seconds, 0.0% of total time):
+
+Finished in 0.00003 seconds (files took 0.59152 seconds to load)
+0 examples, 0 failures, 2 errors occurred outside of examples
+
+Coverage report generated for RSpec to /Users/ceci/github/ceccec/gem.zeropoint.bg/coverage.
+Line Coverage: 100.0% (0 / 0)
+Stopped processing SimpleCov as a previous error not related to SimpleCov has been detected

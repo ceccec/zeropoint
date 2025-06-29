@@ -1,0 +1,25 @@
+// Service Worker for Zeropoint PWA
+// Generated from canonical manifest seed
+
+const CACHE_NAME = '<%= Zeropoint::Manifest.manifestation(:service_worker)["cache_name"] %>';
+const urlsToCache = <%= raw Zeropoint::Manifest.export(:service_worker_precache).to_json %>;
+
+self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        return cache.addAll(urlsToCache);
+      })
+  );
+});
+
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        return response || fetch(event.request);
+      })
+  );
+});
+
+// ...rest of your service worker logic 

@@ -1,0 +1,230 @@
+# frozen_string_literal: true
+
+module Zeropoint
+  class PaginationService
+    include Singleton
+
+    def initialize
+      @backend = detect_backend
+    end
+
+    # Paginate a collection with metadata
+    def paginate(collection, options = {})
+      return empty_pagination_result if collection.blank?
+
+      @backend.paginate(collection, options)
+    rescue => e
+      Rails.logger.error "Pagination failed: #{e.message}"
+      fallback_paginate(collection, options)
+    end
+
+    # Paginate with additional metadata
+    def paginate_with_metadata(collection, options = {})
+      result = paginate(collection, options)
+      
+      {
+        data: result[:data] || result,
+        pagination: {
+          current_page: result[:current_page] || 1,
+          total_pages: result[:total_pages] || 1,
+          total_count: result[:total_count] || 0,
+          per_page: result[:per_page] || 25,
+          has_next: result[:has_next] || false,
+          has_prev: result[:has_prev] || false
+        }
+      }
+    end
+
+    # Paginate with filters
+    def paginate_with_filters(collection, filters = {}, options = {})
+      filtered_collection = apply_filters(collection, filters)
+      paginate(filtered_collection, options)
+    end
+
+    # Get pagination info without executing query
+    def pagination_info(collection, options = {})
+      @backend.pagination_info(collection, options)
+    rescue => e
+      Rails.logger.error "Pagination info failed: #{e.message}"
+      fallback_pagination_info(collection, options)
+    end
+
+    private
+
+    def detect_backend
+      if defined?(Kaminari)
+        KaminariBackend.new
+      elsif defined?(WillPaginate)
+        WillPaginateBackend.new
+      else
+        ActiveRecordBackend.new
+      end
+    end
+
+    def apply_filters(collection, filters)
+      return collection if filters.blank?
+
+      scope = collection
+      filters.each do |field, value|
+        next if value.blank?
+        
+        if value.is_a?(Hash)
+          scope = apply_range_filter(scope, field, value)
+        else
+          scope = scope.where(field => value)
+        end
+      end
+      
+      scope
+    end
+
+    def apply_range_filter(scope, field, range)
+      if range[:gte]
+        scope = scope.where("#{field} >= ?", range[:gte])
+      end
+      if range[:lte]
+        scope = scope.where("#{field} <= ?", range[:lte])
+      end
+      if range[:gt]
+        scope = scope.where("#{field} > ?", range[:gt])
+      end
+      if range[:lt]
+        scope = scope.where("#{field} < ?", range[:lt])
+      end
+      
+      scope
+    end
+
+    def fallback_paginate(collection, options)
+      page = options[:page] || 1
+      per_page = options[:per_page] || 25
+      offset = (page - 1) * per_page
+      
+      {
+        data: collection.offset(offset).limit(per_page),
+        current_page: page,
+        total_pages: (collection.count.to_f / per_page).ceil,
+        total_count: collection.count,
+        per_page: per_page,
+        has_next: offset + per_page < collection.count,
+        has_prev: page > 1
+      }
+    end
+
+    def fallback_pagination_info(collection, options)
+      per_page = options[:per_page] || 25
+      total_count = collection.count
+      
+      {
+        total_pages: (total_count.to_f / per_page).ceil,
+        total_count: total_count,
+        per_page: per_page
+      }
+    end
+
+    def empty_pagination_result
+      {
+        data: [],
+        current_page: 1,
+        total_pages: 0,
+        total_count: 0,
+        per_page: 25,
+        has_next: false,
+        has_prev: false
+      }
+    end
+
+    # Backend implementations
+    class KaminariBackend
+      def paginate(collection, options)
+        page = options[:page] || 1
+        per_page = options[:per_page] || 25
+        
+        paginated = collection.page(page).per(per_page)
+        
+        {
+          data: paginated,
+          current_page: paginated.current_page,
+          total_pages: paginated.total_pages,
+          total_count: paginated.total_count,
+          per_page: per_page,
+          has_next: paginated.next_page.present?,
+          has_prev: paginated.prev_page.present?
+        }
+      end
+
+      def pagination_info(collection, options)
+        per_page = options[:per_page] || 25
+        total_count = collection.count
+        
+        {
+          total_pages: (total_count.to_f / per_page).ceil,
+          total_count: total_count,
+          per_page: per_page
+        }
+      end
+    end
+
+    class WillPaginateBackend
+      def paginate(collection, options)
+        page = options[:page] || 1
+        per_page = options[:per_page] || 25
+        
+        paginated = collection.paginate(page: page, per_page: per_page)
+        
+        {
+          data: paginated,
+          current_page: paginated.current_page,
+          total_pages: paginated.total_pages,
+          total_count: paginated.total_entries,
+          per_page: per_page,
+          has_next: paginated.next_page.present?,
+          has_prev: paginated.previous_page.present?
+        }
+      end
+
+      def pagination_info(collection, options)
+        per_page = options[:per_page] || 25
+        total_count = collection.count
+        
+        {
+          total_pages: (total_count.to_f / per_page).ceil,
+          total_count: total_count,
+          per_page: per_page
+        }
+      end
+    end
+
+    class ActiveRecordBackend
+      def paginate(collection, options)
+        page = options[:page] || 1
+        per_page = options[:per_page] || 25
+        offset = (page - 1) * per_page
+        
+        paginated_data = collection.offset(offset).limit(per_page)
+        total_count = collection.count
+        
+        {
+          data: paginated_data,
+          current_page: page,
+          total_pages: (total_count.to_f / per_page).ceil,
+          total_count: total_count,
+          per_page: per_page,
+          has_next: offset + per_page < total_count,
+          has_prev: page > 1
+        }
+      end
+
+      def pagination_info(collection, options)
+        per_page = options[:per_page] || 25
+        total_count = collection.count
+        
+        {
+          total_pages: (total_count.to_f / per_page).ceil,
+          total_count: total_count,
+          per_page: per_page
+        }
+      end
+    end
+  end
+end 

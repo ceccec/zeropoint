@@ -1,0 +1,19 @@
+# Zero Point Gem Website Redirects
+
+# Redirect old domain to new domain
+https://graphql-ui-layout.com/* https://gem.zeropoint.bg/:splat 301!
+https://www.graphql-ui-layout.com/* https://gem.zeropoint.bg/:splat 301!
+
+# Redirect www to non-www
+https://www.gem.zeropoint.bg/* https://gem.zeropoint.bg/:splat 301!
+
+# Redirect HTTP to HTTPS
+http://gem.zeropoint.bg/* https://gem.zeropoint.bg/:splat 301!
+
+# Redirect old paths to new structure
+/graphql-ui-layout / 301
+/old-docs /docs 301
+/legacy / 301
+
+# Handle SPA routing
+/* /index.html 200 

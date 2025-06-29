@@ -1,0 +1,61 @@
+{
+  "name": "zero-point-gem",
+  "version": "1.0.0",
+  "description": "Zero Point Unified Intelligence Gem - UnifiedIntelligence = UserInterface",
+  "main": "typescript/index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "dev": "npm run build:watch",
+    "type-check": "tsc --noEmit",
+    "start": "python3 -m http.server 8000",
+    "demo": "open http://localhost:8000/stimulus-demo.html"
+  },
+  "keywords": [
+    "zero-point",
+    "gem",
+    "stimulus",
+    "consciousness",
+    "vortex",
+    "golden-ratio",
+    "unified-intelligence",
+    "nassim-haramein",
+    "marco-rodin",
+    "unified-field-theory",
+    "vortex-mathematics",
+    "typescript",
+    "rails"
+  ],
+  "author": "Zero Point Team",
+  "license": "MIT",
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.16",
+    "@types/node": "^20.0.0",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zeropoint/gem.zeropoint.bg.git"
+  },
+  "homepage": "https://zeropoint.bg",
+  "bugs": {
+    "url": "https://github.com/zeropoint/gem.zeropoint.bg/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "directories": {
+    "doc": "docs",
+    "example": "examples",
+    "lib": "lib",
+    "test": "test"
+  }
+}

@@ -1,0 +1,2123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: Zeropoint::Math::RodinCoil
+  
+    &mdash; Documentation by YARD 0.9.37
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Zeropoint::Math::RodinCoil";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (R)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Zeropoint.html" title="Zeropoint (module)">Zeropoint</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Math.html" title="Zeropoint::Math (module)">Math</a></span></span>
+     &raquo; 
+    <span class="title">RodinCoil</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: Zeropoint::Math::RodinCoil
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  <dl>
+      <dt>Extended by:</dt>
+      <dd><span class='object_link'><a href="" title="Zeropoint::Math::RodinCoil (module)">RodinCoil</a></span></dd>
+  </dl>
+  
+  
+  
+  
+
+  
+  <dl>
+    <dt>Included in:</dt>
+    <dd><span class='object_link'><a href="../Coil/Rodin.html" title="Zeropoint::Coil::Rodin (class)">Coil::Rodin</a></span>, <span class='object_link'><a href="" title="Zeropoint::Math::RodinCoil (module)">RodinCoil</a></span></dd>
+  </dl>
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/zeropoint/math/rodin_coil.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Rodin Coil Mathematics Module Implements vortex-based mathematical torus coil patterns Based on Marco Rodin’s coil design principles</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://www.markorodin.com" target="_parent" title="https://www.markorodin.com">https://www.markorodin.com</a></li>
+    
+      <li>docs/MARCO_RODIN_COILS_ANALYSISdocs/MARCO_RODIN_COILS_ANALYSIS.md</li>
+    
+  </ul>
+
+</div>
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="MAGNETIC_EFFICIENCY_GAIN-constant" class="">MAGNETIC_EFFICIENCY_GAIN =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Core Rodin Coil Constants</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='float'>0.625</span></pre></dd>
+      
+        <dt id="COPPER_REDUCTION_MIN-constant" class="">COPPER_REDUCTION_MIN =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>62.5% improvement over standard coils</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='float'>0.20</span></pre></dd>
+      
+        <dt id="STANDARD_TURNS-constant" class="">STANDARD_TURNS =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>20% minimum copper reduction</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>24</span></pre></dd>
+      
+        <dt id="STANDARD_GAUGE-constant" class="">STANDARD_GAUGE =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>26</span></pre></dd>
+      
+        <dt id="STANDARD_DIAMETER-constant" class="">STANDARD_DIAMETER =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>inches</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='float'>4.0</span></pre></dd>
+      
+        <dt id="POSITION_1_CIRCUIT-constant" class="">POSITION_1_CIRCUIT =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Winding Pattern Positions</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>4</span><span class='comma'>,</span> <span class='int'>8</span><span class='comma'>,</span> <span class='int'>7</span><span class='comma'>,</span> <span class='int'>5</span> <span class='rbracket'>]</span></pre></dd>
+      
+        <dt id="POSITION_2_CIRCUIT-constant" class="">POSITION_2_CIRCUIT =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Left doubling circuit</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>4</span><span class='comma'>,</span> <span class='int'>8</span><span class='comma'>,</span> <span class='int'>7</span><span class='comma'>,</span> <span class='int'>5</span><span class='comma'>,</span> <span class='int'>1</span> <span class='rbracket'>]</span></pre></dd>
+      
+        <dt id="GAP_POSITIONS-constant" class="">GAP_POSITIONS =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Multiples of 3 (W-axis gaps)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span> <span class='int'>3</span><span class='comma'>,</span> <span class='int'>6</span><span class='comma'>,</span> <span class='int'>9</span> <span class='rbracket'>]</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#advanced_coil_designs-instance_method" title="#advanced_coil_designs (instance method)">#<strong>advanced_coil_designs</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Advanced Coil Designs.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#all_pattern_numbers-instance_method" title="#all_pattern_numbers (instance method)">#<strong>all_pattern_numbers</strong>  &#x21d2; Array&lt;Integer&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>All unique numbers in Rodin patterns.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#applications-instance_method" title="#applications (instance method)">#<strong>applications</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Application Specifications.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#calculate_copper_savings-instance_method" title="#calculate_copper_savings (instance method)">#<strong>calculate_copper_savings</strong>(standard_copper)  &#x21d2; Float </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Copper savings amount.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#calculate_efficiency_gain-instance_method" title="#calculate_efficiency_gain (instance method)">#<strong>calculate_efficiency_gain</strong>(standard_output)  &#x21d2; Float </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Coil Efficiency Calculations.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#coil_geometry-instance_method" title="#coil_geometry (instance method)">#<strong>coil_geometry</strong>(diameter = STANDARD_DIAMETER, turns = STANDARD_TURNS, gauge = STANDARD_GAUGE)  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Coil Geometry Specifications.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#configuration_parameters-instance_method" title="#configuration_parameters (instance method)">#<strong>configuration_parameters</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Configuration Integration.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#electron_flow_optimization-instance_method" title="#electron_flow_optimization (instance method)">#<strong>electron_flow_optimization</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Electron Flow Optimization.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#insights-instance_method" title="#insights (instance method)">#<strong>insights</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Metaphysical Insights.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#performance_metrics-instance_method" title="#performance_metrics (instance method)">#<strong>performance_metrics</strong>(standard_coil_output)  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Performance Metrics.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#synchronized_electricity_pattern-instance_method" title="#synchronized_electricity_pattern (instance method)">#<strong>synchronized_electricity_pattern</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Synchronized Electricity Pattern Creates the mathematical pattern for synchronized electron flow.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#toroidal_field_map-instance_method" title="#toroidal_field_map (instance method)">#<strong>toroidal_field_map</strong>(radius, turns = STANDARD_TURNS)  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Toroidal Field Mapping Maps the toroidal field structure for Rodin coil.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#toroidal_number_map-instance_method" title="#toroidal_number_map (instance method)">#<strong>toroidal_number_map</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Toroidal Number Mapping.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#validate_patterns-instance_method" title="#validate_patterns (instance method)">#<strong>validate_patterns</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Validation Methods.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#vbm_integration-instance_method" title="#vbm_integration (instance method)">#<strong>vbm_integration</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Integration with Existing VBM Modules.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#vortex_field_strength-instance_method" title="#vortex_field_strength (instance method)">#<strong>vortex_field_strength</strong>(base_strength)  &#x21d2; Float </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Vortex Field Properties.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#vortex_sequence_digital_root-instance_method" title="#vortex_sequence_digital_root (instance method)">#<strong>vortex_sequence_digital_root</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Digital root of the vortex sequence.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="advanced_coil_designs-instance_method">
+  
+    #<strong>advanced_coil_designs</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Advanced Coil Designs</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Advanced coil design specifications</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math/rodin_coil.rb', line 113</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_advanced_coil_designs'>advanced_coil_designs</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>starship_coil:</span> <span class='lbrace'>{</span>
+      <span class='label'>design:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>flat_design_with_less_resistance</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>advantage:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>vertical_vortex_winding_compression</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>access:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>device_access_to_magnetic_field</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>super_starship:</span> <span class='lbrace'>{</span>
+      <span class='label'>design:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>advanced_field_compression</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>variation:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>enhanced_vortex_patterns</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>star_challis:</span> <span class='lbrace'>{</span>
+      <span class='label'>design:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>advanced_variation</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>optimization:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>field_compression_enhancement</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="all_pattern_numbers-instance_method">
+  
+    #<strong>all_pattern_numbers</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Array.html" title="Array (class)">Array</a></span>&lt;Integer&gt;</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns All unique numbers in Rodin patterns.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Array.html" title="Array (class)">Array</a></span>&lt;Integer&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>All unique numbers in Rodin patterns</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+255
+256
+257</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math/rodin_coil.rb', line 255</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_all_pattern_numbers'>all_pattern_numbers</span>
+  <span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#POSITION_1_CIRCUIT-constant" title="Zeropoint::Math::RodinCoil::POSITION_1_CIRCUIT (constant)">POSITION_1_CIRCUIT</a></span></span> <span class='op'>+</span> <span class='const'><span class='object_link'><a href="#POSITION_2_CIRCUIT-constant" title="Zeropoint::Math::RodinCoil::POSITION_2_CIRCUIT (constant)">POSITION_2_CIRCUIT</a></span></span> <span class='op'>+</span> <span class='const'><span class='object_link'><a href="#GAP_POSITIONS-constant" title="Zeropoint::Math::RodinCoil::GAP_POSITIONS (constant)">GAP_POSITIONS</a></span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="applications-instance_method">
+  
+    #<strong>applications</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Application Specifications</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Application use cases and specifications</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math/rodin_coil.rb', line 152</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_applications'>applications</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>power_generation:</span> <span class='lbrace'>{</span>
+      <span class='label'>motor_efficiency:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>far_more_efficient_than_conventional</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>magnetic_output:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>62.5_percent_greater_than_standard</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>copper_optimization:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>20_percent_reduction_achievable</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>health_biological:</span> <span class='lbrace'>{</span>
+      <span class='label'>vortex_field_therapy:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>biological_field_interactions</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>energy_medicine:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>toroidal_field_applications</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>resonance_effects:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>harmonic_field_generation</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>technology:</span> <span class='lbrace'>{</span>
+      <span class='label'>computers:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>enhanced_electromagnetic_efficiency</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>antennae:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>improved_signal_reception_transmission</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>medical_devices:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>advanced_diagnostic_therapeutic_tools</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>education:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>demonstrates_vortex_mathematics_principles</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="calculate_copper_savings-instance_method">
+  
+    #<strong>calculate_copper_savings</strong>(standard_copper)  &#x21d2; <tt>Float</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns Copper savings amount.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>standard_copper</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Standard copper usage</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Copper savings amount</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math/rodin_coil.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_calculate_copper_savings'>calculate_copper_savings</span><span class='lparen'>(</span><span class='id identifier rubyid_standard_copper'>standard_copper</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_standard_copper'>standard_copper</span> <span class='op'>*</span> <span class='const'><span class='object_link'><a href="#COPPER_REDUCTION_MIN-constant" title="Zeropoint::Math::RodinCoil::COPPER_REDUCTION_MIN (constant)">COPPER_REDUCTION_MIN</a></span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="calculate_efficiency_gain-instance_method">
+  
+    #<strong>calculate_efficiency_gain</strong>(standard_output)  &#x21d2; <tt>Float</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Coil Efficiency Calculations</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>standard_output</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Standard coil magnetic output</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Efficiency gain amount</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math/rodin_coil.rb', line 49</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_calculate_efficiency_gain'>calculate_efficiency_gain</span><span class='lparen'>(</span><span class='id identifier rubyid_standard_output'>standard_output</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_standard_output'>standard_output</span> <span class='op'>*</span> <span class='const'><span class='object_link'><a href="#MAGNETIC_EFFICIENCY_GAIN-constant" title="Zeropoint::Math::RodinCoil::MAGNETIC_EFFICIENCY_GAIN (constant)">MAGNETIC_EFFICIENCY_GAIN</a></span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="coil_geometry-instance_method">
+  
+    #<strong>coil_geometry</strong>(diameter = STANDARD_DIAMETER, turns = STANDARD_TURNS, gauge = STANDARD_GAUGE)  &#x21d2; <tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Coil Geometry Specifications</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>diameter</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>STANDARD_DIAMETER</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Coil diameter in inches</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>turns</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>STANDARD_TURNS</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Number of turns</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>gauge</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>STANDARD_GAUGE</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Wire gauge</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Complete coil geometry</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math/rodin_coil.rb', line 86</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_coil_geometry'>coil_geometry</span><span class='lparen'>(</span><span class='id identifier rubyid_diameter'>diameter</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#STANDARD_DIAMETER-constant" title="Zeropoint::Math::RodinCoil::STANDARD_DIAMETER (constant)">STANDARD_DIAMETER</a></span></span><span class='comma'>,</span> <span class='id identifier rubyid_turns'>turns</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#STANDARD_TURNS-constant" title="Zeropoint::Math::RodinCoil::STANDARD_TURNS (constant)">STANDARD_TURNS</a></span></span><span class='comma'>,</span> <span class='id identifier rubyid_gauge'>gauge</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#STANDARD_GAUGE-constant" title="Zeropoint::Math::RodinCoil::STANDARD_GAUGE (constant)">STANDARD_GAUGE</a></span></span><span class='rparen'>)</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>diameter:</span> <span class='id identifier rubyid_diameter'>diameter</span><span class='comma'>,</span>
+    <span class='label'>turns:</span> <span class='id identifier rubyid_turns'>turns</span><span class='comma'>,</span>
+    <span class='label'>gauge:</span> <span class='id identifier rubyid_gauge'>gauge</span><span class='comma'>,</span>
+    <span class='label'>poloidal_circuit:</span> <span class='const'><span class='object_link'><a href="#POSITION_1_CIRCUIT-constant" title="Zeropoint::Math::RodinCoil::POSITION_1_CIRCUIT (constant)">POSITION_1_CIRCUIT</a></span></span><span class='comma'>,</span>
+    <span class='label'>toroidal_circuit:</span> <span class='const'><span class='object_link'><a href="#POSITION_2_CIRCUIT-constant" title="Zeropoint::Math::RodinCoil::POSITION_2_CIRCUIT (constant)">POSITION_2_CIRCUIT</a></span></span><span class='comma'>,</span>
+    <span class='label'>gap_positions:</span> <span class='const'><span class='object_link'><a href="#GAP_POSITIONS-constant" title="Zeropoint::Math::RodinCoil::GAP_POSITIONS (constant)">GAP_POSITIONS</a></span></span><span class='comma'>,</span>
+    <span class='label'>field_compression:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>vertical_vortex_winding</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>resistance_optimization:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>flat_design_less_resistance</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="configuration_parameters-instance_method">
+  
+    #<strong>configuration_parameters</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Configuration Integration</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Configuration parameters for integration</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math/rodin_coil.rb', line 175</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_configuration_parameters'>configuration_parameters</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>enabled:</span> <span class='const'>ENV</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ZEROPOINT_RODIN_COIL_ENABLED</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>true</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>magnetic_efficiency_gain:</span> <span class='const'>ENV</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ZEROPOINT_RODIN_MAGNETIC_GAIN</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="#MAGNETIC_EFFICIENCY_GAIN-constant" title="Zeropoint::Math::RodinCoil::MAGNETIC_EFFICIENCY_GAIN (constant)">MAGNETIC_EFFICIENCY_GAIN</a></span></span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>copper_reduction_min:</span> <span class='const'>ENV</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ZEROPOINT_RODIN_COPPER_REDUCTION</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="#COPPER_REDUCTION_MIN-constant" title="Zeropoint::Math::RodinCoil::COPPER_REDUCTION_MIN (constant)">COPPER_REDUCTION_MIN</a></span></span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>standard_turns:</span> <span class='const'>ENV</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ZEROPOINT_RODIN_STANDARD_TURNS</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="#STANDARD_TURNS-constant" title="Zeropoint::Math::RodinCoil::STANDARD_TURNS (constant)">STANDARD_TURNS</a></span></span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>standard_gauge:</span> <span class='const'>ENV</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ZEROPOINT_RODIN_STANDARD_GAUGE</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="#STANDARD_GAUGE-constant" title="Zeropoint::Math::RodinCoil::STANDARD_GAUGE (constant)">STANDARD_GAUGE</a></span></span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>standard_diameter:</span> <span class='const'>ENV</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ZEROPOINT_RODIN_STANDARD_DIAMETER</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="#STANDARD_DIAMETER-constant" title="Zeropoint::Math::RodinCoil::STANDARD_DIAMETER (constant)">STANDARD_DIAMETER</a></span></span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>vortex_field_enabled:</span> <span class='const'>ENV</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ZEROPOINT_RODIN_VORTEX_FIELD</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>true</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>synchronized_electricity:</span> <span class='const'>ENV</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ZEROPOINT_RODIN_SYNC_ELECTRICITY</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>true</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="electron_flow_optimization-instance_method">
+  
+    #<strong>electron_flow_optimization</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Electron Flow Optimization</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Electron flow optimization characteristics</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+101
+102
+103
+104
+105
+106
+107
+108
+109</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math/rodin_coil.rb', line 101</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_electron_flow_optimization'>electron_flow_optimization</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>synchronized_flow:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>minimizes_random_electron_collision</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>heat_reduction:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>reduced_friction_and_reluctance</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>parallel_diagonal:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>opposite_flow_patterns</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>equal_potential_grooves:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>gap_spaces_at_multiples_of_3</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>field_creation:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>focus_on_field_creation_vs_transformer</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="insights-instance_method">
+  
+    #<strong>insights</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Metaphysical Insights</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Metaphysical and philosophical insights</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math/rodin_coil.rb', line 211</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_insights'>insights</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>philosophy:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Linking science to metaphysics, religion, and Hopi culture</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>field_creation:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Focus on field creation vs transformer optimization</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>synchronized_flow:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Minimizes random electron collision, heat, friction, reluctance</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>toroidal_nature:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Vortex field spiraling towards center and circulating around</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>consciousness_physics:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Field creation as consciousness interaction</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>universal_patterns:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Toroidal flow as fundamental structure</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>science_spirit_bridge:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Mathematics unified with metaphysical understanding</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="performance_metrics-instance_method">
+  
+    #<strong>performance_metrics</strong>(standard_coil_output)  &#x21d2; <tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Performance Metrics</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>standard_coil_output</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Standard coil performance</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Performance comparison metrics</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math/rodin_coil.rb', line 226</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_performance_metrics'>performance_metrics</span><span class='lparen'>(</span><span class='id identifier rubyid_standard_coil_output'>standard_coil_output</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_enhanced_output'>enhanced_output</span> <span class='op'>=</span> <span class='id identifier rubyid_vortex_field_strength'>vortex_field_strength</span><span class='lparen'>(</span><span class='id identifier rubyid_standard_coil_output'>standard_coil_output</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_efficiency_gain'>efficiency_gain</span> <span class='op'>=</span> <span class='id identifier rubyid_calculate_efficiency_gain'>calculate_efficiency_gain</span><span class='lparen'>(</span><span class='id identifier rubyid_standard_coil_output'>standard_coil_output</span><span class='rparen'>)</span>
+
+  <span class='lbrace'>{</span>
+    <span class='label'>standard_output:</span> <span class='id identifier rubyid_standard_coil_output'>standard_coil_output</span><span class='comma'>,</span>
+    <span class='label'>enhanced_output:</span> <span class='id identifier rubyid_enhanced_output'>enhanced_output</span><span class='comma'>,</span>
+    <span class='label'>efficiency_gain:</span> <span class='id identifier rubyid_efficiency_gain'>efficiency_gain</span><span class='comma'>,</span>
+    <span class='label'>improvement_percentage:</span> <span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#MAGNETIC_EFFICIENCY_GAIN-constant" title="Zeropoint::Math::RodinCoil::MAGNETIC_EFFICIENCY_GAIN (constant)">MAGNETIC_EFFICIENCY_GAIN</a></span></span> <span class='op'>*</span> <span class='int'>100</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>copper_savings_percentage:</span> <span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#COPPER_REDUCTION_MIN-constant" title="Zeropoint::Math::RodinCoil::COPPER_REDUCTION_MIN (constant)">COPPER_REDUCTION_MIN</a></span></span> <span class='op'>*</span> <span class='int'>100</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>field_characteristics:</span> <span class='lbrace'>{</span>
+      <span class='label'>spiraling:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>towards_center_and_out_through_other_side</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>circulating:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>wrapping_around_circulating</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>inductive:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>center_axis_induction_creates_new_effects</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="synchronized_electricity_pattern-instance_method">
+  
+    #<strong>synchronized_electricity_pattern</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Synchronized Electricity Pattern Creates the mathematical pattern for synchronized electron flow</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Complete synchronized electricity configuration</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math/rodin_coil.rb', line 36</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_synchronized_electricity_pattern'>synchronized_electricity_pattern</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>right_circuit:</span> <span class='const'><span class='object_link'><a href="#POSITION_1_CIRCUIT-constant" title="Zeropoint::Math::RodinCoil::POSITION_1_CIRCUIT (constant)">POSITION_1_CIRCUIT</a></span></span><span class='comma'>,</span>
+    <span class='label'>left_circuit:</span> <span class='const'><span class='object_link'><a href="#POSITION_2_CIRCUIT-constant" title="Zeropoint::Math::RodinCoil::POSITION_2_CIRCUIT (constant)">POSITION_2_CIRCUIT</a></span></span><span class='comma'>,</span>
+    <span class='label'>gap_spaces:</span> <span class='const'><span class='object_link'><a href="#GAP_POSITIONS-constant" title="Zeropoint::Math::RodinCoil::GAP_POSITIONS (constant)">GAP_POSITIONS</a></span></span><span class='comma'>,</span>
+    <span class='label'>electron_flow:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>opposite_parallel_diagonal</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>field_optimization:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>minimizes_random_collision</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="toroidal_field_map-instance_method">
+  
+    #<strong>toroidal_field_map</strong>(radius, turns = STANDARD_TURNS)  &#x21d2; <tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Toroidal Field Mapping Maps the toroidal field structure for Rodin coil</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>radius</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Torus radius</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>turns</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>STANDARD_TURNS</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Number of coil turns</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Complete toroidal field configuration</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math/rodin_coil.rb', line 64</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_toroidal_field_map'>toroidal_field_map</span><span class='lparen'>(</span><span class='id identifier rubyid_radius'>radius</span><span class='comma'>,</span> <span class='id identifier rubyid_turns'>turns</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#STANDARD_TURNS-constant" title="Zeropoint::Math::RodinCoil::STANDARD_TURNS (constant)">STANDARD_TURNS</a></span></span><span class='rparen'>)</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>poloidal_flow:</span> <span class='const'><span class='object_link'><a href="#POSITION_1_CIRCUIT-constant" title="Zeropoint::Math::RodinCoil::POSITION_1_CIRCUIT (constant)">POSITION_1_CIRCUIT</a></span></span><span class='comma'>,</span>
+    <span class='label'>toroidal_flow:</span> <span class='const'><span class='object_link'><a href="#POSITION_2_CIRCUIT-constant" title="Zeropoint::Math::RodinCoil::POSITION_2_CIRCUIT (constant)">POSITION_2_CIRCUIT</a></span></span><span class='comma'>,</span>
+    <span class='label'>aperture_points:</span> <span class='const'><span class='object_link'><a href="#GAP_POSITIONS-constant" title="Zeropoint::Math::RodinCoil::GAP_POSITIONS (constant)">GAP_POSITIONS</a></span></span><span class='comma'>,</span>
+    <span class='label'>vortex_center:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>inductive_axis</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>field_compression:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>vertical_vortex_winding</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>radius:</span> <span class='id identifier rubyid_radius'>radius</span><span class='comma'>,</span>
+    <span class='label'>turns:</span> <span class='id identifier rubyid_turns'>turns</span><span class='comma'>,</span>
+    <span class='label'>field_characteristics:</span> <span class='lbrace'>{</span>
+      <span class='label'>spiraling_motion:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>towards_center_and_out</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>circulating_flow:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>wrapping_around_toroidal_structure</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>inductive_center:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>birth_of_new_electromagnetic_effects</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="toroidal_number_map-instance_method">
+  
+    #<strong>toroidal_number_map</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Toroidal Number Mapping</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Complete toroidal number map</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math/rodin_coil.rb', line 133</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_toroidal_number_map'>toroidal_number_map</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>poloidal_sequence:</span> <span class='const'><span class='object_link'><a href="#POSITION_1_CIRCUIT-constant" title="Zeropoint::Math::RodinCoil::POSITION_1_CIRCUIT (constant)">POSITION_1_CIRCUIT</a></span></span><span class='comma'>,</span>
+    <span class='label'>toroidal_sequence:</span> <span class='const'><span class='object_link'><a href="#POSITION_2_CIRCUIT-constant" title="Zeropoint::Math::RodinCoil::POSITION_2_CIRCUIT (constant)">POSITION_2_CIRCUIT</a></span></span><span class='comma'>,</span>
+    <span class='label'>w_axis_gaps:</span> <span class='const'><span class='object_link'><a href="#GAP_POSITIONS-constant" title="Zeropoint::Math::RodinCoil::GAP_POSITIONS (constant)">GAP_POSITIONS</a></span></span><span class='comma'>,</span>
+    <span class='label'>doubling_circuits:</span> <span class='lbrace'>{</span>
+      <span class='label'>right:</span> <span class='lbrace'>{</span> <span class='label'>start:</span> <span class='int'>1</span><span class='comma'>,</span> <span class='label'>end:</span> <span class='int'>1</span><span class='comma'>,</span> <span class='label'>flow:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>parallel_diagonal</span><span class='tstring_end'>&#39;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span>
+      <span class='label'>left:</span> <span class='lbrace'>{</span> <span class='label'>start:</span> <span class='int'>2</span><span class='comma'>,</span> <span class='label'>end:</span> <span class='int'>2</span><span class='comma'>,</span> <span class='label'>flow:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>opposite_parallel_diagonal</span><span class='tstring_end'>&#39;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>gap_spaces:</span> <span class='lbrace'>{</span>
+      <span class='label'>positions:</span> <span class='const'><span class='object_link'><a href="#GAP_POSITIONS-constant" title="Zeropoint::Math::RodinCoil::GAP_POSITIONS (constant)">GAP_POSITIONS</a></span></span><span class='comma'>,</span>
+      <span class='label'>function:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>equal_potential_major_grooves</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>separation:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>winding_separation</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="validate_patterns-instance_method">
+  
+    #<strong>validate_patterns</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Validation Methods</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Validates Rodin coil mathematical patterns</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+246
+247
+248
+249
+250
+251
+252</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math/rodin_coil.rb', line 246</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_validate_patterns'>validate_patterns</span>
+  <span class='const'><span class='object_link'><a href="#POSITION_1_CIRCUIT-constant" title="Zeropoint::Math::RodinCoil::POSITION_1_CIRCUIT (constant)">POSITION_1_CIRCUIT</a></span></span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>==</span> <span class='int'>6</span> <span class='op'>&amp;&amp;</span>
+  <span class='const'><span class='object_link'><a href="#POSITION_2_CIRCUIT-constant" title="Zeropoint::Math::RodinCoil::POSITION_2_CIRCUIT (constant)">POSITION_2_CIRCUIT</a></span></span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>==</span> <span class='int'>6</span> <span class='op'>&amp;&amp;</span>
+  <span class='const'><span class='object_link'><a href="#GAP_POSITIONS-constant" title="Zeropoint::Math::RodinCoil::GAP_POSITIONS (constant)">GAP_POSITIONS</a></span></span><span class='period'>.</span><span class='id identifier rubyid_all?'>all?</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_pos'>pos</span><span class='op'>|</span> <span class='id identifier rubyid_pos'>pos</span> <span class='op'>%</span> <span class='int'>3</span> <span class='op'>==</span> <span class='int'>0</span> <span class='rbrace'>}</span> <span class='op'>&amp;&amp;</span>
+  <span class='const'><span class='object_link'><a href="#MAGNETIC_EFFICIENCY_GAIN-constant" title="Zeropoint::Math::RodinCoil::MAGNETIC_EFFICIENCY_GAIN (constant)">MAGNETIC_EFFICIENCY_GAIN</a></span></span> <span class='op'>&gt;</span> <span class='int'>0</span> <span class='op'>&amp;&amp;</span>
+  <span class='const'><span class='object_link'><a href="#COPPER_REDUCTION_MIN-constant" title="Zeropoint::Math::RodinCoil::COPPER_REDUCTION_MIN (constant)">COPPER_REDUCTION_MIN</a></span></span> <span class='op'>&gt;</span> <span class='int'>0</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="vbm_integration-instance_method">
+  
+    #<strong>vbm_integration</strong>  &#x21d2; <tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Integration with Existing VBM Modules</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Integration points with other VBM modules</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math/rodin_coil.rb', line 190</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_vbm_integration'>vbm_integration</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>vortex_mathematics:</span> <span class='lbrace'>{</span>
+      <span class='label'>sequence:</span> <span class='const'><span class='object_link'><a href="#POSITION_1_CIRCUIT-constant" title="Zeropoint::Math::RodinCoil::POSITION_1_CIRCUIT (constant)">POSITION_1_CIRCUIT</a></span></span><span class='comma'>,</span>
+      <span class='label'>w_axis_gaps:</span> <span class='const'><span class='object_link'><a href="#GAP_POSITIONS-constant" title="Zeropoint::Math::RodinCoil::GAP_POSITIONS (constant)">GAP_POSITIONS</a></span></span><span class='comma'>,</span>
+      <span class='label'>toroidal_flow:</span> <span class='id identifier rubyid_toroidal_number_map'>toroidal_number_map</span><span class='comma'>,</span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>torus_geometry:</span> <span class='lbrace'>{</span>
+      <span class='label'>coil_specifications:</span> <span class='id identifier rubyid_coil_geometry'>coil_geometry</span><span class='comma'>,</span>
+      <span class='label'>field_mapping:</span> <span class='id identifier rubyid_toroidal_field_map'>toroidal_field_map</span><span class='lparen'>(</span><span class='float'>1.0</span><span class='rparen'>)</span><span class='comma'>,</span>
+      <span class='label'>aperture_alignment:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>center_axis_induction</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>golden_ratio:</span> <span class='lbrace'>{</span>
+      <span class='label'>efficiency_ratio:</span> <span class='const'><span class='object_link'><a href="#MAGNETIC_EFFICIENCY_GAIN-constant" title="Zeropoint::Math::RodinCoil::MAGNETIC_EFFICIENCY_GAIN (constant)">MAGNETIC_EFFICIENCY_GAIN</a></span></span><span class='comma'>,</span>
+      <span class='label'>optimization_pattern:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>vortex_based_optimization</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="vortex_field_strength-instance_method">
+  
+    #<strong>vortex_field_strength</strong>(base_strength)  &#x21d2; <tt>Float</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Vortex Field Properties</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>base_strength</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Base magnetic field strength</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Enhanced field strength with 62.5% efficiency gain</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math/rodin_coil.rb', line 29</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_vortex_field_strength'>vortex_field_strength</span><span class='lparen'>(</span><span class='id identifier rubyid_base_strength'>base_strength</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_base_strength'>base_strength</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='int'>1</span> <span class='op'>+</span> <span class='const'><span class='object_link'><a href="#MAGNETIC_EFFICIENCY_GAIN-constant" title="Zeropoint::Math::RodinCoil::MAGNETIC_EFFICIENCY_GAIN (constant)">MAGNETIC_EFFICIENCY_GAIN</a></span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="vortex_sequence_digital_root-instance_method">
+  
+    #<strong>vortex_sequence_digital_root</strong>  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns Digital root of the vortex sequence.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Digital root of the vortex sequence</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+260
+261
+262</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math/rodin_coil.rb', line 260</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_vortex_sequence_digital_root'>vortex_sequence_digital_root</span>
+  <span class='const'><span class='object_link'><a href="#POSITION_1_CIRCUIT-constant" title="Zeropoint::Math::RodinCoil::POSITION_1_CIRCUIT (constant)">POSITION_1_CIRCUIT</a></span></span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='period'>.</span><span class='id identifier rubyid_digits'>digits</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Jun 30 00:12:02 2025 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.37 (ruby-3.3.6).
+</div>
+
+    </div>
+  </body>
+</html>

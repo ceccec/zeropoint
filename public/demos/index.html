@@ -1,0 +1,76 @@
+<!--
+  index.html is the entry point for the Zeropoint PWA.
+  It bootstraps Tailwind, Stimulus, and your app, showing a loader until ready.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zeropoint Universe</title>
+  <!-- Tailwind CSS (CDN for bootstrap, can be replaced with your build) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Animated loader styles */
+    .loader {
+      border-top-color: #6366f1;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .fade-out {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s;
+    }
+  </style>
+</head>
+<body class="bg-black min-h-screen flex items-center justify-center">
+  <!-- Loader -->
+  <div id="app-loader" class="fixed inset-0 flex flex-col items-center justify-center bg-black z-50">
+    <div class="w-20 h-20 border-8 border-gray-700 border-t-indigo-500 rounded-full loader mb-6"></div>
+    <div class="text-indigo-400 text-xl font-mono animate-pulse">Loading Zeropoint Universe...</div>
+  </div>
+  <!-- App Mount Point -->
+  <div id="app-root"></div>
+  <!-- Stimulus (CDN for bootstrap, can be replaced with your build) -->
+  <script src="https://unpkg.com/@hotwired/stimulus@3.2.2/dist/stimulus.umd.js"></script>
+  <script>
+    // Dynamically load your main app.js (or change to your bundle)
+    function loadAppScript(src, onload) {
+      var s = document.createElement('script');
+      s.src = src;
+      s.onload = onload;
+      s.onerror = function() {
+        document.getElementById('app-loader').innerHTML = '<div class="text-red-500">Failed to load app.js</div>';
+      };
+      document.body.appendChild(s);
+    }
+    // When DOM is ready, load zeropoint.js
+    document.addEventListener('DOMContentLoaded', function() {
+      loadAppScript('zeropoint.js', function() {
+        // Hide loader when Zeropoint gem signals ready
+        if (window.ZeropointGem && window.ZeropointGem.ready) {
+          window.ZeropointGem.ready(function() {
+            document.getElementById('app-loader').classList.add('fade-out');
+            setTimeout(function() {
+              document.getElementById('app-loader').remove();
+            }, 600);
+          });
+        } else {
+          // Fallback: hide loader after 2s
+          setTimeout(function() {
+            document.getElementById('app-loader').classList.add('fade-out');
+            setTimeout(function() {
+              document.getElementById('app-loader').remove();
+            }, 600);
+          }, 2000);
+        }
+      });
+    });
+    // Stimulus is available as window.Stimulus
+    // Your zeropoint.js should mount the SPA to #app-root and call window.ZeropointGem.ready(cb) when ready
+  </script>
+</body>
+</html> 

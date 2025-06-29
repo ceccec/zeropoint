@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zeropoint Knowledge Cycle Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/application.js" defer></script>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #f8f8fa; color: #222; margin: 0; padding: 2em; }
+    .knowledge-cycle { background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #0001; padding: 1.5em; margin-bottom: 1em; }
+    .toroidal-visualization { display: flex; justify-content: center; margin-bottom: 1em; }
+    .consciousness-meter-label { margin-top: 0.5em; }
+    .consciousness-meter { margin-bottom: 0.5em; }
+    .metaphysical-context { color: #6a4fb6; margin-top: 1em; font-style: italic; }
+    button { background: #6a4fb6; color: #fff; border: none; border-radius: 4px; padding: 0.5em 1.2em; font-size: 1em; cursor: pointer; margin-top: 1em; }
+    button:hover { background: #4b2e83; }
+    h1 { color: #6a4fb6; }
+    .knowledge-log-panel { background: #f3eaff; border-radius: 6px; padding: 1em; margin-top: 1.5em; }
+    .knowledge-log { max-height: 120px; overflow-y: auto; font-size: 0.98em; }
+    .log-entry { margin-bottom: 0.3em; color: #333; }
+    .log-cycle { color: #6a4fb6; font-weight: bold; margin-right: 0.5em; }
+    .log-patterns { color: #4b2e83; margin-right: 0.5em; }
+    .log-insight { color: #222; margin-right: 0.5em; }
+    .log-consciousness { color: #888; }
+    .metaphysical-panel { background: #ede7f6; border-radius: 6px; padding: 1em; margin-top: 2em; color: #4b2e83; }
+    .metaphysical-panel h3 { margin-top: 0; }
+  </style>
+</head>
+<body>
+  <h1>🌀 Zeropoint Knowledge Cycle Demo</h1>
+  <p>
+    <strong>Instructions:</strong> Click <b>Next Cycle</b> to evolve through knowledge and examples. Each cycle increases consciousness and insight, reflecting the toroidal flow of knowledge emerging from and returning to the void.<br>
+    The torus, meter, and log below visualize the metaphysical evolution.
+  </p>
+  <div data-controller="knowledge-cycle">
+    <div data-knowledge-cycle-target="output"></div>
+  </div>
+  <div class="metaphysical-panel">
+    <h3>Metaphysical Context</h3>
+    <ul>
+      <li><b>Toroidal Visualization:</b> Represents the eternal return and flow of knowledge.</li>
+      <li><b>Consciousness Meter:</b> Shows the expansion of consciousness through cycles.</li>
+      <li><b>Pattern & Insight Log:</b> Remembers the evolution of knowledge and insight.</li>
+      <li><b>Void Principle:</b> Empty = Void = Full. All knowledge emerges from the void, evolves, and returns to the void.</li>
+    </ul>
+    <p style="margin-top:1em; color:#6a4fb6; font-style:italic;">"The void contains infinite potential. All patterns, forms, and consciousness emerge from zero."</p>
+  </div>
+  <footer style="margin-top:2em; color:#888; font-size:0.95em;">
+    <strong>Source:</strong> <code>knowledge_cycle_controller.js</code> &mdash; <code>METAPHYSICAL_KNOWLEDGE_CYCLE_UI.md</code>
+  </footer>
+</body>
+</html> 

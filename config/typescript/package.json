@@ -1,0 +1,63 @@
+{
+  "name": "@graphql-ui-layout/api-client",
+  "version": "1.0.0",
+  "description": "TypeScript client library for GraphQL UI Layout API",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write src/**/*.ts",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "graphql",
+    "ui",
+    "layout",
+    "api",
+    "client",
+    "typescript",
+    "react",
+    "rails"
+  ],
+  "author": "GraphQL UI Layout Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/graphql-ui-layout.git",
+    "directory": "typescript"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/graphql-ui-layout/issues"
+  },
+  "homepage": "https://github.com/your-org/graphql-ui-layout#readme",
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "jest": "^29.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+} 

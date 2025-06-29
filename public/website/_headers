@@ -1,0 +1,39 @@
+# Zero Point Gem Website Headers
+
+# Security headers for all pages
+/*
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://api.github.com; frame-src https://www.youtube.com;
+
+# Cache static assets for 1 year
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache CSS files for 1 year
+*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache JavaScript files for 1 year
+*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache SVG files for 1 year
+*.svg
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/svg+xml
+
+# Cache HTML files for 1 hour
+*.html
+  Cache-Control: public, max-age=3600
+
+# Cache XML files for 1 day
+*.xml
+  Cache-Control: public, max-age=86400
+  Content-Type: application/xml
+
+# Cache JSON files for 1 day
+*.json
+  Cache-Control: public, max-age=86400 

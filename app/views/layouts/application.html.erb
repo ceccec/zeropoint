@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Zeropoint</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <!-- Zeropoint Manifest Data from canonical seed -->
+    <script>
+      window.ZeropointManifest = <%= raw Zeropoint::Manifest.export(:json) %>;
+    </script>
+
+    <!-- Manifest-driven stylesheets from canonical seed -->
+    <% Zeropoint::Manifest.manifestation(:assets)[:stylesheets].each do |stylesheet| %>
+      <%= stylesheet_link_tag stylesheet, "data-turbo-track": "reload" %>
+    <% end %>
+
+    <!-- Manifest-driven scripts from canonical seed -->
+    <% Zeropoint::Manifest.manifestation(:assets)[:javascripts].each do |script| %>
+      <%= javascript_importmap_tags script %>
+    <% end %>
+
+    <!-- Manifest-driven icons from canonical seed -->
+    <% Zeropoint::Manifest.manifestation(:assets)[:images].each do |icon| %>
+      <link rel="icon" type="image/svg+xml" href="<%= asset_path(icon) %>">
+    <% end %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

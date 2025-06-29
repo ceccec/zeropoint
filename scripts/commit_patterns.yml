@@ -1,0 +1,21 @@
+---
+:commit_frequency: {}
+:file_change_patterns:
+  :most_changed_files: []
+  :file_change_frequency: .nan
+  :rubocop_related_files: {}
+:message_patterns:
+  :rubocop_mentions: 0
+  :fix_mentions: 0
+  :refactor_mentions: 0
+  :test_mentions: 0
+  :doc_mentions: 0
+  :average_message_length: .nan
+  :short_messages: 0
+  :long_messages: 0
+:time_patterns: {}
+:rubocop_patterns:
+  :rubocop_commit_count: 0
+  :rubocop_commit_frequency: .nan
+  :rubocop_commit_patterns: {}
+  :rubocop_offense_patterns: {}

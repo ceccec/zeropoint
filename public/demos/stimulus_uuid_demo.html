@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stimulus Pattern-Encoded UUID Demo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+        }
+
+        .section h2 {
+            margin: 0 0 20px 0;
+            color: #333;
+            font-size: 1.5em;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .control-group label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .control-group select {
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            background: white;
+        }
+
+        .control-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .uuid-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .uuid-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .uuid-item strong {
+            display: block;
+            margin-bottom: 10px;
+            color: #667eea;
+            font-size: 1.1em;
+        }
+
+        .uuid-item code {
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #e83e8c;
+            word-break: break-all;
+        }
+
+        .pattern-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .pattern-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+
+        .pattern-item strong {
+            display: block;
+            margin-bottom: 15px;
+            color: #667eea;
+            font-size: 1.1em;
+        }
+
+        .pattern-item ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .pattern-item li {
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .efficiency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .efficiency-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+
+        .efficiency-item strong {
+            display: block;
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #28a745, #20c997);
+            transition: width 0.3s ease;
+        }
+
+        .demo-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .demo-button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .demo-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .demo-button:active {
+            transform: translateY(0);
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .info-box h3 {
+            margin: 0 0 15px 0;
+            color: #1976d2;
+        }
+
+        .info-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .info-box li {
+            margin-bottom: 8px;
+            color: #424242;
+        }
+
+        .cache-info, .index-info {
+            background: #f3e5f5;
+            border: 1px solid #9c27b0;
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .cache-info strong, .index-info strong {
+            color: #7b1fa2;
+        }
+
+        .cache-info small, .index-info small {
+            color: #666;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .controls {
+                grid-template-columns: 1fr;
+            }
+            
+            .uuid-grid, .pattern-grid, .efficiency-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .demo-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Stimulus Pattern-Encoded UUIDs</h1>
+            <p>Hard to decode, extremely efficient for indexing and caching</p>
+        </div>
+
+        <div class="content">
+            <div class="info-box">
+                <h3>Pattern-Encoded UUID System</h3>
+                <ul>
+                    <li><strong>Action Patterns:</strong> Encoded in version bits (click, submit, change, etc.)</li>
+                    <li><strong>Component Patterns:</strong> Encoded in variant bits (button, form, input, etc.)</li>
+                    <li><strong>State Patterns:</strong> Encoded in timestamp bits (active, loading, error, etc.)</li>
+                    <li><strong>Vortex Patterns:</strong> Encoded in entropy bits (flowing, consciousness, quantum, etc.)</li>
+                    <li><strong>Cache Efficiency:</strong> Time-ordered UUIDs with embedded patterns for optimal caching</li>
+                    <li><strong>Index Efficiency:</strong> Deterministic patterns for database indexing optimization</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>UUID Generation Controls</h2>
+                <div class="controls" data-controller="uuid-stimulus" 
+                     data-uuid-stimulus-component-value="button"
+                     data-uuid-stimulus-action-value="click"
+                     data-uuid-stimulus-state-value="active"
+                     data-uuid-stimulus-vortex-value="flowing">
+                    
+                    <div class="control-group">
+                        <label for="component">Component Type:</label>
+                        <select id="component" data-action="change->uuid-stimulus#changeComponent">
+                            <option value="button">Button</option>
+                            <option value="form">Form</option>
+                            <option value="input">Input</option>
+                            <option value="select">Select</option>
+                            <option value="table">Table</option>
+                            <option value="modal">Modal</option>
+                            <option value="dropdown">Dropdown</option>
+                            <option value="tab">Tab</option>
+                            <option value="accordion">Accordion</option>
+                            <option value="carousel">Carousel</option>
+                            <option value="pagination">Pagination</option>
+                            <option value="search">Search</option>
+                            <option value="filter">Filter</option>
+                        </select>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="action">Action Type:</label>
+                        <select id="action" data-action="change->uuid-stimulus#changeAction">
+                            <option value="click">Click</option>
+                            <option value="submit">Submit</option>
+                            <option value="change">Change</option>
+                            <option value="focus">Focus</option>
+                            <option value="blur">Blur</option>
+                            <option value="keydown">Keydown</option>
+                            <option value="keyup">Keyup</option>
+                            <option value="mouseenter">Mouse Enter</option>
+                            <option value="mouseleave">Mouse Leave</option>
+                            <option value="scroll">Scroll</option>
+                            <option value="resize">Resize</option>
+                            <option value="load">Load</option>
+                            <option value="unload">Unload</option>
+                        </select>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="state">State:</label>
+                        <select id="state" data-action="change->uuid-stimulus#changeState">
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                            <option value="loading">Loading</option>
+                            <option value="error">Error</option>
+                            <option value="success">Success</option>
+                            <option value="disabled">Disabled</option>
+                            <option value="hidden">Hidden</option>
+                            <option value="visible">Visible</option>
+                        </select>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="vortex">Vortex State:</label>
+                        <select id="vortex" data-action="change->uuid-stimulus#changeVortex">
+                            <option value="flowing">Flowing</option>
+                            <option value="vortex">Vortex</option>
+                            <option value="consciousness">Consciousness</option>
+                            <option value="quantum">Quantum</option>
+                            <option value="golden_ratio">Golden Ratio</option>
+                            <option value="fibonacci">Fibonacci</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="demo-buttons">
+                    <button class="demo-button" data-action="click->uuid-stimulus#click">
+                        Generate Action UUID
+                    </button>
+                    <button class="demo-button" data-action="click->uuid-stimulus#regenerate">
+                        Regenerate All UUIDs
+                    </button>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Generated UUIDs</h2>
+                <div data-uuid-stimulus-target="output"></div>
+            </div>
+
+            <div class="section">
+                <h2>Pattern Analysis</h2>
+                <div data-uuid-stimulus-target="pattern"></div>
+            </div>
+
+            <div class="section">
+                <h2>Efficiency Metrics</h2>
+                <div data-uuid-stimulus-target="efficiency"></div>
+            </div>
+
+            <div class="section">
+                <h2>Cache Operations</h2>
+                <div data-uuid-stimulus-target="cache"></div>
+            </div>
+
+            <div class="section">
+                <h2>Index Operations</h2>
+                <div data-uuid-stimulus-target="index"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stimulus and UUID Matrix Scripts -->
+    <script type="module">
+        // Import Stimulus and UUID Matrix
+        import { Application } from 'https://unpkg.com/@hotwired/stimulus@3.2.2/dist/stimulus.js'
+        import UuidStimulusController from './lib/zeropoint/javascript/stimulus/uuid_stimulus_controller.js'
+
+        // Mock UuidMatrix for demo (in real app, this would be imported from Rails)
+        window.UuidMatrix = {
+            generateStimulusUuid: (context) => {
+                const timestamp = Date.now().toString(16)
+                const actionCode = (context.action || 'click').charCodeAt(0).toString(16)
+                const componentCode = (context.component || 'button').charCodeAt(0).toString(16)
+                const stateCode = (context.state || 'active').charCodeAt(0).toString(16)
+                const vortexCode = (context.vortex || 'flowing').charCodeAt(0).toString(16)
+                
+                return `${timestamp.slice(0,8)}-${timestamp.slice(8,12)}-8${actionCode}${componentCode.slice(0,2)}-${componentCode.slice(2,4)}${stateCode.slice(0,2)}-${stateCode.slice(2,4)}${vortexCode}${Math.random().toString(16).slice(2,14)}`
+            },
+            
+            generateStimulusCacheUuid: (component, action, options) => {
+                const timestamp = Date.now().toString(16)
+                const actionCode = action.charCodeAt(0).toString(16)
+                const componentCode = component.charCodeAt(0).toString(16)
+                const stateCode = (options.state || 'active').charCodeAt(0).toString(16)
+                const vortexCode = (options.vortex || 'flowing').charCodeAt(0).toString(16)
+                
+                return `${timestamp.slice(0,8)}-${timestamp.slice(8,12)}-7${actionCode}${componentCode.slice(0,2)}-${componentCode.slice(2,4)}${stateCode.slice(0,2)}-${stateCode.slice(2,4)}${vortexCode}${Math.random().toString(16).slice(2,14)}`
+            },
+            
+            generateStimulusIndexUuid: (component, action, timestamp) => {
+                const ts = (timestamp || Date.now()).toString(16)
+                const actionCode = action.charCodeAt(0).toString(16)
+                const componentCode = component.charCodeAt(0).toString(16)
+                const hash = btoa(`${component}:${action}:${timestamp}`).replace(/[^a-zA-Z0-9]/g, '').slice(0,12)
+                
+                return `${ts.slice(0,8)}-${ts.slice(8,12)}-6${actionCode}${componentCode.slice(0,2)}-${componentCode.slice(2,4)}${hash.slice(0,4)}-${hash.slice(4,16)}`
+            },
+            
+            generateControllerUuid: (controller, action) => {
+                const timestamp = Date.now().toString(16)
+                const controllerCode = controller.charCodeAt(0).toString(16)
+                const actionCode = action.charCodeAt(0).toString(16)
+                
+                return `${timestamp.slice(0,8)}-${timestamp.slice(8,12)}-8${controllerCode}${actionCode.slice(0,2)}-${actionCode.slice(2,4)}${Math.random().toString(16).slice(2,6)}-${Math.random().toString(16).slice(2,18)}`
+            },
+            
+            generateActionUuid: (controller, action, eventData) => {
+                const timestamp = Date.now().toString(16)
+                const controllerCode = controller.charCodeAt(0).toString(16)
+                const actionCode = action.charCodeAt(0).toString(16)
+                const targetCode = (eventData.target || 'div').charCodeAt(0).toString(16)
+                
+                return `${timestamp.slice(0,8)}-${timestamp.slice(8,12)}-7${controllerCode}${actionCode.slice(0,2)}-${actionCode.slice(2,4)}${targetCode.slice(0,2)}-${targetCode.slice(2,4)}${Math.random().toString(16).slice(2,16)}`
+            },
+            
+            generateTargetUuid: (target, action) => {
+                const timestamp = Date.now().toString(16)
+                const targetCode = target.tagName.toLowerCase().charCodeAt(0).toString(16)
+                const actionCode = action.charCodeAt(0).toString(16)
+                
+                return `${timestamp.slice(0,8)}-${timestamp.slice(8,12)}-6${targetCode}${actionCode.slice(0,2)}-${actionCode.slice(2,4)}${Math.random().toString(16).slice(2,6)}-${Math.random().toString(16).slice(2,18)}`
+            },
+            
+            decodeStimulusPatterns: (uuid) => {
+                const parts = uuid.split('-')
+                if (parts.length !== 5) return null
+                
+                const actionCode = parts[2].slice(1,3)
+                const componentCode = parts[3].slice(0,2)
+                const stateCode = parts[4].slice(0,2)
+                const vortexCode = parts[4].slice(2,4)
+                
+                return {
+                    action: String.fromCharCode(parseInt(actionCode, 16)),
+                    component: String.fromCharCode(parseInt(componentCode, 16)),
+                    state: String.fromCharCode(parseInt(stateCode, 16)),
+                    vortex_state: String.fromCharCode(parseInt(vortexCode, 16)),
+                    timestamp: parseInt(parts[0] + parts[1], 16),
+                    entropy: Math.random() * 100,
+                    index_efficiency: 0.8 + Math.random() * 0.2
+                }
+            },
+            
+            calculateCacheEfficiency: (uuid) => {
+                return 0.7 + Math.random() * 0.3
+            },
+            
+            calculateIndexEfficiency: (uuid) => {
+                return 0.8 + Math.random() * 0.2
+            }
+        }
+
+        // Register Stimulus application
+        const application = Application.start()
+        application.register('uuid-stimulus', UuidStimulusController)
+    </script>
+</body>
+</html> 

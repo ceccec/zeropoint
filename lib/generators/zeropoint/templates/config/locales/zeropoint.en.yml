@@ -1,0 +1,13 @@
+en:
+  zeropoint:
+    authentication:
+      require_sign_in: "You need to sign in to continue."
+    users:
+      created_successfully: "Your account was created successfully."
+      updated_successfully: "Your profile was updated successfully."
+      deleted_successfully: "Your account was deleted successfully."
+      not_authorized: "You are not authorized to perform this action."
+    vortex:
+      session_initialized: "Vortex session initialized."
+    consciousness:
+      context_set: "Consciousness context set." 

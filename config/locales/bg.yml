@@ -1,0 +1,239 @@
+bg:
+  zeropoint:
+    # API status messages
+    api:
+      status:
+        ready: "Готов"
+        loading: "Зареждане..."
+        success: "Успех"
+        error: "Грешка"
+      errors:
+        service_required: "Изисква се име на услуга"
+        api_error: "API грешка: %{message}"
+        unknown_error: "Неизвестна грешка"
+        http_error: "HTTP %{status}: %{statusText}"
+        missing_translation: "Липсва превод: %{key}"
+
+    # Navigation labels
+    navigation:
+      home: "Начало"
+      login: "Вход"
+      register: "Регистрация"
+      posts: "Публикации"
+      tags: "Етикети"
+      create_post: "Създай публикация"
+      admin: "Админ"
+      users: "Потребители"
+      dashboard: "Табло"
+      all_posts: "Всички публикации"
+      my_posts: "Моите публикации"
+      create_new: "Създай ново"
+      roles: "Роли"
+      quick_links: "Бързи връзки"
+      help: "Помощ"
+      graphql: "GraphQL"
+      health: "Здраве"
+
+    # Content labels
+    content:
+      title: "Zeropoint Обединен Интелигент"
+      body: "Добре дошли в обединеното поле на съзнанието"
+
+    # Widget labels
+    widgets:
+      new_widget: "Нов виджет"
+      placeholder: "%{type} съдържание на виджета"
+
+    # Action labels
+    actions:
+      profile: "Профил"
+      logout: "Изход"
+      login: "Вход"
+      register: "Регистрация"
+
+    # Success messages
+    success:
+      cache_cleared: "Кешът е изчистен успешно"
+      event_tracked: "Събитието е проследено успешно"
+      notification_sent: "Известието е изпратено успешно"
+      notification_marked_read: "Известието е маркирано като прочетено"
+      file_uploaded: "Файлът е качен успешно"
+      records_deleted: "%{count} записа са изтрити"
+      records_updated: "%{count} записа са обновени"
+      records_created: "%{count} записа са създадени"
+
+    # Notifications
+    notifications:
+      info: "Информация"
+      warning: "Предупреждение"
+      error: "Грешка"
+      success: "Успех"
+
+    # UI elements
+    ui:
+      loading: "Зареждане..."
+      save: "Запази"
+      cancel: "Отказ"
+      delete: "Изтрий"
+      edit: "Редактирай"
+      view: "Преглед"
+      search: "Търси"
+      filter: "Филтър"
+      sort: "Сортирай"
+      refresh: "Обнови"
+
+    # Error messages
+    errors:
+      unknown_error: "Възникна неизвестна грешка"
+      service_error: "Възникна грешка в услугата"
+      adapter_error: "Възникна грешка в адаптера"
+      configuration_error: "Грешка в конфигурацията"
+      permission_error: "Достъпът е отказан"
+      builder_error: "Възникна грешка в строителя"
+      missing_required_keys: "Липсват задължителни ключове: %{keys}"
+      no_adapter_found: "Не е намерен адаптер или резервен вариант за %{interface}"
+      unknown_processor: "Неизвестен процесор: %{name}"
+      stream_not_found: "Потокът не е намерен: %{stream_id}"
+      unsupported_join_type: "Неподдържан тип на свързване: %{join_type}"
+      unknown_pipeline_operation: "Неизвестна операция на конвейера: %{operation}"
+      unsupported_export_format: "Неподдържан формат за експорт: %{format}"
+      user_not_authorized: "Потребителят не е оторизиран за %{action} върху %{resource}"
+      database_connection_timeout: "Времето за връзка с базата данни изтече"
+      external_api_timeout: "Времето за външно API изтече"
+      file_not_found: "Файлът не е намерен: %{filename}"
+      invalid_credentials: "Невалидни идентификационни данни"
+      data_validation_failed: "Валидацията на данните не бе успешна"
+      invalid_response_format: "Невалиден формат на отговора"
+
+    # Health check messages
+    health:
+      healthy: "здрав"
+      unhealthy: "нездрав"
+      unavailable: "недостъпен"
+
+    # UI Layout messages
+    ui_layout:
+      data_available: "Данните за UI Layout са налични чрез GraphQL на /graphql"
+      theme_updated: "Темата е обновена успешно"
+      configuration_updated: "Конфигурацията е обновена успешно"
+
+    # Breadcrumb labels
+    breadcrumbs:
+      home: "Начало"
+      posts: "Публикации"
+      admin: "Админ"
+
+    # Vortex messages
+    vortex:
+      stream_created: "Потокът е създаден с %{count} записа"
+      processing_batch: "Обработка на партида: %{batch}"
+      real_time_record: "Запис в реално време: %{record}"
+      cached_stream_created: "Кешираният поток е създаден с %{count} записа"
+
+    # Search messages
+    search:
+      total_records: "Общо записи: %{users} потребители, %{posts} публикации, %{articles} статии"
+      model_info: "Модел: %{model}"
+      search_engine: "Търсачка: %{engine}"
+      search_fields: "Полета за търсене: %{fields}"
+
+    # Golden ratio messages
+    golden_ratio:
+      error_message: "Съобщение: %{message}"
+      recovery_strategy: "Стратегия за възстановяване: %{strategy}"
+      success: "Успех: %{success}"
+      attempts: "Опити: %{attempts}"
+      analyzing_violations: "Анализиране на нарушения на RuboCop..."
+      total_violations: "Общо нарушения: %{count}"
+      critical_violations: "Критични нарушения: %{count}"
+      minor_violations: "Незначителни нарушения: %{count}"
+      golden_ratio_compliance: "Съответствие на златната пропорция: %{percentage}%"
+      simulating_web_errors: "Симулиране на обработка на грешки в уеб приложението..."
+      authentication_result: "Резултат от удостоверяване: %{status}"
+      data_processing_result: "Резултат от обработка на данни: %{status}"
+      response_generation_result: "Резултат от генериране на отговор: %{status}"
+      database_error_handled: "Грешката в базата данни е обработена със стратегия: %{strategy}"
+      fallback_data_used: "Използвани резервни данни: %{degraded}"
+      api_error_handled: "API грешката е обработена със стратегия: %{strategy}"
+      retry_attempts: "Опити за повторен опит: %{attempts}"
+      file_processing_error_handled: "Грешката при обработка на файл е обработена със стратегия: %{strategy}"
+      default_value_used: "Използвана стойност по подразбиране: %{value}"
+      demo_title: "Демо за обработка на грешки с златната пропорция"
+      demo_completed: "Демото завърши! Принципите на златната пропорция са приложени успешно."
+      error_vortex_reduced: "Вихърът на грешките е намален, вихърът на функциите е разширен."
+
+    # Configuration messages
+    config:
+      zero_false_true_one: "нула лъжа = истина едно"
+      zero_false_principle: "В космическия танц, нулата и лъжата са проявления на истината едно"
+      zero_false_description: "Основната аксиома, която обединява всички противоположности в космическа хармония"
+
+    # Cosmic quotes
+    cosmic_quotes:
+      consciousness_brain: "Търсенето на съзнание в мозъка е като търсене на водещ в радиото"
+      spirituality_physics: "Духовността не е нищо повече от физика, за която все още не сме намерили уравнение"
+      energy_frequency_vibration: "Мислете в термините на енергия, честота и вибрация"
+      shared_future: "Всички наши съзнания влияят на споделено бъдеще"
+      forgiveness_lesson: "Прощаването на най-дълбоко ниво е разбиране на урока"
+      cycles: "Просто виждаме нещата да преминават през цикли"
+      universe_relationships: "Вселената не е направена от неща, тя е направена от взаимоотношения"
+      consciousness_field: "Съзнанието е основното поле на вселената"
+      information_fundamental: "Информацията е най-фундаменталното нещо във вселената"
+      observer_observed: "Наблюдателят и наблюдаваното са едно"
+
+    # Log messages
+    logs:
+      zeropoint_initialized: "Zero Point е инициализиран с версия %{version}"
+      zeropoint_unified_initialized: "Zero Point е инициализиран с обединена архитектура - версия %{version}"
+      demo_analytics: "Демо аналитика: %{event} - %{properties} - Потребител: %{user_id}"
+      unknown_service_type: "Неизвестен тип услуга: %{type}"
+      generated_search_service: "Генерирана услуга за търсене с %{backend} backend"
+      generated_pagination_service: "Генерирана услуга за странициране с %{backend} backend"
+      generated_authorization_service: "Генерирана услуга за оторизация с %{backend} backend"
+      configuration_errors: "Грешки в конфигурацията на GraphQL UI Layout API: %{errors}"
+      using_adapter: "Използване на %{adapter}##{method} с аргументи: %{args}"
+      failed_cache_related: "Неуспешно кеширане на свързани данни за %{association}: %{message}"
+
+    # Demo data
+    demo:
+      user_email: "потребител%{number}@example.com"
+      username: "потребител%{number}"
+      first_name: "Име%{number}"
+      last_name: "Фамилия%{number}"
+      bio: "Това е био на потребител %{number}."
+      sample_post_title: "Примерна публикация %{number}"
+      sample_post_content: "Това е съдържанието за публикация %{number}. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      comment_content: "Това е коментар на %{title}"
+
+    # Cache keys
+    cache_keys:
+      zeropoint_user: "zeropoint_%{user_id}"
+      navigation_user: "navigation_%{user_id}"
+      permissions_user: "permissions_%{user_id}"
+      content_areas_user: "content_areas_%{user_id}"
+      widgets_user: "widgets_%{user_id}"
+      demo_app_key: "demo_app:%{key}"
+      health_check: "health_check:%{name}:%{timestamp}"
+      warmed_up: "warmed_up_%{timestamp}"
+      navigation_user_page: "navigation_%{user_id}_%{page}"
+
+    # URLs
+    urls:
+      website: "https://%{domain}%{path}"
+      documentation: "https://%{domain}/#documentation%{path}"
+      installation: "https://%{domain}/#installation"
+
+    # CSS classes
+    css_classes:
+      ui_layout_container: "ui-layout-container %{classes}"
+      ui_layout_section: "ui-layout-section %{classes}"
+      ui_layout_widget: "ui-layout-widget %{classes}"
+      zeropoint_logo: "zeropoint-logo zeropoint-logo--%{size}"
+      justify_class: "justify-%{justify}"
+      align_class: "items-%{align}"
+
+    # SQL queries
+    sql:
+      ts_headline: "ts_headline('bulgarian', %{field}, plainto_tsquery('bulgarian', ?), 'StartSel=<mark>,StopSel=</mark>') AS %{field}_highlighted"
+      to_tsvector: "to_tsvector('%{language}', %{field})"
+      lower_equals: "LOWER(%{table}.%{field}) = LOWER(?)" 

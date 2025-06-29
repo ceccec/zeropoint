@@ -1,0 +1,53 @@
+# YARD Configuration for Zeropoint
+# Custom tags for metaphysical and void-aligned documentation
+
+# Custom tags for metaphysical context
+--tag metaphysics:"Metaphysical Context"
+--tag cosmic:"Cosmic Knowledge"
+--tag void:"Void Principle"
+--tag vortex:"Vortex Mathematics"
+--tag torus:"Torus Geometry"
+--tag consciousness:"Consciousness Level"
+--tag summary:"Summary"
+
+# Include all Ruby files
+lib/**/*.rb
+app/**/*.rb
+config/**/*.rb
+
+# Exclude certain directories and files
+--exclude spec/
+--exclude test/
+--exclude tmp/
+--exclude log/
+--exclude coverage/
+--exclude node_modules/
+--exclude vendor/
+--exclude .git/
+--exclude *.lock
+--exclude *.log
+
+# Markdown files for additional documentation
+docs/**/*.md
+
+# Output directory
+--output-dir doc
+
+# Generate README
+--readme README.md
+
+# Generate changelog
+--markup markdown
+
+# Enable plugins
+--plugin graph
+--plugin json
+
+# Custom templates (if needed)
+# --template-path templates
+
+# Verbose output for debugging
+--verbose
+
+# Fail on warnings (optional, for CI)
+ 

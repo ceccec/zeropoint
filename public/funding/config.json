@@ -1,0 +1,212 @@
+{
+  "site": {
+    "name": "Zero Point Funding",
+    "domain": "fund.zeropoint.bg",
+    "description": "Support the cosmic development of Zero Point's revolutionary streaming-first data architecture",
+    "keywords": ["funding", "zeropoint", "cosmic", "rails", "data-architecture", "streaming", "vortex"],
+    "author": "Zero Point Team",
+    "email": "hello@zeropoint.bg",
+    "repository": "https://github.com/ceccec/zeropoint"
+  },
+  "funding": {
+    "github_sponsors": {
+      "enabled": true,
+      "username": "ceccec",
+      "url": "https://github.com/sponsors/ceccec",
+      "tiers": {
+        "stargazer": {
+          "amount": 5,
+          "currency": "USD",
+          "period": "month",
+          "title": "Stargazer",
+          "description": "Early access to new features and exclusive cosmic insights"
+        },
+        "cosmic_explorer": {
+          "amount": 15,
+          "currency": "USD",
+          "period": "month",
+          "title": "Cosmic Explorer",
+          "description": "Priority support, exclusive documentation, and beta testing access"
+        },
+        "vortex_pioneer": {
+          "amount": 50,
+          "currency": "USD",
+          "period": "month",
+          "title": "Vortex Pioneer",
+          "description": "Direct developer access, custom feature requests, and enterprise support"
+        }
+      }
+    },
+    "ko_fi": {
+      "enabled": true,
+      "username": "zeropoint",
+      "url": "https://ko-fi.com/zeropoint",
+      "amounts": [10, 25, 50, 100],
+      "currency": "USD"
+    },
+    "open_collective": {
+      "enabled": false,
+      "username": "zeropoint",
+      "url": "https://opencollective.com/zeropoint"
+    },
+    "patreon": {
+      "enabled": false,
+      "username": "zeropoint",
+      "url": "https://patreon.com/zeropoint"
+    }
+  },
+  "analytics": {
+    "google_analytics": {
+      "enabled": false,
+      "tracking_id": "G-XXXXXXXXXX"
+    },
+    "plausible": {
+      "enabled": false,
+      "domain": "fund.zeropoint.bg"
+    },
+    "fathom": {
+      "enabled": false,
+      "site_id": "XXXXXXXX"
+    }
+  },
+  "social": {
+    "twitter": {
+      "enabled": true,
+      "username": "@zeropoint_bg",
+      "url": "https://twitter.com/zeropoint_bg"
+    },
+    "github": {
+      "enabled": true,
+      "username": "ceccec",
+      "url": "https://github.com/ceccec"
+    },
+    "discord": {
+      "enabled": false,
+      "url": "https://discord.gg/zeropoint"
+    }
+  },
+  "deployment": {
+    "platforms": {
+      "netlify": {
+        "enabled": true,
+        "site_id": "",
+        "team_id": ""
+      },
+      "vercel": {
+        "enabled": true,
+        "project_id": ""
+      },
+      "github_pages": {
+        "enabled": true,
+        "repository": "ceccec/zeropoint",
+        "branch": "gh-pages"
+      },
+      "cloudflare_pages": {
+        "enabled": true,
+        "account_id": "",
+        "project_name": "zeropoint-funding"
+      }
+    },
+    "domains": {
+      "primary": "fund.zeropoint.bg",
+      "aliases": ["funding.zeropoint.bg", "support.zeropoint.bg"]
+    }
+  },
+  "features": {
+    "cosmic_animations": true,
+    "particle_system": true,
+    "scroll_animations": true,
+    "ripple_effects": true,
+    "parallax_effects": true,
+    "dark_mode": true,
+    "accessibility": true,
+    "seo": true,
+    "performance": true
+  },
+  "content": {
+    "hero": {
+      "title": "Fund Zero Point",
+      "subtitle": "Support Cosmic Development",
+      "description": "Help us maintain and evolve the revolutionary streaming-first data architecture. Your support enables infinite possibilities from the void."
+    },
+    "reasons": [
+      {
+        "icon": "🚀",
+        "title": "Revolutionary Technology",
+        "description": "Zero Point represents a paradigm shift in data architecture. Your funding helps us push the boundaries of what's possible."
+      },
+      {
+        "icon": "🌌",
+        "title": "Cosmic Philosophy",
+        "description": "We're not just building software - we're creating a new way of thinking about data, flow, and infinite potential."
+      },
+      {
+        "icon": "🔄",
+        "title": "Continuous Evolution",
+        "description": "The Uroboros cycle never ends. Your support fuels the infinite cycle of self-improvement and innovation."
+      },
+      {
+        "icon": "🌍",
+        "title": "Open Source",
+        "description": "Zero Point is free for everyone. Your funding ensures it stays open source and accessible to all developers."
+      },
+      {
+        "icon": "⚡",
+        "title": "Performance Innovation",
+        "description": "We're constantly optimizing for infinite performance. Your support enables cutting-edge research and development."
+      },
+      {
+        "icon": "🤝",
+        "title": "Community Support",
+        "description": "Your funding helps us support the community with documentation, examples, and responsive issue resolution."
+      }
+    ],
+    "impact": [
+      {
+        "number": "100%",
+        "label": "Open Source",
+        "description": "All funding goes directly to maintaining and improving Zero Point"
+      },
+      {
+        "number": "∞",
+        "label": "Possibilities",
+        "description": "Your support enables infinite innovation and cosmic development"
+      },
+      {
+        "number": "🌌",
+        "label": "Cosmic Flow",
+        "description": "Every contribution flows into the unified cosmic experience"
+      },
+      {
+        "number": "✨",
+        "label": "Innovation",
+        "description": "Funding accelerates revolutionary data architecture development"
+      }
+    ]
+  },
+  "theme": {
+    "colors": {
+      "void_black": "#000000",
+      "cosmic_purple": "#6b21a8",
+      "nebula_blue": "#1e40af",
+      "stellar_cyan": "#0891b2",
+      "aurora_green": "#059669",
+      "cosmic_pink": "#be185d",
+      "void_gray": "#1f2937",
+      "cosmic_gray": "#374151",
+      "stellar_white": "#f9fafb",
+      "cosmic_silver": "#e5e7eb"
+    },
+    "fonts": {
+      "primary": "Inter",
+      "weights": [300, 400, 500, 600, 700, 800, 900]
+    },
+    "animations": {
+      "cosmic_pulse_duration": "2s",
+      "particle_float_duration": "3s",
+      "orbital_rotation_duration": "20s",
+      "scroll_animation_duration": "0.6s",
+      "ripple_effect_duration": "0.6s"
+    }
+  }
+} 

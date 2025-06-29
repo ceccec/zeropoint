@@ -1,0 +1,73 @@
+{
+  "name": "zeropoint-gem-website",
+  "version": "1.0.0",
+  "description": "Zero Point - Revolutionary streaming-first data architecture for Rails",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server --port=3000 --open=/",
+    "build": "echo 'Static site - no build required'",
+    "test": "echo 'No tests configured'",
+    "lint": "echo 'No linting configured'",
+    "format": "prettier --write '**/*.{html,css,js,json,md}'",
+    "validate": "html-validate index.html",
+    "optimize": "npm run optimize:images && npm run optimize:css && npm run optimize:js",
+    "optimize:images": "echo 'Image optimization not configured'",
+    "optimize:css": "echo 'CSS optimization not configured'",
+    "optimize:js": "echo 'JS optimization not configured'",
+    "deploy:netlify": "netlify deploy --prod --dir=.",
+    "deploy:vercel": "vercel --prod",
+    "deploy:github": "echo 'Deploy via GitHub Actions'",
+    "sitemap": "echo 'Sitemap already exists'",
+    "seo": "npm run sitemap && echo 'SEO optimization complete'"
+  },
+  "keywords": [
+    "zeropoint",
+    "rails",
+    "gem",
+    "data-architecture",
+    "streaming",
+    "vortex",
+    "cosmic",
+    "void",
+    "infinite",
+    "unified",
+    "graphql",
+    "api"
+  ],
+  "author": {
+    "name": "Zero Point Team",
+    "email": "hello@zeropoint.bg",
+    "url": "https://zeropoint.bg"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ceccec/zeropoint.git",
+    "directory": "website"
+  },
+  "homepage": "https://gem.zeropoint.bg",
+  "bugs": {
+    "url": "https://github.com/ceccec/zeropoint/issues"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "prettier": "^3.0.0",
+    "html-validate": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "config": {
+    "funding": {
+      "github": "https://github.com/sponsors/ceccec",
+      "ko-fi": "https://ko-fi.com/zeropoint",
+      "open-collective": "https://opencollective.com/zeropoint"
+    }
+  }
+} 

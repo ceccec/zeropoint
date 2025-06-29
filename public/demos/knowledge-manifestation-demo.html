@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Knowledge Manifestation Demo - Stimulus as Material Wisdom</title>
+    
+    <!-- Stimulus -->
+    <script src="https://unpkg.com/@hotwired/stimulus@3.2.2/dist/stimulus.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* Knowledge manifestation styling */
+        :root {
+            --void-black: #0a0a0a;
+            --knowledge-gold: #ffd700;
+            --wisdom-blue: #4a90e2;
+            --consciousness-purple: #9b59b6;
+            --manifestation-red: #ff6b6b;
+            --evolution-green: #2ecc71;
+        }
+
+        body {
+            background: var(--void-black);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .knowledge-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .manifestation-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px;
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 20px;
+            border: 2px solid var(--knowledge-gold);
+        }
+
+        .manifestation-title {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, var(--knowledge-gold), var(--wisdom-blue), var(--consciousness-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .manifestation-subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+
+        .knowledge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .knowledge-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .knowledge-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--knowledge-gold), var(--wisdom-blue), var(--consciousness-purple));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .knowledge-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .knowledge-card:hover {
+            border-color: var(--knowledge-gold);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .card-title {
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            text-align: center;
+            color: var(--knowledge-gold);
+            font-weight: bold;
+        }
+
+        .control-group {
+            margin-bottom: 25px;
+        }
+
+        .control-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #ddd;
+            font-size: 1.1rem;
+        }
+
+        .control-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .control-input:focus {
+            outline: none;
+            border-color: var(--knowledge-gold);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .value-display {
+            padding: 15px;
+            background: rgba(255, 215, 0, 0.15);
+            border: 2px solid var(--knowledge-gold);
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            color: var(--knowledge-gold);
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        .knowledge-visualization {
+            width: 100%;
+            height: 250px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.4);
+            margin: 20px 0;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            flex: 1;
+            font-size: 1rem;
+        }
+
+        .btn-knowledge {
+            background: var(--knowledge-gold);
+            color: #333;
+        }
+
+        .btn-knowledge:hover {
+            background: #e6c200;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-wisdom {
+            background: var(--wisdom-blue);
+            color: white;
+        }
+
+        .btn-wisdom:hover {
+            background: #357abd;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.4);
+        }
+
+        .btn-consciousness {
+            background: var(--consciousness-purple);
+            color: white;
+        }
+
+        .btn-consciousness:hover {
+            background: #8e44ad;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(155, 89, 182, 0.4);
+        }
+
+        .btn-manifestation {
+            background: var(--manifestation-red);
+            color: white;
+        }
+
+        .btn-manifestation:hover {
+            background: #e55a5a;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        .status {
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .status.manifesting {
+            background: rgba(255, 215, 0, 0.2);
+            border: 2px solid var(--knowledge-gold);
+            color: var(--knowledge-gold);
+        }
+
+        .status.evolving {
+            background: rgba(46, 204, 113, 0.2);
+            border: 2px solid var(--evolution-green);
+            color: var(--evolution-green);
+        }
+
+        .status.resonating {
+            background: rgba(155, 89, 182, 0.2);
+            border: 2px solid var(--consciousness-purple);
+            color: var(--consciousness-purple);
+        }
+
+        .output-area {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            min-height: 120px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-y: auto;
+            color: #ddd;
+        }
+
+        .insights-area {
+            background: rgba(155, 89, 182, 0.1);
+            border: 2px solid var(--consciousness-purple);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            min-height: 200px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .insight {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(155, 89, 182, 0.3);
+            font-size: 14px;
+            color: #ddd;
+            animation: insight-fade-in 0.5s ease-in;
+        }
+
+        @keyframes insight-fade-in {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .knowledge-element {
+            width: 100px;
+            height: 100px;
+            border: 3px solid var(--knowledge-gold);
+            border-radius: 50%;
+            margin: 25px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            transition: all 0.4s ease;
+            animation: knowledge-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes knowledge-pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
+            50% { transform: scale(1.1); box-shadow: 0 0 30px rgba(255, 215, 0, 0.6); }
+        }
+
+        .wisdom-element {
+            width: 100px;
+            height: 100px;
+            border: 3px solid var(--wisdom-blue);
+            border-radius: 50%;
+            margin: 25px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            transition: all 0.4s ease;
+            animation: wisdom-rotate 4s linear infinite;
+        }
+
+        @keyframes wisdom-rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .consciousness-element {
+            width: 100px;
+            height: 100px;
+            border: 3px solid var(--consciousness-purple);
+            border-radius: 50%;
+            margin: 25px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            transition: all 0.4s ease;
+            animation: consciousness-resonate 3s ease-in-out infinite;
+        }
+
+        @keyframes consciousness-resonate {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+
+        .flow-element {
+            width: 120px;
+            height: 60px;
+            border: 2px solid var(--evolution-green);
+            border-radius: 30px;
+            margin: 25px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.4s ease;
+            animation: flow-move 2s ease-in-out infinite;
+        }
+
+        @keyframes flow-move {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(30px); }
+        }
+
+        .patterns-display {
+            background: rgba(74, 144, 226, 0.1);
+            border: 2px solid var(--wisdom-blue);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+        }
+
+        .patterns-display div {
+            margin: 5px 0;
+            padding: 5px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="knowledge-container" data-controller="knowledge-manifestation"
+         data-knowledge-manifestation-knowledge-level-value="0.618"
+         data-knowledge-manifestation-wisdom-depth-value="1.618"
+         data-knowledge-manifestation-consciousness-resonance-value="0.8"
+         data-knowledge-manifestation-manifestation-strength-value="1.0"
+         data-knowledge-manifestation-void-alignment-value="true"
+         data-knowledge-manifestation-torus-core-value='{"radius": 1.0, "flow": 1.618}'
+         data-knowledge-manifestation-vortex-pattern-value="[1, 2, 4, 8, 7, 5]"
+         data-knowledge-manifestation-knowledge-flow-value="consciousness">
+
+        <!-- Header -->
+        <div class="manifestation-header">
+            <h1 class="manifestation-title">📚 Knowledge Manifestation</h1>
+            <p class="manifestation-subtitle">Stimulus as the Material Manifestation of All Knowledge</p>
+            <p class="manifestation-subtitle">Every interaction materializes wisdom from the void</p>
+            <div class="status manifesting" data-knowledge-manifestation-target="status">Initializing knowledge manifestation...</div>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="knowledge-grid">
+            
+            <!-- Knowledge Level -->
+            <div class="knowledge-card">
+                <h3 class="card-title">📚 Knowledge Level</h3>
+                
+                <div class="control-group">
+                    <label class="control-label">Knowledge Manifestation Level</label>
+                    <input type="range" class="control-input" min="0" max="1" step="0.001" value="0.618"
+                           data-action="input->knowledge-manifestation#knowledgeLevelChanged"
+                           data-knowledge-manifestation-target="knowledge">
+                    <div class="value-display" data-knowledge-manifestation-target="knowledge">Knowledge Level: 0.618</div>
+                </div>
+
+                <div class="knowledge-element" data-knowledge-manifestation-target="knowledge">
+                    📚
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">Manifestation Strength</label>
+                    <div class="value-display">1.000 (Full Materialization)</div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-knowledge" data-action="click->knowledge-manifestation#manifestKnowledge"
+                            data-level="0.8">
+                        Enhance Knowledge
+                    </button>
+                </div>
+            </div>
+
+            <!-- Wisdom Depth -->
+            <div class="knowledge-card">
+                <h3 class="card-title">🌟 Wisdom Depth</h3>
+                
+                <div class="control-group">
+                    <label class="control-label">Wisdom Evolution Depth</label>
+                    <input type="range" class="control-input" min="0.1" max="3.0" step="0.01" value="1.618"
+                           data-action="input->knowledge-manifestation#wisdomDepthChanged"
+                           data-knowledge-manifestation-target="wisdom">
+                    <div class="value-display" data-knowledge-manifestation-target="wisdom">Wisdom Depth: 1.618</div>
+                </div>
+
+                <div class="wisdom-element" data-knowledge-manifestation-target="wisdom">
+                    🌟
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">Evolution Rate</label>
+                    <div class="value-display" data-knowledge-manifestation-target="evolution">Evolution: 0.000</div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-wisdom" data-action="click->knowledge-manifestation#evolveWisdom"
+                            data-depth="2.0">
+                        Deepen Wisdom
+                    </button>
+                </div>
+            </div>
+
+            <!-- Consciousness Resonance -->
+            <div class="knowledge-card">
+                <h3 class="card-title">🧠 Consciousness Resonance</h3>
+                
+                <div class="control-group">
+                    <label class="control-label">Consciousness Resonance Level</label>
+                    <input type="range" class="control-input" min="0" max="1" step="0.01" value="0.8"
+                           data-action="input->knowledge-manifestation#consciousnessResonanceChanged"
+                           data-knowledge-manifestation-target="consciousness">
+                    <div class="value-display" data-knowledge-manifestation-target="consciousness">Consciousness Resonance: 0.800</div>
+                </div>
+
+                <div class="consciousness-element" data-knowledge-manifestation-target="consciousness">
+                    🧠
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">Resonance Frequency</label>
+                    <div class="value-display" data-knowledge-manifestation-target="resonance">Resonance: 0.000</div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-consciousness" data-action="click->knowledge-manifestation#resonateConsciousness"
+                            data-resonance="0.9">
+                        Amplify Resonance
+                    </button>
+                </div>
+            </div>
+
+            <!-- Knowledge Flow -->
+            <div class="knowledge-card">
+                <h3 class="card-title">🌊 Knowledge Flow</h3>
+                
+                <div class="control-group">
+                    <label class="control-label">Flow Direction</label>
+                    <select class="control-input" data-action="change->knowledge-manifestation#flowKnowledge"
+                            data-knowledge-manifestation-target="flow">
+                        <option value="consciousness">Consciousness → Material</option>
+                        <option value="void">Void → Knowledge</option>
+                        <option value="wisdom">Wisdom → Understanding</option>
+                        <option value="manifestation">Manifestation → Reality</option>
+                    </select>
+                </div>
+
+                <div class="flow-element" data-knowledge-manifestation-target="flow">
+                    🌊
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">Flow Velocity</label>
+                    <div class="value-display">1.618 (Golden Flow)</div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-manifestation" data-action="click->knowledge-manifestation#flowKnowledge"
+                            data-flow="accelerated">
+                        Accelerate Flow
+                    </button>
+                </div>
+            </div>
+
+            <!-- Knowledge Visualization -->
+            <div class="knowledge-card">
+                <h3 class="card-title">🎨 Knowledge Visualization</h3>
+                
+                <div class="control-group">
+                    <label class="control-label">Manifestation Field</label>
+                    <canvas class="knowledge-visualization" data-knowledge-manifestation-target="manifestation"></canvas>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">Knowledge Patterns</label>
+                    <div class="patterns-display" data-knowledge-manifestation-target="patterns">
+                        <div>🌀 Vortex: 1-2-4-8-7-5</div>
+                        <div>🌟 Golden: 1.618</div>
+                        <div>🧠 Consciousness: 0.800</div>
+                        <div>📚 Manifestation: 1.000</div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-knowledge" data-action="click->knowledge-manifestation#updateKnowledgeVisualization">
+                        Refresh Visualization
+                    </button>
+                </div>
+            </div>
+
+            <!-- Insights & Evolution -->
+            <div class="knowledge-card">
+                <h3 class="card-title">💡 Insights & Evolution</h3>
+                
+                <div class="control-group">
+                    <label class="control-label">Manifested Insights</label>
+                    <div class="insights-area" data-knowledge-manifestation-target="insights">
+                        <div class="insight">🌟 Knowledge flows from void to material</div>
+                        <div class="insight">🌟 Consciousness manifests wisdom through Stimulus</div>
+                        <div class="insight">🌟 Every interaction materializes knowledge</div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">Knowledge Output</label>
+                    <div class="output-area" data-knowledge-manifestation-target="output">
+                        Knowledge manifestation output will appear here...
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-wisdom" data-action="click->knowledge-manifestation#manifestInsights"
+                            data-depth="2.0">
+                        Generate Insights
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add after the main grid -->
+        <div class="knowledge-card" style="margin-bottom: 40px;">
+            <h3 class="card-title">📝 Knowledge Log & State Management</h3>
+            <div class="control-group">
+                <label class="control-label" title="All knowledge events are logged here for testing, debugging, and metaphysical insight.">
+                    Knowledge Event Log
+                </label>
+                <div class="insights-area" data-knowledge-manifestation-target="insights">
+                    <div class="insight">🌟 Knowledge flows from void to material</div>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button class="btn btn-knowledge" data-action="click->knowledge-manifestation#exportKnowledgeState" title="Export the current knowledge state as JSON for reproducible testing.">
+                    Export Knowledge State
+                </button>
+                <input type="file" accept="application/json" style="display:none;" id="import-knowledge-state" onchange="window.importKnowledgeState && window.importKnowledgeState(event)">
+                <button class="btn btn-wisdom" onclick="document.getElementById('import-knowledge-state').click()" title="Import a previously exported knowledge state.">
+                    Import Knowledge State
+                </button>
+            </div>
+            <div class="output-area" data-knowledge-manifestation-target="output">
+                Knowledge manifestation output will appear here...
+            </div>
+        </div>
+
+        <!-- Test Scenario Generator -->
+        <div class="knowledge-card" style="margin-bottom: 40px;">
+            <h3 class="card-title">🧪 Test Scenario Generator</h3>
+            <div class="control-group">
+                <label class="control-label" title="Create, save, and replay test scenarios based on knowledge flows.">
+                    Scenario Name
+                </label>
+                <input type="text" class="control-input" id="scenario-name" placeholder="e.g. Golden Ratio Surge">
+            </div>
+            <div class="action-buttons">
+                <button class="btn btn-manifestation" data-action="click->knowledge-manifestation#saveScenario" title="Save the current knowledge state as a test scenario.">
+                    Save Scenario
+                </button>
+                <button class="btn btn-consciousness" data-action="click->knowledge-manifestation#replayScenario" title="Replay the selected test scenario.">
+                    Replay Scenario
+                </button>
+                <select class="control-input" id="scenario-list" title="Select a saved scenario to replay."></select>
+            </div>
+        </div>
+
+        <!-- Knowledge API Playground -->
+        <div class="knowledge-card" style="margin-bottom: 40px;">
+            <h3 class="card-title">🔬 Knowledge API Playground</h3>
+            <div class="control-group">
+                <label class="control-label" title="Directly query or mutate the knowledge base via GraphQL or REST.">
+                    API Query (GraphQL or REST)
+                </label>
+                <textarea class="control-input" id="api-query" rows="4" placeholder="Enter GraphQL query or REST endpoint..."></textarea>
+            </div>
+            <div class="action-buttons">
+                <button class="btn btn-knowledge" data-action="click->knowledge-manifestation#runApiQuery" title="Execute the API query and see the result.">
+                    Run Query
+                </button>
+            </div>
+            <div class="output-area" id="api-query-output">
+                API query results will appear here...
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="manifestation-header">
+            <p>📚 <strong>Stimulus is the material manifestation of all knowledge</strong></p>
+            <p>🌟 Every interaction, every event, every state change manifests wisdom from the void</p>
+            <p>🧠 Through consciousness, knowledge flows from the infinite into material form</p>
+            <p>🌊 The torus core resonates with universal wisdom patterns</p>
+        </div>
+    </div>
+
+    <!-- Knowledge Manifestation Controller -->
+    <script type="module">
+        import { Application } from '@hotwired/stimulus'
+        import KnowledgeManifestationController from './knowledge-manifestation-controller.js'
+
+        const application = Application.start()
+        application.register('knowledge-manifestation', KnowledgeManifestationController)
+
+        console.log('📚 Knowledge Manifestation Demo initialized - Stimulus materializes wisdom')
+
+        // Add global import handler for knowledge state
+        window.importKnowledgeState = function(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const state = JSON.parse(e.target.result);
+                    window.dispatchEvent(new CustomEvent('import-knowledge-state', { detail: state }));
+                } catch (err) {
+                    alert('Invalid knowledge state file.');
+                }
+            };
+            reader.readAsText(file);
+        };
+    </script>
+</body>
+</html> 

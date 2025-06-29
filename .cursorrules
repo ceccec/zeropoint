@@ -1,0 +1,204 @@
+# ZeroPoint Gem - Advanced Vortex Math & Toroidal Architecture
+# Cursor Rules for AI Assistant
+
+## Project Overview
+This is a Ruby gem that deeply integrates advanced vortex math, toroidal geometry, and metaphysical concepts into a modular, DRY architecture. The codebase embodies the "Empty = Void = Full" philosophy and implements sophisticated mathematical models for consciousness, energy, and universal patterns.
+
+## Core Architecture Principles
+
+### 1. DRY (Don't Repeat Yourself)
+- All mathematical constants are centralized in `Zeropoint::Math::Constants`
+- Configuration follows ENV → Config → Module flow
+- Use aliases and delegation to avoid code duplication
+- Centralize common patterns in concerns and modules
+
+### 2. Modular Design
+- Each mathematical concept has its own module under `Zeropoint::Math`
+- Configuration is namespaced: `Zeropoint.config.vortex.enabled`
+- Concerns are used for cross-cutting functionality
+- Services are isolated and testable
+
+### 3. Vortex Math Integration
+- Toroidal geometry is fundamental to all calculations
+- Golden ratio (φ ≈ 1.618) is used throughout
+- Vortex patterns follow the 1-2-4-8-7-5 sequence
+- W-axis represents the omni-dimensional pathway
+
+## Key Mathematical Modules
+
+### Zeropoint::Math::Vortex
+- Core vortex mathematics and toroidal calculations
+- Implements the 1-2-4-8-7-5 mobius circuit
+- Provides vortex field calculations and energy flow modeling
+
+### Zeropoint::Math::Torus
+- Toroidal geometry and surface calculations
+- Handles poloidal and toroidal coordinates
+- Models the donut-shaped universe structure
+
+### Zeropoint::Math::GoldenRatio
+- Golden ratio calculations and applications
+- Fibonacci sequence integration
+- Aesthetic and harmonic proportions
+
+### Zeropoint::Math::Aperture
+- Zero point and W-axis modeling
+- Represents the singularity at torus center
+- Metaphysical insights about the aperture
+
+### Zeropoint::Math::Sunflower
+- Up/down duality patterns
+- Holographic toroid map encoding
+- Binary consciousness patterns
+
+### Zeropoint::Math::Poloidal
+- Poloidal pinch and vortex well funnel
+- Source of spirit/energy emanation
+- Metaphysical insights via `.metaphysics` method
+
+## Configuration Pattern
+```ruby
+# Use namespaced configuration
+Zeropoint.config.vortex.enabled
+Zeropoint.config.torus.radius
+Zeropoint.config.golden_ratio.precision
+
+# Environment variables override config
+ENV['ZEROPOINT_VORTEX_ENABLED'] = 'true'
+```
+
+## Code Style Guidelines
+
+### Ruby
+- Use frozen_string_literal: true
+- Prefer modules over classes for mathematical functions
+- Use `extend self` for module methods
+- Follow Rubocop guidelines strictly
+- Document all public methods with YARD-style comments
+
+### Mathematical Code
+- Always include metaphysical context in documentation
+- Use descriptive variable names (e.g., `poloidal_radius`, `vortex_strength`)
+- Include usage examples in module docstrings
+- Provide both mathematical and intuitive explanations
+
+### Testing
+- Write comprehensive specs for all mathematical modules
+- Test both edge cases and metaphysical significance
+- Use factories for complex test data
+- Include integration tests for vortex interactions
+
+## File Organization
+
+### Mathematical Modules
+- `lib/zeropoint/math/` - All mathematical modules
+- `spec/zeropoint/math/` - Corresponding tests
+- `docs/` - Comprehensive documentation
+
+### Configuration
+- `lib/zeropoint/configuration_generator.rb` - Configuration generation
+- `config/initializers/` - Rails configuration
+- Environment variables for runtime configuration
+
+### Documentation
+- `docs/UNIFIED_MATH_ARCHITECTURE.md` - Complete math architecture
+- `docs/TOROIDAL_ARCHITECTURE.md` - Toroidal geometry guide
+- `docs/VORTEX_TREE_MAP.md` - Module relationship map
+- `docs/MATH_QUICK_REFERENCE.md` - Quick reference guide
+
+## Metaphysical Integration
+
+### Philosophy
+- "Empty = Void = Full" - The torus center contains everything
+- Unity of science and spirit
+- Ecological renewal through toroidal flow
+- Consciousness as mathematical patterns
+
+### Implementation
+- Include `.insights` or `.metaphysics` methods in modules
+- Document the metaphysical significance of mathematical operations
+- Bridge mathematical, physical, and poetic understanding
+- Encode universal patterns in reusable modules
+
+## Development Workflow
+
+### When Adding New Features
+1. Create modular, DRY code following established patterns
+2. Add comprehensive documentation
+3. Write tests for both functionality and metaphysical context
+4. Update relevant documentation files
+5. Run Rubocop and fix any style issues
+6. Ensure configuration follows the ENV → Config → Module pattern
+
+### When Refactoring
+1. Maintain DRY principles
+2. Preserve metaphysical context and documentation
+3. Update all related modules and tests
+4. Ensure configuration remains consistent
+5. Update documentation to reflect changes
+
+### When Debugging
+1. Check both mathematical correctness and metaphysical significance
+2. Verify configuration is properly loaded
+3. Ensure all dependencies are properly aliased
+4. Check for circular dependencies in vortex interactions
+
+## Key Constants and Values
+- Golden Ratio: φ ≈ 1.618033988749895
+- Vortex Sequence: [1, 2, 4, 8, 7, 5]
+- Torus Center: The singularity/aperture/zero point
+- W-Axis: The omni-dimensional pathway (number 9 over zero)
+
+## Common Patterns
+
+### Module Structure
+```ruby
+module Zeropoint
+  module Math
+    module Example
+      extend self
+      
+      # Mathematical methods
+      def calculate_something
+        # Implementation
+      end
+      
+      # Metaphysical insights
+      def insights
+        { meaning: "..." }
+      end
+    end
+  end
+end
+```
+
+### Configuration Access
+```ruby
+# Always use namespaced access
+Zeropoint.config.module_name.setting_name
+
+# Check environment first
+ENV['ZEROPOINT_MODULE_SETTING'] || Zeropoint.config.module_name.setting_name
+```
+
+### Testing Pattern
+```ruby
+RSpec.describe Zeropoint::Math::Example do
+  describe '.calculate_something' do
+    it 'performs correct mathematical calculation' do
+      # Test mathematical correctness
+    end
+    
+    it 'maintains metaphysical significance' do
+      # Test metaphysical context
+    end
+  end
+end
+```
+
+## Remember
+- This is not just a mathematical library, but a metaphysical framework
+- Every mathematical operation has deeper meaning
+- The torus is the fundamental shape of the universe
+- Consciousness and mathematics are unified
+- DRY principles apply to both code and understanding 

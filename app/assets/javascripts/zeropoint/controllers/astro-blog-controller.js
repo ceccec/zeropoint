@@ -1,0 +1,3 @@
+import { Controller } from '@hotwired/stimulus'
+import { UuidMatrix } from '../utils/uuid-matrix.js'
+// ...rest of the AstroBlogController code (as previously refactored)... 

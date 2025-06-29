@@ -1,0 +1,1984 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: LanguageCookiePatterns
+  
+    &mdash; Documentation by YARD 0.9.37
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "LanguageCookiePatterns";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (L)</a> &raquo;
+    
+    
+    <span class="title">LanguageCookiePatterns</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: LanguageCookiePatterns
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+  <dl>
+    <dt>Included in:</dt>
+    <dd><span class='object_link'><a href="LanguageHelper.html" title="LanguageHelper (module)">LanguageHelper</a></span></dd>
+  </dl>
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/generators/zeropoint/templates/config/language_cookie_patterns.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Language Cookie Patterns for Zeropoint Regex patterns for URL cookies to handle language detection and switching</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="LANGUAGE_PATTERNS-constant" class="">LANGUAGE_PATTERNS =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Language detection patterns</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span>
+  <span class='comment'># URL path patterns
+</span>  <span class='label'>url_path:</span> <span class='lbrace'>{</span>
+    <span class='comment'># /lang/rest-of-path
+</span>    <span class='label'>path_lang:</span> <span class='tstring'><span class='regexp_beg'>%r{</span><span class='tstring_content'>^/([a-z]{2})(?:/|$)</span><span class='regexp_end'>}</span></span><span class='comma'>,</span>
+    <span class='comment'># /lang/region/rest-of-path
+</span>    <span class='label'>path_lang_region:</span> <span class='tstring'><span class='regexp_beg'>%r{</span><span class='tstring_content'>^/([a-z]{2})-([A-Z]{2})(?:/|$)</span><span class='regexp_end'>}</span></span><span class='comma'>,</span>
+    <span class='comment'># /region/lang/rest-of-path
+</span>    <span class='label'>path_region_lang:</span> <span class='tstring'><span class='regexp_beg'>%r{</span><span class='tstring_content'>^/([A-Z]{2})/([a-z]{2})(?:/|$)</span><span class='regexp_end'>}</span></span><span class='comma'>,</span>
+  <span class='rbrace'>}</span><span class='comma'>,</span>
+
+  <span class='comment'># Cookie patterns
+</span>  <span class='label'>cookie:</span> <span class='lbrace'>{</span>
+    <span class='comment'># Standard language cookie
+</span>    <span class='label'>lang_cookie:</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^lang=([a-z]{2})$</span><span class='regexp_end'>/</span></span><span class='comma'>,</span>
+    <span class='comment'># Language with region
+</span>    <span class='label'>lang_region_cookie:</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^lang=([a-z]{2})-([A-Z]{2})$</span><span class='regexp_end'>/</span></span><span class='comma'>,</span>
+    <span class='comment'># Zeropoint specific language cookie
+</span>    <span class='label'>zeropoint_lang:</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^zeropoint_lang=([a-z]{2})$</span><span class='regexp_end'>/</span></span><span class='comma'>,</span>
+    <span class='comment'># Session language
+</span>    <span class='label'>session_lang:</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^session_lang=([a-z]{2})$</span><span class='regexp_end'>/</span></span><span class='comma'>,</span>
+  <span class='rbrace'>}</span><span class='comma'>,</span>
+
+  <span class='comment'># Query parameter patterns
+</span>  <span class='label'>query:</span> <span class='lbrace'>{</span>
+    <span class='comment'># ?lang=xx
+</span>    <span class='label'>lang_param:</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>[?&amp;]lang=([a-z]{2})</span><span class='regexp_end'>/</span></span><span class='comma'>,</span>
+    <span class='comment'># ?locale=xx
+</span>    <span class='label'>locale_param:</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>[?&amp;]locale=([a-z]{2})</span><span class='regexp_end'>/</span></span><span class='comma'>,</span>
+    <span class='comment'># ?l=xx
+</span>    <span class='label'>short_lang:</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>[?&amp;]l=([a-z]{2})</span><span class='regexp_end'>/</span></span><span class='comma'>,</span>
+    <span class='comment'># ?lang=xx&amp;region=XX
+</span>    <span class='label'>lang_region_params:</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>[?&amp;]lang=([a-z]{2})[&amp;]region=([A-Z]{2})</span><span class='regexp_end'>/</span></span><span class='comma'>,</span>
+  <span class='rbrace'>}</span><span class='comma'>,</span>
+
+  <span class='comment'># Header patterns
+</span>  <span class='label'>header:</span> <span class='lbrace'>{</span>
+    <span class='comment'># Accept-Language header
+</span>    <span class='label'>accept_language:</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^([a-z]{2})(?:-[A-Z]{2})?(?:;q=([0-9.]+))?$</span><span class='regexp_end'>/</span></span><span class='comma'>,</span>
+    <span class='comment'># X-Language header
+</span>    <span class='label'>x_language:</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^([a-z]{2})(?:-[A-Z]{2})?$</span><span class='regexp_end'>/</span></span><span class='comma'>,</span>
+  <span class='rbrace'>}</span><span class='comma'>,</span>
+
+  <span class='comment'># Domain patterns
+</span>  <span class='label'>domain:</span> <span class='lbrace'>{</span>
+    <span class='comment'># .bg domain for Bulgarian
+</span>    <span class='label'>bg_domain:</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\.bg$</span><span class='regexp_end'>/</span></span><span class='comma'>,</span>
+    <span class='comment'># .de domain for German
+</span>    <span class='label'>de_domain:</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\.de$</span><span class='regexp_end'>/</span></span><span class='comma'>,</span>
+    <span class='comment'># .fr domain for French
+</span>    <span class='label'>fr_domain:</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\.fr$</span><span class='regexp_end'>/</span></span><span class='comma'>,</span>
+    <span class='comment'># .es domain for Spanish
+</span>    <span class='label'>es_domain:</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\.es$</span><span class='regexp_end'>/</span></span><span class='comma'>,</span>
+    <span class='comment'># Generic country domain
+</span>    <span class='label'>country_domain:</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\.([a-z]{2})$</span><span class='regexp_end'>/</span></span><span class='comma'>,</span>
+  <span class='rbrace'>}</span><span class='comma'>,</span>
+<span class='rbrace'>}</span></pre></dd>
+      
+        <dt id="DOMAIN_LANGUAGE_MAP-constant" class="">DOMAIN_LANGUAGE_MAP =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Language mapping from domains</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.bg</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bg</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.de</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>de</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.fr</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>fr</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.es</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>es</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.it</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>it</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.pt</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>pt</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.ru</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ru</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.ja</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ja</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.ko</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ko</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.zh</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>zh</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.ar</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ar</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.tr</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tr</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.pl</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>pl</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.nl</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>nl</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.sv</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>sv</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.da</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>da</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.no</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>no</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.fi</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>fi</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.cs</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cs</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.sk</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>sk</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.hu</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>hu</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.ro</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ro</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.hr</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>hr</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.sl</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>sl</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.et</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>et</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.lv</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>lv</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.lt</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>lt</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.mt</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mt</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.el</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>el</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.cy</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cy</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+<span class='rbrace'>}</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_language_to_path-class_method" title="add_language_to_path (class method)">.<strong>add_language_to_path</strong>(path, language)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Add language to URL path.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#build_language_cookie-class_method" title="build_language_cookie (class method)">.<strong>build_language_cookie</strong>(language, region = nil)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Build language cookie value.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#build_url_with_language-class_method" title="build_url_with_language (class method)">.<strong>build_url_with_language</strong>(base_url, language, path = &#39;&#39;)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Build URL with language.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#clear_language_cookies-class_method" title="clear_language_cookies (class method)">.<strong>clear_language_cookies</strong>(response)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Clear language cookies.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#extract_language_from_cookie-class_method" title="extract_language_from_cookie (class method)">.<strong>extract_language_from_cookie</strong>(cookie_value)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Extract language from cookie.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#extract_language_from_domain-class_method" title="extract_language_from_domain (class method)">.<strong>extract_language_from_domain</strong>(domain)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Extract language from domain.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#extract_language_from_header-class_method" title="extract_language_from_header (class method)">.<strong>extract_language_from_header</strong>(accept_language)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Extract language from Accept-Language header.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#extract_language_from_path-class_method" title="extract_language_from_path (class method)">.<strong>extract_language_from_path</strong>(path)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Extract language from URL path.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#extract_language_from_query-class_method" title="extract_language_from_query (class method)">.<strong>extract_language_from_query</strong>(query_string)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Extract language from query parameters.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fallback_language-class_method" title="fallback_language (class method)">.<strong>fallback_language</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get fallback language.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_language_priority-class_method" title="get_language_priority (class method)">.<strong>get_language_priority</strong>(request)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get language priority from multiple sources.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#language_name-class_method" title="language_name (class method)">.<strong>language_name</strong>(language_code)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get language name.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parse_language_cookie-class_method" title="parse_language_cookie (class method)">.<strong>parse_language_cookie</strong>(cookie_value)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Parse language cookie value.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#remove_language_from_path-class_method" title="remove_language_from_path (class method)">.<strong>remove_language_from_path</strong>(path)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Remove language from URL path.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_language_cookie-class_method" title="set_language_cookie (class method)">.<strong>set_language_cookie</strong>(response, language, region = nil, options = {})  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Set language cookie.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#supported_language%3F-class_method" title="supported_language? (class method)">.<strong>supported_language?</strong>(language)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Check if language is supported.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#supported_languages-class_method" title="supported_languages (class method)">.<strong>supported_languages</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get supported languages.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#url_has_language%3F-class_method" title="url_has_language? (class method)">.<strong>url_has_language?</strong>(path)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Check if URL has language prefix.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#valid_language%3F-class_method" title="valid_language? (class method)">.<strong>valid_language?</strong>(language)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Validate language code.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#valid_language_region%3F-class_method" title="valid_language_region? (class method)">.<strong>valid_language_region?</strong>(language_region)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Validate language with region.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="add_language_to_path-class_method">
+  
+    .<strong>add_language_to_path</strong>(path, language)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Add language to URL path</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+317
+318
+319
+320</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/config/language_cookie_patterns.rb', line 317</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_add_language_to_path'>add_language_to_path</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_language'>language</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_language'>language</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_path'>path</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_path'>path</span><span class='period'>.</span><span class='id identifier rubyid_start_with?'>start_with?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_language'>language</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_path'>path</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="build_language_cookie-class_method">
+  
+    .<strong>build_language_cookie</strong>(language, region = nil)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Build language cookie value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+220
+221
+222
+223
+224
+225
+226</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/config/language_cookie_patterns.rb', line 220</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_build_language_cookie'>build_language_cookie</span><span class='lparen'>(</span><span class='id identifier rubyid_language'>language</span><span class='comma'>,</span> <span class='id identifier rubyid_region'>region</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_region'>region</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_language'>language</span><span class='embexpr_end'>}</span><span class='tstring_content'>-</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_region'>region</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_language'>language</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="build_url_with_language-class_method">
+  
+    .<strong>build_url_with_language</strong>(base_url, language, path = &#39;&#39;)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Build URL with language</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+297
+298
+299
+300
+301
+302
+303</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/config/language_cookie_patterns.rb', line 297</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_build_url_with_language'>build_url_with_language</span><span class='lparen'>(</span><span class='id identifier rubyid_base_url'>base_url</span><span class='comma'>,</span> <span class='id identifier rubyid_language'>language</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_path'>path</span><span class='period'>.</span><span class='id identifier rubyid_start_with?'>start_with?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_base_url'>base_url</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_language'>language</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_path'>path</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_base_url'>base_url</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_language'>language</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_path'>path</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="clear_language_cookies-class_method">
+  
+    .<strong>clear_language_cookies</strong>(response)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Clear language cookies</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+290
+291
+292
+293
+294</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/config/language_cookie_patterns.rb', line 290</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_clear_language_cookies'>clear_language_cookies</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_delete_cookie'>delete_cookie</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>lang</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_delete_cookie'>delete_cookie</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>zeropoint_lang</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_delete_cookie'>delete_cookie</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>session_lang</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="extract_language_from_cookie-class_method">
+  
+    .<strong>extract_language_from_cookie</strong>(cookie_value)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Extract language from cookie</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/config/language_cookie_patterns.rb', line 123</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_extract_language_from_cookie'>extract_language_from_cookie</span><span class='lparen'>(</span><span class='id identifier rubyid_cookie_value'>cookie_value</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>unless</span> <span class='id identifier rubyid_cookie_value'>cookie_value</span>
+
+  <span class='comment'># Try standard lang cookie
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_match'>match</span> <span class='op'>=</span> <span class='id identifier rubyid_cookie_value'>cookie_value</span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#LANGUAGE_PATTERNS-constant" title="LanguageCookiePatterns::LANGUAGE_PATTERNS (constant)">LANGUAGE_PATTERNS</a></span></span><span class='lbracket'>[</span><span class='symbol'>:cookie</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:lang_cookie</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_match'>match</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Try lang with region
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_match'>match</span> <span class='op'>=</span> <span class='id identifier rubyid_cookie_value'>cookie_value</span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#LANGUAGE_PATTERNS-constant" title="LanguageCookiePatterns::LANGUAGE_PATTERNS (constant)">LANGUAGE_PATTERNS</a></span></span><span class='lbracket'>[</span><span class='symbol'>:cookie</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:lang_region_cookie</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_match'>match</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Try Zeropoint specific cookie
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_match'>match</span> <span class='op'>=</span> <span class='id identifier rubyid_cookie_value'>cookie_value</span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#LANGUAGE_PATTERNS-constant" title="LanguageCookiePatterns::LANGUAGE_PATTERNS (constant)">LANGUAGE_PATTERNS</a></span></span><span class='lbracket'>[</span><span class='symbol'>:cookie</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:zeropoint_lang</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_match'>match</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Try session language
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_match'>match</span> <span class='op'>=</span> <span class='id identifier rubyid_cookie_value'>cookie_value</span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#LANGUAGE_PATTERNS-constant" title="LanguageCookiePatterns::LANGUAGE_PATTERNS (constant)">LANGUAGE_PATTERNS</a></span></span><span class='lbracket'>[</span><span class='symbol'>:cookie</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:session_lang</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_match'>match</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="extract_language_from_domain-class_method">
+  
+    .<strong>extract_language_from_domain</strong>(domain)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Extract language from domain</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/config/language_cookie_patterns.rb', line 191</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_extract_language_from_domain'>extract_language_from_domain</span><span class='lparen'>(</span><span class='id identifier rubyid_domain'>domain</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>unless</span> <span class='id identifier rubyid_domain'>domain</span>
+
+  <span class='comment'># Check for exact domain match
+</span>  <span class='const'><span class='object_link'><a href="#DOMAIN_LANGUAGE_MAP-constant" title="LanguageCookiePatterns::DOMAIN_LANGUAGE_MAP (constant)">DOMAIN_LANGUAGE_MAP</a></span></span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_domain_suffix'>domain_suffix</span><span class='comma'>,</span> <span class='id identifier rubyid_language'>language</span><span class='op'>|</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_language'>language</span> <span class='kw'>if</span> <span class='id identifier rubyid_domain'>domain</span><span class='period'>.</span><span class='id identifier rubyid_end_with?'>end_with?</span><span class='lparen'>(</span><span class='id identifier rubyid_domain_suffix'>domain_suffix</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Try generic country domain pattern
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_match'>match</span> <span class='op'>=</span> <span class='id identifier rubyid_domain'>domain</span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#LANGUAGE_PATTERNS-constant" title="LanguageCookiePatterns::LANGUAGE_PATTERNS (constant)">LANGUAGE_PATTERNS</a></span></span><span class='lbracket'>[</span><span class='symbol'>:domain</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:country_domain</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_match'>match</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="extract_language_from_header-class_method">
+  
+    .<strong>extract_language_from_header</strong>(accept_language)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Extract language from Accept-Language header</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/config/language_cookie_patterns.rb', line 172</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_extract_language_from_header'>extract_language_from_header</span><span class='lparen'>(</span><span class='id identifier rubyid_accept_language'>accept_language</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>unless</span> <span class='id identifier rubyid_accept_language'>accept_language</span>
+
+  <span class='comment'># Parse Accept-Language header
+</span>  <span class='id identifier rubyid_languages'>languages</span> <span class='op'>=</span> <span class='id identifier rubyid_accept_language'>accept_language</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>,</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_filter_map'>filter_map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_lang'>lang</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_match'>match</span> <span class='op'>=</span> <span class='id identifier rubyid_lang'>lang</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#LANGUAGE_PATTERNS-constant" title="LanguageCookiePatterns::LANGUAGE_PATTERNS (constant)">LANGUAGE_PATTERNS</a></span></span><span class='lbracket'>[</span><span class='symbol'>:header</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:accept_language</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+      <span class='lbrace'>{</span>
+        <span class='label'>language:</span> <span class='id identifier rubyid_match'>match</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span>
+        <span class='label'>region:</span> <span class='id identifier rubyid_match'>match</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='comma'>,</span>
+        <span class='label'>quality:</span> <span class='id identifier rubyid_match'>match</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>?</span> <span class='id identifier rubyid_match'>match</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>:</span> <span class='float'>1.0</span><span class='comma'>,</span>
+      <span class='rbrace'>}</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Return highest quality language
+</span>  <span class='id identifier rubyid_languages'>languages</span><span class='period'>.</span><span class='id identifier rubyid_min_by'>min_by</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_lang'>lang</span><span class='op'>|</span> <span class='op'>-</span><span class='id identifier rubyid_lang'>lang</span><span class='lbracket'>[</span><span class='symbol'>:quality</span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='op'>&amp;.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='symbol'>:language</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="extract_language_from_path-class_method">
+  
+    .<strong>extract_language_from_path</strong>(path)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Extract language from URL path</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/config/language_cookie_patterns.rb', line 101</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_extract_language_from_path'>extract_language_from_path</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>unless</span> <span class='id identifier rubyid_path'>path</span>
+
+  <span class='comment'># Try path_lang pattern first
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_match'>match</span> <span class='op'>=</span> <span class='id identifier rubyid_path'>path</span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#LANGUAGE_PATTERNS-constant" title="LanguageCookiePatterns::LANGUAGE_PATTERNS (constant)">LANGUAGE_PATTERNS</a></span></span><span class='lbracket'>[</span><span class='symbol'>:url_path</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:path_lang</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_match'>match</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Try path_lang_region pattern
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_match'>match</span> <span class='op'>=</span> <span class='id identifier rubyid_path'>path</span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#LANGUAGE_PATTERNS-constant" title="LanguageCookiePatterns::LANGUAGE_PATTERNS (constant)">LANGUAGE_PATTERNS</a></span></span><span class='lbracket'>[</span><span class='symbol'>:url_path</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:path_lang_region</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_match'>match</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Try path_region_lang pattern
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_match'>match</span> <span class='op'>=</span> <span class='id identifier rubyid_path'>path</span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#LANGUAGE_PATTERNS-constant" title="LanguageCookiePatterns::LANGUAGE_PATTERNS (constant)">LANGUAGE_PATTERNS</a></span></span><span class='lbracket'>[</span><span class='symbol'>:url_path</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:path_region_lang</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_match'>match</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="extract_language_from_query-class_method">
+  
+    .<strong>extract_language_from_query</strong>(query_string)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Extract language from query parameters</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/config/language_cookie_patterns.rb', line 150</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_extract_language_from_query'>extract_language_from_query</span><span class='lparen'>(</span><span class='id identifier rubyid_query_string'>query_string</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>unless</span> <span class='id identifier rubyid_query_string'>query_string</span>
+
+  <span class='comment'># Try lang parameter
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_match'>match</span> <span class='op'>=</span> <span class='id identifier rubyid_query_string'>query_string</span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#LANGUAGE_PATTERNS-constant" title="LanguageCookiePatterns::LANGUAGE_PATTERNS (constant)">LANGUAGE_PATTERNS</a></span></span><span class='lbracket'>[</span><span class='symbol'>:query</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:lang_param</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_match'>match</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Try locale parameter
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_match'>match</span> <span class='op'>=</span> <span class='id identifier rubyid_query_string'>query_string</span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#LANGUAGE_PATTERNS-constant" title="LanguageCookiePatterns::LANGUAGE_PATTERNS (constant)">LANGUAGE_PATTERNS</a></span></span><span class='lbracket'>[</span><span class='symbol'>:query</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:locale_param</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_match'>match</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Try short lang parameter
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_match'>match</span> <span class='op'>=</span> <span class='id identifier rubyid_query_string'>query_string</span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#LANGUAGE_PATTERNS-constant" title="LanguageCookiePatterns::LANGUAGE_PATTERNS (constant)">LANGUAGE_PATTERNS</a></span></span><span class='lbracket'>[</span><span class='symbol'>:query</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:short_lang</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_match'>match</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fallback_language-class_method">
+  
+    .<strong>fallback_language</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get fallback language</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+341
+342
+343</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/config/language_cookie_patterns.rb', line 341</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_fallback_language'>fallback_language</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>en</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_language_priority-class_method">
+  
+    .<strong>get_language_priority</strong>(request)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get language priority from multiple sources</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/config/language_cookie_patterns.rb', line 248</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get_language_priority'>get_language_priority</span><span class='lparen'>(</span><span class='id identifier rubyid_request'>request</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_language'>language</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='comment'># Priority order: URL path &gt; Query param &gt; Cookie &gt; Header &gt; Domain
+</span>
+  <span class='comment'># 1. URL path
+</span>  <span class='id identifier rubyid_language'>language</span> <span class='op'>||=</span> <span class='id identifier rubyid_extract_language_from_path'>extract_language_from_path</span><span class='lparen'>(</span><span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+
+  <span class='comment'># 2. Query parameters
+</span>  <span class='id identifier rubyid_language'>language</span> <span class='op'>||=</span> <span class='id identifier rubyid_extract_language_from_query'>extract_language_from_query</span><span class='lparen'>(</span><span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_query_string'>query_string</span><span class='rparen'>)</span>
+
+  <span class='comment'># 3. Cookies
+</span>  <span class='id identifier rubyid_language'>language</span> <span class='op'>||=</span> <span class='id identifier rubyid_extract_language_from_cookie'>extract_language_from_cookie</span><span class='lparen'>(</span><span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_cookies'>cookies</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>lang</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_language'>language</span> <span class='op'>||=</span> <span class='id identifier rubyid_extract_language_from_cookie'>extract_language_from_cookie</span><span class='lparen'>(</span><span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_cookies'>cookies</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>zeropoint_lang</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_language'>language</span> <span class='op'>||=</span> <span class='id identifier rubyid_extract_language_from_cookie'>extract_language_from_cookie</span><span class='lparen'>(</span><span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_cookies'>cookies</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>session_lang</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+
+  <span class='comment'># 4. Accept-Language header
+</span>  <span class='id identifier rubyid_language'>language</span> <span class='op'>||=</span> <span class='id identifier rubyid_extract_language_from_header'>extract_language_from_header</span><span class='lparen'>(</span><span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Accept-Language</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+
+  <span class='comment'># 5. Domain
+</span>  <span class='id identifier rubyid_language'>language</span> <span class='op'>||=</span> <span class='id identifier rubyid_extract_language_from_domain'>extract_language_from_domain</span><span class='lparen'>(</span><span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_host'>host</span><span class='rparen'>)</span>
+
+  <span class='comment'># Validate and return
+</span>  <span class='id identifier rubyid_valid_language?'>valid_language?</span><span class='lparen'>(</span><span class='id identifier rubyid_language'>language</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_language'>language</span> <span class='op'>:</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="language_name-class_method">
+  
+    .<strong>language_name</strong>(language_code)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get language name</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/config/language_cookie_patterns.rb', line 346</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_language_name'>language_name</span><span class='lparen'>(</span><span class='id identifier rubyid_language_code'>language_code</span><span class='rparen'>)</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>en:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>English</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>bg:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Български</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>de:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Deutsch</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>fr:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Français</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>es:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Español</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>it:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Italiano</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>pt:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Português</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>ru:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Русский</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>ja:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>日本語</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>ko:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>한국어</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>zh:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>中文</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>ar:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>العربية</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>tr:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Türkçe</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>pl:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Polski</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>nl:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Nederlands</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>sv:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Svenska</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>da:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Dansk</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>no:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Norsk</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>fi:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Suomi</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>cs:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Čeština</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>sk:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Slovenčina</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>hu:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Magyar</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>ro:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Română</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>hr:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Hrvatski</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>sl:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Slovenščina</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>et:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Eesti</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>lv:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Latviešu</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>lt:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Lietuvių</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>mt:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Malti</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>el:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Ελληνικά</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>cy:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Cymraeg</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='rbrace'>}</span><span class='lbracket'>[</span><span class='id identifier rubyid_language_code'>language_code</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='id identifier rubyid_language_code'>language_code</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="parse_language_cookie-class_method">
+  
+    .<strong>parse_language_cookie</strong>(cookie_value)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Parse language cookie value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/config/language_cookie_patterns.rb', line 229</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_parse_language_cookie'>parse_language_cookie</span><span class='lparen'>(</span><span class='id identifier rubyid_cookie_value'>cookie_value</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>unless</span> <span class='id identifier rubyid_cookie_value'>cookie_value</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_match'>match</span> <span class='op'>=</span> <span class='id identifier rubyid_cookie_value'>cookie_value</span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#LANGUAGE_PATTERNS-constant" title="LanguageCookiePatterns::LANGUAGE_PATTERNS (constant)">LANGUAGE_PATTERNS</a></span></span><span class='lbracket'>[</span><span class='symbol'>:cookie</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:lang_region_cookie</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='lbrace'>{</span>
+      <span class='label'>language:</span> <span class='id identifier rubyid_match'>match</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span>
+      <span class='label'>region:</span> <span class='id identifier rubyid_match'>match</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='comma'>,</span>
+    <span class='rbrace'>}</span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_match'>match</span> <span class='op'>=</span> <span class='id identifier rubyid_cookie_value'>cookie_value</span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#LANGUAGE_PATTERNS-constant" title="LanguageCookiePatterns::LANGUAGE_PATTERNS (constant)">LANGUAGE_PATTERNS</a></span></span><span class='lbracket'>[</span><span class='symbol'>:cookie</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:lang_cookie</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='lbrace'>{</span>
+      <span class='label'>language:</span> <span class='id identifier rubyid_match'>match</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span>
+      <span class='label'>region:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+    <span class='rbrace'>}</span>
+  <span class='kw'>else</span>
+    <span class='kw'>nil</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="remove_language_from_path-class_method">
+  
+    .<strong>remove_language_from_path</strong>(path)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Remove language from URL path</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+306
+307
+308
+309
+310
+311
+312
+313
+314</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/config/language_cookie_patterns.rb', line 306</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_remove_language_from_path'>remove_language_from_path</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_path'>path</span> <span class='kw'>unless</span> <span class='id identifier rubyid_path'>path</span>
+
+  <span class='comment'># Remove language from beginning of path
+</span>  <span class='id identifier rubyid_path'>path</span><span class='period'>.</span><span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#LANGUAGE_PATTERNS-constant" title="LanguageCookiePatterns::LANGUAGE_PATTERNS (constant)">LANGUAGE_PATTERNS</a></span></span><span class='lbracket'>[</span><span class='symbol'>:url_path</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:path_lang</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+      <span class='period'>.</span><span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#LANGUAGE_PATTERNS-constant" title="LanguageCookiePatterns::LANGUAGE_PATTERNS (constant)">LANGUAGE_PATTERNS</a></span></span><span class='lbracket'>[</span><span class='symbol'>:url_path</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:path_lang_region</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+      <span class='period'>.</span><span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#LANGUAGE_PATTERNS-constant" title="LanguageCookiePatterns::LANGUAGE_PATTERNS (constant)">LANGUAGE_PATTERNS</a></span></span><span class='lbracket'>[</span><span class='symbol'>:url_path</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:path_region_lang</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+      <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>%r{</span><span class='tstring_content'>^//+</span><span class='regexp_end'>}</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='comment'># Clean up multiple slashes
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="set_language_cookie-class_method">
+  
+    .<strong>set_language_cookie</strong>(response, language, region = nil, options = {})  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Set language cookie</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/config/language_cookie_patterns.rb', line 275</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_set_language_cookie'>set_language_cookie</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='comma'>,</span> <span class='id identifier rubyid_language'>language</span><span class='comma'>,</span> <span class='id identifier rubyid_region'>region</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_cookie_value'>cookie_value</span> <span class='op'>=</span> <span class='id identifier rubyid_build_language_cookie'>build_language_cookie</span><span class='lparen'>(</span><span class='id identifier rubyid_language'>language</span><span class='comma'>,</span> <span class='id identifier rubyid_region'>region</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_default_options'>default_options</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>path:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>secure:</span> <span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_env'>env</span><span class='period'>.</span><span class='id identifier rubyid_production?'>production?</span><span class='comma'>,</span>
+    <span class='label'>same_site:</span> <span class='symbol'>:lax</span><span class='comma'>,</span>
+    <span class='label'>expires:</span> <span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_year'>year</span><span class='period'>.</span><span class='id identifier rubyid_from_now'>from_now</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+
+  <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_set_cookie'>set_cookie</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>lang</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_default_options'>default_options</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='label'>value:</span> <span class='id identifier rubyid_cookie_value'>cookie_value</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_set_cookie'>set_cookie</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>zeropoint_lang</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_default_options'>default_options</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='label'>value:</span> <span class='id identifier rubyid_cookie_value'>cookie_value</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="supported_language?-class_method">
+  
+    .<strong>supported_language?</strong>(language)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Check if language is supported</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+336
+337
+338</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/config/language_cookie_patterns.rb', line 336</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_supported_language?'>supported_language?</span><span class='lparen'>(</span><span class='id identifier rubyid_language'>language</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_supported_languages'>supported_languages</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_language'>language</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="supported_languages-class_method">
+  
+    .<strong>supported_languages</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get supported languages</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+331
+332
+333</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/config/language_cookie_patterns.rb', line 331</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_supported_languages'>supported_languages</span>
+  <span class='qwords_beg'>%w[</span><span class='tstring_content'>en</span><span class='words_sep'> </span><span class='tstring_content'>bg</span><span class='words_sep'> </span><span class='tstring_content'>de</span><span class='words_sep'> </span><span class='tstring_content'>fr</span><span class='words_sep'> </span><span class='tstring_content'>es</span><span class='words_sep'> </span><span class='tstring_content'>it</span><span class='words_sep'> </span><span class='tstring_content'>pt</span><span class='words_sep'> </span><span class='tstring_content'>ru</span><span class='words_sep'> </span><span class='tstring_content'>ja</span><span class='words_sep'> </span><span class='tstring_content'>ko</span><span class='words_sep'> </span><span class='tstring_content'>zh</span><span class='words_sep'> </span><span class='tstring_content'>ar</span><span class='words_sep'> </span><span class='tstring_content'>tr</span><span class='words_sep'> </span><span class='tstring_content'>pl</span><span class='words_sep'> </span><span class='tstring_content'>nl</span><span class='words_sep'> </span><span class='tstring_content'>sv</span><span class='words_sep'> </span><span class='tstring_content'>da</span><span class='words_sep'> </span><span class='tstring_content'>no</span><span class='words_sep'> </span><span class='tstring_content'>fi</span><span class='words_sep'> </span><span class='tstring_content'>cs</span><span class='words_sep'> </span><span class='tstring_content'>sk</span><span class='words_sep'> </span><span class='tstring_content'>hu</span><span class='words_sep'> </span><span class='tstring_content'>ro</span><span class='words_sep'> </span><span class='tstring_content'>hr</span><span class='words_sep'> </span><span class='tstring_content'>sl</span><span class='words_sep'> </span><span class='tstring_content'>et</span><span class='words_sep'> </span><span class='tstring_content'>lv</span><span class='words_sep'> </span><span class='tstring_content'>lt</span><span class='words_sep'> </span><span class='tstring_content'>mt</span><span class='words_sep'> </span><span class='tstring_content'>el</span><span class='words_sep'> </span><span class='tstring_content'>cy</span><span class='tstring_end'>]</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="url_has_language?-class_method">
+  
+    .<strong>url_has_language?</strong>(path)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Check if URL has language prefix</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+323
+324
+325
+326
+327
+328</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/config/language_cookie_patterns.rb', line 323</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_url_has_language?'>url_has_language?</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_path'>path</span>
+  <span class='id identifier rubyid_path'>path</span><span class='period'>.</span><span class='id identifier rubyid_match?'>match?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#LANGUAGE_PATTERNS-constant" title="LanguageCookiePatterns::LANGUAGE_PATTERNS (constant)">LANGUAGE_PATTERNS</a></span></span><span class='lbracket'>[</span><span class='symbol'>:url_path</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:path_lang</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='op'>||</span>
+  <span class='id identifier rubyid_path'>path</span><span class='period'>.</span><span class='id identifier rubyid_match?'>match?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#LANGUAGE_PATTERNS-constant" title="LanguageCookiePatterns::LANGUAGE_PATTERNS (constant)">LANGUAGE_PATTERNS</a></span></span><span class='lbracket'>[</span><span class='symbol'>:url_path</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:path_lang_region</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='op'>||</span>
+  <span class='id identifier rubyid_path'>path</span><span class='period'>.</span><span class='id identifier rubyid_match?'>match?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#LANGUAGE_PATTERNS-constant" title="LanguageCookiePatterns::LANGUAGE_PATTERNS (constant)">LANGUAGE_PATTERNS</a></span></span><span class='lbracket'>[</span><span class='symbol'>:url_path</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:path_region_lang</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="valid_language?-class_method">
+  
+    .<strong>valid_language?</strong>(language)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Validate language code</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+208
+209
+210
+211</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/config/language_cookie_patterns.rb', line 208</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_valid_language?'>valid_language?</span><span class='lparen'>(</span><span class='id identifier rubyid_language'>language</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_language'>language</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_language'>language</span><span class='period'>.</span><span class='id identifier rubyid_match?'>match?</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^[a-z]{2}$</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="valid_language_region?-class_method">
+  
+    .<strong>valid_language_region?</strong>(language_region)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Validate language with region</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+214
+215
+216
+217</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/generators/zeropoint/templates/config/language_cookie_patterns.rb', line 214</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_valid_language_region?'>valid_language_region?</span><span class='lparen'>(</span><span class='id identifier rubyid_language_region'>language_region</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_language_region'>language_region</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_language_region'>language_region</span><span class='period'>.</span><span class='id identifier rubyid_match?'>match?</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^[a-z]{2}-[A-Z]{2}$</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Jun 30 00:12:02 2025 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.37 (ruby-3.3.6).
+</div>
+
+    </div>
+  </body>
+</html>

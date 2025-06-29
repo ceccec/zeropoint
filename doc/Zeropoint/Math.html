@@ -1,0 +1,2422 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: Zeropoint::Math
+  
+    &mdash; Documentation by YARD 0.9.37
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Zeropoint::Math";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (M)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../Zeropoint.html" title="Zeropoint (module)">Zeropoint</a></span></span>
+     &raquo; 
+    <span class="title">Math</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: Zeropoint::Math
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/zeropoint/math.rb<span class="defines">,<br />
+  lib/zeropoint/math/vbm.rb,<br /> lib/zeropoint/math/coil.rb,<br /> lib/zeropoint/math/cosmic.rb,<br /> lib/zeropoint/math/vbm/qa.rb,<br /> lib/zeropoint/math/vbm/doc.rb,<br /> lib/zeropoint/math/vbm_doc.rb,<br /> lib/zeropoint/math/aperture.rb,<br /> lib/zeropoint/math/geometry.rb,<br /> lib/zeropoint/math/poloidal.rb,<br /> lib/zeropoint/math/constants.rb,<br /> lib/zeropoint/math/sunflower.rb,<br /> lib/zeropoint/math/vbm/music.rb,<br /> lib/zeropoint/math/rodin_coil.rb,<br /> lib/zeropoint/math/vbm/geometry.rb,<br /> lib/zeropoint/math/vbm/metaphysics.rb</span>
+</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Math: Central mathematical module for all representations in ZeroPoint</p>
+
+<p>Provides unified access to vortex math, toroidal geometry, golden ratio, physical constants, cosmic/void helpers, and coil winding logic.</p>
+
+<h2 id="label-Usage+Examples">Usage Examples</h2>
+
+<pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="../Zeropoint.html" title="Zeropoint (module)">Zeropoint</a></span></span><span class='op'>::</span><span class='const'>Math</span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Math/Vortex.html" title="Zeropoint::Math::Vortex (module)">Vortex</a></span></span><span class='period'>.</span><span class='id identifier rubyid_digital_root'><span class='object_link'><a href="Vortex/Math.html#digital_root-instance_method" title="Zeropoint::Vortex::Math#digital_root (method)">digital_root</a></span></span><span class='lparen'>(</span><span class='int'>123</span><span class='rparen'>)</span>
+<span class='const'><span class='object_link'><a href="../Zeropoint.html" title="Zeropoint (module)">Zeropoint</a></span></span><span class='op'>::</span><span class='const'>Math</span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Math/Vortex.html" title="Zeropoint::Math::Vortex (module)">Vortex</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Math/Vortex.html#Torus-constant" title="Zeropoint::Math::Vortex::Torus (constant)">Torus</a></span></span><span class='period'>.</span><span class='id identifier rubyid_doubling_sequence'>doubling_sequence</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>9</span><span class='rparen'>)</span>
+<span class='const'><span class='object_link'><a href="../Zeropoint.html" title="Zeropoint (module)">Zeropoint</a></span></span><span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_golden_ratio'><span class='object_link'><a href="#golden_ratio-class_method" title="Zeropoint::Math.golden_ratio (method)">golden_ratio</a></span></span>
+<span class='const'><span class='object_link'><a href="../Zeropoint.html" title="Zeropoint (module)">Zeropoint</a></span></span><span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_sqrt'><span class='object_link'><a href="#sqrt-class_method" title="Zeropoint::Math.sqrt (method)">sqrt</a></span></span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>
+<span class='const'><span class='object_link'><a href="../Zeropoint.html" title="Zeropoint (module)">Zeropoint</a></span></span><span class='op'>::</span><span class='const'>Math</span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Math/Constants.html" title="Zeropoint::Math::Constants (module)">Constants</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Math/Constants.html#C-constant" title="Zeropoint::Math::Constants::C (constant)">C</a></span></span>
+<span class='const'><span class='object_link'><a href="../Zeropoint.html" title="Zeropoint (module)">Zeropoint</a></span></span><span class='op'>::</span><span class='const'>Math</span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Math/Geometry.html" title="Zeropoint::Math::Geometry (module)">Geometry</a></span></span><span class='period'>.</span><span class='id identifier rubyid_torus_volume'><span class='object_link'><a href="Math/Geometry.html#torus_volume-class_method" title="Zeropoint::Math::Geometry.torus_volume (method)">torus_volume</a></span></span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span> <span class='float'>0.5</span><span class='rparen'>)</span>
+<span class='const'><span class='object_link'><a href="../Zeropoint.html" title="Zeropoint (module)">Zeropoint</a></span></span><span class='op'>::</span><span class='const'>Math</span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Math/Cosmic.html" title="Zeropoint::Math::Cosmic (module)">Cosmic</a></span></span><span class='period'>.</span><span class='id identifier rubyid_void'><span class='object_link'><a href="Math/Cosmic.html#void-class_method" title="Zeropoint::Math::Cosmic.void (method)">void</a></span></span>
+<span class='const'><span class='object_link'><a href="../Zeropoint.html" title="Zeropoint (module)">Zeropoint</a></span></span><span class='op'>::</span><span class='const'>Math</span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Math/Coil.html" title="Zeropoint::Math::Coil (module)">Coil</a></span></span><span class='period'>.</span><span class='id identifier rubyid_winding_sequence'><span class='object_link'><a href="Math/Coil.html#winding_sequence-class_method" title="Zeropoint::Math::Coil.winding_sequence (method)">winding_sequence</a></span></span><span class='lparen'>(</span><span class='int'>12</span><span class='comma'>,</span> <span class='int'>5</span><span class='rparen'>)</span>
+</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Math/Aperture.html" title="Zeropoint::Math::Aperture (module)">Aperture</a></span>, <span class='object_link'><a href="Math/Coil.html" title="Zeropoint::Math::Coil (module)">Coil</a></span>, <span class='object_link'><a href="Math/Constants.html" title="Zeropoint::Math::Constants (module)">Constants</a></span>, <span class='object_link'><a href="Math/Cosmic.html" title="Zeropoint::Math::Cosmic (module)">Cosmic</a></span>, <span class='object_link'><a href="Math/Geometry.html" title="Zeropoint::Math::Geometry (module)">Geometry</a></span>, <span class='object_link'><a href="Math/Poloidal.html" title="Zeropoint::Math::Poloidal (module)">Poloidal</a></span>, <span class='object_link'><a href="Math/RodinCoil.html" title="Zeropoint::Math::RodinCoil (module)">RodinCoil</a></span>, <span class='object_link'><a href="Math/Sunflower.html" title="Zeropoint::Math::Sunflower (module)">Sunflower</a></span>, <span class='object_link'><a href="Math/VBM.html" title="Zeropoint::Math::VBM (module)">VBM</a></span>, <span class='object_link'><a href="Math/VBMDoc.html" title="Zeropoint::Math::VBMDoc (module)">VBMDoc</a></span>, <span class='object_link'><a href="Math/Vortex.html" title="Zeropoint::Math::Vortex (module)">Vortex</a></span>
+    
+  
+    
+  
+</p>
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#abs-class_method" title="abs (class method)">.<strong>abs</strong>(x)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#acos-class_method" title="acos (class method)">.<strong>acos</strong>(x)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#acosh-class_method" title="acosh (class method)">.<strong>acosh</strong>(x)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#asin-class_method" title="asin (class method)">.<strong>asin</strong>(x)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#asinh-class_method" title="asinh (class method)">.<strong>asinh</strong>(x)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#atan-class_method" title="atan (class method)">.<strong>atan</strong>(x)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#atan2-class_method" title="atan2 (class method)">.<strong>atan2</strong>(y, x)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#atanh-class_method" title="atanh (class method)">.<strong>atanh</strong>(x)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#axis-class_method" title="axis (class method)">.<strong>axis</strong>(n)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cbrt-class_method" title="cbrt (class method)">.<strong>cbrt</strong>(x)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ceil-class_method" title="ceil (class method)">.<strong>ceil</strong>(x)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cos-class_method" title="cos (class method)">.<strong>cos</strong>(x)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cosh-class_method" title="cosh (class method)">.<strong>cosh</strong>(x)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#doubling-class_method" title="doubling (class method)">.<strong>doubling</strong>(n)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dr-class_method" title="dr (class method)">.<strong>dr</strong>(n)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h2 id="label-DRY+Aliases+-28Unified+Math+API-29.">DRY Aliases (Unified Math API).</h2>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#e-class_method" title="e (class method)">.<strong>e</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#exp-class_method" title="exp (class method)">.<strong>exp</strong>(x)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fib-class_method" title="fib (class method)">.<strong>fib</strong>(n)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#floor-class_method" title="floor (class method)">.<strong>floor</strong>(x)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#golden_angle_n-class_method" title="golden_angle_n (class method)">.<strong>golden_angle_n</strong>(n = 1)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#golden_ratio-class_method" title="golden_ratio (class method)">.<strong>golden_ratio</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h2 id="label-High-level+Mathematical+Constants+Golden+ratio-2C+pi-2C+e.">High-level Mathematical Constants Golden ratio, pi, e.</h2>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#harmonic_of-class_method" title="harmonic_of (class method)">.<strong>harmonic_of</strong>(base, n)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#is_prime%3F-class_method" title="is_prime? (class method)">.<strong>is_prime?</strong>(n)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#log-class_method" title="log (class method)">.<strong>log</strong>(x, base = ::Math::E)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#log10-class_method" title="log10 (class method)">.<strong>log10</strong>(x)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#log2-class_method" title="log2 (class method)">.<strong>log2</strong>(x)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#max-class_method" title="max (class method)">.<strong>max</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#method_missing-class_method" title="method_missing (class method)">.<strong>method_missing</strong>(method_name, *args, &amp;block)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#min-class_method" title="min (class method)">.<strong>min</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#phase_of-class_method" title="phase_of (class method)">.<strong>phase_of</strong>(step)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#phi-class_method" title="phi (class method)">.<strong>phi</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pi-class_method" title="pi (class method)">.<strong>pi</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pow-class_method" title="pow (class method)">.<strong>pow</strong>(x, y)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#primes_list-class_method" title="primes_list (class method)">.<strong>primes_list</strong>(k)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#random-class_method" title="random (class method)">.<strong>random</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#respond_to_missing%3F-class_method" title="respond_to_missing? (class method)">.<strong>respond_to_missing?</strong>(method_name, include_private = false)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#round-class_method" title="round (class method)">.<strong>round</strong>(x, digits = 0)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sin-class_method" title="sin (class method)">.<strong>sin</strong>(x)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h2 id="label-Fallback+to+Ruby-27s+Math+Delegates+standard+math+functions+to+Ruby-27s+Math+module.">Fallback to Ruby’s Math Delegates standard math functions to Ruby’s Math module.</h2>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sinh-class_method" title="sinh (class method)">.<strong>sinh</strong>(x)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sqrt-class_method" title="sqrt (class method)">.<strong>sqrt</strong>(x)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#tan-class_method" title="tan (class method)">.<strong>tan</strong>(x)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#tanh-class_method" title="tanh (class method)">.<strong>tanh</strong>(x)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="abs-class_method">
+  
+    .<strong>abs</strong>(x)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+127
+128
+129</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 127</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="acos-class_method">
+  
+    .<strong>acos</strong>(x)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+79
+80
+81</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 79</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_acos'>acos</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_acos'>acos</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="acosh-class_method">
+  
+    .<strong>acosh</strong>(x)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+121
+122
+123</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 121</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_acosh'>acosh</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_acosh'>acosh</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="asin-class_method">
+  
+    .<strong>asin</strong>(x)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+76
+77
+78</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 76</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_asin'>asin</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_asin'>asin</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="asinh-class_method">
+  
+    .<strong>asinh</strong>(x)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+118
+119
+120</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 118</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_asinh'>asinh</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_asinh'>asinh</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="atan-class_method">
+  
+    .<strong>atan</strong>(x)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+82
+83
+84</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 82</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_atan'>atan</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_atan'>atan</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="atan2-class_method">
+  
+    .<strong>atan2</strong>(y, x)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 85</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_atan2'>atan2</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_atan2'>atan2</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="atanh-class_method">
+  
+    .<strong>atanh</strong>(x)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+124
+125
+126</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 124</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_atanh'>atanh</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_atanh'>atanh</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="axis-class_method">
+  
+    .<strong>axis</strong>(n)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+174</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 174</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_axis'>axis</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Math/Vortex.html" title="Zeropoint::Math::Vortex (module)">Vortex</a></span></span><span class='period'>.</span><span class='id identifier rubyid_axis_state'><span class='object_link'><a href="Vortex/Math.html#axis_state-instance_method" title="Zeropoint::Vortex::Math#axis_state (method)">axis_state</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="cbrt-class_method">
+  
+    .<strong>cbrt</strong>(x)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+103
+104
+105</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 103</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_cbrt'>cbrt</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_cbrt'>cbrt</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ceil-class_method">
+  
+    .<strong>ceil</strong>(x)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+130
+131
+132</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 130</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_ceil'>ceil</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_ceil'>ceil</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="cos-class_method">
+  
+    .<strong>cos</strong>(x)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+70
+71
+72</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 70</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_cos'>cos</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_cos'>cos</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="cosh-class_method">
+  
+    .<strong>cosh</strong>(x)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+112
+113
+114</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 112</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_cosh'>cosh</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_cosh'>cosh</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="doubling-class_method">
+  
+    .<strong>doubling</strong>(n)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+173</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 173</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_doubling'>doubling</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Math/Vortex.html" title="Zeropoint::Math::Vortex (module)">Vortex</a></span></span><span class='period'>.</span><span class='id identifier rubyid_toroidal_doubling'><span class='object_link'><a href="Vortex/Math.html#toroidal_doubling-instance_method" title="Zeropoint::Vortex::Math#toroidal_doubling (method)">toroidal_doubling</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="dr-class_method">
+  
+    .<strong>dr</strong>(n)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<h2 id="label-DRY+Aliases+-28Unified+Math+API-29">DRY Aliases (Unified Math API)</h2>
+
+<p>Example:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="../Zeropoint.html" title="Zeropoint (module)">Zeropoint</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Zeropoint::Math (module)">Math</a></span></span><span class='period'>.</span><span class='id identifier rubyid_dr'>dr</span><span class='lparen'>(</span><span class='int'>123</span><span class='rparen'>)</span>         <span class='comment'>#=&gt; 6
+</span><span class='const'><span class='object_link'><a href="../Zeropoint.html" title="Zeropoint (module)">Zeropoint</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Zeropoint::Math (module)">Math</a></span></span><span class='period'>.</span><span class='id identifier rubyid_doubling'><span class='object_link'><a href="#doubling-class_method" title="Zeropoint::Math.doubling (method)">doubling</a></span></span><span class='lparen'>(</span><span class='int'>7</span><span class='rparen'>)</span>     <span class='comment'>#=&gt; 5
+</span><span class='const'><span class='object_link'><a href="../Zeropoint.html" title="Zeropoint (module)">Zeropoint</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Zeropoint::Math (module)">Math</a></span></span><span class='period'>.</span><span class='id identifier rubyid_axis'><span class='object_link'><a href="#axis-class_method" title="Zeropoint::Math.axis (method)">axis</a></span></span><span class='lparen'>(</span><span class='int'>9</span><span class='rparen'>)</span>         <span class='comment'>#=&gt; :axis_9
+</span><span class='const'><span class='object_link'><a href="../Zeropoint.html" title="Zeropoint (module)">Zeropoint</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Zeropoint::Math (module)">Math</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fib'><span class='object_link'><a href="#fib-class_method" title="Zeropoint::Math.fib (method)">fib</a></span></span><span class='lparen'>(</span><span class='int'>10</span><span class='rparen'>)</span>         <span class='comment'>#=&gt; 55
+</span><span class='const'><span class='object_link'><a href="../Zeropoint.html" title="Zeropoint (module)">Zeropoint</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Zeropoint::Math (module)">Math</a></span></span><span class='period'>.</span><span class='id identifier rubyid_phi'><span class='object_link'><a href="#phi-class_method" title="Zeropoint::Math.phi (method)">phi</a></span></span>             <span class='comment'>#=&gt; 1.618...
+</span><span class='const'><span class='object_link'><a href="../Zeropoint.html" title="Zeropoint (module)">Zeropoint</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Zeropoint::Math (module)">Math</a></span></span><span class='period'>.</span><span class='id identifier rubyid_golden_angle_n'><span class='object_link'><a href="#golden_angle_n-class_method" title="Zeropoint::Math.golden_angle_n (method)">golden_angle_n</a></span></span>  <span class='comment'>#=&gt; 137.5...
+</span><span class='const'><span class='object_link'><a href="../Zeropoint.html" title="Zeropoint (module)">Zeropoint</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Zeropoint::Math (module)">Math</a></span></span><span class='period'>.</span><span class='id identifier rubyid_harmonic_of'><span class='object_link'><a href="#harmonic_of-class_method" title="Zeropoint::Math.harmonic_of (method)">harmonic_of</a></span></span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span> <span class='comment'>#=&gt; 6.0
+</span><span class='const'><span class='object_link'><a href="../Zeropoint.html" title="Zeropoint (module)">Zeropoint</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Zeropoint::Math (module)">Math</a></span></span><span class='period'>.</span><span class='id identifier rubyid_phase_of'><span class='object_link'><a href="#phase_of-class_method" title="Zeropoint::Math.phase_of (method)">phase_of</a></span></span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>     <span class='comment'>#=&gt; 180
+</span><span class='const'><span class='object_link'><a href="../Zeropoint.html" title="Zeropoint (module)">Zeropoint</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Zeropoint::Math (module)">Math</a></span></span><span class='period'>.</span><span class='id identifier rubyid_is_prime?'><span class='object_link'><a href="#is_prime%3F-class_method" title="Zeropoint::Math.is_prime? (method)">is_prime?</a></span></span><span class='lparen'>(</span><span class='int'>7</span><span class='rparen'>)</span>    <span class='comment'>#=&gt; true
+</span><span class='const'><span class='object_link'><a href="../Zeropoint.html" title="Zeropoint (module)">Zeropoint</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Zeropoint::Math (module)">Math</a></span></span><span class='period'>.</span><span class='id identifier rubyid_primes_list'><span class='object_link'><a href="#primes_list-class_method" title="Zeropoint::Math.primes_list (method)">primes_list</a></span></span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span>  <span class='comment'>#=&gt; [2, 3, 5, 7, 11]
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+172</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 172</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dr'>dr</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Math/Vortex.html" title="Zeropoint::Math::Vortex (module)">Vortex</a></span></span><span class='period'>.</span><span class='id identifier rubyid_digital_root'><span class='object_link'><a href="Vortex/Math.html#digital_root-instance_method" title="Zeropoint::Vortex::Math#digital_root (method)">digital_root</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="e-class_method">
+  
+    .<strong>e</strong>  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 58</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_e'>e</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='op'>::</span><span class='const'>E</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="exp-class_method">
+  
+    .<strong>exp</strong>(x)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+88
+89
+90</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 88</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_exp'>exp</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_exp'>exp</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fib-class_method">
+  
+    .<strong>fib</strong>(n)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+175</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 175</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_fib'>fib</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Math/Vortex.html" title="Zeropoint::Math::Vortex (module)">Vortex</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fibonacci'><span class='object_link'><a href="Vortex/Math.html#fibonacci-instance_method" title="Zeropoint::Vortex::Math#fibonacci (method)">fibonacci</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="floor-class_method">
+  
+    .<strong>floor</strong>(x)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+133
+134
+135</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 133</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="golden_angle_n-class_method">
+  
+    .<strong>golden_angle_n</strong>(n = 1)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+177</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 177</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_golden_angle_n'>golden_angle_n</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span> <span class='op'>=</span> <span class='int'>1</span><span class='rparen'>)</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Math/Vortex.html" title="Zeropoint::Math::Vortex (module)">Vortex</a></span></span><span class='period'>.</span><span class='id identifier rubyid_golden_angle'><span class='object_link'><a href="Vortex/Math.html#golden_angle-instance_method" title="Zeropoint::Vortex::Math#golden_angle (method)">golden_angle</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="golden_ratio-class_method">
+  
+    .<strong>golden_ratio</strong>  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<h2 id="label-High-level+Mathematical+Constants">High-level Mathematical Constants</h2>
+
+<p>Golden ratio, pi, e</p>
+
+<p>Example:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="../Zeropoint.html" title="Zeropoint (module)">Zeropoint</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Zeropoint::Math (module)">Math</a></span></span><span class='period'>.</span><span class='id identifier rubyid_golden_ratio'>golden_ratio</span> <span class='comment'>#=&gt; 1.618...
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 52</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_golden_ratio'>golden_ratio</span>
+  <span class='float'>1.618033988749895</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="harmonic_of-class_method">
+  
+    .<strong>harmonic_of</strong>(base, n)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+178</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 178</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_harmonic_of'>harmonic_of</span><span class='lparen'>(</span><span class='id identifier rubyid_base'>base</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Math/Vortex.html" title="Zeropoint::Math::Vortex (module)">Vortex</a></span></span><span class='period'>.</span><span class='id identifier rubyid_harmonic'><span class='object_link'><a href="Vortex/Math.html#harmonic-instance_method" title="Zeropoint::Vortex::Math#harmonic (method)">harmonic</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_base'>base</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="is_prime?-class_method">
+  
+    .<strong>is_prime?</strong>(n)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+180</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 180</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_is_prime?'>is_prime?</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Math/Vortex.html" title="Zeropoint::Math::Vortex (module)">Vortex</a></span></span><span class='period'>.</span><span class='id identifier rubyid_prime?'><span class='object_link'><a href="Vortex/Math.html#prime%3F-instance_method" title="Zeropoint::Vortex::Math#prime? (method)">prime?</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="log-class_method">
+  
+    .<strong>log</strong>(x, base = ::Math::E)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+91
+92
+93</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 91</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_base'>base</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>Math</span><span class='op'>::</span><span class='const'>E</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_base'>base</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="log10-class_method">
+  
+    .<strong>log10</strong>(x)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+94
+95
+96</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 94</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_log10'>log10</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_log10'>log10</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="log2-class_method">
+  
+    .<strong>log2</strong>(x)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+97
+98
+99</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 97</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_log2'>log2</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_log2'>log2</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="max-class_method">
+  
+    .<strong>max</strong>(*args)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+139
+140
+141</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 139</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="method_missing-class_method">
+  
+    .<strong>method_missing</strong>(method_name, *args, &amp;block)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+148
+149
+150
+151
+152
+153
+154</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 148</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_method_missing'>method_missing</span><span class='lparen'>(</span><span class='id identifier rubyid_method_name'>method_name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='id identifier rubyid_method_name'>method_name</span><span class='rparen'>)</span>
+    <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_public_send'>public_send</span><span class='lparen'>(</span><span class='id identifier rubyid_method_name'>method_name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='kw'>super</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="min-class_method">
+  
+    .<strong>min</strong>(*args)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+142
+143
+144</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 142</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="phase_of-class_method">
+  
+    .<strong>phase_of</strong>(step)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+179</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 179</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_phase_of'>phase_of</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='rparen'>)</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Math/Vortex.html" title="Zeropoint::Math::Vortex (module)">Vortex</a></span></span><span class='period'>.</span><span class='id identifier rubyid_phase'><span class='object_link'><a href="Vortex/Math.html#phase-instance_method" title="Zeropoint::Vortex::Math#phase (method)">phase</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='rparen'>)</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="phi-class_method">
+  
+    .<strong>phi</strong>  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+176</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 176</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_phi'>phi</span> <span class='op'>=</span> <span class='id identifier rubyid_golden_ratio'>golden_ratio</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pi-class_method">
+  
+    .<strong>pi</strong>  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_pi'>pi</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='op'>::</span><span class='const'>PI</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pow-class_method">
+  
+    .<strong>pow</strong>(x, y)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+106
+107
+108</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 106</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_pow'>pow</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_pow'>pow</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="primes_list-class_method">
+  
+    .<strong>primes_list</strong>(k)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+181</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 181</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_primes_list'>primes_list</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='rparen'>)</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Math/Vortex.html" title="Zeropoint::Math::Vortex (module)">Vortex</a></span></span><span class='period'>.</span><span class='id identifier rubyid_primes'><span class='object_link'><a href="Vortex/Math.html#primes-instance_method" title="Zeropoint::Vortex::Math#primes (method)">primes</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='rparen'>)</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="random-class_method">
+  
+    .<strong>random</strong>  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+145
+146
+147</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 145</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_random'>random</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_random'>random</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="respond_to_missing?-class_method">
+  
+    .<strong>respond_to_missing?</strong>(method_name, include_private = false)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+155
+156
+157</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 155</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_respond_to_missing?'>respond_to_missing?</span><span class='lparen'>(</span><span class='id identifier rubyid_method_name'>method_name</span><span class='comma'>,</span> <span class='id identifier rubyid_include_private'>include_private</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='id identifier rubyid_method_name'>method_name</span><span class='comma'>,</span> <span class='id identifier rubyid_include_private'>include_private</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='kw'>super</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="round-class_method">
+  
+    .<strong>round</strong>(x, digits = 0)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+136
+137
+138</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 136</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_digits'>digits</span> <span class='op'>=</span> <span class='int'>0</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_digits'>digits</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sin-class_method">
+  
+    .<strong>sin</strong>(x)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<h2 id="label-Fallback+to+Ruby-27s+Math">Fallback to Ruby’s Math</h2>
+
+<p>Delegates standard math functions to Ruby’s Math module.</p>
+
+<p>Example:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="../Zeropoint.html" title="Zeropoint (module)">Zeropoint</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Zeropoint::Math (module)">Math</a></span></span><span class='period'>.</span><span class='id identifier rubyid_sqrt'><span class='object_link'><a href="#sqrt-class_method" title="Zeropoint::Math.sqrt (method)">sqrt</a></span></span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span> <span class='comment'>#=&gt; 1.414...
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+67
+68
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 67</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_sin'>sin</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_sin'>sin</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sinh-class_method">
+  
+    .<strong>sinh</strong>(x)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+109
+110
+111</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 109</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_sinh'>sinh</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_sinh'>sinh</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sqrt-class_method">
+  
+    .<strong>sqrt</strong>(x)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+100
+101
+102</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 100</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_sqrt'>sqrt</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_sqrt'>sqrt</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="tan-class_method">
+  
+    .<strong>tan</strong>(x)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+73
+74
+75</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 73</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_tan'>tan</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_tan'>tan</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="tanh-class_method">
+  
+    .<strong>tanh</strong>(x)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+115
+116
+117</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/zeropoint/math.rb', line 115</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_tanh'>tanh</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_tanh'>tanh</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Jun 30 00:12:01 2025 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.37 (ruby-3.3.6).
+</div>
+
+    </div>
+  </body>
+</html>

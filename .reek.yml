@@ -1,0 +1,15 @@
+# Reek configuration for code smell detection
+exclude_paths:
+  - 'spec'
+  - 'test'
+
+# Enable common detectors
+detectors:
+  DuplicateMethodCall:
+    enabled: true
+  FeatureEnvy:
+    enabled: true
+  TooManyStatements:
+    enabled: true
+  UtilityFunction:
+    enabled: true 

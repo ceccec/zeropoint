@@ -1,0 +1,58 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Zeropoint-specific custom styles */
+@layer components {
+  .consciousness-mode {
+    @apply bg-consciousness-900 text-consciousness-100;
+  }
+  
+  .vortex-mode {
+    @apply bg-vortex-900 text-vortex-100;
+  }
+  
+  .cosmic-flow {
+    @apply bg-gradient-to-r from-cosmic-800 via-cosmic-700 to-cosmic-800;
+  }
+  
+  .golden-ratio-container {
+    @apply max-w-7xl mx-auto px-golden;
+  }
+  
+  .zeropoint-card {
+    @apply bg-white dark:bg-cosmic-800 rounded-lg shadow-lg p-6 border border-cosmic-200 dark:border-cosmic-700;
+  }
+  
+  .zeropoint-button {
+    @apply px-4 py-2 rounded-md font-medium transition-colors duration-200;
+  }
+  
+  .zeropoint-button-primary {
+    @apply zeropoint-button bg-consciousness-600 hover:bg-consciousness-700 text-white;
+  }
+  
+  .zeropoint-button-secondary {
+    @apply zeropoint-button bg-vortex-600 hover:bg-vortex-700 text-white;
+  }
+  
+  .zeropoint-button-golden {
+    @apply zeropoint-button bg-golden-600 hover:bg-golden-700 text-white;
+  }
+}

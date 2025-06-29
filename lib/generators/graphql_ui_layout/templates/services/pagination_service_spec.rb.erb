@@ -1,0 +1,310 @@
+# frozen_string_literal: true
+
+require 'rails_helper'
+
+RSpec.describe Zeropoint::PaginationService do
+  let(:service) { described_class.instance }
+  let(:collection) { create_list(:post, 50) }
+
+  describe '#paginate' do
+    context 'with valid collection' do
+      it 'returns paginated results' do
+        result = service.paginate(Post.all, page: 1, per_page: 10)
+        expect(result[:data]).to have(10).items
+        expect(result[:current_page]).to eq(1)
+        expect(result[:total_pages]).to eq(5)
+        expect(result[:total_count]).to eq(50)
+      end
+
+      it 'returns empty result for blank collection' do
+        result = service.paginate(Post.none)
+        expect(result[:data]).to be_empty
+        expect(result[:current_page]).to eq(1)
+        expect(result[:total_pages]).to eq(0)
+        expect(result[:total_count]).to eq(0)
+      end
+
+      it 'handles nil collection' do
+        result = service.paginate(nil)
+        expect(result[:data]).to be_empty
+      end
+    end
+
+    context 'with custom options' do
+      it 'respects page parameter' do
+        result = service.paginate(Post.all, page: 2, per_page: 10)
+        expect(result[:current_page]).to eq(2)
+        expect(result[:has_prev]).to be true
+      end
+
+      it 'respects per_page parameter' do
+        result = service.paginate(Post.all, per_page: 5)
+        expect(result[:per_page]).to eq(5)
+        expect(result[:total_pages]).to eq(10)
+      end
+
+      it 'handles edge cases' do
+        result = service.paginate(Post.all, page: 0, per_page: 0)
+        expect(result[:current_page]).to eq(1)
+        expect(result[:per_page]).to eq(25) # default
+      end
+    end
+  end
+
+  describe '#paginate_with_metadata' do
+    it 'returns structured pagination metadata' do
+      result = service.paginate_with_metadata(Post.all, page: 1, per_page: 10)
+      
+      expect(result).to have_key(:data)
+      expect(result).to have_key(:pagination)
+      expect(result[:pagination]).to have_key(:current_page)
+      expect(result[:pagination]).to have_key(:total_pages)
+      expect(result[:pagination]).to have_key(:total_count)
+      expect(result[:pagination]).to have_key(:per_page)
+      expect(result[:pagination]).to have_key(:has_next)
+      expect(result[:pagination]).to have_key(:has_prev)
+    end
+
+    it 'handles empty collection' do
+      result = service.paginate_with_metadata(Post.none)
+      expect(result[:pagination][:total_count]).to eq(0)
+      expect(result[:pagination][:has_next]).to be false
+      expect(result[:pagination][:has_prev]).to be false
+    end
+  end
+
+  describe '#paginate_with_filters' do
+    let(:filters) { { status: 'published' } }
+
+    it 'applies filters before pagination' do
+      published_posts = create_list(:post, 20, status: 'published')
+      draft_posts = create_list(:post, 10, status: 'draft')
+
+      result = service.paginate_with_filters(Post.all, filters, page: 1, per_page: 10)
+      expect(result[:total_count]).to eq(20)
+      expect(result[:data].map(&:status).uniq).to eq(['published'])
+    end
+
+    it 'handles range filters' do
+      filters = { created_at: { gte: 1.day.ago, lte: Time.current } }
+      result = service.paginate_with_filters(Post.all, filters)
+      expect(result).not_to be_nil
+    end
+
+    it 'handles empty filters' do
+      result = service.paginate_with_filters(Post.all, {})
+      expect(result[:total_count]).to eq(Post.count)
+    end
+  end
+
+  describe '#pagination_info' do
+    it 'returns pagination info without executing query' do
+      info = service.pagination_info(Post.all, per_page: 10)
+      expect(info[:total_pages]).to eq((Post.count.to_f / 10).ceil)
+      expect(info[:total_count]).to eq(Post.count)
+      expect(info[:per_page]).to eq(10)
+    end
+
+    it 'handles backend errors gracefully' do
+      backend = double('backend')
+      allow(backend).to receive(:pagination_info).and_raise(StandardError, 'Pagination info failed')
+      allow(service).to receive(:detect_backend).and_return(backend)
+
+      info = service.pagination_info(Post.all)
+      expect(info).to have_key(:total_pages)
+      expect(info).to have_key(:total_count)
+    end
+  end
+
+  describe 'backend detection' do
+    context 'when Kaminari is available' do
+      before do
+        stub_const('Kaminari', double('Kaminari'))
+      end
+
+      it 'detects Kaminari backend' do
+        service = described_class.new
+        expect(service.send(:detect_backend)).to be_a(Zeropoint::PaginationService::KaminariBackend)
+      end
+    end
+
+    context 'when WillPaginate is available' do
+      before do
+        stub_const('WillPaginate', double('WillPaginate'))
+      end
+
+      it 'detects WillPaginate backend' do
+        service = described_class.new
+        expect(service.send(:detect_backend)).to be_a(Zeropoint::PaginationService::WillPaginateBackend)
+      end
+    end
+
+    context 'when no pagination gems are available' do
+      it 'falls back to ActiveRecord backend' do
+        service = described_class.new
+        expect(service.send(:detect_backend)).to be_a(Zeropoint::PaginationService::ActiveRecordBackend)
+      end
+    end
+  end
+
+  describe 'KaminariBackend' do
+    let(:backend) { Zeropoint::PaginationService::KaminariBackend.new }
+
+    it 'uses Kaminari for pagination' do
+      paginated = double('paginated')
+      allow(paginated).to receive(:current_page).and_return(1)
+      allow(paginated).to receive(:total_pages).and_return(5)
+      allow(paginated).to receive(:total_count).and_return(50)
+      allow(paginated).to receive(:next_page).and_return(2)
+      allow(paginated).to receive(:prev_page).and_return(nil)
+
+      expect(Post.all).to receive(:page).with(1).and_return(Post.all)
+      expect(Post.all).to receive(:per).with(10).and_return(paginated)
+
+      result = backend.paginate(Post.all, page: 1, per_page: 10)
+      expect(result[:current_page]).to eq(1)
+      expect(result[:total_pages]).to eq(5)
+      expect(result[:has_next]).to be true
+      expect(result[:has_prev]).to be false
+    end
+
+    it 'provides pagination info' do
+      info = backend.pagination_info(Post.all, per_page: 10)
+      expect(info[:total_pages]).to eq((Post.count.to_f / 10).ceil)
+      expect(info[:total_count]).to eq(Post.count)
+    end
+  end
+
+  describe 'WillPaginateBackend' do
+    let(:backend) { Zeropoint::PaginationService::WillPaginateBackend.new }
+
+    it 'uses WillPaginate for pagination' do
+      paginated = double('paginated')
+      allow(paginated).to receive(:current_page).and_return(1)
+      allow(paginated).to receive(:total_pages).and_return(5)
+      allow(paginated).to receive(:total_entries).and_return(50)
+      allow(paginated).to receive(:next_page).and_return(2)
+      allow(paginated).to receive(:previous_page).and_return(nil)
+
+      expect(Post.all).to receive(:paginate).with(page: 1, per_page: 10).and_return(paginated)
+
+      result = backend.paginate(Post.all, page: 1, per_page: 10)
+      expect(result[:current_page]).to eq(1)
+      expect(result[:total_pages]).to eq(5)
+      expect(result[:total_count]).to eq(50)
+      expect(result[:has_next]).to be true
+      expect(result[:has_prev]).to be false
+    end
+
+    it 'provides pagination info' do
+      info = backend.pagination_info(Post.all, per_page: 10)
+      expect(info[:total_pages]).to eq((Post.count.to_f / 10).ceil)
+      expect(info[:total_count]).to eq(Post.count)
+    end
+  end
+
+  describe 'ActiveRecordBackend' do
+    let(:backend) { Zeropoint::PaginationService::ActiveRecordBackend.new }
+
+    it 'uses basic ActiveRecord pagination' do
+      result = backend.paginate(Post.all, page: 1, per_page: 10)
+      expect(result[:data]).to have(10).items
+      expect(result[:current_page]).to eq(1)
+      expect(result[:total_pages]).to eq((Post.count.to_f / 10).ceil)
+      expect(result[:total_count]).to eq(Post.count)
+    end
+
+    it 'handles edge cases' do
+      result = backend.paginate(Post.all, page: 999, per_page: 10)
+      expect(result[:data]).to be_empty
+      expect(result[:current_page]).to eq(999)
+      expect(result[:has_next]).to be false
+    end
+
+    it 'provides pagination info' do
+      info = backend.pagination_info(Post.all, per_page: 10)
+      expect(info[:total_pages]).to eq((Post.count.to_f / 10).ceil)
+      expect(info[:total_count]).to eq(Post.count)
+    end
+  end
+
+  describe 'filter application' do
+    it 'applies simple filters' do
+      scope = Post.all
+      filters = { status: 'published' }
+      
+      result = service.send(:apply_filters, scope, filters)
+      expect(result.to_sql).to include('status')
+    end
+
+    it 'applies range filters' do
+      scope = Post.all
+      filters = { created_at: { gte: 1.day.ago, lte: Time.current } }
+      
+      result = service.send(:apply_filters, scope, filters)
+      expect(result.to_sql).to include('created_at')
+    end
+
+    it 'handles blank filters' do
+      scope = Post.all
+      filters = { status: '' }
+      
+      result = service.send(:apply_filters, scope, filters)
+      expect(result).to eq(scope)
+    end
+
+    it 'handles nil filters' do
+      scope = Post.all
+      result = service.send(:apply_filters, scope, nil)
+      expect(result).to eq(scope)
+    end
+  end
+
+  describe 'range filter application' do
+    it 'applies gte filter' do
+      scope = Post.all
+      range = { gte: 1.day.ago }
+      
+      result = service.send(:apply_range_filter, scope, :created_at, range)
+      expect(result.to_sql).to include('created_at >=')
+    end
+
+    it 'applies lte filter' do
+      scope = Post.all
+      range = { lte: Time.current }
+      
+      result = service.send(:apply_range_filter, scope, :created_at, range)
+      expect(result.to_sql).to include('created_at <=')
+    end
+
+    it 'applies multiple range filters' do
+      scope = Post.all
+      range = { gte: 1.day.ago, lte: Time.current }
+      
+      result = service.send(:apply_range_filter, scope, :created_at, range)
+      expect(result.to_sql).to include('created_at >=')
+      expect(result.to_sql).to include('created_at <=')
+    end
+  end
+
+  describe 'error handling' do
+    context 'when backend raises error' do
+      before do
+        backend = double('backend')
+        allow(backend).to receive(:paginate).and_raise(StandardError, 'Pagination failed')
+        allow(service).to receive(:detect_backend).and_return(backend)
+      end
+
+      it 'falls back to basic pagination' do
+        result = service.paginate(Post.all, page: 1, per_page: 10)
+        expect(result[:data]).to have(10).items
+        expect(result[:current_page]).to eq(1)
+      end
+
+      it 'logs the error' do
+        expect(Rails.logger).to receive(:error).with(/Pagination failed/)
+        service.paginate(Post.all)
+      end
+    end
+  end
+end 

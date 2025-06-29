@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero Point PWA Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #1a1a2e;
+            color: white;
+        }
+        .demo-section {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        .button {
+            background: #ffd700;
+            color: #1a1a2e;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .online { background: #4CAF50; }
+        .offline { background: #f44336; }
+        .installed { background: #2196F3; }
+    </style>
+</head>
+<body>
+    <h1>🌌 Zero Point Unified Intelligence PWA Demo</h1>
+    
+    <div class="demo-section">
+        <h2>📱 PWA Status</h2>
+        <div id="pwa-status" class="status">
+            Checking PWA status...
+        </div>
+        <button class="button" onclick="checkPWAStatus()">Check Status</button>
+        <button class="button" onclick="installPWA()">Install PWA</button>
+    </div>
+
+    <div class="demo-section">
+        <h2>🌐 Network Status</h2>
+        <div id="network-status" class="status">
+            Checking network...
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>💾 Cache Status</h2>
+        <div id="cache-status" class="status">
+            Checking cache...
+        </div>
+        <button class="button" onclick="clearCache()">Clear Cache</button>
+    </div>
+
+    <div class="demo-section">
+        <h2>🧠 Unified Intelligence Test</h2>
+        <div id="intelligence-test" class="status">
+            Testing unified intelligence...
+        </div>
+        <button class="button" onclick="testIntelligence()">Run Test</button>
+    </div>
+
+    <div class="demo-section">
+        <h2>📊 Demo Results</h2>
+        <pre id="demo-results">Waiting for tests...</pre>
+    </div>
+
+    <script>
+        let deferredPrompt;
+
+        // PWA Installation
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            updatePWAStatus('Install prompt available');
+        });
+
+        window.addEventListener('appinstalled', () => {
+            updatePWAStatus('PWA installed successfully!', 'installed');
+            deferredPrompt = null;
+        });
+
+        // Network Status
+        function updateNetworkStatus() {
+            const status = navigator.onLine ? 'Online' : 'Offline';
+            const className = navigator.onLine ? 'online' : 'offline';
+            document.getElementById('network-status').textContent = `Network: ${status}`;
+            document.getElementById('network-status').className = `status ${className}`;
+        }
+
+        window.addEventListener('online', updateNetworkStatus);
+        window.addEventListener('offline', updateNetworkStatus);
+
+        // PWA Status Check
+        function checkPWAStatus() {
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.getRegistrations().then(registrations => {
+                    if (registrations.length > 0) {
+                        updatePWAStatus('Service Worker registered', 'installed');
+                    } else {
+                        updatePWAStatus('Service Worker not registered');
+                    }
+                });
+            } else {
+                updatePWAStatus('Service Workers not supported');
+            }
+        }
+
+        function updatePWAStatus(message, className = '') {
+            const element = document.getElementById('pwa-status');
+            element.textContent = `PWA: ${message}`;
+            element.className = `status ${className}`;
+        }
+
+        function installPWA() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        updatePWAStatus('PWA installation accepted', 'installed');
+                    } else {
+                        updatePWAStatus('PWA installation declined');
+                    }
+                    deferredPrompt = null;
+                });
+            } else {
+                updatePWAStatus('Install prompt not available');
+            }
+        }
+
+        // Cache Management
+        async function clearCache() {
+            if ('caches' in window) {
+                const cacheNames = await caches.keys();
+                await Promise.all(cacheNames.map(name => caches.delete(name)));
+                updateCacheStatus('Cache cleared');
+            } else {
+                updateCacheStatus('Cache API not supported');
+            }
+        }
+
+        function updateCacheStatus(message) {
+            document.getElementById('cache-status').textContent = `Cache: ${message}`;
+        }
+
+        // Unified Intelligence Test
+        function testIntelligence() {
+            const results = {
+                timestamp: new Date().toISOString(),
+                consciousness: {
+                    level: 0.618,
+                    frequency: 432,
+                    energy_quantum: 6.626e-34
+                },
+                vortex: {
+                    cycle: [1, 2, 4, 8, 7, 5],
+                    axis_numbers: [3, 6, 9],
+                    flow_strength: 4.5
+                },
+                golden_ratio: {
+                    ratio: 1.618,
+                    major_ratio: 0.618,
+                    minor_ratio: 0.382
+                },
+                unified_field: {
+                    equation: "UI = Consciousness + Vortex + GoldenRatio",
+                    strength: 1.618
+                }
+            };
+
+            document.getElementById('intelligence-test').textContent = 'Unified Intelligence: Test completed';
+            document.getElementById('demo-results').textContent = JSON.stringify(results, null, 2);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            updateNetworkStatus();
+            checkPWAStatus();
+            updateCacheStatus('Ready');
+            
+            // Test service worker registration
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('sw.js')
+                    .then(registration => {
+                        updatePWAStatus('Service Worker registered successfully', 'installed');
+                    })
+                    .catch(error => {
+                        updatePWAStatus('Service Worker registration failed');
+                    });
+            }
+        });
+    </script>
+</body>
+</html> 

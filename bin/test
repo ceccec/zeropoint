@@ -1,0 +1,186 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# Simplified test runner for DRY testing
+require 'optparse'
+require 'fileutils'
+
+class TestRunner
+  def initialize
+    @options = {
+      type: 'all',
+      format: 'progress',
+      coverage: true,
+      warnings: false,
+      parallel: false
+    }
+    parse_options
+  end
+
+  def run
+    puts "🧪 Running #{@options[:type]} tests with DRY setup..."
+    puts "📊 Coverage: #{@options[:coverage] ? 'enabled' : 'disabled'}"
+    puts "⚠️  Warnings: #{@options[:warnings] ? 'enabled' : 'disabled'}"
+    puts "⚡ Parallel: #{@options[:parallel] ? 'enabled' : 'disabled'}"
+    puts
+
+    case @options[:type]
+    when 'all'
+      run_all_tests
+    when 'unit'
+      run_unit_tests
+    when 'integration'
+      run_integration_tests
+    when 'performance'
+      run_performance_tests
+    when 'coverage'
+      run_coverage_tests
+    when 'quick'
+      run_quick_tests
+    when 'dry-example'
+      run_dry_example
+    else
+      puts "❌ Unknown test type: #{@options[:type]}"
+      exit 1
+    end
+  end
+
+  private
+
+  def parse_options
+    OptionParser.new do |opts|
+      opts.banner = "Usage: bin/test [options]"
+
+      opts.on('-t', '--type TYPE', 'Test type: all, unit, integration, performance, coverage, quick, dry-example') do |type|
+        @options[:type] = type
+      end
+
+      opts.on('-f', '--format FORMAT', 'Output format: progress, documentation, json') do |format|
+        @options[:format] = format
+      end
+
+      opts.on('--no-coverage', 'Disable coverage reporting') do
+        @options[:coverage] = false
+      end
+
+      opts.on('--warnings', 'Enable Ruby warnings') do
+        @options[:warnings] = true
+      end
+
+      opts.on('--parallel', 'Run tests in parallel') do
+        @options[:parallel] = true
+      end
+
+      opts.on('-h', '--help', 'Show this help message') do
+        puts opts
+        exit
+      end
+    end.parse!
+  end
+
+  def run_all_tests
+    puts "🚀 Running all tests..."
+    command = build_rspec_command('spec/')
+    execute_command(command)
+  end
+
+  def run_unit_tests
+    puts "🔬 Running unit tests..."
+    patterns = [
+      'spec/zeropoint/',
+      'spec/core/',
+      'spec/services/',
+      'spec/models/'
+    ]
+    command = build_rspec_command(patterns.join(' '))
+    execute_command(command)
+  end
+
+  def run_integration_tests
+    puts "🔗 Running integration tests..."
+    patterns = [
+      'spec/requests/',
+      'spec/controllers/',
+      'spec/integration/'
+    ]
+    command = build_rspec_command(patterns.join(' '))
+    execute_command(command)
+  end
+
+  def run_performance_tests
+    puts "⚡ Running performance tests..."
+    patterns = [
+      'spec/performance/',
+      'spec/caching_comparison_spec.rb'
+    ]
+    command = build_rspec_command(patterns.join(' '))
+    execute_command(command)
+  end
+
+  def run_coverage_tests
+    puts "📊 Running coverage tests..."
+    command = build_rspec_command('spec/', coverage: true)
+    execute_command(command)
+  end
+
+  def run_quick_tests
+    puts "⚡ Running quick tests..."
+    patterns = [
+      'spec/examples/dry_testing_example_spec.rb',
+      'spec/zeropoint/defensive_frozen_hash_spec.rb'
+    ]
+    command = build_rspec_command(patterns.join(' '), coverage: false)
+    execute_command(command)
+  end
+
+  def run_dry_example
+    puts "🧪 Running DRY testing example..."
+    command = build_rspec_command('spec/examples/dry_testing_example_spec.rb')
+    execute_command(command)
+  end
+
+  def build_rspec_command(patterns, coverage: nil)
+    coverage = @options[:coverage] if coverage.nil?
+    
+    cmd = ['bundle', 'exec', 'rspec']
+    cmd << patterns
+    
+    # Format
+    cmd << "--format=#{@options[:format]}"
+    
+    # Coverage
+    if coverage
+      cmd << '--require=simplecov'
+    end
+    
+    # Parallel execution
+    if @options[:parallel]
+      cmd << '--parallel'
+    end
+    
+    # Additional options
+    cmd << '--color'
+    cmd << '--require=spec_helper'
+    
+    cmd.join(' ')
+  end
+
+  def execute_command(command)
+    puts "🔧 Executing: #{command}"
+    puts
+    
+    result = system(command)
+    
+    if result
+      puts "✅ Tests completed successfully!"
+    else
+      puts "❌ Tests failed!"
+      exit 1
+    end
+  end
+end
+
+# Run the test runner
+if __FILE__ == $0
+  TestRunner.new.run
+end 

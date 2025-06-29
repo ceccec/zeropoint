@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GraphQL UI Layout Demo</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body class="bg-gray-50 font-sans">
+    <nav class="bg-blue-600 text-white p-4 flex justify-between">
+      <div>
+        <%= link_to t('demo.home'), root_path, class: 'font-bold text-lg' %>
+        <%= link_to t('demo.posts'), posts_path, class: 'ml-4' %>
+        <%= link_to t('demo.users'), users_path, class: 'ml-4' %>
+        <%= link_to t('demo.admin'), admin_path, class: 'ml-4' if user_signed_in? && current_user.admin? %>
+      </div>
+      <div>
+        <% if user_signed_in? %>
+          <span><%= t('demo.sign_in') %> <%= current_user.username %></span>
+          <%= link_to t('demo.sign_out'), logout_path, method: :delete, class: 'ml-4' %>
+        <% else %>
+          <%= link_to t('demo.sign_in'), login_path, class: 'ml-4' %>
+          <%= link_to t('demo.sign_up'), signup_path, class: 'ml-4' %>
+        <% end %>
+      </div>
+    </nav>
+    <div class="container mx-auto mt-6">
+      <% flash.each do |key, value| %>
+        <div class="mb-4 p-2 rounded bg-green-100 text-green-800"><%= value %></div>
+      <% end %>
+      <%= yield %>
+    </div>
+  </body>
+</html> 

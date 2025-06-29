@@ -1,0 +1,27 @@
+<h1><%= @post.title %></h1>
+<p>By <%= link_to @post.user.username, user_path(@post.user) %> | <%= @post.created_at.strftime('%B %d, %Y') %></p>
+<p>Status: <%= @post.status %> | Views: <%= @post.view_count %></p>
+<p>Tags: <%= @post.tag_list.join(', ') %></p>
+
+<div class="post-content">
+  <%= simple_format(@post.content) %>
+</div>
+
+<h2>Comments</h2>
+<ul>
+  <% @post.comments.each do |comment| %>
+    <li><%= comment.author_name %>: <%= comment.content %></li>
+  <% end %>
+</ul>
+
+<% if user_signed_in? %>
+  <%= form_with model: [@post, Comment.new], local: true do |f| %>
+    <%= f.text_area :content, placeholder: 'Add a comment...' %>
+    <%= f.submit 'Comment' %>
+  <% end %>
+<% end %>
+
+<p>
+  <%= button_to 'Like', like_post_path(@post), method: :post, disabled: @post.liked_by?(current_user) %>
+  <%= button_to 'Share', share_post_path(@post), method: :post %>
+</p> 

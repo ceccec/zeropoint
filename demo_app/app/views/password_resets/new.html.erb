@@ -1,0 +1,14 @@
+<h1><%= t('demo.headers.reset_password') %></h1>
+
+<%= form_with url: password_reset_path, local: true do |f| %>
+  <div>
+    <%= f.label :email, t('demo.labels.email') %>
+    <%= f.email_field :email, required: true %>
+  </div>
+
+  <%= f.submit t('demo.buttons.send_reset_instructions') %>
+<% end %>
+
+<p>
+  <%= link_to t('demo.links.back_to_login'), login_path %>
+</p> 

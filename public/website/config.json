@@ -1,0 +1,232 @@
+{
+  "site": {
+    "name": "Zero Point",
+    "domain": "gem.zeropoint.bg",
+    "description": "Revolutionary streaming-first data architecture for Rails. From zero, infinity flows.",
+    "keywords": ["zeropoint", "rails", "gem", "data-architecture", "streaming", "vortex", "cosmic", "void", "infinite", "unified", "graphql", "api"],
+    "author": "Zero Point Team",
+    "email": "hello@zeropoint.bg",
+    "repository": "https://github.com/ceccec/zeropoint",
+    "funding": "https://fund.zeropoint.bg"
+  },
+  "gem": {
+    "name": "zeropoint",
+    "version": "1.0.0",
+    "ruby_version": ">= 2.7.0",
+    "rails_version": ">= 6.0.0",
+    "install_command": "gem install zeropoint",
+    "github_url": "https://github.com/ceccec/zeropoint",
+    "rubygems_url": "https://rubygems.org/gems/zeropoint",
+    "documentation_url": "https://gem.zeropoint.bg/docs"
+  },
+  "features": {
+    "streaming_first": {
+      "enabled": true,
+      "title": "Streaming-First Architecture",
+      "description": "Built from the ground up for infinite data flow and real-time processing"
+    },
+    "multi_vortex": {
+      "enabled": true,
+      "title": "Multi-Vortex Coordination",
+      "description": "Coordinate multiple data streams with cosmic precision"
+    },
+    "cosmic_flow": {
+      "enabled": true,
+      "title": "Cosmic Flow",
+      "description": "Unified input/output experience where data flows seamlessly"
+    },
+    "infinite_scalability": {
+      "enabled": true,
+      "title": "Infinite Scalability",
+      "description": "Scale from zero to infinity with zero configuration"
+    },
+    "void_compliance": {
+      "enabled": true,
+      "title": "Void Compliance",
+      "description": "Embrace the void - no matter truly exists, everything emerges from zero"
+    },
+    "unified_experience": {
+      "enabled": true,
+      "title": "Unified Experience",
+      "description": "Input and output merge into one cosmic flow"
+    }
+  },
+  "analytics": {
+    "google_analytics": {
+      "enabled": false,
+      "tracking_id": "G-XXXXXXXXXX"
+    },
+    "plausible": {
+      "enabled": false,
+      "domain": "gem.zeropoint.bg"
+    },
+    "fathom": {
+      "enabled": false,
+      "site_id": "XXXXXXXX"
+    }
+  },
+  "social": {
+    "twitter": {
+      "enabled": true,
+      "username": "@zeropoint_bg",
+      "url": "https://twitter.com/zeropoint_bg"
+    },
+    "github": {
+      "enabled": true,
+      "username": "ceccec",
+      "url": "https://github.com/ceccec"
+    },
+    "discord": {
+      "enabled": false,
+      "url": "https://discord.gg/zeropoint"
+    }
+  },
+  "deployment": {
+    "platforms": {
+      "netlify": {
+        "enabled": true,
+        "site_id": "",
+        "team_id": ""
+      },
+      "vercel": {
+        "enabled": true,
+        "project_id": ""
+      },
+      "github_pages": {
+        "enabled": true,
+        "repository": "ceccec/zeropoint",
+        "branch": "gh-pages"
+      },
+      "cloudflare_pages": {
+        "enabled": true,
+        "account_id": "",
+        "project_name": "zeropoint-gem"
+      }
+    },
+    "domains": {
+      "primary": "gem.zeropoint.bg",
+      "aliases": ["zeropoint.bg", "www.zeropoint.bg"],
+      "redirects": [
+        "graphql-ui-layout.com",
+        "www.graphql-ui-layout.com"
+      ]
+    }
+  },
+  "content": {
+    "hero": {
+      "title": "Zero Point",
+      "subtitle": "Revolutionary Streaming-First Data Architecture",
+      "description": "From zero, infinity flows. Transform your Rails applications with cosmic data architecture that scales infinitely.",
+      "cta_primary": "Get Started",
+      "cta_secondary": "View Documentation"
+    },
+    "features": [
+      {
+        "icon": "🌌",
+        "title": "Streaming-First",
+        "description": "Built from the ground up for infinite data flow and real-time processing. Every operation is a stream, every stream is infinite."
+      },
+      {
+        "icon": "🔄",
+        "title": "Multi-Vortex",
+        "description": "Coordinate multiple data streams with cosmic precision. Like Google BigQuery's Vortex engine, but for Rails applications."
+      },
+      {
+        "icon": "⚡",
+        "title": "Infinite Performance",
+        "description": "Scale from zero to infinity with zero configuration. Performance that grows with your cosmic ambitions."
+      },
+      {
+        "icon": "🌌",
+        "title": "Cosmic Flow",
+        "description": "Unified input/output experience where data flows seamlessly. Input and output merge into one cosmic stream."
+      },
+      {
+        "icon": "🕳️",
+        "title": "Void Compliance",
+        "description": "Embrace the void - no matter truly exists, everything emerges from zero. Zero configuration, infinite possibilities."
+      },
+      {
+        "icon": "✨",
+        "title": "Unified Experience",
+        "description": "Seamless integration of all data operations. From GraphQL to REST, from streams to batches - all unified."
+      }
+    ],
+    "philosophy": {
+      "title": "Cosmic Philosophy",
+      "sections": [
+        {
+          "title": "The Void Manifesto",
+          "content": "In the beginning, there was zero. From zero, all possibilities emerge. Zero Point embodies this cosmic truth - no matter truly exists, everything flows from the void."
+        },
+        {
+          "title": "Unified Experience Manifesto",
+          "content": "Input and output are not separate. They are one cosmic flow. Zero Point unifies all data operations into a seamless, infinite stream."
+        },
+        {
+          "title": "Infinite Scalability",
+          "content": "From zero to infinity, with zero configuration. Scale as your cosmic ambitions grow, without limits or boundaries."
+        }
+      ]
+    },
+    "installation": {
+      "title": "Installation",
+      "steps": [
+        {
+          "step": 1,
+          "title": "Add to Gemfile",
+          "code": "gem 'zeropoint'"
+        },
+        {
+          "step": 2,
+          "title": "Install",
+          "code": "bundle install"
+        },
+        {
+          "step": 3,
+          "title": "Configure",
+          "code": "rails generate zeropoint:install"
+        },
+        {
+          "step": 4,
+          "title": "Start Streaming",
+          "code": "rails server"
+        }
+      ]
+    }
+  },
+  "theme": {
+    "colors": {
+      "void_black": "#000000",
+      "cosmic_purple": "#6b21a8",
+      "nebula_blue": "#1e40af",
+      "stellar_cyan": "#0891b2",
+      "aurora_green": "#059669",
+      "cosmic_pink": "#be185d",
+      "void_gray": "#1f2937",
+      "cosmic_gray": "#374151",
+      "stellar_white": "#f9fafb",
+      "cosmic_silver": "#e5e7eb"
+    },
+    "fonts": {
+      "primary": "Inter",
+      "weights": [300, 400, 500, 600, 700, 800, 900]
+    },
+    "animations": {
+      "cosmic_pulse_duration": "2s",
+      "particle_float_duration": "3s",
+      "orbital_rotation_duration": "20s",
+      "scroll_animation_duration": "0.6s",
+      "ripple_effect_duration": "0.6s"
+    }
+  },
+  "seo": {
+    "title_template": "%s | Zero Point",
+    "default_title": "Zero Point - Revolutionary Streaming-First Data Architecture",
+    "default_description": "Transform your Rails applications with cosmic data architecture that scales infinitely. From zero, infinity flows.",
+    "og_image": "https://gem.zeropoint.bg/assets/og-image.png",
+    "twitter_card": "summary_large_image",
+    "twitter_creator": "@zeropoint_bg",
+    "canonical_url": "https://gem.zeropoint.bg"
+  }
+} 

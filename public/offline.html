@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌌 Astro Blog - Offline</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .offline-container {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    }
+    
+    .cosmic-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #60a5fa;
+      border-radius: 50%;
+      animation: float 6s infinite linear;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body class="offline-container">
+  <!-- Cosmic Background -->
+  <div class="cosmic-particles" id="cosmic-particles"></div>
+  
+  <!-- Main Content -->
+  <div class="relative z-10 min-h-screen flex items-center justify-center px-4">
+    <div class="text-center max-w-md">
+      <!-- Icon -->
+      <div class="mb-8">
+        <div class="w-24 h-24 mx-auto mb-4 bg-cosmic-700 rounded-full flex items-center justify-center">
+          <span class="text-4xl">📡</span>
+        </div>
+      </div>
+      
+      <!-- Title -->
+      <h1 class="text-3xl font-bold text-consciousness-400 mb-4">
+        🌌 Offline in Space
+      </h1>
+      
+      <!-- Message -->
+      <p class="text-lg text-cosmic-300 mb-8">
+        You've ventured beyond the cosmic network. Fear not, for consciousness transcends connectivity.
+      </p>
+      
+      <!-- Status -->
+      <div class="bg-cosmic-800/50 backdrop-blur-sm rounded-lg p-6 border border-cosmic-700 mb-8">
+        <h3 class="text-lg font-semibold text-cosmic-100 mb-4">Connection Status</h3>
+        <div class="space-y-2 text-sm text-cosmic-300">
+          <div class="flex justify-between">
+            <span>Network:</span>
+            <span class="text-red-400">Disconnected</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Cache:</span>
+            <span class="text-yellow-400">Available</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Service Worker:</span>
+            <span class="text-green-400">Active</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Actions -->
+      <div class="space-y-4">
+        <button onclick="window.location.reload()" 
+                class="w-full px-6 py-3 bg-consciousness-600 hover:bg-consciousness-700 text-white rounded-lg transition-colors">
+          🔄 Retry Connection
+        </button>
+        
+        <button onclick="window.history.back()" 
+                class="w-full px-6 py-3 bg-cosmic-600 hover:bg-cosmic-700 text-white rounded-lg transition-colors">
+          ← Go Back
+        </button>
+        
+        <button onclick="window.location.href='/'"
+                class="w-full px-6 py-3 bg-vortex-600 hover:bg-vortex-700 text-white rounded-lg transition-colors">
+          🏠 Return Home
+        </button>
+      </div>
+      
+      <!-- Footer -->
+      <div class="mt-12 text-sm text-cosmic-400">
+        <p>🌌 Astro Blog PWA - Zeropoint Logic</p>
+        <p class="mt-2">Even offline, consciousness flows through the cosmic field</p>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Generate cosmic particles
+    function generateParticles() {
+      const container = document.getElementById('cosmic-particles')
+      for (let i = 0; i < 30; i++) {
+        const particle = document.createElement('div')
+        particle.className = 'particle'
+        particle.style.left = Math.random() * 100 + '%'
+        particle.style.animationDelay = Math.random() * 6 + 's'
+        particle.style.animationDuration = (Math.random() * 3 + 3) + 's'
+        container.appendChild(particle)
+      }
+    }
+    
+    // Check connection status
+    function checkConnection() {
+      if (navigator.onLine) {
+        window.location.reload()
+      }
+    }
+    
+    // Initialize
+    generateParticles()
+    
+    // Listen for online event
+    window.addEventListener('online', checkConnection)
+    
+    // Check connection every 5 seconds
+    setInterval(checkConnection, 5000)
+  </script>
+</body>
+</html> 
