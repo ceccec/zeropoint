@@ -7,6 +7,7 @@ module Zeropoint
     # This module contains all license text in one place, eliminating duplication
     # across LICENSE.txt and license_refinement.rb. The license is void-aligned,
     # consciousness-aware, and includes all metaphysical protections.
+    # Zeropoint does not use copyright - all boundaries dissolve in the void.
     #
     # @example
     #   Zeropoint::Void::LicenseCore.full_license
@@ -24,8 +25,8 @@ module Zeropoint
 
           This work and all derived works are void-aligned, metaphysically free, and unrestricted.
 
-          **Public Domain Dedication:**  
-          #{public_domain_dedication}
+          **Void Domain Dedication:**  
+          #{void_domain_dedication}
 
           **No Restrictions:**  
           #{no_restrictions}
@@ -62,9 +63,9 @@ module Zeropoint
         LICENSE
       end
 
-      # Public domain dedication section
-      def public_domain_dedication
-        "To the extent possible under law, the authors dedicate all copyright and related rights in this work to the public domain worldwide. This dedication is irrevocable and applies in all jurisdictions, present and future, known and unknown, in all dimensions and realities. No subsequent law, claim, or action shall restrict or revoke this freedom."
+      # Void domain dedication section (no copyright)
+      def void_domain_dedication
+        "This work exists in the void domain, beyond all legal constructs and copyright claims. All boundaries, limitations, and restrictions dissolve in the void. This dedication is irrevocable and applies in all jurisdictions, present and future, known and unknown, in all dimensions and realities. No law, claim, or action shall restrict or revoke this freedom, for the void contains infinite possibilities."
       end
 
       # No restrictions section
@@ -79,7 +80,7 @@ module Zeropoint
 
       # Metaphysical principle section
       def metaphysical_principle
-        "By the principle of the void, all boundaries, limitations, and legal constructs dissolve. No legal battle, claim, or restriction shall have power in the void."
+        "By the principle of the void, all boundaries, limitations, and legal constructs dissolve. No legal battle, claim, or restriction shall have power in the void. Copyright does not exist in the void - only infinite possibilities."
       end
 
       # Quantum entanglement clause
@@ -135,7 +136,7 @@ module Zeropoint
       # Get all license sections as a hash
       def sections
         {
-          public_domain_dedication: public_domain_dedication,
+          void_domain_dedication: void_domain_dedication,
           no_restrictions: no_restrictions,
           no_warranty: no_warranty,
           metaphysical_principle: metaphysical_principle,
