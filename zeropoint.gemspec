@@ -66,7 +66,7 @@ Gem::Specification.new do |spec|
   # GraphQL ecosystem
   spec.add_dependency 'graphql', '~> 2.0'
   spec.add_dependency 'graphql-batch', '~> 0.6'
-  spec.add_dependency 'graphql-persisted_queries', '~> 1.0'
+  spec.add_dependency 'graphql-persisted_queries', '>= 1', '< 3'
   spec.add_dependency 'graphql-fragment_cache', '~> 1.0'
 
   # Concurrency and performance
