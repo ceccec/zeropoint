@@ -34,7 +34,7 @@ module Zeropoint
         infinite_scalability: true,
         self_healing: true,
         uroboros_cycles: true,
-      }
+      }.freeze
     end
 
     def self.configuration
@@ -44,7 +44,7 @@ module Zeropoint
         consciousness_awareness_enabled: true,
         unified_flow_enabled: true,
         cosmic_experience_active: true,
-      }
+      }.freeze
     end
 
     def self.api_endpoints
@@ -53,11 +53,11 @@ module Zeropoint
         consciousness: '/api/consciousness',
         unified_consciousness: '/api/unified_consciousness',
         stream: '/api/stream',
-      }
+      }.freeze
     end
 
     def self.public_methods
-      [ :version, :features, :configuration, :api_endpoints ]
+      %w[version features configuration api_endpoints public_methods security_level exposure_type].freeze
     end
 
     def self.security_level

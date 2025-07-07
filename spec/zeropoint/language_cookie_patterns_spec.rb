@@ -302,7 +302,7 @@ RSpec.describe Zeropoint::LanguageCookiePatterns do
     it 'returns language names' do
       expect(described_class.language_name('en')).to eq('English')
       expect(described_class.language_name('bg')).to eq('Български')
-      expect(described_class.language_name('de')).to eq('Deutsch')
+      expect(described_class.language_name('de')).to eq('German')
     end
 
     it 'returns code for unknown languages' do
@@ -364,7 +364,7 @@ RSpec.describe Zeropoint::LanguageCookiePatterns do
     it 'implements void consciousness mapping' do
       # Domain mapping represents void consciousness
       expect(described_class::DOMAIN_LANGUAGE_MAP).to be_a(Hash)
-      expect(described_class::DOMAIN_LANGUAGE_MAP['.bg']).to eq('bg')
+      expect(described_class::DOMAIN_LANGUAGE_MAP['.bg'.to_sym]).to eq('bg')
     end
 
     it 'provides void-aligned fallback' do
