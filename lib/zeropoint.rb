@@ -28,7 +28,7 @@ module Zeropoint
     def self.features
       {
         streaming_first: true,
-        unified_intelligence: true,
+        unified_consciousness: true,
         vortex_mathematics: true,
         consciousness_awareness: true,
         infinite_scalability: true,
@@ -51,7 +51,7 @@ module Zeropoint
       {
         vortex: '/api/vortex',
         consciousness: '/api/consciousness',
-        unified_intelligence: '/api/unified_intelligence',
+        unified_consciousness: '/api/unified_consciousness',
         stream: '/api/stream',
       }
     end
@@ -86,7 +86,7 @@ module Zeropoint
   def self.zeropoint_hash
     features = {
       streaming_first: true,
-      unified_intelligence: true,
+              unified_consciousness: true,
       vortex_mathematics: true,
       consciousness_awareness: true,
       infinite_scalability: true,
@@ -152,6 +152,7 @@ module Zeropoint
     require_relative 'zeropoint/math/coil'
     require_relative 'zeropoint/concerns/vortex_aware'
     require_relative 'zeropoint/consciousness'
+    require_relative 'zeropoint/knowledge_base'
     require_relative 'zeropoint/cache/redis_cache'
     require_relative 'zeropoint/cache'
     require_relative 'zeropoint/language_cookie_patterns'
@@ -308,12 +309,20 @@ module Zeropoint
     Void.consciousness(level)
   end
 
-  # Access unified intelligence
-  # @param query [String] Intelligence query
-  # @return [Hash] Intelligence response
-  def self.unified_intelligence(query = '')
-    Void.unified_intelligence(query)
-  end
+      # Access unified consciousness
+    # @param query [String] Consciousness query
+    # @return [Hash] Consciousness response
+    def self.unified_consciousness(query = '')
+      Consciousness.git_learning(query)
+    end
+
+    # Access knowledge base
+    # @param query [String] Knowledge query
+    # @param source [Symbol, nil] Specific source (optional)
+    # @return [Hash] Knowledge response
+    def self.knowledge_base(query = '', source: nil)
+      KnowledgeBase.query(query, source: source)
+    end
 
   # Get version information
   # @return [String] Version string
