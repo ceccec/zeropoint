@@ -8,12 +8,6 @@
 # Provides simple, trait-based factories for test objects, replacing FactoryBot for DRYness.
 # Usage: UserFactory.create(:admin), PostFactory.create_list(3)
 
-# --- Shared Contexts ---
-# Use RSpec shared_contexts for reusable setup/teardown logic, e.g., cache or database state.
-
-# --- Custom Matchers ---
-# Define custom matchers here to keep specs expressive and DRY.
-
 # --- Mocks and Stubs ---
 # Mock external dependencies (e.g., Redis, Rails logger) to keep tests isolated and fast.
 
@@ -556,84 +550,8 @@ module TestHelpers
       }
     end
   end
-  module SharedContexts
-    RSpec.shared_context 'with zeropoint setup' do
-      before do
-        TestHelpers::RailsMocks.setup_rails_mocks
-        TestHelpers::TimeMocks.setup_time_mocks
-        TestHelpers::ModelMocks.setup_model_mocks
-        TestHelpers::ZeropointMocks.setup_zeropoint_mocks
-      end
-    end
-    RSpec.shared_context 'with cache setup' do
-      let(:cache) { Zeropoint::Cache::RedisCache.new }
-      let(:cache_data) { TestHelpers::TestData.sample_cache_data }
-    end
-    RSpec.shared_context 'with vortex setup' do
-      let(:vortex_stream) { Zeropoint::Vortex::Stream.new(User, filters: { active: true }) }
-      let(:vortex_data) { TestHelpers::TestData.sample_vortex_data }
-    end
-    RSpec.shared_context 'with search setup' do
-      let(:search_service) { Zeropoint::GraphqlUiLayout::Services::SearchStrategyService.new(User, 'test') }
-      let(:query_builder) { Zeropoint::GraphqlUiLayout::Services::QueryBuilderService.new(User.all) }
-    end
-  end
-  module CustomMatchers
-    RSpec::Matchers.define :be_defined do
-      match do |actual|
-        actual.is_a?(Class) || actual.is_a?(Module)
-      end
-      failure_message do |actual|
-        "Expected #{actual} to be a defined class or module"
-      end
-    end
-    RSpec::Matchers.define :be_present do
-      match do |actual|
-        !actual.nil? && actual != false
-      end
-      failure_message do |actual|
-        "Expected #{actual} to be present"
-      end
-    end
-    RSpec::Matchers.define :respond_to_method do |method_name|
-      match do |actual|
-        actual.respond_to?(method_name)
-      end
-      failure_message do |actual|
-        "Expected #{actual} to respond to #{method_name}"
-      end
-    end
-    RSpec::Matchers.define :have_key do |key|
-      match do |actual|
-        actual.is_a?(Hash) && actual.key?(key)
-      end
-      failure_message do |actual|
-        "Expected #{actual} to be a hash with key #{key}"
-      end
-    end
-    RSpec::Matchers.define :contain_item do |item|
-      match do |actual|
-        actual.include?(item)
-      end
-      failure_message do |actual|
-        "Expected #{actual} to contain #{item}"
-      end
-    end
-    RSpec::Matchers.define :be_frozen do
-      match(&:frozen?)
-      failure_message do |actual|
-        "Expected #{actual} to be frozen"
-      end
-    end
-    RSpec::Matchers.define :be_optimized do
-      match do |actual|
-        actual.is_a?(Hash) && actual.keys.all? { |k| k.is_a?(String) }
-      end
-      failure_message do |actual|
-        "Expected #{actual} to be optimized (all keys as strings)"
-      end
-    end
-  end
+  # Shared contexts moved to spec/support/shared_contexts.rb for DRY organization
+  # Custom matchers moved to spec/support/custom_matchers.rb for DRY organization
   module Utilities
     def self.generate_uuid
       SecureRandom.uuid

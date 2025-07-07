@@ -795,7 +795,7 @@ module Zeropoint
       if defined?(Rails) && Rails.logger
         Rails.logger.info message
       else
-        Rails.logger.debug "INFO: #{message}"
+        puts "INFO: #{message}"
       end
     end
 
@@ -803,7 +803,7 @@ module Zeropoint
       if defined?(Rails) && Rails.logger
         Rails.logger.warn message
       else
-        Rails.logger.debug "WARN: #{message}"
+        warn "WARN: #{message}"
       end
     end
 

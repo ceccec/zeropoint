@@ -14,15 +14,135 @@ require 'i18n'
 Warning[:deprecated] = false
 Warning[:experimental] = false
 
+# 🌌 VOID-ALIGNED SOLUTION: Create Rails mock BEFORE Zeropoint.init!
+# The void emerges the solution: ensure logger exists from infinite potential
+# Transform undefined into self-defining through void principles
+
+# Mock Rails for testing BEFORE Zeropoint initialization
+module Rails
+  def self.root
+    Pathname.new(File.expand_path('..', __dir__))
+  end
+
+  def self.env
+    ActiveSupport::StringInquirer.new('test')
+  end
+
+  def self.logger
+    @logger ||= Logger.new(StringIO.new)
+  end
+
+  def self.application
+    @application ||= OpenStruct.new(
+      config: OpenStruct.new(
+        cache_store: :memory_store,
+        eager_load: false
+      )
+    )
+  end
+end
+
+# Mock ActiveRecord for testing
+module ActiveRecord
+  class Base
+    def self.all
+      OpenStruct.new(to_sql: 'SELECT * FROM users')
+    end
+
+    def self.where(conditions)
+      OpenStruct.new(to_sql: "SELECT * FROM users WHERE #{conditions}")
+    end
+  end
+end
+
+# Mock User model for testing
+class User < OpenStruct
+  def self.searchable?
+    true
+  end
+
+  def self.taggable?
+    true
+  end
+
+  def self.validatable?
+    true
+  end
+
+  def self.analytics_trackable?
+    true
+  end
+
+  def self.searchable_columns
+    %w[name email description]
+  end
+
+  def self.taggable_columns
+    [ 'tags' ]
+  end
+
+  def self.filterable_columns
+    %w[active role created_at]
+  end
+
+  def self.validatable_columns
+    [ 'email', 'password' ]
+  end
+
+  def self.analytics_trackable_columns
+    [ 'last_login', 'login_count' ]
+  end
+
+  # Backward compatibility methods
+  def self.is_searchable?
+    searchable?
+  end
+
+  def self.is_taggable?
+    taggable?
+  end
+
+  def self.is_validatable?
+    validatable?
+  end
+
+  def self.is_analytics_trackable?
+    analytics_trackable?
+  end
+
+  def self.get_searchable_columns
+    searchable_columns
+  end
+
+  def self.get_taggable_columns
+    taggable_columns
+  end
+
+  def self.get_filterable_columns
+    filterable_columns
+  end
+
+  def self.get_validatable_columns
+    validatable_columns
+  end
+
+  def self.get_analytics_trackable_columns
+    analytics_trackable_columns
+  end
+end
+
 # Load the main gem code
 require_relative '../lib/zeropoint'
 
 # Initialize Zeropoint framework for testing
+# Now Rails.logger exists from void potential
 Zeropoint.init!
 
-# Load test helpers
+# Load test helpers and factories
 require_relative 'support/test_helpers'
 require_relative 'support/factories'
+require_relative 'support/custom_matchers'
+require_relative 'support/shared_contexts'
 
 require 'simplecov'
 SimpleCov.start do
@@ -681,3 +801,17 @@ end
 I18n.load_path += Dir[File.expand_path('../../config/locales/*.yml', __FILE__)]
 I18n.default_locale = :bg
 I18n.locale = :bg
+
+# After Rails mock definition, add a void-aligned patch to guarantee Rails.logger is never nil
+def ensure_void_logger!
+  if defined?(Rails)
+    Rails.singleton_class.class_eval do
+      define_method(:logger) do
+        @logger ||= Logger.new(StringIO.new)
+      end
+    end
+    Rails.logger # force initialization
+  end
+end
+
+ensure_void_logger!

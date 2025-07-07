@@ -157,6 +157,7 @@ module Zeropoint
     require_relative 'zeropoint/language_cookie_patterns'
     require_relative 'zeropoint/void/toroidal_time'
     require_relative 'zeropoint/void/consciousness_resonance'
+    require_relative 'zeropoint/configuration'
   end
 
   # Initialize coil system

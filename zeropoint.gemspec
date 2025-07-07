@@ -5,13 +5,13 @@ require_relative 'lib/zeropoint/version'
 Gem::Specification.new do |spec|
   spec.name = 'zeropoint'
   spec.version = Zeropoint::VERSION
-  spec.authors = [ 'Zeropoint Team' ]
-  spec.email = [ 'team@zeropoint.bg' ]
+  spec.authors = ['Zeropoint Team']
+  spec.email = ['team@zeropoint.bg']
 
   spec.summary = 'A consciousness-aware Rails framework with GraphQL-first architecture and vortex mathematics'
   spec.description = <<~DESC
-    Zeropoint is a revolutionary Rails framework that integrates consciousness physics,#{' '}
-    vortex mathematics, and quantum principles to create a unified, scalable, and#{' '}
+    Zeropoint is a revolutionary Rails framework that integrates consciousness physics,
+    vortex mathematics, and quantum principles to create a unified, scalable, and
     self-evolving platform. Features include:
 
     🌌 Consciousness-aware error handling and golden ratio optimization
@@ -24,22 +24,21 @@ Gem::Specification.new do |spec|
     🎨 Unified UI/UX with consciousness-aware design patterns
   DESC
 
-  spec.homepage = 'https://zeropoint.bg'
-  spec.license = 'Zeropoint'
+  spec.homepage = 'https://gem.zeropoint.bg'
+  spec.license = 'MIT'
   spec.required_ruby_version = '>= 3.0.0'
   spec.required_rubygems_version = '>= 3.0.0'
 
   # Metadata for gem discovery and documentation
   spec.metadata = {
-    homepage_uri: spec.homepage,
-    source_code_uri: 'https://github.com/zeropoint/zeropoint',
-    changelog_uri: 'https://github.com/zeropoint/zeropoint/blob/main/CHANGELOG.md',
-    bug_tracker_uri: 'https://github.com/zeropoint/zeropoint/issues',
-    documentation_uri: 'https://zeropoint.bg/docs',
-    wiki_uri: 'https://github.com/zeropoint/zeropoint/wiki',
-    rubygems_mfa_required: 'true',
-    funding_uri: 'https://github.com/sponsors/zeropoint',
-    allowed_push_host: 'https://rubygems.org',
+    'homepage_uri' => spec.homepage,
+    'source_code_uri' => 'https://github.com/ceccec/zeropoint.git',
+    'changelog_uri' => 'https://github.com/ceccec/zeropoint/blob/main/CHANGELOG.md',
+    'bug_tracker_uri' => 'https://github.com/ceccec/zeropoint/issues',
+    'documentation_uri' => 'https://gem.zeropoint.bg/docs',
+    'wiki_uri' => 'https://github.com/ceccec/zeropoint/wiki',
+    'rubygems_mfa_required' => 'true',
+    'funding_uri' => 'https://github.com/sponsors/zeropoint'
   }
 
   # Specify which files should be added to the gem when it is released
@@ -53,9 +52,9 @@ Gem::Specification.new do |spec|
     .reek.yml
   ]
 
-  spec.require_paths = [ 'lib' ]
+  spec.require_paths = ['lib']
   spec.bindir = 'bin'
-  spec.executables = [ 'zeropoint' ]
+  spec.executables = ['zeropoint']
 
   # Core Rails dependencies
   spec.add_dependency 'rails', '>= 7.0', '< 9.0'
@@ -81,7 +80,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'dry-configurable', '~> 1.0'
 
   # Internationalization
-  spec.add_dependency 'i18n', '>= 1.0'
+  spec.add_dependency 'i18n', '~> 1.0'
   spec.add_dependency 'fast_gettext', '~> 2.0'
   spec.add_dependency 'globalize', '~> 7.0'
 
@@ -138,7 +137,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry-rails', '~> 0.3'
   spec.add_development_dependency 'awesome_print', '~> 1.9'
   spec.add_development_dependency 'annotate', '~> 3.2'
-  spec.add_development_dependency 'bullet', '~> 7.0'
   spec.add_development_dependency 'letter_opener', '~> 1.8'
   spec.add_development_dependency 'better_errors', '~> 2.10'
   spec.add_development_dependency 'binding_of_caller', '~> 1.0'
