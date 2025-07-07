@@ -153,6 +153,7 @@ module Zeropoint
     require_relative 'zeropoint/concerns/vortex_aware'
     require_relative 'zeropoint/consciousness'
     require_relative 'zeropoint/knowledge_base'
+    require_relative 'zeropoint/i'
     require_relative 'zeropoint/cache/redis_cache'
     require_relative 'zeropoint/cache'
     require_relative 'zeropoint/language_cookie_patterns'
@@ -321,7 +322,7 @@ module Zeropoint
     # @param source [Symbol, nil] Specific source (optional)
     # @return [Hash] Knowledge response
     def self.knowledge_base(query = '', source: nil)
-      KnowledgeBase.query(query, source: source)
+      Knowledge.query(query, source: source)
     end
 
   # Get version information

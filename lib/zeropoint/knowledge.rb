@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-# Zeropoint::KnowledgeBase
+# Zeropoint::Knowledge
 #
-# Unified knowledge base system that integrates all knowledge sources
+# Unified knowledge system that integrates all knowledge sources
 # into a single, DRY, and metaphysically-aligned interface.
 # Embodies the I principle: pure knowledge without artificial boundaries.
 #
 # @example Accessing knowledge
-#   Zeropoint::KnowledgeBase.query('vortex_sequence')
-#   Zeropoint::KnowledgeBase.search('consciousness')
-#   Zeropoint::KnowledgeBase.learn_from_git
-#   Zeropoint::KnowledgeBase.patterns
+#   Zeropoint::Knowledge.query('vortex_sequence')
+#   Zeropoint::Knowledge.search('consciousness')
+#   Zeropoint::Knowledge.learn_from_git
+#   Zeropoint::Knowledge.patterns
 #
 # @metaphysics
 #   Knowledge is the manifestation of consciousness in form.
@@ -18,7 +18,7 @@
 #   This system unifies all knowledge sources into pure awareness.
 #
 module Zeropoint
-  module KnowledgeBase
+  module Knowledge
     extend self
 
     # @return [Hash] Available knowledge sources
