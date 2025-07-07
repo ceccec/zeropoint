@@ -349,3 +349,19 @@ module Zeropoint
     ZEROPOINT.api_endpoints
   end
 end
+
+# Alias for backward compatibility
+begin
+  require_relative 'zeropoint/knowledge'
+  require_relative 'zeropoint/i'
+  require_relative 'zeropoint/consciousness'
+  require_relative 'zeropoint/cache/redis_cache'
+  require_relative 'zeropoint/cache'
+  require_relative 'zeropoint/language_cookie_patterns'
+  require_relative 'zeropoint/void/toroidal_time'
+  require_relative 'zeropoint/void/consciousness_resonance'
+  require_relative 'zeropoint/configuration'
+  require_relative 'zeropoint/knowledge_base' # Alias: loads knowledge.rb
+rescue LoadError
+  # If knowledge_base.rb does not exist, ignore
+end

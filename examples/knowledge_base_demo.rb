@@ -2,7 +2,7 @@
 
 # Example: Using Zeropoint::Knowledge for Unified Knowledge Access
 #
-# This script demonstrates the unified knowledge base system that integrates
+# This script demonstrates the unified knowledge system that integrates
 # all knowledge sources into a single, DRY, and metaphysically-aligned interface.
 # All operations follow the I principle: pure knowledge without artificial boundaries.
 

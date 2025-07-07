@@ -35,32 +35,32 @@ module Zeropoint
           step: @step,
           radius: @radius,
           center: @center,
-          winding_sequence: winding_sequence(@pegs, @step),
+          winding_sequence: Zeropoint::Math::Coil.winding_sequence(@pegs, @step),
         }
       end
 
-      # Get winding sequence for this coil (step=1)
+      # Get winding sequence for this coil
       # @return [Array<Integer>] Winding sequence (1-based indices)
       def sequence
-        winding_sequence(@pegs, @step)
+        Zeropoint::Math::Coil.winding_sequence(@pegs, @step)
       end
 
       # Get all possible winding sequences for this number of pegs
       # @return [Hash] All step sizes mapped to their sequences
       def all_sequences
-        all_sequences(@pegs)
+        (1..@pegs).map { |s| Zeropoint::Math::Coil.winding_sequence(@pegs, s) }
       end
 
       # Get peg coordinates for this coil
       # @return [Array<Array<Float>>] Array of [x, y] coordinates for each peg
       def coordinates
-        peg_coordinates(@pegs, radius: @radius, center: @center)
+        Zeropoint::Math::Coil.peg_coordinates(@pegs, radius: @radius, center: @center)
       end
 
       # Get winding segments for this coil
       # @return [Array<Array<Integer>>] Array of [from_index, to_index] pairs
       def segments
-        winding_segments(sequence)
+        Zeropoint::Math::Coil.winding_segments(sequence)
       end
 
       # Get coil geometry summary

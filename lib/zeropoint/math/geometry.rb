@@ -14,6 +14,17 @@ module Zeropoint
       def self.torus_center
         0.0
       end
+
+      def self.toroidal_coordinates(n)
+        # Return n points on a unit circle (simple toroidal projection)
+        angle_step = 2 * ::Math::PI / n
+        (0...n).map { |i| [ (Math.cos(i * angle_step)).round(4), (Math.sin(i * angle_step)).round(4) ] }
+      end
+
+      def self.flow_direction(sequence)
+        # Return 'clockwise' or 'counterclockwise' based on sum parity
+        sequence.sum.even? ? 'clockwise' : 'counterclockwise'
+      end
     end
   end
 end

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 require_relative 'vortex/math'
-require_relative 'vortex/math/torus'
-require_relative 'vortex/math/golden_ratio'
+# require_relative 'vortex/math/torus' # Removed: file does not exist
+# require_relative 'vortex/math/golden_ratio' # Removed: file does not exist
 require_relative 'math/constants'
 require_relative 'math/geometry'
 require_relative 'math/cosmic'
@@ -27,6 +27,19 @@ module Zeropoint
   #   Zeropoint::Math::Coil.winding_sequence(12, 5)
   #
   module Math
+    # == Golden Ratio Submodule
+    module GoldenRatio
+      extend self
+      def golden_rectangle(width)
+        [width, width * Zeropoint::Math.golden_ratio]
+      end
+      def golden_spiral_radius(angle_deg)
+        a = 1.0
+        b = Math.log(Zeropoint::Math.golden_ratio) / (::Math::PI / 2)
+        a * Math.exp(b * angle_deg * ::Math::PI / 180)
+      end
+    end
+
     # == Vortex Math
     # Provides digital root, toroidal, and golden ratio math.
     #
@@ -34,13 +47,23 @@ module Zeropoint
     #   Zeropoint::Math::Vortex.digital_root(123) #=> 6
     module Vortex
       extend ::Zeropoint::Vortex::Math
-      Torus = ::Zeropoint::Vortex::Math::Torus
-      GoldenRatio = ::Zeropoint::Vortex::Math::GoldenRatio
+      Torus = ::Zeropoint::Math::Geometry
+      GoldenRatio = ::Zeropoint::Math::GoldenRatio
       def self.pi
         ::Zeropoint::Math.pi
       end
       def self.e
         ::Zeropoint::Math.e
+      end
+      def self.golden_rectangle(width)
+        # Returns [width, width * golden_ratio]
+        [width, width * ::Zeropoint::Math.golden_ratio]
+      end
+      def self.golden_spiral_radius(angle_deg)
+        # Returns the radius at a given angle in a golden spiral
+        a = 1.0
+        b = Math.log(::Zeropoint::Math.golden_ratio) / (::Math::PI / 2)
+        a * Math.exp(b * angle_deg * ::Math::PI / 180)
       end
     end
 

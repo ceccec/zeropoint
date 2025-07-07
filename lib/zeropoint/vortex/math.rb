@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'active_support/core_ext/module/delegation'
+
 module Zeropoint
   module Vortex
     # Math: Core vortex mathematics for digital root, toroidal flow, polarity, and spirals

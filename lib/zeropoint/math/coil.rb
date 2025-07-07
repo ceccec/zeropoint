@@ -27,10 +27,10 @@ module Zeropoint
       # Generate coordinates for each peg on a circle (for visualization)
       # radius: circle radius, center: [x, y]
       def self.peg_coordinates(n, radius: 1.0, center: [ 0.0, 0.0 ])
-        angle_step = 2 * Math::PI / n
+        angle_step = 2 * ::Math::PI / n
         (0...n).map do |i|
           angle = i * angle_step
-          [ center[0] + radius * Math.cos(angle), center[1] + radius * Math.sin(angle) ]
+          [ center[0] + radius * ::Math.cos(angle), center[1] + radius * ::Math.sin(angle) ]
         end
       end
 

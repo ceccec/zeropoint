@@ -55,13 +55,13 @@ module Zeropoint
       # Get peg coordinates for this coil
       # @return [Array<Array<Float>>] Array of [x, y] coordinates for each peg
       def coordinates
-        peg_coordinates(@pegs, radius: @radius, center: @center)
+        Zeropoint::Math::Coil.peg_coordinates(@pegs, radius: @radius, center: @center)
       end
 
       # Get winding segments for this coil
       # @return [Array<Array<Integer>>] Array of [from_index, to_index] pairs
       def segments
-        winding_segments(sequence)
+        Zeropoint::Math::Coil.winding_segments(sequence)
       end
 
       # Get coil geometry summary
