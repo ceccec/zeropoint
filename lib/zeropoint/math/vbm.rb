@@ -39,45 +39,65 @@ module Zeropoint
       # Get a specific Q&A pattern by name
       # @param pattern_name [String, Symbol] The pattern name
       # @return [Hash, nil] The Q&A pattern or nil if not found
-      delegate :qa_pattern, to: :QA
+      def qa_pattern(*args, &block)
+        QA.qa_pattern(*args, &block)
+      end
 
       # Get all Q&A patterns as a hash
       # @return [Hash] All patterns
-      delegate :all_qa_patterns, to: :QA
+      def all_qa_patterns(*args, &block)
+        QA.all_qa_patterns(*args, &block)
+      end
 
       # Get all questions as a hash
       # @return [Hash] All questions
-      delegate :qa_questions, to: :QA
+      def qa_questions(*args, &block)
+        QA.qa_questions(*args, &block)
+      end
 
       # Get all answers as a hash
       # @return [Hash] All answers
-      delegate :qa_answers, to: :QA
+      def qa_answers(*args, &block)
+        QA.qa_answers(*args, &block)
+      end
 
       # Get all metaphysical contexts as a hash
       # @return [Hash] All metaphysical contexts
-      delegate :qa_metaphysical_contexts, to: :QA
+      def qa_metaphysical_contexts(*args, &block)
+        QA.qa_metaphysical_contexts(*args, &block)
+      end
 
       # Get all operations as a hash
       # @return [Hash] All operations
-      delegate :qa_operations, to: :QA
+      def qa_operations(*args, &block)
+        QA.qa_operations(*args, &block)
+      end
 
       # Get all patterns with numerical data as a hash
       # @return [Hash] All patterns with data
-      delegate :qa_patterns, to: :QA
+      def qa_patterns(*args, &block)
+        QA.qa_patterns(*args, &block)
+      end
 
       # Search across questions, answers, and metaphysical context
       # @param query [String] The search query
       # @return [Hash] Matching patterns
-      delegate :search_qa, to: :QA
+      def search_qa(*args, &block)
+        QA.search_qa(*args, &block)
+      end
 
       # Get Q&A patterns by category
       # @param category [String] The category name
       # @return [Hash] Patterns in the category
-      delegate :qa_by_category, to: :QA
+      def qa_by_category(*args, &block)
+        QA.qa_by_category(*args, &block)
+      end
 
       # Get comprehensive system statistics
       # @return [Hash] System statistics
-      delegate :qa_summary, to: :QA
+      def qa_summary(*args, &block)
+        QA.qa_summary(*args, &block)
+      end
 
       # == Sequences & Constants ==
       def vortex_sequence
@@ -92,7 +112,9 @@ module Zeropoint
       def family_number_groups
         FAMILY_NUMBER_GROUPS
       end
-      delegate :circle_of_fifths_sequence, to: :Music
+      def circle_of_fifths_sequence(*args, &block)
+        Music.circle_of_fifths_sequence(*args, &block)
+      end
       def enneagram_number_pattern
         ENNEAGRAM_NUMBER_PATTERN
       end
@@ -126,31 +148,51 @@ module Zeropoint
       # ... (other mathematical operations) ...
 
       # == Geometry & Topology ==
-      delegate :torus, to: :Geometry
-      delegate :mobius_circuit, to: :Geometry
+      def torus(*args, &block)
+        Geometry.torus(*args, &block)
+      end
+      def mobius_circuit(*args, &block)
+        Geometry.mobius_circuit(*args, &block)
+      end
       def surface_topology_angle(degrees = 360)
         Geometry.surface_topology_angle(degrees)
       end
-      delegate :three_planes_3d_space, to: :Geometry
-      delegate :three_torus_shears, to: :Geometry
+      def three_planes_3d_space(*args, &block)
+        Geometry.three_planes_3d_space(*args, &block)
+      end
+      def three_torus_shears(*args, &block)
+        Geometry.three_torus_shears(*args, &block)
+      end
       # ... (other geometry/topology methods) ...
 
       # == Metaphysical Context ==
-      delegate :metaphysical_context, to: :Metaphysics
-      delegate :harmonic_cascadence, to: :Metaphysics
-      delegate :poloidal_pinch, to: :Metaphysics
+      def metaphysical_context(*args, &block)
+        Metaphysics.metaphysical_context(*args, &block)
+      end
+      def harmonic_cascadence(*args, &block)
+        Metaphysics.harmonic_cascadence(*args, &block)
+      end
+      def poloidal_pinch(*args, &block)
+        Metaphysics.poloidal_pinch(*args, &block)
+      end
       # ... (other metaphysical methods) ...
 
       # == Coil & Winding Patterns ==
-      delegate :winding_pattern_description, to: :Coil
+      def winding_pattern_description(*args, &block)
+        Coil.winding_pattern_description(*args, &block)
+      end
       def coil_metaphysical_context
         Coil.metaphysical_context
       end
       # ... (other coil methods) ...
 
       # == Documentation ==
-      delegate :core_documentation, to: :Doc
-      delegate :qa_access, to: :Doc
+      def core_documentation(*args, &block)
+        Doc.core_documentation(*args, &block)
+      end
+      def qa_access(*args, &block)
+        Doc.qa_access(*args, &block)
+      end
       def doc_metaphysical_context
         Doc.metaphysical_context
       end

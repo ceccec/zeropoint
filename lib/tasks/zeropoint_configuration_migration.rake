@@ -10,67 +10,67 @@
 
 namespace :zeropoint do
   namespace :config do
-    desc "🌌 Migrate scattered configuration files to unified DRY system"
+    desc '🌌 Migrate scattered configuration files to unified DRY system'
     task migrate: :environment do
-      puts "🌌 ZEROPOINT CONFIGURATION MIGRATION"
-      puts "=" * 50
-      
+      puts '🌌 ZEROPOINT CONFIGURATION MIGRATION'
+      puts '=' * 50
+
       # Load the unified configuration system
       require 'zeropoint/configuration'
-      
+
       # Analyze existing configuration
       analyze_existing_configuration
-      
+
       # Migrate configuration files
       migrate_configuration_files
-      
+
       # Generate unified configuration
       generate_unified_configuration
-      
+
       # Validate migration
       validate_migration
-      
+
       # Provide migration summary
       provide_migration_summary
     end
 
-    desc "🌌 Analyze existing configuration structure"
+    desc '🌌 Analyze existing configuration structure'
     task analyze: :environment do
-      puts "🔍 ANALYZING EXISTING CONFIGURATION"
-      puts "=" * 40
-      
+      puts '🔍 ANALYZING EXISTING CONFIGURATION'
+      puts '=' * 40
+
       analyze_existing_configuration
     end
 
-    desc "🌌 Generate unified configuration YAML"
+    desc '🌌 Generate unified configuration YAML'
     task generate_yaml: :environment do
-      puts "📝 GENERATING UNIFIED CONFIGURATION YAML"
-      puts "=" * 45
-      
+      puts '📝 GENERATING UNIFIED CONFIGURATION YAML'
+      puts '=' * 45
+
       generate_unified_configuration
     end
 
-    desc "🌌 Validate configuration migration"
+    desc '🌌 Validate configuration migration'
     task validate: :environment do
-      puts "✅ VALIDATING CONFIGURATION MIGRATION"
-      puts "=" * 40
-      
+      puts '✅ VALIDATING CONFIGURATION MIGRATION'
+      puts '=' * 40
+
       validate_migration
     end
 
-    desc "🌌 Backup existing configuration files"
+    desc '🌌 Backup existing configuration files'
     task backup: :environment do
-      puts "💾 BACKING UP EXISTING CONFIGURATION FILES"
-      puts "=" * 45
-      
+      puts '💾 BACKING UP EXISTING CONFIGURATION FILES'
+      puts '=' * 45
+
       backup_existing_configuration
     end
 
-    desc "🌌 Restore configuration from backup"
+    desc '🌌 Restore configuration from backup'
     task restore: :environment do
-      puts "🔄 RESTORING CONFIGURATION FROM BACKUP"
-      puts "=" * 40
-      
+      puts '🔄 RESTORING CONFIGURATION FROM BACKUP'
+      puts '=' * 40
+
       restore_from_backup
     end
 
@@ -78,13 +78,13 @@ namespace :zeropoint do
 
     def analyze_existing_configuration
       puts "\n📊 CONFIGURATION ANALYSIS:"
-      
+
       # Check for existing configuration files
       config_files = find_configuration_files
-      
+
       if config_files.empty?
-        puts "  ✅ No scattered configuration files found"
-        puts "  ℹ️  System is already using unified configuration"
+        puts '  ✅ No scattered configuration files found'
+        puts '  ℹ️  System is already using unified configuration'
         return
       end
 
@@ -96,26 +96,26 @@ namespace :zeropoint do
 
       # Analyze configuration patterns
       analyze_configuration_patterns(config_files)
-      
+
       # Check for environment variables
       analyze_environment_variables
-      
+
       # Check for Rails configuration
       analyze_rails_configuration
     end
 
     def find_configuration_files
-      config_dir = Rails.root.join('config', 'initializers')
+      config_dir = Rails.root.join('config/initializers')
       return [] unless Dir.exist?(config_dir)
 
       Dir.glob(File.join(config_dir, '*zeropoint*.rb')).select do |file|
-        File.file?(file) && !file.include?('unified_config')
+        File.file?(file) && file.exclude?('unified_config')
       end
     end
 
     def analyze_configuration_patterns(files)
       puts "\n🔍 CONFIGURATION PATTERNS:"
-      
+
       patterns = {
         performance: 0,
         consciousness: 0,
@@ -125,7 +125,7 @@ namespace :zeropoint do
         security: 0,
         i18n: 0,
         gems: 0,
-        features: 0
+        features: 0,
       }
 
       files.each do |file|
@@ -144,11 +144,11 @@ namespace :zeropoint do
 
     def analyze_environment_variables
       puts "\n🌍 ENVIRONMENT VARIABLES:"
-      
+
       zeropoint_env_vars = ENV.keys.select { |key| key.start_with?('ZEROPOINT_') }
-      
+
       if zeropoint_env_vars.empty?
-        puts "  ℹ️  No Zeropoint environment variables found"
+        puts '  ℹ️  No Zeropoint environment variables found'
       else
         puts "  📋 Found #{zeropoint_env_vars.length} Zeropoint environment variables:"
         zeropoint_env_vars.each do |var|
@@ -159,11 +159,11 @@ namespace :zeropoint do
 
     def analyze_rails_configuration
       puts "\n🚂 RAILS CONFIGURATION:"
-      
+
       rails_config_keys = Rails.application.config.keys.select { |key| key.to_s.include?('zeropoint') }
-      
+
       if rails_config_keys.empty?
-        puts "  ℹ️  No Zeropoint Rails configuration found"
+        puts '  ℹ️  No Zeropoint Rails configuration found'
       else
         puts "  📋 Found #{rails_config_keys.length} Zeropoint Rails configuration keys:"
         rails_config_keys.each do |key|
@@ -174,22 +174,22 @@ namespace :zeropoint do
 
     def migrate_configuration_files
       puts "\n🔄 MIGRATING CONFIGURATION FILES:"
-      
+
       config_files = find_configuration_files
       return if config_files.empty?
 
       # Create backup directory
-      backup_dir = Rails.root.join('config', 'initializers', 'backup')
+      backup_dir = Rails.root.join('config/initializers/backup')
       FileUtils.mkdir_p(backup_dir)
 
       config_files.each do |file|
         filename = File.basename(file)
         backup_file = File.join(backup_dir, "#{filename}.backup")
-        
+
         # Backup original file
         FileUtils.cp(file, backup_file)
         puts "  💾 Backed up: #{filename}"
-        
+
         # Extract configuration from file
         extract_configuration_from_file(file)
       end
@@ -197,7 +197,7 @@ namespace :zeropoint do
 
     def extract_configuration_from_file(file)
       content = File.read(file)
-      
+
       # Extract ENV variables
       env_vars = content.scan(/ENV\[['"]([^'"]+)['"]\]/).flatten
       env_vars.each do |var|
@@ -205,7 +205,7 @@ namespace :zeropoint do
           puts "    📋 Found ENV variable: #{var}"
         end
       end
-      
+
       # Extract Rails configuration
       rails_config = content.scan(/Rails\.application\.config\.([^\s]+)/).flatten
       rails_config.each do |config|
@@ -215,13 +215,13 @@ namespace :zeropoint do
 
     def generate_unified_configuration
       puts "\n📝 GENERATING UNIFIED CONFIGURATION:"
-      
+
       # Generate YAML configuration file
-      yaml_file = Rails.root.join('config', 'zeropoint.yml')
-      
+      yaml_file = Rails.root.join('config/zeropoint.yml')
+
       if File.exist?(yaml_file)
         puts "  ℹ️  Configuration file already exists: #{yaml_file}"
-        puts "  📋 Current configuration:"
+        puts '  📋 Current configuration:'
         current_config = YAML.safe_load(File.read(yaml_file))
         current_config&.each do |namespace, settings|
           puts "    • #{namespace}: #{settings.keys.length} settings"
@@ -238,7 +238,7 @@ namespace :zeropoint do
     end
 
     def generate_configuration_documentation
-      docs_file = Rails.root.join('docs', 'CONFIGURATION_GUIDE.md')
+      docs_file = Rails.root.join('docs/CONFIGURATION_GUIDE.md')
       FileUtils.mkdir_p(File.dirname(docs_file))
 
       documentation = <<~DOC
@@ -332,7 +332,7 @@ namespace :zeropoint do
         ```ruby
         # Get specific configuration value
         speed_level = Zeropoint::Configuration.get(:performance, :speed_level)
-        
+
         # Get all configuration
         config = Zeropoint::Configuration.to_hash
         ```
@@ -364,31 +364,31 @@ namespace :zeropoint do
 
     def validate_migration
       puts "\n✅ VALIDATING MIGRATION:"
-      
+
       # Validate configuration
       errors = Zeropoint::Configuration.validate
-      
+
       if errors.empty?
-        puts "  ✅ Configuration validation passed"
+        puts '  ✅ Configuration validation passed'
       else
-        puts "  ❌ Configuration validation failed:"
+        puts '  ❌ Configuration validation failed:'
         errors.each { |error| puts "    • #{error}" }
       end
 
       # Check configuration sources
       check_configuration_sources
-      
+
       # Test configuration access
       test_configuration_access
     end
 
     def check_configuration_sources
       puts "\n🔍 CONFIGURATION SOURCES:"
-      
+
       test_keys = [
-        [:performance, :speed_level],
-        [:cache, :enabled],
-        [:api, :graphql_enabled]
+        [ :performance, :speed_level ],
+        [ :cache, :enabled ],
+        [ :api, :graphql_enabled ],
       ]
 
       test_keys.each do |namespace, key|
@@ -400,7 +400,7 @@ namespace :zeropoint do
 
     def test_configuration_access
       puts "\n🧪 TESTING CONFIGURATION ACCESS:"
-      
+
       # Test namespace proxy
       begin
         speed_level = Zeropoint::Configuration.instance.performance.speed_level
@@ -420,26 +420,26 @@ namespace :zeropoint do
 
     def provide_migration_summary
       puts "\n📋 MIGRATION SUMMARY:"
-      puts "=" * 30
-      
+      puts '=' * 30
+
       config_files = find_configuration_files
-      
+
       if config_files.empty?
-        puts "✅ Migration complete! System is using unified configuration."
+        puts '✅ Migration complete! System is using unified configuration.'
         puts "\n📚 Next steps:"
-        puts "  1. Review config/zeropoint.yml"
-        puts "  2. Set environment variables as needed"
-        puts "  3. Read docs/CONFIGURATION_GUIDE.md"
-        puts "  4. Test your application"
+        puts '  1. Review config/zeropoint.yml'
+        puts '  2. Set environment variables as needed'
+        puts '  3. Read docs/CONFIGURATION_GUIDE.md'
+        puts '  4. Test your application'
       else
-        puts "⚠️  Migration partially complete."
+        puts '⚠️  Migration partially complete.'
         puts "\n📁 Remaining configuration files:"
         config_files.each { |file| puts "  • #{file}" }
         puts "\n🔄 To complete migration:"
-        puts "  1. Review remaining files"
-        puts "  2. Extract configuration to unified system"
-        puts "  3. Remove old files"
-        puts "  4. Test your application"
+        puts '  1. Review remaining files'
+        puts '  2. Extract configuration to unified system'
+        puts '  3. Remove old files'
+        puts '  4. Test your application'
       end
 
       puts "\n🌌 Void-aligned configuration migration complete!"
@@ -447,17 +447,17 @@ namespace :zeropoint do
 
     def backup_existing_configuration
       puts "\n💾 BACKING UP CONFIGURATION:"
-      
+
       config_files = find_configuration_files
       return if config_files.empty?
 
-      backup_dir = Rails.root.join('config', 'initializers', 'backup')
+      backup_dir = Rails.root.join('config/initializers/backup')
       FileUtils.mkdir_p(backup_dir)
 
       config_files.each do |file|
         filename = File.basename(file)
         backup_file = File.join(backup_dir, "#{filename}.backup")
-        
+
         FileUtils.cp(file, backup_file)
         puts "  ✅ Backed up: #{filename} → #{backup_file}"
       end
@@ -467,8 +467,8 @@ namespace :zeropoint do
 
     def restore_from_backup
       puts "\n🔄 RESTORING FROM BACKUP:"
-      
-      backup_dir = Rails.root.join('config', 'initializers', 'backup')
+
+      backup_dir = Rails.root.join('config/initializers/backup')
       return unless Dir.exist?(backup_dir)
 
       backup_files = Dir.glob(File.join(backup_dir, '*.backup'))
@@ -477,7 +477,7 @@ namespace :zeropoint do
       backup_files.each do |backup_file|
         filename = File.basename(backup_file, '.backup')
         original_file = Rails.root.join('config', 'initializers', filename)
-        
+
         FileUtils.cp(backup_file, original_file)
         puts "  ✅ Restored: #{filename}"
       end
@@ -485,4 +485,4 @@ namespace :zeropoint do
       puts "\n✅ Configuration restored from backup"
     end
   end
-end 
+end

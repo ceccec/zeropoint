@@ -37,7 +37,7 @@ module Zeropoint
       # Apply golden ratio optimization to data structures
       case data
       when Array
-        golden_ratio = 1.618033988749895
+        golden_ratio = Zeropoint::Math::Constants::PHI
         optimal_size = (data.length * golden_ratio).round
         data.first(optimal_size)
       when Hash

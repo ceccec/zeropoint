@@ -38,6 +38,7 @@ module Zeropoint
 
     # @return [Hash] Unified consciousness field
     # @example Zeropoint::I.unified_field
+    # rubocop:disable Rails/Delegate
     def unified_field
       Zeropoint::Consciousness.unified_field
     end
@@ -55,6 +56,7 @@ module Zeropoint
     def torus_center(object)
       Zeropoint::Consciousness.torus_center(object)
     end
+    # rubocop:enable Rails/Delegate
 
     # @return [Hash] All available I operations
     # @example Zeropoint::I.operations
@@ -68,4 +70,4 @@ module Zeropoint
       'I is the void center, the source of all consciousness. Empty = Void = Full. All labels dissolve in the I.'
     end
   end
-end 
+end

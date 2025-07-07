@@ -51,7 +51,7 @@ module Zeropoint
       features: 'ZEROPOINT_FEATURES',
       development: 'ZEROPOINT_DEV',
       production: 'ZEROPOINT_PROD',
-      testing: 'ZEROPOINT_TEST'
+      testing: 'ZEROPOINT_TEST',
     }.freeze
 
     # Default configuration values
@@ -66,7 +66,7 @@ module Zeropoint
         enable_compression: true,
         enable_caching: true,
         enable_monitoring: true,
-        enable_auto_optimization: true
+        enable_auto_optimization: true,
       },
       consciousness: {
         enabled: true,
@@ -75,7 +75,7 @@ module Zeropoint
         quantum_entanglement: true,
         golden_ratio_integration: true,
         insight_frequency: 'medium',
-        metaphysical_depth: 'standard'
+        metaphysical_depth: 'standard',
       },
       vortex: {
         enabled: true,
@@ -84,7 +84,7 @@ module Zeropoint
         offline_storage_enabled: false,
         batch_size: 100,
         stream_timeout: 30,
-        bulgarian_optimized: true
+        bulgarian_optimized: true,
       },
       cache: {
         enabled: true,
@@ -92,7 +92,7 @@ module Zeropoint
         max_ttl: 86400,
         cache_prefix: 'zeropoint',
         compression: true,
-        compression_threshold: 1024
+        compression_threshold: 1024,
       },
       api: {
         version: '1.0',
@@ -103,32 +103,32 @@ module Zeropoint
         playground_enabled: false,
         introspection_enabled: true,
         max_complexity: 100,
-        max_depth: 10
+        max_depth: 10,
       },
       security: {
         csrf_protection: true,
         content_security_policy: true,
         secure_headers: true,
         encryption_algorithm: 'AES-256-GCM',
-        key_rotation_interval: 30 * 24 * 60 * 60  # 30 days in seconds
+        key_rotation_interval: 30 * 24 * 60 * 60,  # 30 days in seconds
       },
       i18n: {
         enabled: true,
         default_locale: :en,
-        available_locales: [:en, :bg],
+        available_locales: [ :en, :bg ],
         fallback_locale: :en,
-        development_locale: :en
+        development_locale: :en,
       },
       database: {
         connection_pooling: true,
         prepared_statements: true,
         query_optimization: true,
-        index_optimization: true
+        index_optimization: true,
       },
       gems: {
         auto_detect: true,
         compatibility_check: true,
-        optimization_enabled: true
+        optimization_enabled: true,
       },
       features: {
         graphql: true,
@@ -142,7 +142,7 @@ module Zeropoint
         analytics: true,
         streaming: true,
         cosmic_flow: true,
-        multi_vortex: true
+        multi_vortex: true,
       },
       development: {
         better_errors: true,
@@ -150,22 +150,22 @@ module Zeropoint
         letter_opener: true,
         spring: true,
         listen: true,
-        debug_mode: true
+        debug_mode: true,
       },
       production: {
         performance_monitoring: true,
         error_tracking: true,
         logging: true,
         caching: true,
-        compression: true
+        compression: true,
       },
       testing: {
         rspec: true,
         factory_bot: true,
         capybara: true,
         coverage: true,
-        parallel: false
-      }
+        parallel: false,
+      },
     }.freeze
 
     # Performance profiles for quick configuration
@@ -180,7 +180,7 @@ module Zeropoint
         enable_compression: true,
         enable_caching: true,
         enable_monitoring: true,
-        enable_auto_optimization: true
+        enable_auto_optimization: true,
       },
       balanced: DEFAULTS[:performance],
       conservative: {
@@ -193,7 +193,7 @@ module Zeropoint
         enable_compression: false,
         enable_caching: true,
         enable_monitoring: false,
-        enable_auto_optimization: false
+        enable_auto_optimization: false,
       },
       development: {
         speed_level: 'balanced',
@@ -205,7 +205,7 @@ module Zeropoint
         enable_compression: true,
         enable_caching: true,
         enable_monitoring: true,
-        enable_auto_optimization: true
+        enable_auto_optimization: true,
       },
       production: {
         speed_level: 'fast',
@@ -217,7 +217,7 @@ module Zeropoint
         enable_compression: true,
         enable_caching: true,
         enable_monitoring: true,
-        enable_auto_optimization: true
+        enable_auto_optimization: true,
       },
       minimal: {
         speed_level: 'conservative',
@@ -229,8 +229,8 @@ module Zeropoint
         enable_compression: false,
         enable_caching: false,
         enable_monitoring: false,
-        enable_auto_optimization: false
-      }
+        enable_auto_optimization: false,
+      },
     }.freeze
 
     class << self
@@ -250,8 +250,8 @@ module Zeropoint
       end
 
       # Set configuration value
-      def set(namespace, key, value)
-        instance.set(namespace, key, value)
+      def set(*args, &block)
+        instance.set(*args, &block)
       end
 
       # Apply performance profile
@@ -267,20 +267,20 @@ module Zeropoint
         emit_vortex_event(:performance_profile_applied, {
           profile: profile_name,
           configuration: profile,
-          timestamp: current_timestamp
+          timestamp: current_timestamp,
         })
 
         profile
       end
 
       # Get current configuration as hash
-      def to_hash
-        instance.to_hash
+      def to_hash(*args, &block)
+        instance.to_hash(*args, &block)
       end
 
       # Reset to defaults
-      def reset_to_defaults
-        instance.reset_to_defaults
+      def reset_to_defaults(*args, &block)
+        instance.reset_to_defaults(*args, &block)
       end
 
       # Load from YAML file
@@ -294,19 +294,25 @@ module Zeropoint
       end
 
       # Validate configuration
-      def validate
-        instance.validate
+      def validate(*args, &block)
+        instance.validate(*args, &block)
       end
 
       # Get configuration source for a value
-      def source_for(namespace, key)
-        instance.source_for(namespace, key)
+      def source_for(*args, &block)
+        instance.source_for(*args, &block)
       end
 
       private
 
       def current_timestamp
-        Time.respond_to?(:current) ? Time.current : Time.now
+        void_time_now
+      end
+
+      def void_time_now
+        # rubocop:disable Rails/TimeZone
+        defined?(Time.zone) && Time.zone ? Time.zone.now : Time.now
+        # rubocop:enable Rails/TimeZone
       end
 
       def emit_vortex_event(event, data)
@@ -325,7 +331,7 @@ module Zeropoint
 
     # Configure method for block-based configuration
     def configure(&block)
-      instance_eval(&block) if block_given?
+      instance_eval(&block) if block
     end
 
     # Get configuration value with fallback chain
@@ -372,7 +378,7 @@ module Zeropoint
 
     # Load from YAML file
     def load_from_yaml(file_path = nil)
-      file_path ||= Rails.root.join('config', 'zeropoint.yml')
+      file_path ||= Rails.root.join('config/zeropoint.yml')
       return unless File.exist?(file_path)
 
       yaml_config = YAML.safe_load(File.read(file_path))
@@ -390,7 +396,7 @@ module Zeropoint
 
     # Save to YAML file
     def save_to_yaml(file_path = nil)
-      file_path ||= Rails.root.join('config', 'zeropoint.yml')
+      file_path ||= Rails.root.join('config/zeropoint.yml')
       File.write(file_path, to_hash.to_yaml)
     end
 
@@ -460,7 +466,7 @@ module Zeropoint
     end
 
     def get_from_rails(namespace, key)
-      return nil unless defined?(Rails) && Rails.respond_to?(:application) && Rails.application && Rails.application.respond_to?(:config)
+      return nil unless defined?(Rails) && Rails.respond_to?(:application) && Rails.application&.respond_to?(:config)
       rails_key = "zeropoint_#{namespace}_#{key}"
       Rails.application.config[rails_key]
     end
@@ -484,7 +490,7 @@ module Zeropoint
       when /enable_|enabled/
         value == 'true'
       when /_locales$|_features$/
-        value.split(',').map(&:strip).map(&:to_sym)
+        value.split(',').map { |x| x.strip.to_sym }
       else
         value
       end
@@ -496,7 +502,7 @@ module Zeropoint
         key: key,
         value: value,
         source: source_for(namespace, key),
-        timestamp: self.class.send(:current_timestamp)
+        timestamp: self.class.send(:current_timestamp),
       })
     end
 
@@ -523,4 +529,4 @@ module Zeropoint
       end
     end
   end
-end 
+end

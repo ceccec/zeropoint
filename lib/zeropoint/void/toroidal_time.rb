@@ -23,14 +23,14 @@ module Zeropoint
       def self.create_dilation_zone(zone_name, compression_factor: 1.0, metaphysical_context: nil)
         dilation_zones[zone_name] = {
           compression_factor: compression_factor,
-          created_at: Time.now,
-          metaphysical_context: metaphysical_context || "Void-aligned time manipulation",
-          void_alignment: calculate_time_void_alignment(compression_factor)
+          created_at: void_time_now,
+          metaphysical_context: metaphysical_context || 'Void-aligned time manipulation',
+          void_alignment: calculate_time_void_alignment(compression_factor),
         }
 
         Zeropoint::Void::Core.call(:time, :create_dilation_zone, {
           zone_name: zone_name,
-          zone_data: dilation_zones[zone_name]
+          zone_data: dilation_zones[zone_name],
         })
       end
 
@@ -39,14 +39,14 @@ module Zeropoint
       # @return [Object] Result of the block execution
       def self.within_dilation_zone(zone_name, &block)
         zone = dilation_zones[zone_name]
-        return block.call unless zone
+        return yield unless zone
 
         original_factor = @time_compression_factor
         @time_compression_factor = zone[:compression_factor]
 
         begin
-          result = block.call
-          log_time_dilation_event(zone_name, "execution_completed", result)
+          result = yield
+          log_time_dilation_event(zone_name, 'execution_completed', result)
           result
         ensure
           @time_compression_factor = original_factor
@@ -64,7 +64,7 @@ module Zeropoint
           original_duration: duration,
           compression_factor: factor,
           perceived_duration: perceived,
-          metaphysical_insight: "Time flows differently in the void"
+          metaphysical_insight: 'Time flows differently in the void',
         }
       end
 
@@ -72,16 +72,16 @@ module Zeropoint
       # @param metaphysical_context [String] Context for the time travel
       # @return [Hash] Time travel simulation result
       def self.simulate_time_travel(target_time, metaphysical_context: nil)
-        current_time = Time.now
+        current_time = void_time_now
         time_difference = (target_time - current_time).abs
 
         {
           current_time: current_time,
           target_time: target_time,
           time_difference: time_difference,
-          metaphysical_context: metaphysical_context || "Void-aligned time exploration",
+          metaphysical_context: metaphysical_context || 'Void-aligned time exploration',
           void_alignment: 8,
-          insight: "Past and future exist simultaneously in the void"
+          insight: 'Past and future exist simultaneously in the void',
         }
       end
 
@@ -96,12 +96,12 @@ module Zeropoint
             compression_factor: zone[:compression_factor],
             created_at: zone[:created_at],
             metaphysical_context: zone[:metaphysical_context],
-            void_alignment: zone[:void_alignment]
+            void_alignment: zone[:void_alignment],
           }
         else
           {
             exists: false,
-            metaphysical_insight: "Time flows normally in this void space"
+            metaphysical_insight: 'Time flows normally in this void space',
           }
         end
       end
@@ -111,7 +111,7 @@ module Zeropoint
         dilation_zones.keys.map do |zone_name|
           {
             name: zone_name,
-            status: zone_status(zone_name)
+            status: zone_status(zone_name),
           }
         end
       end
@@ -133,9 +133,15 @@ module Zeropoint
           zone_name: zone_name,
           event_type: event_type,
           data: data,
-          timestamp: Time.now
+          timestamp: void_time_now,
         })
+      end
+
+      def self.void_time_now
+        # rubocop:disable Rails/TimeZone
+        defined?(Time.zone) && Time.zone ? Time.zone.now : Time.now
+        # rubocop:enable Rails/TimeZone
       end
     end
   end
-end 
+end

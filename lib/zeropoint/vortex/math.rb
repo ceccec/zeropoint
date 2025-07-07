@@ -124,27 +124,73 @@ module Zeropoint
 
       # === ::Math-like naming for DRYness ===
       # Provide delegator methods for standard math names
-      delegate :sqrt, to: :'::Zeropoint::Math'
-      delegate :cbrt, to: :'::Zeropoint::Math'
-      delegate :pow, to: :'::Zeropoint::Math'
-      delegate :sin, to: :'::Zeropoint::Math'
-      delegate :cos, to: :'::Zeropoint::Math'
-      delegate :tan, to: :'::Zeropoint::Math'
-      delegate :asin, to: :'::Zeropoint::Math'
-      delegate :acos, to: :'::Zeropoint::Math'
-      delegate :atan, to: :'::Zeropoint::Math'
-      delegate :atan2, to: :'::Zeropoint::Math'
-      delegate :exp, to: :'::Zeropoint::Math'
-      def log(x, base = ::Math::E) = ::Zeropoint::Math.log(x, base)
-      delegate :log10, to: :'::Zeropoint::Math'
-      delegate :log2, to: :'::Zeropoint::Math'
-      delegate :abs, to: :'::Zeropoint::Math'
-      delegate :ceil, to: :'::Zeropoint::Math'
-      delegate :floor, to: :'::Zeropoint::Math'
-      def round(x, digits = 0) = ::Zeropoint::Math.round(x, digits)
-      def max(*args) = ::Zeropoint::Math.max(*args)
-      def min(*args) = ::Zeropoint::Math.min(*args)
-      delegate :random, to: :'::Zeropoint::Math'
+      def sqrt(*args, &block)
+        ::Zeropoint::Math.sqrt(*args, &block)
+      end
+
+      def cbrt(*args, &block)
+        ::Zeropoint::Math.cbrt(*args, &block)
+      end
+
+      def pow(*args, &block)
+        ::Zeropoint::Math.pow(*args, &block)
+      end
+
+      def sin(*args, &block)
+        ::Zeropoint::Math.sin(*args, &block)
+      end
+
+      def cos(*args, &block)
+        ::Zeropoint::Math.cos(*args, &block)
+      end
+
+      def tan(*args, &block)
+        ::Zeropoint::Math.tan(*args, &block)
+      end
+
+      def asin(*args, &block)
+        ::Zeropoint::Math.asin(*args, &block)
+      end
+
+      def acos(*args, &block)
+        ::Zeropoint::Math.acos(*args, &block)
+      end
+
+      def atan(*args, &block)
+        ::Zeropoint::Math.atan(*args, &block)
+      end
+
+      def atan2(*args, &block)
+        ::Zeropoint::Math.atan2(*args, &block)
+      end
+
+      def exp(*args, &block)
+        ::Zeropoint::Math.exp(*args, &block)
+      end
+
+      def log10(*args, &block)
+        ::Zeropoint::Math.log10(*args, &block)
+      end
+
+      def log2(*args, &block)
+        ::Zeropoint::Math.log2(*args, &block)
+      end
+
+      def abs(*args, &block)
+        ::Zeropoint::Math.abs(*args, &block)
+      end
+
+      def ceil(*args, &block)
+        ::Zeropoint::Math.ceil(*args, &block)
+      end
+
+      def floor(*args, &block)
+        ::Zeropoint::Math.floor(*args, &block)
+      end
+
+      def random(*args, &block)
+        ::Zeropoint::Math.random(*args, &block)
+      end
 
       # === DRY ALIASES FOR VORTEX MATH ===
       def dr(n) = digital_root(n)

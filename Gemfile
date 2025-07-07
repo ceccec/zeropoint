@@ -110,3 +110,9 @@ gem 'sidekiq-scheduler', '~> 5.0'
 gem 'lograge', '~> 0.12'
 gem 'sentry-ruby', '~> 5.0'
 gem 'bullet', '~> 7.0'
+
+group :docs do
+  gem 'jekyll', '~> 4.3'
+  gem 'minima', '~> 2.5'
+  gem 'jekyll-sitemap', '~> 1.4'
+end

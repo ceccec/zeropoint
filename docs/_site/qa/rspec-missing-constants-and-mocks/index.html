@@ -1,0 +1,42 @@
+<h1 id="rspec-missing-constants-and-mocks">RSpec: Missing Constants and Mocks</h1>
+
+<h2 id="problem">Problem</h2>
+<ul>
+  <li>RSpec test run reports errors for missing or uninitialized constants:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Zeropoint::Vortex::Queryable</code></li>
+      <li><code class="language-plaintext highlighter-rouge">Zeropoint::Vortex::StreamProcessor</code></li>
+    </ul>
+  </li>
+  <li>These errors occur in:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">spec/vortex/queryable_spec.rb</code></li>
+      <li><code class="language-plaintext highlighter-rouge">spec/vortex/stream_processor_spec.rb</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="solution">Solution</h2>
+<ul>
+  <li>If these modules/classes were deleted or externalized, either:
+    <ul>
+      <li>Remove the affected specs</li>
+      <li>Or provide minimal mock implementations in the spec files to allow the suite to run</li>
+    </ul>
+  </li>
+  <li>Document the reason for removal or mocking in the QA library</li>
+</ul>
+
+<h2 id="example-mock">Example Mock</h2>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Zeropoint</span>
+  <span class="k">module</span> <span class="nn">Vortex</span>
+    <span class="k">module</span> <span class="nn">Queryable</span><span class="p">;</span> <span class="k">end</span>
+    <span class="k">class</span> <span class="nc">StreamProcessor</span><span class="p">;</span> <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h2 id="references">References</h2>
+<ul>
+  <li><a href="rspec_full_run.log">docs/qa/rspec_full_run.log</a></li>
+</ul>

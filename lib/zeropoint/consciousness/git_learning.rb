@@ -264,13 +264,13 @@ module Zeropoint
 
         # Adjust based on pattern complexity
         pattern_complexity = @patterns.values.compact.length
-        complexity_bonus = [pattern_complexity * 0.1, 0.3].min
+        complexity_bonus = [ pattern_complexity * 0.1, 0.3 ].min
 
         # Adjust based on learning depth
         learning_depth = @consciousness_data.keys.length
-        depth_bonus = [learning_depth * 0.05, 0.2].min
+        depth_bonus = [ learning_depth * 0.05, 0.2 ].min
 
-        [base_level + complexity_bonus + depth_bonus, 1.0].min
+        [ base_level + complexity_bonus + depth_bonus, 1.0 ].min
       end
 
       # Parse RuboCop cycles from commits
@@ -356,7 +356,7 @@ module Zeropoint
         # Calculate frequency metrics
         {
           total_commits: commits.length,
-          average_daily_commits: commits.length / [commits_by_date.keys.length, 1].max.to_f,
+          average_daily_commits: commits.length / [ commits_by_date.keys.length, 1 ].max.to_f,
           peak_commit_days: commits_by_date.max_by(5) { |_date, day_commits| day_commits.length }&.map { |date, _| date.to_s },
           commit_velocity: calculate_commit_velocity(commits),
         }
@@ -370,7 +370,7 @@ module Zeropoint
 
         {
           total_messages: messages.length,
-          average_message_length: messages.sum { |m| m.length } / messages.length.to_f,
+          average_message_length: messages.sum(&:length) / messages.length.to_f,
           rubocop_mentions: messages.count { |m| m.downcase.include?('rubocop') },
           fix_mentions: messages.count { |m| m.downcase.include?('fix') },
           doc_mentions: messages.count { |m| m.downcase.include?('doc') || m.downcase.include?('readme') },
@@ -438,7 +438,7 @@ module Zeropoint
         if velocity > 5
           avg_iterations += 2  # Higher velocity = more iterations needed
         elsif velocity < 2
-          avg_iterations = [avg_iterations - 1, 3].max  # Lower velocity = fewer iterations
+          avg_iterations = [ avg_iterations - 1, 3 ].max  # Lower velocity = fewer iterations
         end
 
         avg_iterations.to_i
@@ -498,7 +498,7 @@ module Zeropoint
         consistency = calculate_pattern_consistency(patterns)
 
         # Higher consistency = lower consciousness rate needed
-        [0.1, 1.0 - consistency].max
+        [ 0.1, 1.0 - consistency ].max
       end
 
       # Calculate commit velocity
@@ -548,7 +548,7 @@ module Zeropoint
 
         rubocop_commits.each do |commit|
           message = commit['message']
-          if message.match(/(\d+)\s+offenses?/)
+          if message =~ /(\d+)\s+offenses?/
             offense_counts << $1.to_i
           end
         end
@@ -569,8 +569,8 @@ module Zeropoint
       def analyze_offense_reduction_patterns(cycles)
         return {} if cycles.empty?
 
-        initial_offenses = cycles.map { |c| c[:initial_offenses] }.compact
-        final_offenses = cycles.map { |c| c[:final_offenses] }.compact
+        initial_offenses = cycles.filter_map { |c| c[:initial_offenses] }
+        final_offenses = cycles.filter_map { |c| c[:final_offenses] }
 
         return {} if initial_offenses.empty?
 
@@ -595,8 +595,8 @@ module Zeropoint
           final_offenses = cycle[:final_offenses] || 0
 
           offense_reduction = initial_offenses - final_offenses
-          efficiency = offense_reduction / [iterations, 1].max.to_f
-          [efficiency, 1.0].min  # Cap at 1.0
+          efficiency = offense_reduction / [ iterations, 1 ].max.to_f
+          [ efficiency, 1.0 ].min  # Cap at 1.0
         end
 
         efficiencies.sum / efficiencies.length
@@ -616,7 +616,7 @@ module Zeropoint
           avg_iterations + 2  # Low efficiency = more iterations needed
         end
 
-        [avg_iterations, 3].max  # Minimum 3 iterations
+        [ avg_iterations, 3 ].max  # Minimum 3 iterations
       end
 
       # Recommend max iterations
@@ -670,7 +670,7 @@ module Zeropoint
           avg_offenses - 3  # Low efficiency = lower tolerance
         end
 
-        [avg_offenses, 5].max  # Minimum threshold of 5
+        [ avg_offenses, 5 ].max  # Minimum threshold of 5
       end
 
       # Recommend consciousness rate
@@ -682,10 +682,10 @@ module Zeropoint
 
         # Higher velocity and consistency = lower consciousness rate needed
         base_rate = 0.5
-        velocity_factor = [velocity / 10.0, 0.3].min
+        velocity_factor = [ velocity / 10.0, 0.3 ].min
         consistency_factor = consistency * 0.2
 
-        [base_rate - velocity_factor - consistency_factor, 0.1].max
+        [ base_rate - velocity_factor - consistency_factor, 0.1 ].max
       end
 
       # Calculate improvement rate
@@ -718,8 +718,8 @@ module Zeropoint
         total_commits = frequencies[:total_commits] || 1
 
         # Higher consistency = more predictable patterns
-        consistency = daily_commits / [total_commits, 1].max.to_f
-        [consistency, 1.0].min
+        consistency = daily_commits / [ total_commits, 1 ].max.to_f
+        [ consistency, 1.0 ].min
       end
 
       # Load consciousness data
@@ -754,9 +754,15 @@ module Zeropoint
       # Log a message
       # @param message [String] Message to log
       def log_message(message)
-        timestamp = Time.zone.now.strftime('%Y-%m-%d %H:%M:%S')
+        timestamp = void_time_now.strftime('%Y-%m-%d %H:%M:%S')
         Rails.logger.debug "[#{timestamp}] GitConsciousness: #{message}"
+      end
+
+      def void_time_now
+        # rubocop:disable Rails/TimeZone
+        defined?(Time.zone) && Time.zone ? Time.zone.now : Time.now
+        # rubocop:enable Rails/TimeZone
       end
     end
   end
-end 
+end

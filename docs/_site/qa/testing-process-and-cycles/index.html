@@ -1,0 +1,51 @@
+<h1 id="testing-process-and-cycles-overview">Testing Process and Cycles Overview</h1>
+
+<h2 id="overview">Overview</h2>
+<p>This document summarizes the current testing and refactoring process for Zeropoint, including the structure of test cycles, common blockers, and the iterative approach to achieving a clean, maintainable, and secure codebase.</p>
+
+<h2 id="test-cycle-structure">Test Cycle Structure</h2>
+<ul>
+  <li><strong>Cycle 1:</strong> Full-featured workflow setup (CI/CD, RuboCop, RSpec, advanced tools)</li>
+  <li><strong>Cycle 2:</strong> Fix load errors and broken spec references</li>
+  <li><strong>Cycle 3:</strong> RuboCop violation resolution (style, predicate matchers, etc.)</li>
+  <li><strong>Cycle 4:</strong> RSpec optimization (coverage, speed, flaky tests)</li>
+  <li><strong>Cycle 5:</strong> Performance optimization (benchmarks, bottlenecks)</li>
+</ul>
+
+<h2 id="current-blockers-as-of-2024-06-08">Current Blockers (as of 2024-06-08)</h2>
+<ul>
+  <li>RSpec load errors due to missing/deleted files</li>
+  <li>RuboCop plugin migration issues</li>
+  <li>Method redefinition and unused variable warnings in specs</li>
+</ul>
+
+<h2 id="testing-directory-structure">Testing Directory Structure</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spec/
+├── models/
+│   └── concerns/
+│       └── filterable_spec.rb          # Unit tests
+├── requests/
+│   └── filterable_integration_spec.rb  # Integration tests
+├── examples/
+│   └── filterable_example_spec.rb      # Example tests
+└── factories/
+    ├── users.rb                        # User factories
+    ├── roles.rb                        # Role factories
+    ├── posts.rb                        # Post factories
+    └── tags.rb                         # Tag factories
+</code></pre></div></div>
+
+<h2 id="best-practices">Best Practices</h2>
+<ul>
+  <li>Document every test cycle and blocker in this QA library</li>
+  <li>Use mocks/stubs for deleted or externalized logic</li>
+  <li>Remove or refactor obsolete tests</li>
+  <li>Keep documentation and code in sync (see <code class="language-plaintext highlighter-rouge">INLINE_DOCUMENTATION_GUIDE.md</code>)</li>
+</ul>
+
+<h2 id="references">References</h2>
+<ul>
+  <li><a href="../staging_refactoring_cycles.md">staging_refactoring_cycles.md</a></li>
+  <li><a href="../testing_guide.md">testing_guide.md</a></li>
+  <li><a href="../INLINE_DOCUMENTATION_GUIDE.md">INLINE_DOCUMENTATION_GUIDE.md</a></li>
+</ul>

@@ -5,7 +5,9 @@ module Authorizable
 
   included do
     # Define authorization methods
-    delegate :can?, to: :user, prefix: true, allow_nil: true
+    def user_can?(*args, &block)
+      user&.can?(*args, &block)
+    end
   end
 
   def can_edit?(user)

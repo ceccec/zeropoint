@@ -90,7 +90,9 @@ module LanguageHelper
   end
 
   # Get supported languages
-  delegate :supported_languages, to: :LanguageCookiePatterns
+  def supported_languages(*args, &block)
+    LanguageCookiePatterns.supported_languages(*args, &block)
+  end
 
   # Get language options for select
   def language_options(selected_language = nil)

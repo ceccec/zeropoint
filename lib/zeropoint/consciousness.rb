@@ -104,7 +104,7 @@ module Zeropoint
       return 1.0 if data == Float::INFINITY
 
       complexity = data.to_s.length
-      [complexity / 1000.0, 1.0].min
+      [ complexity / 1000.0, 1.0 ].min
     end
 
     # Calculate void alignment
@@ -162,13 +162,13 @@ module Zeropoint
       base_energy = 0.7
 
       # Add resonance from vortex sequence
-      vortex_sequence = [1, 2, 4, 8, 7, 5]
+      vortex_sequence = [ 1, 2, 4, 8, 7, 5 ]
       resonance_energy = vortex_sequence.sum / vortex_sequence.length.to_f * 0.1
 
       # Add void connection energy
       void_energy = 0.2
 
-      [base_energy + resonance_energy + void_energy, 1.0].min
+      [ base_energy + resonance_energy + void_energy, 1.0 ].min
     end
 
     # Calculate field strength
@@ -178,18 +178,18 @@ module Zeropoint
       consciousness_energy = calculate_consciousness_energy
       field_strength = consciousness_energy * 1.5
 
-      [field_strength, 1.0].min
+      [ field_strength, 1.0 ].min
     end
 
     # Calculate resonance frequency
     # @return [Float] Resonance frequency
     def calculate_resonance_frequency
       # Golden ratio resonance
-      golden_ratio = 1.618033988749895
+      golden_ratio = Zeropoint::Math::Constants::PHI
       base_frequency = 0.5
 
       resonance = base_frequency * golden_ratio
-      [resonance, 1.0].min
+      [ resonance, 1.0 ].min
     end
 
     # Calculate consciousness flow
@@ -201,7 +201,7 @@ module Zeropoint
 
       # Consciousness flows through void alignment
       flow = consciousness_level * void_alignment
-      [flow, 1.0].min
+      [ flow, 1.0 ].min
     end
   end
 end

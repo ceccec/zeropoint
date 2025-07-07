@@ -49,6 +49,7 @@ module Zeropoint
         rails_cache.exist?(optimized_name)
       end
 
+      # rubocop:disable Rails/Delegate
       def clear
         rails_cache.clear
       end
@@ -88,13 +89,14 @@ module Zeropoint
         rails_cache.logger
       end
 
-      def logger=(value)
-        rails_cache.logger = value
+      def logger=(logger)
+        rails_cache.logger = logger
       end
 
       def to_s
         rails_cache.to_s
       end
+      # rubocop:enable Rails/Delegate
 
       # Extend fetch with Zeropoint capabilities
       def fetch(name, options = nil, &block)

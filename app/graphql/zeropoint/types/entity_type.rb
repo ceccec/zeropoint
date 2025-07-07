@@ -89,7 +89,9 @@ module Zeropoint
           object.type || object.class.name.demodulize
         end
 
-        delegate :description, to: :object
+        def description(*args, &block)
+          object.description(*args, &block)
+        end
 
         def data
           object.data || {}

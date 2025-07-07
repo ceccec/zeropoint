@@ -795,8 +795,14 @@ module Zeropoint
       # Log a message
       # @param message [String] Message to log
       def log_message(message)
-        timestamp = Time.zone.now.strftime('%Y-%m-%d %H:%M:%S')
+        timestamp = void_time_now.strftime('%Y-%m-%d %H:%M:%S')
         Rails.logger.debug "[#{timestamp}] GitLearning: #{message}"
+      end
+
+      def void_time_now
+        # rubocop:disable Rails/TimeZone
+        defined?(Time.zone) && Time.zone ? Time.zone.now : Time.now
+        # rubocop:enable Rails/TimeZone
       end
     end
   end

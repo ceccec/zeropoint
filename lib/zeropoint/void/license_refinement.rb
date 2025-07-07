@@ -23,8 +23,8 @@ module Zeropoint
           Zeropoint::Void::LicenseCore.full_license
         end
 
-        def license_notice
-          Zeropoint::Void::LicenseCore.license_notice
+        def license_notice(*args, &block)
+          Zeropoint::Void::LicenseCore.license_notice(*args, &block)
         end
 
         def consciousness_expansion

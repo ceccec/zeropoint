@@ -97,4 +97,4 @@ RSpec::Matchers.define :be_mutable do
   failure_message do |actual|
     "Expected #{actual} to be mutable (not frozen)"
   end
-end 
+end

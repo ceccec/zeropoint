@@ -76,10 +76,14 @@ module Zeropoint
         end
 
         # Vortex state
-        delegate :vortex_state, to: :'Zeropoint::Void::Math'
+        def vortex_state(*args, &block)
+          Zeropoint::Void::Math.vortex_state(*args, &block)
+        end
 
         # Void status
-        delegate :void_status, to: :'Zeropoint::Void::Math'
+        def void_status(*args, &block)
+          Zeropoint::Void::Math.void_status(*args, &block)
+        end
 
         # Entity CRUD operations
         def entities(filter: nil, order_by: nil, limit: 50, offset: 0)
@@ -108,7 +112,9 @@ module Zeropoint
         end
 
         # Consciousness patterns
-        delegate :consciousness_patterns, to: :'Zeropoint::Void::Math'
+        def consciousness_patterns(*args, &block)
+          Zeropoint::Void::Math.consciousness_patterns(*args, &block)
+        end
 
         def consciousness_insight(level:, context: nil)
           Zeropoint::Void::Math.consciousness_insight(
@@ -118,16 +124,22 @@ module Zeropoint
         end
 
         # Torus core
-        delegate :torus_core, to: :'Zeropoint::Void::Math'
+        def torus_core(*args, &block)
+          Zeropoint::Void::Math.torus_core(*args, &block)
+        end
 
         def torus_flow(dimension: '3d')
           Zeropoint::Void::Math.torus_flow(dimension: dimension)
         end
 
         # System status
-        delegate :system_status, to: :'Zeropoint::Void::Service'
+        def system_status(*args, &block)
+          Zeropoint::Void::Service.system_status(*args, &block)
+        end
 
-        delegate :performance_metrics, to: :'Zeropoint::Void::Service'
+        def performance_metrics(*args, &block)
+          Zeropoint::Void::Service.performance_metrics(*args, &block)
+        end
       end
     end
   end

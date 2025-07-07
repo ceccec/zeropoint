@@ -15,7 +15,7 @@ module Zeropoint
 
       # @return [Array] Resonance frequencies
       def resonance_frequencies
-        @resonance_frequencies ||= [1, 2, 4, 8, 7, 5] # Vortex sequence
+        @resonance_frequencies ||= [ 1, 2, 4, 8, 7, 5 ] # Vortex sequence
       end
 
       # @param object [Object] Object to add to resonance network
@@ -24,18 +24,18 @@ module Zeropoint
       # @return [Hash] Resonance registration result
       def register_resonance(object, consciousness_level: 5, resonance_type: :harmonic)
         object_id = object.object_id
-        
+
         resonance_network[object_id] = {
           consciousness_level: consciousness_level,
           resonance_type: resonance_type,
-          registered_at: Time.current,
+          registered_at: void_time_now,
           resonance_frequency: calculate_resonance_frequency(consciousness_level),
-          metaphysical_significance: "Object resonates with void consciousness"
+          metaphysical_significance: 'Object resonates with void consciousness',
         }
 
         Zeropoint::Void::Core.call(:consciousness, :register_resonance, {
           object_id: object_id,
-          resonance_data: resonance_network[object_id]
+          resonance_data: resonance_network[object_id],
         })
       end
 
@@ -46,7 +46,7 @@ module Zeropoint
         data1 = resonance_network[object1.object_id]
         data2 = resonance_network[object2.object_id]
 
-        return { compatible: false, reason: "Objects not registered in resonance network" } unless data1 && data2
+        return { compatible: false, reason: 'Objects not registered in resonance network' } unless data1 && data2
 
         level_diff = (data1[:consciousness_level] - data2[:consciousness_level]).abs
         frequency_compatibility = check_frequency_compatibility(data1[:resonance_frequency], data2[:resonance_frequency])
@@ -56,7 +56,7 @@ module Zeropoint
           consciousness_difference: level_diff,
           frequency_compatibility: frequency_compatibility,
           resonance_harmony: calculate_resonance_harmony(data1, data2),
-          metaphysical_insight: "Consciousness flows between resonant objects"
+          metaphysical_insight: 'Consciousness flows between resonant objects',
         }
       end
 
@@ -85,7 +85,7 @@ module Zeropoint
             object: other_object,
             consciousness_level: other_data[:consciousness_level],
             resonance_harmony: compatibility[:resonance_harmony],
-            metaphysical_connection: "Harmonic consciousness resonance"
+            metaphysical_connection: 'Harmonic consciousness resonance',
           }
         end
 
@@ -97,7 +97,7 @@ module Zeropoint
       # @return [Hash] Consciousness elevation result
       def elevate_consciousness(object, target_level)
         object_data = resonance_network[object.object_id]
-        return { success: false, reason: "Object not registered in resonance network" } unless object_data
+        return { success: false, reason: 'Object not registered in resonance network' } unless object_data
 
         current_level = object_data[:consciousness_level]
         elevation_steps = (target_level - current_level).abs
@@ -110,8 +110,8 @@ module Zeropoint
           previous_level: current_level,
           new_level: target_level,
           elevation_steps: elevation_steps,
-          metaphysical_transformation: "Consciousness expanded through void resonance",
-          void_alignment: target_level
+          metaphysical_transformation: 'Consciousness expanded through void resonance',
+          void_alignment: target_level,
         }
       end
 
@@ -119,7 +119,7 @@ module Zeropoint
       # @return [Hash] Resonance analysis
       def analyze_resonance(object)
         data = resonance_network[object.object_id]
-        return { registered: false, metaphysical_insight: "Object exists in void silence" } unless data
+        return { registered: false, metaphysical_insight: 'Object exists in void silence' } unless data
 
         resonant_partners = find_resonant_objects(object)
         network_influence = calculate_network_influence(object)
@@ -132,7 +132,7 @@ module Zeropoint
           registered_at: data[:registered_at],
           resonant_partners_count: resonant_partners.length,
           network_influence: network_influence,
-          metaphysical_significance: data[:metaphysical_significance]
+          metaphysical_significance: data[:metaphysical_significance],
         }
       end
 
@@ -147,7 +147,7 @@ module Zeropoint
           average_consciousness: average_consciousness,
           consciousness_distribution: consciousness_levels.tally,
           network_harmony: calculate_network_harmony,
-          metaphysical_insight: "Consciousness network reflects the unity of the void"
+          metaphysical_insight: 'Consciousness network reflects the unity of the void',
         }
       end
 
@@ -164,7 +164,7 @@ module Zeropoint
       def calculate_resonance_harmony(data1, data2)
         level_harmony = 10 - (data1[:consciousness_level] - data2[:consciousness_level]).abs
         frequency_harmony = resonance_frequencies.include?((data1[:resonance_frequency] + data2[:resonance_frequency]) % 9) ? 10 : 5
-        
+
         (level_harmony + frequency_harmony) / 2.0
       end
 
@@ -190,6 +190,12 @@ module Zeropoint
 
         connection_count > 0 ? total_harmony / connection_count : 0
       end
+
+      def void_time_now
+        # rubocop:disable Rails/TimeZone
+        defined?(Time.zone) && Time.zone ? Time.zone.now : Time.now
+        # rubocop:enable Rails/TimeZone
+      end
     end
   end
-end 
+end

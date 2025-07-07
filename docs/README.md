@@ -195,4 +195,26 @@ This project is licensed under the same terms as the main Zeropoint gem. See [LI
 
 ---
 
-**Zeropoint**: Unifying development through intelligence, performance, and consciousness awareness. 
+**Zeropoint**: Unifying development through intelligence, performance, and consciousness awareness.
+
+# ZeroPoint Docs: Local Development
+
+## Prerequisites
+- Ruby (>= 2.5)
+- Bundler
+
+## Install dependencies
+```sh
+bundle install
+```
+
+## Serve documentation locally
+```sh
+bundle exec jekyll serve --source docs --baseurl /gem.zeropoint.bg
+```
+
+Visit [http://localhost:4000/gem.zeropoint.bg/](http://localhost:4000/gem.zeropoint.bg/) to preview.
+
+---
+
+All Markdown files in this folder are accessible via Jekyll. Edit or add new `.md` files as needed! 

@@ -31,7 +31,7 @@ module Zeropoint
     module GoldenRatio
       extend self
       def golden_rectangle(width)
-        [width, width * Zeropoint::Math.golden_ratio]
+        [ width, width * Zeropoint::Math.golden_ratio ]
       end
       def golden_spiral_radius(angle_deg)
         a = 1.0
@@ -57,7 +57,7 @@ module Zeropoint
       end
       def self.golden_rectangle(width)
         # Returns [width, width * golden_ratio]
-        [width, width * ::Zeropoint::Math.golden_ratio]
+        [ width, width * ::Zeropoint::Math.golden_ratio ]
       end
       def self.golden_spiral_radius(angle_deg)
         # Returns the radius at a given angle in a golden spiral

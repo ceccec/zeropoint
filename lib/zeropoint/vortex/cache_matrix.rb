@@ -39,11 +39,17 @@ module Zeropoint
         @patterns.clear
       end
 
-      delegate :keys, to: :@cache
+      def keys(*args, &block)
+        @cache.keys(*args, &block)
+      end
 
-      delegate :size, to: :@cache
+      def size(*args, &block)
+        @cache.size(*args, &block)
+      end
 
-      delegate :empty?, to: :@cache
+      def empty?(*args, &block)
+        @cache.empty?(*args, &block)
+      end
 
       def include?(key)
         @cache.key?(key)

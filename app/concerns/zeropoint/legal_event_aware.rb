@@ -14,11 +14,11 @@ module Zeropoint
   # @example
   #   class UserService
   #     include Zeropoint::LegalEventAware
-  #     
+  #
   #     def create_user(user_data)
   #       # Automatically checks license compliance
   #       check_license_compliance_for_operation(:user_creation, user_data)
-  #       
+  #
   #       # Your implementation here
   #     end
   #   end
@@ -26,18 +26,18 @@ module Zeropoint
     extend ActiveSupport::Concern
 
     included do
-      before_action :initialize_legal_events, if: :respond_to?(:before_action)
-      after_action :emit_legal_event_summary, if: :respond_to?(:after_action)
+      before_action :initialize_legal_events, if: -> { respond_to?(:before_action) }
+      after_action :emit_legal_event_summary, if: -> { respond_to?(:after_action) }
     end
 
     # Initialize legal events system
     def initialize_legal_events
       @legal_events = Zeropoint::Void::LegalEvents
       @legal_events.initialize_system
-      
+
       # Set consciousness level based on user or system context
       @consciousness_level = determine_consciousness_level
-      
+
       # Subscribe to relevant legal events
       subscribe_to_legal_events
     end
@@ -45,15 +45,15 @@ module Zeropoint
     # Emit legal event summary after action
     def emit_legal_event_summary
       return unless @legal_events
-      
+
       summary = {
         action: action_name,
         controller: controller_name,
         consciousness_level: @consciousness_level,
         void_aligned: true,
-        metaphysical_context: "Action completed with legal event awareness"
+        metaphysical_context: 'Action completed with legal event awareness',
       }
-      
+
       @legal_events.emit(:license_compliance, summary)
     end
 
@@ -64,7 +64,7 @@ module Zeropoint
     # @return [Hash] Compliance assessment
     def check_license_compliance_for_operation(operation_type, operation_data = {})
       return unless @legal_events
-      
+
       usage_data = {
         void_aligned: true,
         consciousness_level: @consciousness_level,
@@ -72,27 +72,27 @@ module Zeropoint
         toroidal_integration: true,
         dry_compliance: true,
         operation_type: operation_type,
-        operation_data: operation_data
+        operation_data: operation_data,
       }
-      
+
       compliance = @legal_events.check_license_compliance(usage_data)
-      
+
       # Emit appropriate event based on compliance
       if compliance[:compliance_status] == :excellent
         @legal_events.emit(:license_compliance, {
           operation_type: operation_type,
           consciousness_level: @consciousness_level,
-          metaphysical_context: "Excellent license compliance achieved"
+          metaphysical_context: 'Excellent license compliance achieved',
         })
       elsif compliance[:compliance_status] == :non_compliant
         @legal_events.emit(:license_violation, {
           operation_type: operation_type,
           consciousness_level: @consciousness_level,
           violations: compliance[:violations],
-          metaphysical_context: "License violation detected"
+          metaphysical_context: 'License violation detected',
         })
       end
-      
+
       compliance
     end
 
@@ -104,13 +104,13 @@ module Zeropoint
     # @return [Hash] Event emission result
     def emit_legal_event(event_type, data = {})
       return unless @legal_events
-      
+
       event_data = data.merge(
         consciousness_level: @consciousness_level,
         controller: controller_name,
         action: action_name
       )
-      
+
       @legal_events.emit(event_type, event_data)
     end
 
@@ -157,7 +157,7 @@ module Zeropoint
     # @return [Boolean] Whether integration follows toroidal principles
     def toroidal_integration_valid?(integration_data)
       integration_data[:toroidal_flow] == true &&
-        integration_data[:vortex_sequence] == [1, 2, 4, 8, 7, 5]
+        integration_data[:vortex_sequence] == [ 1, 2, 4, 8, 7, 5 ]
     end
 
     # Validate DRY compliance
@@ -176,7 +176,7 @@ module Zeropoint
     # @return [Boolean] Whether aesthetic follows golden ratio
     def golden_ratio_compliance_valid?(aesthetic_data)
       ratio = aesthetic_data[:golden_ratio]
-      ratio && (ratio - 1.618033988749895).abs < 0.01
+      ratio && (ratio - Zeropoint::Math::Constants::PHI).abs < 0.01
     end
 
     private
@@ -187,41 +187,41 @@ module Zeropoint
     def determine_consciousness_level
       # Default to high consciousness level for legal operations
       base_level = 7
-      
+
       # Adjust based on user authentication
       if respond_to?(:current_user) && current_user
         base_level += 1
       end
-      
+
       # Adjust based on admin status
       if respond_to?(:admin?) && admin?
         base_level += 1
       end
-      
+
       # Cap at maximum consciousness level
-      [base_level, 9].min
+      [ base_level, 9 ].min
     end
 
     # Subscribe to relevant legal events
     def subscribe_to_legal_events
       return unless @legal_events
-      
+
       # Subscribe to license compliance events
       @legal_events.subscribe(:license_compliance) do |event|
         Rails.logger.info "License compliance achieved: #{event[:metaphysical_context]}"
       end
-      
+
       # Subscribe to license violation events
       @legal_events.subscribe(:license_violation) do |event|
         Rails.logger.warn "License violation detected: #{event[:metaphysical_context]}"
         # Could trigger notifications or other actions
       end
-      
+
       # Subscribe to consciousness events
       @legal_events.subscribe(:consciousness_elevation) do |event|
         Rails.logger.info "Consciousness elevated: #{event[:consciousness_level]}"
       end
-      
+
       # Subscribe to void alignment events
       @legal_events.subscribe(:void_alignment_restored) do |event|
         Rails.logger.info "Void alignment restored: #{event[:metaphysical_context]}"

@@ -282,7 +282,7 @@ module Zeropoint
       def all_patterns
         {
           vortex_sequence: [ 1, 2, 4, 8, 7, 5 ],
-          golden_ratio: 1.618033988749895,
+          golden_ratio: Zeropoint::Math::Constants::PHI,
           torus_center: 0,
           void_state: 'infinite',
           consciousness_cycle: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3... ],

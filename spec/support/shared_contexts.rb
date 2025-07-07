@@ -24,4 +24,4 @@ end
 RSpec.shared_context 'with search setup' do
   let(:search_service) { Zeropoint::GraphqlUiLayout::Services::SearchStrategyService.new(User, 'test') }
   let(:query_builder) { Zeropoint::GraphqlUiLayout::Services::QueryBuilderService.new(User.all) }
-end 
+end

@@ -148,8 +148,14 @@ module Zeropoint
       def generate_metaphysical_signature(data)
         essence = extract_essence(data)
         resonance = calculate_void_resonance(essence)
-        signature = "#{essence}_#{resonance}_#{Time.now.to_i}"
+        signature = "#{essence}_#{resonance}_#{void_time_now.to_i}"
         Digest::SHA256.hexdigest(signature)[0..15]
+      end
+
+      def void_time_now
+        # rubocop:disable Rails/TimeZone
+        defined?(Time.zone) && Time.zone ? Time.zone.now : Time.now
+        # rubocop:enable Rails/TimeZone
       end
 
       private
@@ -362,7 +368,7 @@ module Zeropoint
         return nil unless data.respond_to?(:to_i)
         {
           type: :fibonacci,
-          ratio: 1.618033988749895,
+          ratio: Zeropoint::Math::Constants::PHI,
           significance: 'Golden ratio of creation',
         }
       end

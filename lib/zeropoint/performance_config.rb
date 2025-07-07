@@ -196,7 +196,7 @@ module Zeropoint
       emit_vortex_event(:performance_profile_applied, {
         profile: profile_name,
         configuration: config,
-        timestamp: (Time.respond_to?(:current) ? Time.current : Time.zone.now),
+        timestamp: void_time_now,
       })
 
       config
@@ -250,7 +250,7 @@ module Zeropoint
       emit_vortex_event(:performance_option_changed, {
         option: key,
         value: value,
-        timestamp: (Time.respond_to?(:current) ? Time.current : Time.zone.now),
+        timestamp: void_time_now,
       })
 
       value
@@ -528,6 +528,12 @@ module Zeropoint
     rescue NameError, LoadError
       # Silently ignore if VortexEventEngine is not available
       # This allows the performance config to work in standalone mode
+    end
+
+    def void_time_now
+      # rubocop:disable Rails/TimeZone
+      defined?(Time.zone) && Time.zone ? Time.zone.now : Time.now
+      # rubocop:enable Rails/TimeZone
     end
   end
 end

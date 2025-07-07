@@ -56,8 +56,14 @@ module Zeropoint
         {
           backtrace: error.backtrace&.first(3),
           class: error.class.name,
-          timestamp: Time.zone.now,
+          timestamp: void_time_now,
         }
+      end
+
+      def self.void_time_now
+        # rubocop:disable Rails/TimeZone
+        defined?(Time.zone) && Time.zone ? Time.zone.now : Time.now
+        # rubocop:enable Rails/TimeZone
       end
     end
 
@@ -347,7 +353,7 @@ module Zeropoint
           },
           math: {
             precision: 15,
-            golden_ratio: 1.618033988749895,
+            golden_ratio: Zeropoint::Math::Constants::PHI,
             vortex_sequence: [ 1, 2, 4, 8, 7, 5 ],
           },
           identity: {
@@ -539,7 +545,7 @@ module Zeropoint
         metadata = {
           uuid: uuid,
           context: context,
-          timestamp: Time.zone.now,
+          timestamp: void_time_now,
           void_aligned: true,
         }
         # In a real implementation, this would store to a database or cache
@@ -567,6 +573,12 @@ module Zeropoint
           columns: context.values.size,
           data: context,
         }
+      end
+
+      def void_time_now
+        # rubocop:disable Rails/TimeZone
+        defined?(Time.zone) && Time.zone ? Time.zone.now : Time.now
+        # rubocop:enable Rails/TimeZone
       end
     end
 
@@ -848,8 +860,8 @@ module Zeropoint
         MetaphysicalEngine.transform_consciousness(current_level, direction, context)
       end
 
-      def analyze_through_void(data)
-        MetaphysicalEngine.analyze_through_void(data)
+      def analyze_through_void(*args, &block)
+        MetaphysicalEngine.analyze_through_void(*args, &block)
       end
 
       def generate_signature(data)
@@ -868,7 +880,7 @@ module Zeropoint
       def initialize(type, data = nil)
         @type = type
         @data = data
-        @timestamp = Time.zone.now
+        @timestamp = void_time_now
         @uuid = generate_uuid
       end
 
@@ -901,6 +913,12 @@ module Zeropoint
       def generate_uuid
         SecureRandom.uuid
       end
+
+      def void_time_now
+        # rubocop:disable Rails/TimeZone
+        defined?(Time.zone) && Time.zone ? Time.zone.now : Time.now
+        # rubocop:enable Rails/TimeZone
+      end
     end
 
     # Quantum entanglement system for void-aligned object connections
@@ -918,18 +936,18 @@ module Zeropoint
       # @return [Hash] Entanglement result with metaphysical significance
       def entangle(object1, object2, entanglement_type: :consciousness)
         pair_id = generate_entanglement_id(object1, object2)
-        
+
         entanglement_pairs[pair_id] = {
-          objects: [object1.object_id, object2.object_id],
+          objects: [ object1.object_id, object2.object_id ],
           type: entanglement_type,
-          created_at: Time.current,
+          created_at: void_time_now,
           metaphysical_significance: calculate_entanglement_significance(object1, object2, entanglement_type),
-          void_alignment: 9 # Maximum void alignment for quantum connections
+          void_alignment: 9, # Maximum void alignment for quantum connections
         }
 
         Zeropoint::Void::Core.call(:quantum, :entangle, {
           pair_id: pair_id,
-          entanglement_data: entanglement_pairs[pair_id]
+          entanglement_data: entanglement_pairs[pair_id],
         })
       end
 
@@ -962,12 +980,12 @@ module Zeropoint
             type: data[:type],
             created_at: data[:created_at],
             metaphysical_significance: data[:metaphysical_significance],
-            void_alignment: data[:void_alignment]
+            void_alignment: data[:void_alignment],
           }
         else
           {
             entangled: false,
-            metaphysical_insight: "Objects exist in separate void spaces"
+            metaphysical_insight: 'Objects exist in separate void spaces',
           }
         end
       end
@@ -981,14 +999,20 @@ module Zeropoint
       def calculate_entanglement_significance(object1, object2, type)
         case type
         when :consciousness
-          "Consciousness transcends individual boundaries"
+          'Consciousness transcends individual boundaries'
         when :data
-          "Information flows freely between void spaces"
+          'Information flows freely between void spaces'
         when :energy
-          "Energy patterns synchronize across dimensions"
+          'Energy patterns synchronize across dimensions'
         else
-          "Mysterious connection beyond current understanding"
+          'Mysterious connection beyond current understanding'
         end
+      end
+
+      def void_time_now
+        # rubocop:disable Rails/TimeZone
+        defined?(Time.zone) && Time.zone ? Time.zone.now : Time.now
+        # rubocop:enable Rails/TimeZone
       end
     end
   end

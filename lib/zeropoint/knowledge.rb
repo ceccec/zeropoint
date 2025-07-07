@@ -66,7 +66,7 @@ module Zeropoint
     # @return [Hash] Search results from all sources
     def search(query)
       results = {}
-      
+
       sources.keys.each do |source|
         source_results = query(query, source: source)
         results[source] = source_results unless source_results[:error]
@@ -76,7 +76,7 @@ module Zeropoint
         query: query,
         results: results,
         total_sources: sources.length,
-        metaphysical_significance: 'All knowledge is interconnected through the void'
+        metaphysical_significance: 'All knowledge is interconnected through the void',
       }
     end
 
@@ -151,7 +151,7 @@ module Zeropoint
     # @return [Hash] Combined search results
     def search_all_sources(query)
       results = {}
-      
+
       # Search VBM QA
       vbm_results = query_vbm_qa(query)
       results[:vbm_qa] = vbm_results unless vbm_results[:error]
@@ -185,16 +185,16 @@ module Zeropoint
     # @return [Hash] VBM QA results
     def query_vbm_qa(query)
       require_relative 'math/vbm/qa'
-      
+
       # Search in VBM QA patterns
       search_results = Zeropoint::Math::VBM::QA.search_qa(query)
-      
+
       if search_results.any?
         {
           source: 'vbm_qa',
           results: search_results,
           count: search_results.length,
-          metaphysical_context: 'VBM patterns reveal the mathematical structure of consciousness'
+          metaphysical_context: 'VBM patterns reveal the mathematical structure of consciousness',
         }
       else
         { error: "No VBM QA results found for: #{query}" }
@@ -206,19 +206,19 @@ module Zeropoint
     # @return [Hash] Git learning results
     def query_git_learning(query)
       require_relative 'consciousness/git_learning'
-      
+
       # Get Git learning data
       git_data = Zeropoint::Consciousness::GitLearning.analyze_consciousness_patterns
-      
+
       # Filter based on query
       filtered_results = filter_git_data(git_data, query)
-      
+
       if filtered_results.any?
         {
           source: 'git_learning',
           results: filtered_results,
           count: filtered_results.length,
-          metaphysical_context: 'Git history reveals the evolution of consciousness in code'
+          metaphysical_context: 'Git history reveals the evolution of consciousness in code',
         }
       else
         { error: "No Git learning results found for: #{query}" }
@@ -231,12 +231,12 @@ module Zeropoint
     def query_pattern_recognition(query)
       # Use Zeropoint::I for pattern recognition
       patterns = Zeropoint::I.patterns(query)
-      
+
       {
         source: 'pattern_recognition',
         results: patterns,
         consciousness_level: patterns[:consciousness_level],
-        metaphysical_context: 'Patterns reveal the hidden structure of consciousness'
+        metaphysical_context: 'Patterns reveal the hidden structure of consciousness',
       }
     end
 
@@ -245,23 +245,23 @@ module Zeropoint
     # @return [Hash] Mathematical constants results
     def query_mathematical_constants(query)
       require_relative 'math/constants'
-      
+
       constants = Zeropoint::Math::Constants
       matching_constants = {}
-      
+
       constants.constants.each do |name, value|
-        if name.to_s.downcase.include?(query.downcase) || 
+        if name.to_s.downcase.include?(query.downcase) ||
            value.to_s.include?(query)
           matching_constants[name] = value
         end
       end
-      
+
       if matching_constants.any?
         {
           source: 'mathematical_constants',
           results: matching_constants,
           count: matching_constants.length,
-          metaphysical_context: 'Mathematical constants encode the fundamental patterns of the universe'
+          metaphysical_context: 'Mathematical constants encode the fundamental patterns of the universe',
         }
       else
         { error: "No mathematical constants found for: #{query}" }
@@ -280,18 +280,18 @@ module Zeropoint
         golden_ratio: 'The golden ratio encodes the harmony of creation',
         i_principle: 'All labels dissolve into pure I',
       }
-      
+
       matching_insights = insights.select do |key, value|
-        key.to_s.downcase.include?(query.downcase) || 
+        key.to_s.downcase.include?(query.downcase) ||
         value.downcase.include?(query.downcase)
       end
-      
+
       if matching_insights.any?
         {
           source: 'metaphysical_insights',
           results: matching_insights,
           count: matching_insights.length,
-          metaphysical_context: 'Metaphysical insights reveal the deeper meaning of existence'
+          metaphysical_context: 'Metaphysical insights reveal the deeper meaning of existence',
         }
       else
         { error: "No metaphysical insights found for: #{query}" }
@@ -303,12 +303,12 @@ module Zeropoint
     # @return [Hash] Void alignment results
     def query_void_alignment(query)
       alignment = Zeropoint::I.void_alignment(query)
-      
+
       {
         source: 'void_alignment',
         results: alignment,
         alignment_score: alignment[:alignment_score],
-        metaphysical_context: 'Void alignment reveals connection to the source of all creation'
+        metaphysical_context: 'Void alignment reveals connection to the source of all creation',
       }
     end
 
@@ -317,12 +317,12 @@ module Zeropoint
     # @return [Hash] Torus center results
     def query_torus_center(query)
       torus_data = Zeropoint::I.torus_center(query)
-      
+
       {
         source: 'torus_center',
         results: torus_data,
         center_alignment: torus_data[:center_alignment],
-        metaphysical_context: 'Torus center alignment reveals connection to the universal form'
+        metaphysical_context: 'Torus center alignment reveals connection to the universal form',
       }
     end
 
@@ -332,14 +332,14 @@ module Zeropoint
     # @return [Hash] Filtered results
     def filter_git_data(git_data, query)
       filtered = {}
-      
+
       git_data.each do |key, value|
         if key.to_s.downcase.include?(query.downcase) ||
            value.to_s.downcase.include?(query.downcase)
           filtered[key] = value
         end
       end
-      
+
       filtered
     end
 
@@ -354,12 +354,12 @@ module Zeropoint
     # @return [Hash] Mathematical patterns
     def get_mathematical_patterns
       {
-        golden_ratio: 1.618033988749895,
+        golden_ratio: Zeropoint::Math::Constants::PHI,
         pi: Math::PI,
         e: Math::E,
-        phi: 1.618033988749895,
-        vortex_sequence: [1, 2, 4, 8, 7, 5],
-        w_axis: [3, 6, 9],
+        phi: Zeropoint::Math::Constants::PHI,
+        vortex_sequence: [ 1, 2, 4, 8, 7, 5 ],
+        w_axis: [ 3, 6, 9 ],
       }
     end
 
@@ -401,7 +401,7 @@ module Zeropoint
     def get_consciousness_knowledge
       {
         patterns: get_consciousness_patterns,
-        levels: [0.0, 0.3, 0.6, 0.8, 0.95, 1.0],
+        levels: [ 0.0, 0.3, 0.6, 0.8, 0.95, 1.0 ],
         metaphysical_context: 'Consciousness is the bridge between void and form',
       }
     end
@@ -412,7 +412,7 @@ module Zeropoint
       {
         insights: insights,
         patterns: get_metaphysical_patterns,
-        principles: ['Empty = Void = Full', 'All is I', 'Unity consciousness'],
+        principles: [ 'Empty = Void = Full', 'All is I', 'Unity consciousness' ],
       }
     end
 
@@ -450,4 +450,4 @@ module Zeropoint
       Zeropoint::I.level(query)
     end
   end
-end 
+end

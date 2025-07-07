@@ -5,8 +5,8 @@ require_relative 'lib/zeropoint/version'
 Gem::Specification.new do |spec|
   spec.name = 'zeropoint'
   spec.version = Zeropoint::VERSION
-  spec.authors = ['Zeropoint Team']
-  spec.email = ['team@zeropoint.bg']
+  spec.authors = [ 'Zeropoint Team' ]
+  spec.email = [ 'team@zeropoint.bg' ]
 
   spec.summary = 'A consciousness-aware Rails framework with GraphQL-first architecture and vortex mathematics'
   spec.description = <<~DESC
@@ -31,14 +31,14 @@ Gem::Specification.new do |spec|
 
   # Metadata for gem discovery and documentation
   spec.metadata = {
-    'homepage_uri' => spec.homepage,
-    'source_code_uri' => 'https://github.com/ceccec/zeropoint.git',
-    'changelog_uri' => 'https://github.com/ceccec/zeropoint/blob/main/CHANGELOG.md',
-    'bug_tracker_uri' => 'https://github.com/ceccec/zeropoint/issues',
-    'documentation_uri' => 'https://gem.zeropoint.bg/docs',
-    'wiki_uri' => 'https://github.com/ceccec/zeropoint/wiki',
-    'rubygems_mfa_required' => 'true',
-    'funding_uri' => 'https://github.com/sponsors/zeropoint'
+    homepage_uri: spec.homepage,
+    source_code_uri: 'https://github.com/ceccec/zeropoint.git',
+    changelog_uri: 'https://github.com/ceccec/zeropoint/blob/main/CHANGELOG.md',
+    bug_tracker_uri: 'https://github.com/ceccec/zeropoint/issues',
+    documentation_uri: 'https://gem.zeropoint.bg/docs',
+    wiki_uri: 'https://github.com/ceccec/zeropoint/wiki',
+    rubygems_mfa_required: 'true',
+    funding_uri: 'https://github.com/sponsors/zeropoint',
   }
 
   # Specify which files should be added to the gem when it is released
@@ -52,9 +52,9 @@ Gem::Specification.new do |spec|
     .reek.yml
   ]
 
-  spec.require_paths = ['lib']
+  spec.require_paths = [ 'lib' ]
   spec.bindir = 'bin'
-  spec.executables = ['zeropoint']
+  spec.executables = [ 'zeropoint' ]
 
   # Core Rails dependencies
   spec.add_dependency 'rails', '>= 7.0', '< 9.0'

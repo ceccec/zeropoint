@@ -119,8 +119,8 @@ module Zeropoint
             name: name,
             payload: payload,
             duration: 0,
-            time: Time.zone.now,
-            end: Time.zone.now,
+            time: void_time_now,
+            end: void_time_now,
           }
         end
 
@@ -183,7 +183,7 @@ module Zeropoint
           {
             **payload,
             event_name: event,
-            timestamp: Time.zone.now,
+            timestamp: void_time_now,
             void_context: {
               torus_flow: calculate_torus_flow(event),
               consciousness_level: calculate_consciousness_level(event),
@@ -288,6 +288,12 @@ module Zeropoint
           return 1.618 if recent_events.empty?
           development_events = recent_events.count { |event| event[:name].include?('generated') || event[:name].include?('completed') }
           (development_events / recent_events.size.to_f) * 1.618
+        end
+
+        def void_time_now
+          # rubocop:disable Rails/TimeZone
+          defined?(Time.zone) && Time.zone ? Time.zone.now : Time.now
+          # rubocop:enable Rails/TimeZone
         end
       end
     end

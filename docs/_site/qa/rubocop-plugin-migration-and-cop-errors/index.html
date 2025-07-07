@@ -1,0 +1,39 @@
+<h1 id="rubocop-plugin-migration-and-cop-namespace-errors">RuboCop: Plugin Migration and Cop Namespace Errors</h1>
+
+<h2 id="problem">Problem</h2>
+<ul>
+  <li>RuboCop reports:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">rubocop-performance extension supports plugin, specify plugins: rubocop-performance instead of require: rubocop-performance</code> in <code class="language-plaintext highlighter-rouge">.rubocop.yml</code>.</li>
+      <li><code class="language-plaintext highlighter-rouge">Rails/SelectMap has the wrong namespace - replace it with Performance/SelectMap</code>.</li>
+      <li><code class="language-plaintext highlighter-rouge">Error: unrecognized cop or department disable found in .rubocop.yml</code>.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="solution">Solution</h2>
+<ul>
+  <li>Update <code class="language-plaintext highlighter-rouge">.rubocop.yml</code>:
+    <ul>
+      <li>Use <code class="language-plaintext highlighter-rouge">plugins:</code> for <code class="language-plaintext highlighter-rouge">rubocop-performance</code> instead of <code class="language-plaintext highlighter-rouge">require:</code>.</li>
+      <li>Change <code class="language-plaintext highlighter-rouge">Rails/SelectMap</code> to <code class="language-plaintext highlighter-rouge">Performance/SelectMap</code>.</li>
+      <li>Remove or correct any unrecognized cop or department disables.</li>
+    </ul>
+  </li>
+  <li>Reference the <a href="https://docs.rubocop.org/rubocop/plugin_migration_guide.html">RuboCop plugin migration guide</a>.</li>
+</ul>
+
+<h2 id="example-correction">Example Correction</h2>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">plugins</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">rubocop-performance</span>
+  <span class="pi">-</span> <span class="s">rubocop-rspec</span>
+
+<span class="na">Performance/SelectMap</span><span class="pi">:</span>
+  <span class="na">Enabled</span><span class="pi">:</span> <span class="kc">true</span>
+</code></pre></div></div>
+
+<h2 id="references">References</h2>
+<ul>
+  <li><a href="rubocop_full_run.log">docs/qa/rubocop_full_run.log</a></li>
+  <li><a href="../../.rubocop.yml">.rubocop.yml</a></li>
+</ul>
